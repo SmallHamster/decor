@@ -155,6 +155,9 @@ public class SceneServiceImpl implements SceneService {
                 styleTagService.updateStyleTagSeviceNum(styleTagId, 1);
             }
         }
+        scene.setSeeNum(0);
+        scene.setCollectionNum(0);
+        scene.setPraiseNum(0);
         sceneDao.save(scene);
         return scene;
     }
