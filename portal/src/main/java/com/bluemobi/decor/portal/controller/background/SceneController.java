@@ -400,6 +400,7 @@ public class SceneController extends CommonController {
             WebUtil.print(response, new Result(false).msg("请给场景一个名称！"));
             return;
         }
+        
         if (StringUtils.isEmpty(styleTagIds)) {
             WebUtil.print(response, new Result(false).msg("至少选择一个风格分类！"));
             return;
