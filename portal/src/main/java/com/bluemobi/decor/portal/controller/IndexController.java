@@ -65,6 +65,7 @@ public class IndexController {
             user.setShortNickname(shortNickname);
             SessionUtils.put(Constant.SESSION_PC_USER, user);
         }
+
         return "pc/首页";
     }
 
