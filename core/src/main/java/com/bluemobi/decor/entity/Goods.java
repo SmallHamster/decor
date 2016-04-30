@@ -69,6 +69,15 @@ public class Goods implements Serializable {
     @Column(name = "is_pass")
     private String isPass;
 
+    // 是否推荐
+    @Column(name = "is_recommend")
+    private String isRecommend;
+
+    // 推荐时间
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "recommend_time")
+    private Date recommendTime;
+
     // 头像
     @Column(name = "cover")
     private String cover;
@@ -249,6 +258,22 @@ public class Goods implements Serializable {
 
     public void setIsPass(String isPass) {
         this.isPass = isPass;
+    }
+
+    public String getIsRecommend() {
+        return isRecommend;
+    }
+
+    public void setIsRecommend(String isRecommend) {
+        this.isRecommend = isRecommend;
+    }
+
+    public Date getRecommendTime() {
+        return recommendTime;
+    }
+
+    public void setRecommendTime(Date recommendTime) {
+        this.recommendTime = recommendTime;
     }
 
     public String getCover() {

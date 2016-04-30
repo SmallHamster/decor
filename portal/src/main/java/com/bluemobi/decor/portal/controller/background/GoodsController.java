@@ -331,6 +331,26 @@ public class GoodsController extends CommonController {
         return "查看商品图";
     }
 
+    @RequestMapping("/changeRecommend")
+    public void changeRecommend(HttpServletRequest request,
+                                HttpServletResponse response,
+                                Integer id,
+                                String isRecommend) {
+        String msg = "";
+        if (isRecommend.equals("yes")) {
+            msg = "推荐";
+        } else {
+            msg = "取消推荐";
+        }
+        try {
+            goodsService.changeRecommend(id, isRecommend);
+            WebUtil.print(response, new Result(true).msg(msg + "成功！"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            WebUtil.print(response, new Result(false).msg(msg + "失败！"));
+        }
+    }
+
     /**
      * 审核通过商品图片
      */

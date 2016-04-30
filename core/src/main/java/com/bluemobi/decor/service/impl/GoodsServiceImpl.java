@@ -470,7 +470,7 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public Page<Goods> findGoods(final Integer id, final String goodsName, final Integer kindTagId, final String styleId, final String spaceId, final String isPass, int pageNum, int pageSize) {
 
-        PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id");
+        PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "isRecommend", "id");
 
         Page<Goods> page = goodsDao.findAll(new Specification<Goods>() {
             @Override
@@ -1160,7 +1160,6 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public Page<Goods> pcPage(int pageNum, int pageSize, final String name, final Integer kindTagId, final Integer spaceTagId, final Integer styleTagId) {
-        PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id");
         Page<Goods> page = goodsDao.findAll(new Specification<Goods>() {
             @Override
             public Predicate toPredicate(Root<Goods> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
@@ -1194,7 +1193,7 @@ public class GoodsServiceImpl implements GoodsService {
                 return query.getRestriction();
             }
 
-        }, new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id"));
+        }, new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "isRecommend", "id"));
 
         return page;
     }
@@ -1575,6 +1574,19 @@ public class GoodsServiceImpl implements GoodsService {
             picObjList.add(picObj);
         }
         return picObjList;
+    }
+
+    @Override
+    @Transactional
+    public void changeRecommend(Integer id, String isRecommend) {
+        Goods goods = goodsDao.findOne(id);
+        goods.setIsRecommend(isRecommend);
+        if ("yes".equals(isRecommend)) {
+            goods.setRecommendTime(new Date());
+        } else {
+            goods.setRecommendTime(null);
+        }
+        goodsDao.save(goods);
     }
 
     @Override

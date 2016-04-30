@@ -145,4 +145,6 @@ public interface GoodsService extends ICommonService<Goods>,SeeNumHandler {
     //找出指定用户最新上传的4张图片
     public List<PicObj> pcFindPicObj(User user);
 
+    // 推荐 or 取消推荐场景图
+    public void changeRecommend(Integer id, String isRecommend);
 }

@@ -11,13 +11,16 @@ public interface Constant {
 
     String ENCODING = "UTF-8";
 
+    // 当前页码
+    Integer CURRENT_PAGE_NUM = 1;
+
     int PAGE_DEF_SZIE = 20;
     //FANS数量初始化
-    int FANS_Num=0;
+    int FANS_Num = 0;
     //案例数
-    int USER_OPUS=0;
+    int USER_OPUS = 0;
     //用户访问量
-    int USER_SEENUM=0;
+    int USER_SEENUM = 0;
     //管理员昵称
 
     // 用户性别
@@ -41,9 +44,9 @@ public interface Constant {
     String USER_INFO_IsRECOMMEND_YES = "yes";
     String USER_INFO_IsRECOMMEND_NO = "no";
 
-    String CACHE_USER ="_CACHE_USER"; //request中缓存的user
+    String CACHE_USER = "_CACHE_USER"; //request中缓存的user
 
-    String CACHE_MOBILE_CODE="_CACHE_CODE>"; //缓存短信接口
+    String CACHE_MOBILE_CODE = "_CACHE_CODE>"; //缓存短信接口
 
     String ROLE_MEMBER = "member"; // 会员
     String ROLE_ADMIN = "admin"; // 管理员
@@ -79,10 +82,10 @@ public interface Constant {
     /**
      * 第三方登录类型
      */
-    public final static String LOGIN_TYPE_NONE="1";
-    public final static String LOGIN_TYPE_WEIXIN="2";
-    public final static String LOGIN_TYPE_QQ="3";
-    public final static String LOGIN_TYPE_XINLANG="4";
+    public final static String LOGIN_TYPE_NONE = "1";
+    public final static String LOGIN_TYPE_WEIXIN = "2";
+    public final static String LOGIN_TYPE_QQ = "3";
+    public final static String LOGIN_TYPE_XINLANG = "4";
 
     /**
      * 是否是第一次通过第三方登录

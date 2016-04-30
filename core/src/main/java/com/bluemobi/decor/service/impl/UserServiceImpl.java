@@ -602,12 +602,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Page<User> pcPage(Integer pageNum, Integer pageSize, final Integer cityId, final String sort, final String name, final Integer provinceId) {
-        PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.ASC, "id");
+        PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "isRecommend", "id");
         if (!sort.equals("")) {
             if ("sort".equals(sort)) {
-                pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "opus");
+                pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "isRecommend", "opus");
             } else {
-                pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "fans");
+                pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "isRecommend", "fans");
             }
         }
         Page<User> page = userDao.findAll(new Specification<User>() {
@@ -712,7 +712,7 @@ public class UserServiceImpl implements UserService {
                 return query.getRestriction();
             }
 
-        }, new PageRequest(0, 4, Sort.Direction.DESC, "fans"));
+        }, new PageRequest(0, 4, Sort.Direction.DESC, "fans", "isRecommend"));
         List<User> userList = page.getContent();
         for (int i = 0; i < userList.size(); i++) {
             Integer cityIdToS2 = userList.get(i).getCity().getId();

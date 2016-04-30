@@ -115,6 +115,7 @@
                                     <col class="gradeA odd" style="width: 5%;"/>
                                     <col class="gradeA odd" style="width: 5%;"/>
                                     <col class="gradeA odd" style="width: 5%;"/>
+                                    <col class="gradeA odd" style="width: 5%;"/>
                                     <col class="gradeA even" style="width: 20%;"/>
                                 </colgroup>
                                 <thead>
@@ -132,6 +133,7 @@
                                     <th>点击</th>
                                     <th>收藏</th>
                                     <th>点赞</th>
+                                    <th>推荐状态</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -162,7 +164,7 @@
     //审核不通过操作按钮
     var passNo = "<button type='button' title='审核不通过' class='btn btn-danger btn-circle passNo'>" + "<i class='fa fa-times'></i>" + "</button>" + "&nbsp;&nbsp;";
     //默认显示查看和编辑，删除按钮
-    var dfl = "<button type='button' title='查看' class='btn btn-primary btn-circle shows'>" + "<i class='fa fa-eye'></i>" + "</button>" + "&nbsp;&nbsp;" + "<button type='button' title='编辑商品图' class='btn btn-primary btn-circle updataGoods'>" + "<i class='fa fa-edit'></i>" + "</button>" + "&nbsp;&nbsp;" + "<button type='button' title='删除' class='btn btn-danger btn-circle delete'>" + "<i class='fa fa-trash-o'></i>" + "</button>";
+    var dfl = "<button type='button' title='推荐' class='btn btn-success btn-circle edit'>" + "<i class='fa fa-check-circle-o tuiJan'></i>" + "</button>" + "&nbsp;&nbsp;" + "<button type='button' title='查看' class='btn btn-primary btn-circle shows'>" + "<i class='fa fa-eye'></i>" + "</button>" + "&nbsp;&nbsp;" + "<button type='button' title='编辑商品图' class='btn btn-primary btn-circle updataGoods'>" + "<i class='fa fa-edit'></i>" + "</button>" + "&nbsp;&nbsp;" + "<button type='button' title='删除' class='btn btn-danger btn-circle delete'>" + "<i class='fa fa-trash-o'></i>" + "</button>";
 
     var this_ = {
         v: {
@@ -225,6 +227,7 @@
                         {"data": "seeNum"},
                         {"data": "collectionNum"},
                         {"data": "praiseNum"},
+                        {"data": "isRecommend"},
                         {"data": ""}
                     ],
                     "columnDefs": [{
@@ -238,14 +241,39 @@
                     rowCallback: function (row, data) {
                         if (data.isPass == 'yes') {
                             $('td', row).eq(8).html('审核通过');
-                            $('td', row).eq(12).html(dfl);
+                            $('td', row).eq(13).html(dfl);
                         } else if (data.isPass == 'no') {
                             $('td', row).eq(8).html('审核不通过');
-                            $('td', row).eq(12).html(passYes + dfl);
+                            $('td', row).eq(13).html(passYes + dfl);
                         } else if (data.isPass == 'init') {
                             $('td', row).eq(8).html('待审核');
-                            $('td', row).eq(12).html(passYes + passNo + dfl);
+                            $('td', row).eq(13).html(passYes + passNo + dfl);
                         }
+                        //渲染样式
+                        if (data.isRecommend == "yes") {
+                            $('td', row).last().find(".edit").addClass("btn-danger");
+                            $('td', row).last().find(".edit").attr("title", "取消推荐");
+                            $('td', row).last().find(".tuiJan").removeClass().addClass("fa fa-ban");
+                            $('td', row).eq(12).html("已推荐");
+                        } else {
+                            $('td', row).last().find(".edit").addClass("btn-success");
+                            $('td', row).last().find(".edit").attr("title", "推荐");
+                            $('td', row).last().find(".tuiJan").removeClass().addClass("fa fa-check-circle-o");
+                            $('td', row).eq(12).html("未推荐");
+                        }
+                        // 推荐/取消推荐操作
+                        $('td', row).last().find(".edit").click(function () {
+                            var msg = "";
+                            var status = "";
+                            if (data.isRecommend == "yes") {
+                                msg = "取消推荐";
+                                status = "no";
+                            } else {
+                                msg = "推荐";
+                                status = "yes";
+                            }
+                            this_.fn.changeRecommend(data.id, status, msg);
+                        });
                         //查看操作
                         $('td', row).last().find(".shows").click(function () {
                             location.href = _basePath + "backend/goods/shows?id=" + data.id;
@@ -283,6 +311,21 @@
                         $bluemobi.uiform();
                     }
                 });
+            },
+            changeRecommend: function (id, status, msg) {
+                $bluemobi.optNotify(function () {
+                    $bluemobi.ajax("backend/goods/changeRecommend", {
+                        id: id,
+                        isRecommend: status
+                    }, function (result) {
+                        if (result.status == "0") {
+                            $bluemobi.notify(result.msg, "success");
+                            this_.v.dTable.ajax.reload();
+                        } else {
+                            $bluemobi.notify(result.msg, "error");
+                        }
+                    });
+                }, "确定" + msg + "这个商品图么？", "确定");
             },
             deleteUser: function (id) {
                 $bluemobi.optNotify(function () {

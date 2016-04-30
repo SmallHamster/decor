@@ -99,6 +99,17 @@
     </style>
     <script>
         $(function () {
+            //全局
+            document.onkeydown = function (e) {
+                var ev = document.all ? window.event : e;
+                if (ev.keyCode == 13) {
+                    // 如（ev.ctrlKey && ev.keyCode==13）为ctrl+Center 触发
+
+                    //要处理的事件
+                    this_.fn.save();
+                }
+            }
+
             sceneIds = "";
             $("#sceneIds").val("");
         });

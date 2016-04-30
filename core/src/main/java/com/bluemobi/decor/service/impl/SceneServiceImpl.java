@@ -126,13 +126,13 @@ public class SceneServiceImpl implements SceneService {
                 styleTagService.updateStyleTagSeviceNum(styleTagId, 1);
             }
         }
-        if(scene.getSeeNum() == null){
+        if (scene.getSeeNum() == null) {
             scene.setSeeNum(0);
         }
-        if(scene.getCollectionNum()==null){
+        if (scene.getCollectionNum() == null) {
             scene.setCollectionNum(0);
         }
-        if(scene.getPraiseNum()==null){
+        if (scene.getPraiseNum() == null) {
             scene.setPraiseNum(0);
         }
         sceneDao.save(scene);
@@ -236,7 +236,20 @@ public class SceneServiceImpl implements SceneService {
 
     @Override
     public List<Scene> pcRecommendList() {
-        return sceneDao.recommendList();
+        List<Scene> list = sceneDao.recommendList();
+        List<Scene> resultList = new ArrayList<Scene>();
+
+        if (null != list && list.size() > 0) {
+            if (list.size() > 6) {
+                for (int i = 0; i < 6; i++) {
+                    resultList.add(list.get(i));
+                }
+            } else {
+                resultList = list;
+            }
+        }
+
+        return resultList;
     }
 
     @Override
@@ -270,7 +283,7 @@ public class SceneServiceImpl implements SceneService {
                 return query.getRestriction();
             }
 
-        }, new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id"));
+        }, new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "isRecommend", "id"));
 
         return page;
     }
@@ -286,18 +299,18 @@ public class SceneServiceImpl implements SceneService {
         String spaceTags = scene.getSpaceTagIds();
         String styleTag = "";
         String spaceTag = "";
-        if(styleTagS.indexOf(",") != -1){
-            styleTag = spaceTags.substring(0,spaceTags.indexOf(","));
+        if (styleTagS.indexOf(",") != -1) {
+            styleTag = spaceTags.substring(0, spaceTags.indexOf(","));
         }
-        if(spaceTag.indexOf(",") != -1){
-            spaceTag = spaceTags.substring(0,spaceTags.indexOf(","));
+        if (spaceTag.indexOf(",") != -1) {
+            spaceTag = spaceTags.substring(0, spaceTags.indexOf(","));
         }
 
         // 用2个类型去匹配查询6条数据
         final String fSpaceTag1 = spaceTag;
         final String fStyleTag1 = styleTag;
         List<Scene> sceneList1 = new ArrayList<Scene>();
-        if(StringUtils.isNotEmpty(fSpaceTag1) && StringUtils.isNotEmpty(fStyleTag1)){
+        if (StringUtils.isNotEmpty(fSpaceTag1) && StringUtils.isNotEmpty(fStyleTag1)) {
             Page<Scene> page1 = sceneDao.findAll(new Specification<Scene>() {
                 @Override
                 public Predicate toPredicate(Root<Scene> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
@@ -329,7 +342,7 @@ public class SceneServiceImpl implements SceneService {
 
             }, new PageRequest(1 - 1, 6, Sort.Direction.DESC, "id"));
             sceneList1 = page1.getContent();
-            if(sceneList1 == null){
+            if (sceneList1 == null) {
                 sceneList1 = new ArrayList<Scene>();
             }
         }
@@ -337,7 +350,7 @@ public class SceneServiceImpl implements SceneService {
         // 用空间类型去匹配查询6条数据
         List<Scene> sceneList2 = new ArrayList<Scene>();
         final String fSpaceTag2 = spaceTag;
-        if(StringUtils.isNotEmpty(fSpaceTag2)){
+        if (StringUtils.isNotEmpty(fSpaceTag2)) {
             Page<Scene> page2 = sceneDao.findAll(new Specification<Scene>() {
                 @Override
                 public Predicate toPredicate(Root<Scene> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
@@ -366,7 +379,7 @@ public class SceneServiceImpl implements SceneService {
 
             }, new PageRequest(1 - 1, 6, Sort.Direction.DESC, "id"));
             sceneList2 = page2.getContent();
-            if(sceneList2 == null){
+            if (sceneList2 == null) {
                 sceneList2 = new ArrayList<Scene>();
             }
         }
@@ -374,7 +387,7 @@ public class SceneServiceImpl implements SceneService {
         // 用风格类型去匹配查询6条数据
         List<Scene> sceneList3 = new ArrayList<Scene>();
         final String fStyleTag2 = styleTag;
-        if(StringUtils.isNotEmpty(fStyleTag2)){
+        if (StringUtils.isNotEmpty(fStyleTag2)) {
             Page<Scene> page2 = sceneDao.findAll(new Specification<Scene>() {
                 @Override
                 public Predicate toPredicate(Root<Scene> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
@@ -402,7 +415,7 @@ public class SceneServiceImpl implements SceneService {
 
             }, new PageRequest(1 - 1, 6, Sort.Direction.DESC, "id"));
             sceneList3 = page2.getContent();
-            if(sceneList3 == null){
+            if (sceneList3 == null) {
                 sceneList3 = new ArrayList<Scene>();
             }
         }
@@ -432,7 +445,7 @@ public class SceneServiceImpl implements SceneService {
 
         }, new PageRequest(1 - 1, 6, Sort.Direction.DESC, "id"));
         sceneList4 = page4.getContent();
-        if(sceneList4 == null){
+        if (sceneList4 == null) {
             sceneList4 = new ArrayList<Scene>();
         }
 
@@ -440,27 +453,27 @@ public class SceneServiceImpl implements SceneService {
         sceneList.addAll(sceneList1);
         needCount = needCount - sceneList.size();
 
-        if(needCount > 0){
+        if (needCount > 0) {
             for (int i = 0; i < sceneList2.size(); i++) {
-                if(!sceneList.contains(sceneList2.get(i)) && needCount > 0){
+                if (!sceneList.contains(sceneList2.get(i)) && needCount > 0) {
                     sceneList.add(sceneList2.get(i));
                     needCount--;
                 }
             }
         }
 
-        if(needCount > 0){
+        if (needCount > 0) {
             for (int i = 0; i < sceneList3.size(); i++) {
-                if(!sceneList.contains(sceneList3.get(i)) && needCount > 0){
+                if (!sceneList.contains(sceneList3.get(i)) && needCount > 0) {
                     sceneList.add(sceneList3.get(i));
                     needCount--;
                 }
             }
         }
 
-        if(needCount > 0){
+        if (needCount > 0) {
             for (int i = 0; i < sceneList4.size(); i++) {
-                if(!sceneList.contains(sceneList4.get(i)) && needCount > 0){
+                if (!sceneList.contains(sceneList4.get(i)) && needCount > 0) {
                     sceneList.add(sceneList4.get(i));
                     needCount--;
                 }
@@ -478,7 +491,7 @@ public class SceneServiceImpl implements SceneService {
                 List<Predicate> predicateList = new ArrayList<Predicate>();
                 Predicate result = null;
 
-                if (user!=null) {
+                if (user != null) {
                     Predicate predicate = cb.equal(root.get("user").get("id").as(Integer.class), user.getId());
                     predicateList.add(predicate);
                 }
@@ -493,8 +506,8 @@ public class SceneServiceImpl implements SceneService {
                 return query.getRestriction();
             }
 
-        }, new PageRequest(pageNum-1, pageSize, Sort.Direction.DESC, "createTime"));
-        return  page;
+        }, new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "createTime"));
+        return page;
     }
 
     @Override
@@ -623,7 +636,7 @@ public class SceneServiceImpl implements SceneService {
     @Override
     @Transactional
     public void addScene(Integer userId, String name, String spaceTagIds, String styleTagIds,
-                         String info, String isShow, String image,String thumbnailImage, String goodsIds, String positions) {
+                         String info, String isShow, String image, String thumbnailImage, String goodsIds, String positions) {
         // 保存场景
         Scene scene = new Scene();
         User user = new User();
@@ -660,7 +673,7 @@ public class SceneServiceImpl implements SceneService {
     @Override
     @Transactional
     public void pcAddScene(Integer userId, String name, String spaceTagIds, String styleTagIds,
-                         String info, String isShow, String image,String thumbnailImage, String goodsIds, String positions) {
+                           String info, String isShow, String image, String thumbnailImage, String goodsIds, String positions) {
         // 保存场景
         Scene scene = new Scene();
         User user = new User();
@@ -861,7 +874,7 @@ public class SceneServiceImpl implements SceneService {
         //删除场景图的评论信息
         commentService.deleteByObjectIdAndObjectType(scenesId, "scene");
         //删除该系列图的用户评论记录
-        commentUpdateStatusService.deleteByObjectIdAndObjectType(scenesId,"scene");
+        commentUpdateStatusService.deleteByObjectIdAndObjectType(scenesId, "scene");
         //删除场景图
         sceneDao.delete(scenesId);
     }
@@ -1027,7 +1040,7 @@ public class SceneServiceImpl implements SceneService {
     public void seeNumAdd(Integer id) {
         Scene scene = getById(id);
         Integer seeNum = scene.getSeeNum();
-        if(seeNum == null){
+        if (seeNum == null) {
             seeNum = 0;
         }
         scene.setSeeNum(seeNum + 1);
