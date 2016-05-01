@@ -1,4 +1,3 @@
-$(function(){
 
 	//图片轮播
 	function roll($layer){
@@ -48,6 +47,5 @@ $(function(){
 	
 	}
 
-	roll($('div.scene-show'));
+	//roll($('div.scene-show'));
 
-});
