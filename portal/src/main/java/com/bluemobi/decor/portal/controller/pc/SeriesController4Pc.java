@@ -8,6 +8,7 @@ import com.bluemobi.decor.portal.util.PcPageFactory;
 import com.bluemobi.decor.portal.util.SessionUtils;
 import com.bluemobi.decor.portal.util.WebUtil;
 import com.bluemobi.decor.service.*;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -45,6 +47,9 @@ public class SeriesController4Pc extends CommonController {
 
     @Autowired
     private PraiseService praiseService;
+
+    @Autowired
+    private AttentionService attentionService;
 
     // 查询page
     @RequestMapping(value = "/page")
@@ -128,9 +133,22 @@ public class SeriesController4Pc extends CommonController {
         if (user.getRoleType().equals("admin")||user.getRoleType()=="admin"){
             user.setNickname("Décor");
         }
+
+        List<Integer> list = attentionService.findFansNum(user);
+        Integer attention = list.get(1);
+        user.setAttention(attention);
+
         series.setUser(user);
         modelMap.put("series",series);
         seriesService.seeNumAdd(seriesId);
+
+        List<Series> seriesList = seriesService.iFindSeriesByUser(user);
+        if(CollectionUtils.isNotEmpty(seriesList)){
+            modelMap.put("userSeriesNum",seriesList.size());
+        }else {
+            modelMap.put("userSeriesNum",0);
+        }
+
         return "pc/系列图详情";
     }
 
@@ -179,7 +197,13 @@ public class SeriesController4Pc extends CommonController {
                                   Integer seriesId){
         try {
             List<Series> seriesList = seriesService.sameTypeSeries(seriesId);
-            WebUtil.print(response, new Result(true).data(seriesList));
+            List<Series> newList = new ArrayList<Series>();
+            if(CollectionUtils.isNotEmpty(seriesList)){
+                for (int i = 0; i < 4; i++) {
+                    newList.add(seriesList.get(i));
+                }
+            }
+            WebUtil.print(response, new Result(true).data(newList));
         } catch (Exception e) {
             WebUtil.print(response, new Result(false).msg("操作失败!"));
         }
