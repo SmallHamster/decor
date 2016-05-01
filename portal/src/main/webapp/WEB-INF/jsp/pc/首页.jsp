@@ -10,46 +10,99 @@
     <link href="static/pc/css/all.css" rel="stylesheet" type="text/css">
     <meta property="qc:admins" content="25322572076211456375" />
 </head>
-
 <body>
 <div class="wrapper">
-   
-    <%@ include file="common/header.jsp" %>
-    
-    <div class="cantainer">
-        <!--Banner-->
-        <div class="ck-slide">
-            <ul class="ck-slide-wrapper">
+    <div class="page">
 
-            </ul>
-            <a href="javascript:;" class="ctrl-slide iicon ck-prev"><fmt:message key="info.shangyizhang"/></a> <a href="javascript:;" class="ctrl-slide iicon ck-next"><fmt:message key="info.xiayizhang"/></a>
-        </div>
-        <div class="content">
-            <div class="product">
-                <ul class="product-list clearfix">
+        <!-- 头部开始 -->
+        <%@ include file="common/header.jsp" %>
+        <!-- 头部结束 -->
 
-                </ul>
-            </div>
-            <div class="pro_show mb100">
+        <!-- 页面横幅开始 -->
+        <div class="streamer">
+            <div class="list">
                 <ul>
+                    <li><a href="###"><img src="static/pc-1.1/images/logo.png" title="" alt="" width="1920" height="480" /></a></li>
+                    <li><a href="###"><img src="static/pc-1.1/images/logo.png" title="" alt="" width="1920" height="480" /></a></li>
+                    <li><a href="###"><img src="static/pc-1.1/images/logo.png" title="" alt="" width="1920" height="480" /></a></li>
+                </ul>
+            </div>
+            <div class="center">
+                <div class="handlerList"></div>
+                <div class="handler-prev"></div>
+                <div class="handler-next"></div>
+            </div>
+        </div>
+        <!-- 页面横幅结束 -->
 
+        <!-- 页面主体内容开始 -->
+        <div class="main">
+            <div class="module design">
+                <h3>就现在，改变设计方式</h3>
+                <p class="muted">12万名设计师已经启程</p>
+                <a class="btn">开始设计</a>
+            </div>
+            <div class="module introduce"></div>
+            <div class="module center source">
+                <h3>你的设计，正在改变生活</h3>
+                <p class="muted">一键入驻，海量资源</p>
+                <a class="pull-left">
+                    <img src="static/pc-1.1/images/index/sample-1.jpg" title="" alt="" width="344" height="387" />
+                    <img src="static/pc-1.1/images/index/sample-2.jpg" title="" alt="" width="309" height="190" />
+                    <img src="static/pc-1.1/images/index/sample-3.jpg" title="" alt="" width="309" height="190" />
+                    <img src="static/pc-1.1/images/index/sample-4.jpg" title="" alt="" width="309" height="190" />
+                    <img src="static/pc-1.1/images/index/sample-5.jpg" title="" alt="" width="309" height="190" />
+                    <div class="alpha-mask">
+                        <div class="alpha"></div>
+                        <div class="text">系列作品：我们仍未知道那个夏天午后闻到的花的名字</div>
+                    </div>
+                </a>
+                <div class="pull-right">
+                    <div class="text-center face"><img src="static/pc-1.1/images/index/sample-6.png" title="" alt="" width="78" height="78" /></div>
+                    <p class="text-center name">VALERIE CRESWICK</p>
+                    <p class="text-center address"><i class="icon-addr"></i>武汉  武汉</p>
+                    <p class="text-center works">112个作品</p>
+                    <div class="text-center note">我就是我，不一样的烟火</div>
+                    <a class="btn btn-like">被1.2万人喜欢</a>
+                    <p class="text-center saw">平均每次发布换来134次浏览</p>
+                </div>
+                <a class="clear btn">现在入驻</a>
+                <p class="muted">更多设计师</p>
+            </div>
+            <div  class="module center image-list">
+                <h3>这里，更好的设计</h3>
+                <p class="muted">正在发生</p>
+                <ul id="sceneList">
+
+                </ul>
+                <a class="clear btn">开始设计</a>
+                <p class="muted">更多设计作品</p>
+            </div>
+            <div class="module center news">
+                <h3>更多行业内幕资讯</h3>
+                <p class="muted">只在DECOR</p>
+                <ul id="msgList">
 
                 </ul>
             </div>
         </div>
+        <!-- 页面主体内容部分结束 -->
+
+        <!-- 尾部开始 -->
+        <%@ include file="common/footer.jsp"%>
+        <!-- 尾部结束 -->
     </div>
-
-
-    <!-- footer -->
-    <%@ include file="common/footer.jsp"%>
-
 </div>
-<!--右侧悬浮-->
+
+<!--返回顶部开始-->
 <%@ include file="common/other.jsp"%>
 
+<!--返回顶部结束-->
 <script type="text/javascript" src="static/pc/js/slide.min.js"></script>
 <script type="text/javascript" src="static/pc/js/slide.js"></script>
 <script type="text/javascript" src="static/pc/js/base.js"></script>
+<script src="static/pc-1.1/js/global.js"></script>
+<script src="static/pc-1.1/js/index.js"></script>
 <script>
     $(function(){
         ajaxAd(); // 加载广告
@@ -80,75 +133,29 @@
                 var html = '';
                 for(var i=0;i<result.data.length;i++){
                     var scene = result.data[i];
-                    var collectClass = "i-collect"; // 收藏按钮样式
-                    var praiseClass = "i-praise"; // 点赞按钮样式
                     var showName = "";
-
-                    if(scene.isCollection && scene.isCollection == "yes"){
-                        collectClass = "i-collect2";
-                    }
-                    if(scene.isPraise && scene.isPraise == "yes"){
-                        praiseClass = "i-praise2";
-                    }
                     if(scene.user.roleType == "admin"){
                         showName = 'Décor';
                     }else{
                         showName = '<a href="javascript:void(0)" onclick="toUserInfo('+scene.user.id+')">'+scene.user.nickname+'</a>';
                     }
                     $bluemobi.subStrAdminNick(eval(scene),"Décor");
-                    html+='<li sceneid='+scene.id+'><div class="pro_img">\
-                    <a href="pc/scene/detail?sceneId='+scene.id+'"><img src="'+scene.image+'"/></a>\
-                    <div class="opera abs tr">\
-                    <div class="stick"></div>\
-                    <span class="i-look"><i class="iicon"></i>'+scene.seeNum+'</span>\
-                    <span class="'+collectClass+' _collect"><i class="iicon"></i><span class="collectionNum" style="margin: 0 0">'+scene.collectionNum+'</span></span>\
-                    <span class="'+praiseClass+' _praise"><i class="iicon"></i><span class="praiseNum" style="margin: 0 0">'+scene.praiseNum+'</span></span>\
-                    </div>\
-                    </div>\
-                    <div class="pro_txt clearfix">\
-                    <span class="fl">'+scene.name+'</span>\
-                    <span class="fr">by：'+showName+'</span>\
-                    </div>\
-                    </li>';
+                    html+='<li>\
+                            <a href="pc/scene/detail?sceneId='+scene.id+'">\
+                            <div class="cell"><img src="'+scene.image+'" title="" alt="" width="357" width="251" /></div>\
+                            <div class="face">\
+                            <img src="'+scene.user.headImage+'" title="" alt="" width="60" height="60" />\
+                            <p class="text-center">'+showName+'</p>\
+                            </div>\
+                            <div class="over-hidden">\
+                            <p class="title slh">'+scene.name+'</p>\
+                            <p class="desc">'+scene.info+'</p>\
+                            <p class="count"><span class="pull-left">'+scene.seeNum+'次查看</span><span class="pull-right">'+scene.praiseNum+'人喜欢的设计</span></p>\
+                            </div>\
+                            </a>\
+                            </li>';
                 }
-                $(".product-list").html(html);
-
-                //图片文字滑动效果
-                $(".pro_img").hover(function(){
-                    $(this).find(".opera").stop().animate({"padding":"10px 0","height":"20px"},200)
-                },function(){
-                    $(this).find(".opera").stop().animate({"padding":"0px","height":"0px"},200)
-                });
-
-                // 绑定收藏、点赞的点击事件
-                $(".product-list").find("li").each(function(){
-                    var sceneId = $(this).attr("sceneid");
-                    $(this).find("._collect").unbind("click").click(function(){
-                        var currCollectBtn = $(this);
-                        if(currCollectBtn.hasClass("i-collect")){
-                            collectDlg.show(sceneId,"scene",function(){
-                                currCollectBtn.addClass("i-collect2").removeClass("i-collect");
-                                var collectionNum = currCollectBtn.find(".collectionNum").text();
-                                currCollectBtn.find(".collectionNum").text(collectionNum*1+1);
-                            });
-                        }else if(currCollectBtn.hasClass("i-collect2")){
-                            collectDlg.cancelCollect(sceneId,"scene",function(){
-                                currCollectBtn.addClass("i-collect").removeClass("i-collect2");
-                                var collectionNum = currCollectBtn.find(".collectionNum").text();
-                                collectionNum = collectionNum*1 -1;
-                                if(collectionNum<=0){
-                                    collectionNum=0;
-                                }
-                                currCollectBtn.find(".collectionNum").text(collectionNum);
-                            });
-                        }
-                    });
-                    $(this).find("._praise").unbind("click").click(function(){
-                        praiseOrCancelPraise($("#sessionUserId").val(),sceneId,$(this));
-                    });
-                });
-
-
+                $("#sceneList").html(html);
             }
         });
     }
@@ -210,41 +217,34 @@
                     if(message.collectionNum<0){
                         message.collectionNum=0
                     }
-                    if(i%2==0){
-                        html+='<li>\
-                        <div class="showTxt">\
-                        <h3 class="t-title">'+message.title+'</h3>\
-                         <a href="pc/message/detail?messageId='+message.id+'"><p>'+message.subContent+'</p><a/>\
-                        <a class="butn" messageId='+message.id+'><i class="iicon collect"></i><span >'+collect+'</span></span>（<span>'+message.collectionNum+'</span>）</a>\
+                    html+='<li>';
+                        if(i%2==0){
+                            html+='<div class="text pull-left">';
+                        }else {
+                            html+='<div class="text pull-right">';
+                        }
+                        html+='<h5 class="title slh">'+message.title+'</h5>\
+                        <a href="pc/message/detail?messageId='+message.id+'"><div class="text-content">'+message.subContent+'</div></a>\
+                        <a class="btn btn-store" messageId='+message.id+'><span >'+collect+'</span>（<span>'+message.collectionNum+'</span>）</a>\
                         </div>\
-                        <div class="showImg">\
-                         <a href="pc/message/detail?messageId='+message.id+'"><img src="'+message.image+'"/><img src="'+message.intro_image+'"/><a/>\
-                        </div>\
-                        </li>';
-                    }else{
-                        html+='<li>\
-                        <div class="showTxt changTxt">\
-                        <h3 class="t-title">'+message.title+'</h3>\
-                         <a href="pc/message/detail?messageId='+message.id+'"><p>'+message.subContent+'</p><a/>\
-                        <a class="butn" messageId='+message.id+' ><i class="iicon collect"></i><span >'+collect+'</span>（<span>'+message.collectionNum+'</span>）</a>\
-                        </div>\
-                        <div class="showImg changImg">\
-                         <a href="pc/message/detail?messageId='+message.id+'"><img src="'+message.image+'"/><img src="'+message.intro_image+'"/><a/>\
+                        <div class="images">\
+                            <a href="pc/message/detail?messageId='+message.id+'">\
+                                <img src="'+message.image+'" title="" alt="" width="343" height="230" />\
+                                <img src="'+message.intro_image+'" title="" alt="" width="343" height="230" />\
+                            </a>\
                         </div>\
                         </li>';
-                    }
                 }
-                $(".pro_show").find("ul").html(html);
-                $(".pro_show").find(".showTxt").find("img").remove();
-                $(".showTxt ").find(".butn").unbind("click").click(function(){
-                        var messageId=$(this).attr("messageId")
-                        var userId = $("#sessionUserId").val();
-                        var addOrDel=false;
-                       var Num=$(this).find("span").eq(1).text()*1;
+                $("#msgList").html(html);
+                $("#msgList").find(".btn-store").unbind("click").click(function(){
+                    var messageId=$(this).attr("messageId");
+                    var userId = $("#sessionUserId").val();
+                    var addOrDel=false;
+                    var Num=$(this).find("span").eq(1).text()*1;
                     var spanOne=$(this).find("span").eq(0);
                     var spanTwo=$(this).find("span").eq(1);
-                      var thisObj=$(this);
-                     // 用户未登录，则弹出未登录提示框
+                    var thisObj=$(this);
+                    // 用户未登录，则弹出未登录提示框
                     if(userId==""){
                         loginPopup.showDlg();
                         return false;
@@ -274,11 +274,11 @@
                             messageId: messageId
                         }, function (result) {
                             if (result.status == "0") {
-                               spanOne.text("<fmt:message key="info.shoucangzixun"/>");
+                                spanOne.text("<fmt:message key="info.shoucangzixun"/>");
                                 $bluemobi.notify(result.msg, "success");
                             }
-                           //收藏量增加
-                       $bluemobi.ajax("pc/message/ajaxCollectionNumAdd", {messageId: messageId ,addOrDel:addOrDel},
+                            //收藏量增加
+                            $bluemobi.ajax("pc/message/ajaxCollectionNumAdd", {messageId: messageId ,addOrDel:addOrDel},
                                     function (result) {
                                         if (result.status == "0") {
                                             $bluemobi.notify(result.msg, "success");

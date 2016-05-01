@@ -18,6 +18,9 @@
     <link href="static/pc/css/homepage.css" rel="stylesheet" type="text/css">
     <style>
         .head img{border-radius:inherit;}
+        .nav {
+            background: none;
+        }
     </style>
 </head>
 

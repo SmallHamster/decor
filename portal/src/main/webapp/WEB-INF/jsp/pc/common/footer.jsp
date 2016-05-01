@@ -1,40 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <div class="footer">
-    <div class="content clearfix">
-        <ul class="foot_item fl">
-            <li class="first">
-                <img src="static/pc/images/logo_balck.png"/>
+    <div class="center">
+        <div class="pull-left logo-footer">
+            <img src="static/pc-1.1/images/logo-footer.png" title="DECOR" alt="DECOR" width="187" height="38" />
+            装修、建材、家居、商务一站式服务
+        </div>
+        <div class="pull-left navi">
+            <h3>网站导航</h3>
+            <p><a href="pc/forward/to?type=goods"><fmt:message key="info.quanbushangpin"/></a>
+                <a href="pc/forward/to?type=scene"><fmt:message key="info.quanbuchangjing"/></a>
+                <a href="pc/forward/to?type=scene" id="showAllSeries"><fmt:message key="info.xilietuzhanshi"/></a>
+            </p>
+            <p><a href="pc/forward/to?type=user"><fmt:message key="info.zhaoshejishi"/></a><a
+                    href="pc/forward/to?type=message"><fmt:message key="info.zixun"/></a></p>
 
-                <p><fmt:message key="info.zhuangxiu"/>、<fmt:message key="info.jiancai"/>、<fmt:message key="info.jiaju"/>、<fmt:message
-                        key="info.shangwufuwu"/></p>
-            </li>
-            <li>
-                <h3><fmt:message key="info.daohang"/></h3>
+            <p><a class="userUpload"><fmt:message key="info.shangchuanshangpin"/></a><a
+                    class="userUpload"><fmt:message key="info.chuangjianchangjing"/></a><a
+                    class="userUpload"><fmt:message key="info.tianjiaxilietu"/></a></p>
+        </div>
+        <div class="pull-left navi">
+            <h3><fmt:message key="info.guanyuwomen"/></h3>
 
-                <p><a href="pc/forward/to?type=goods"><fmt:message key="info.quanbushangpin"/></a><a
-                        href="pc/forward/to?type=scene"><fmt:message key="info.quanbuchangjing"/></a><a
-                        href="pc/forward/to?type=scene" id="showAllSeries"><fmt:message key="info.xilietuzhanshi"/></a>
-                </p>
-
-                <p><a href="pc/forward/to?type=user"><fmt:message key="info.zhaoshejishi"/></a><a
-                        href="pc/forward/to?type=message"><fmt:message key="info.zixun"/></a></p>
-
-                <p><a class="userUpload"><fmt:message key="info.shangchuanshangpin"/></a><a
-                        class="userUpload"><fmt:message key="info.chuangjianchangjing"/></a><a
-                        class="userUpload"><fmt:message key="info.tianjiaxilietu"/></a></p>
-            </li>
-            <li>
-                <h3><fmt:message key="info.guanyuwomen"/></h3>
-
-                <p><a href="pc/forward/aboutWeb" id="aboutWeb"><fmt:message key="info.guanyuwangzhan"/></a><a
-                        href="pc/forward/aboutWeb" id="aboutWe"><fmt:message key="info.lianxiwomen"/></a></p>
-            </li>
-        </ul>
-        <div class="foot_item2">
-            <img src="static/pc/img/code_bg.jpg"/>
-
-            <p class="tc"><fmt:message key="info.saoyisao"/>,<fmt:message key="info.xiazaipad"/></p>
+            <p><a href="pc/forward/aboutWeb" id="aboutWeb"><fmt:message key="info.guanyuwangzhan"/></a><a
+                    href="pc/forward/aboutWeb" id="aboutWe"><fmt:message key="info.lianxiwomen"/></a></p>
+        </div>
+        <div class="pull-right qcode">
+            <img src="static/pc-1.1/images/qcode.jpg" title="扫一扫，下载pad版" alt="扫一扫，下载pad版" width="152" height="152" />
+            扫一扫，下载pad版
         </div>
     </div>
 </div>
@@ -388,33 +381,53 @@
     var headerPart = {
         init: function () {
             headerPart.globalSearchInit();
-            headerPart.curPageInit();
+//            headerPart.curPageInit();
         },
         globalSearchInit: function () {
             // header查询 查询类型回写
             var type = $("#search_type").val();
-            if (type == "scene") {
-                $(".header_r select option").eq(0).attr("selected", true);
-                $(".header_r .select-text").text($(".header_r select option").eq(0).text());
-            } else if (type == "goods") {
-                $(".header_r select option").eq(1).attr("selected", true);
-                $(".header_r .select-text").text($(".header_r select option").eq(1).text());
-            } else if (type == "series") {
-                $(".header_r select option").eq(2).attr("selected", true);
-                $(".header_r .select-text").text($(".header_r select option").eq(2).text());
-            } else if (type == "user") {
-                $(".header_r select option").eq(3).attr("selected", true);
-                $(".header_r .select-text").text($(".header_r select option").eq(3).text());
-            } else if (type == "message") {
-                $(".header_r select option").eq(4).attr("selected", true);
-                $(".header_r .select-text").text($(".header_r select option").eq(4).text());
-            }
+//            if (type == "scene") {
+//                $(".header_r select option").eq(0).attr("selected", true);
+//                $(".header_r .select-text").text($(".header_r select option").eq(0).text());
+//            } else if (type == "goods") {
+//                $(".header_r select option").eq(1).attr("selected", true);
+//                $(".header_r .select-text").text($(".header_r select option").eq(1).text());
+//            } else if (type == "series") {
+//                $(".header_r select option").eq(2).attr("selected", true);
+//                $(".header_r .select-text").text($(".header_r select option").eq(2).text());
+//            } else if (type == "user") {
+//                $(".header_r select option").eq(3).attr("selected", true);
+//                $(".header_r .select-text").text($(".header_r select option").eq(3).text());
+//            } else if (type == "message") {
+//                $(".header_r select option").eq(4).attr("selected", true);
+//                $(".header_r .select-text").text($(".header_r select option").eq(4).text());
+//            }
+
+            $("#searchArea").find("li").each(function(){
+                var li = $(this);
+                li.click(function(){
+                    var type = $(this).find("a").html();
+                    $("#typeValue").html(type);
+                    if (type == "<fmt:message key="info.changjingtu"/>") {
+                        type = "scene";
+                    } else if (type == "<fmt:message key="info.shangpintu"/>") {
+                        type = "goods";
+                    } else if (type == "<fmt:message key="info.xilietu"/>") {
+                        type = "series";
+                    } else if (type == "<fmt:message key="info.shejishi"/>") {
+                        type = "user";
+                    } else if (type == "<fmt:message key="info.zixun"/>") {
+                        type = "message";
+                    }
+                    $("#search_type").val(type);
+                });
+            });
 
             // header查询
-            $(".search_btn").unbind("click").click(function () {
-                var name = $(".header_r .search_text").val();
+            $("#search").unbind("click").click(function () {
+                var name = $("#searchText").val();
                 name = encodeURIComponent(encodeURIComponent(name));
-                var type = $(".header_r .select_input").find(".select-text").html();
+                var type = $("#typeValue").html();
                 if (type == "<fmt:message key="info.changjingtu"/>") {
                     type = "scene";
                 } else if (type == "<fmt:message key="info.shangpintu"/>") {
@@ -426,22 +439,23 @@
                 } else if (type == "<fmt:message key="info.zixun"/>") {
                     type = "message";
                 }
-                var url = "pc/forward/to?type=" + type;
-                if (name != "") {
-                    url += "&name=" + name;
-                }
-                $("#alink").attr("href", url)
-                document.getElementById("alink").click();
+                $("#search_type").val(type);
+//                var url = "pc/forward/to?type=" + type;
+//                if (name != "") {
+//                    url += "&name=" + name;
+//                }
+//                $("#alink").attr("href", url)
+//                document.getElementById("alink").click();
             });
-            $(".search_text").unbind("keyup").keyup(function (event) {
-                if (event.keyCode == 13) { // enter 键
-                    $(".search_btn").trigger("click");
-                }
-            });
-
-            $(".header_r .search-icon").unbind("click").click(function () {
-                $(".search_btn").trigger("click");
-            });
+//            $(".search_text").unbind("keyup").keyup(function (event) {
+//                if (event.keyCode == 13) { // enter 键
+//                    $(".search_btn").trigger("click");
+//                }
+//            });
+//
+//            $(".header_r .search-icon").unbind("click").click(function () {
+//                $(".search_btn").trigger("click");
+//            });
         },
         curPageInit: function () {
             var v = $("#cur-page").val();

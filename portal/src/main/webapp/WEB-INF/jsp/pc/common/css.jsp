@@ -24,6 +24,10 @@
         margin-top: 10px;
     }
 
+    .nav {
+        background: none;
+    }
+
 
 </style>
 

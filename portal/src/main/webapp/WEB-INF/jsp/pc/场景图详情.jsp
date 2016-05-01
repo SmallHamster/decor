@@ -8,6 +8,8 @@
     <title><fmt:message key="info.shouye"/></title>
     <link href="static/pc/css/common.css" rel="stylesheet" type="text/css">
     <link href="static/pc/css/all.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="static/pc-1.1/css/global.css" />
+    <link rel="stylesheet" href="static/pc-1.1/css/scene-detail.css" />
     <style>
         .praiseZdy {
             width: 28px;
@@ -59,129 +61,119 @@
             filter:alpha(opacity=50);
             opacity:0.8;
         }
-    </style>
 
+        .user span{
+            padding-left: 0px;line-height: inherit;
+        }
+        .clear {
+            height: inherit;
+        }
+    </style>
 </head>
 
 <body>
 <div class="wrapper">
-   
-    <%@ include file="common/header.jsp" %>
+    <div class="page">
 
-    <input type="hidden" id="cur-page" value="scene"/>
+        <!-- 头部开始 -->
+        <%@ include file="common/header.jsp" %>
+        <!-- 头部结束 -->
 
-    <input type="hidden" id="sceneId" value="${scene.id}"/>
-    <input type="hidden" id="creator" value="${scene.user.id}"/>
-
-    <div class="cantainer">
-        <div class="content pt20 pb60 clearfix">
-            <div class="breadcrumb borderbtm pd20">
-                <a><fmt:message key="info.tuku"/></a><span>${scene.name}</span>
-            </div>
-            <div class="mainCont clearfix">
-                <div class="maiLeft">
-                    <div class="details clearfix">
-                        <div class="bigImg mb10">
-                            <a style="cursor: hand;"><img class="bfimg" src="${scene.image}"/></a>
-                            <%--<div class="boxwrap">
-                                <div class="boxrel">
-                                    <div class="boxcover"></div>
-                                    <div class="boxcent">
-                                        <dl class="clearfix"><dt><img id="img" src="img/big_1.jpg"/></dt><dd id="goodsName"></dd></dl>
-                                        <p class="txt" id="txt">Lorem ipsum dolor sitamet,consectetur adipiscing elit.</p>
-                                        <p class="cost"><i class="iicon fr meony"></i><span class="price" id="price">￥500.00</span></p>
-                                    </div>
-                                </div>
-                            </div>--%>
+        <!-- 页面主体内容开始 -->
+        <div class="main" style="margin-top: 20px;">
+            <div class="center scene">
+                <div class="breadcrumb" style="height: 55px;"><a href="###">< 返回系列图</a></div>
+                <div class="wall">
+                    <div class="scene-show">
+                        <div class="list">
+                            <ul>
+                                <li><img src="static/pc-1.1/images/scene/sample-1.jpg" title="" alt="" width="715" height="715" /></li>
+                                <li><img src="static/pc-1.1/images/scene/sample-1.jpg" title="" alt="" width="715" height="715" /></li>
+                                <li><img src="static/pc-1.1/images/scene/sample-1.jpg" title="" alt="" width="715" height="715" /></li>
+                                <li><img src="static/pc-1.1/images/scene/sample-1.jpg" title="" alt="" width="715" height="715" /></li>
+                            </ul>
                         </div>
-                        <div class="pad20">
-                            <div class="system clearfix">
-                                <img src="${scene.user.headImage}"/>
-                                <div class="Rgtem ddddd">
-                                    <span class="vt">${scene.user.nickname}</span><a class="atten mr30"></a><a class="praise iicon mr10 dddPraise" ></a><a class="colle" ><span class="collectBtn" style="padding: 0 0;line-height:0px;"></span>(<span class="collectNum" style="padding: 0 0;line-height:0px;">${scene.collectionNum}</span>)</a>
-                                    <span><fmt:message key="info.fenxiangdao"/></span>
-                                    <div class="jiathis_style_32x32" style="float: right">
-                                        <a class="jiathis_button_tsina"></a>
-                                        <a class="jiathis_button_cqq"></a>
-                                        <a class="jiathis_button_weixin"></a>
-                                    </div>
-                                    <!--<a class="iicon sina mr10" href="#"></a><a class="iicon qq mr10" href="#"></a><a class="iicon weixin" ></a>-->
-                                </div>
-                            </div>
-                            <p class="p_title">${scene.name}</p>
-                            <p class="p_txt">${scene.info}</p>
-                        </div>
+                        <div class="handler-prev"></div>
+                        <div class="handler-next"></div>
                     </div>
-                    <div class="comment pad20">
-                        <div class="post">
-                            <img src="${session_pc_user.headImage}"/>
-                            <div class="Rost">
-                                <p class="first">${session_pc_user.nickname}</p>
-                                <textarea class="tared commentContent" maxlength="200"></textarea>
-                                <button onClick="saveSceneComment()"><fmt:message key="info.fabu"/></button>
-                            </div>
+                    <div class="designer">
+                        <div class="user" style="margin: 0px;margin-bottom: 19px;">
+                            <img style="border-radius:0;" src="static/pc-1.1/images/scene/sample-2.jpg" title="" alt="" width="57" height="57" />
+							<span class="inb" style="">
+								<span class="name">ryel</span>
+								<span class="address"><i class="icon-addr"></i>武汉  武汉</span><br/>
+								<span class="text-orange">36套设计系列图作品</span>
+							</span>
+                            <a class="btn btn-like">被1.2万人喜欢</a>
                         </div>
-                        <ul class="comment-list">
-
+                        <h4 class="title">溪水中的皮靠椅 </h4>
+                        <p class="desc">来自系列图：<a class="text-orange">我在海边的木头房子里面患过伤风</a><br/>缓缓流淌的溪水中的座椅，让人产生了浓烈的盛夏氛围，很多人喜欢这样的设计</p>
+                        <button class="btn btn-count">156人喜欢</button>
+                        <p class="strong">场景中的商品</p>
+                        <ul class="image-list">
+                            <li>
+                                <div class="cell"><img src="static/pc-1.1/images/scene/sample-3.jpg" title="" alt="" width="88" width="88" /></div>
+                                arhaus-chairs- 0110
+                            </li>
+                            <li>
+                                <div class="cell"><img src="static/pc-1.1/images/scene/sample-3.jpg" title="" alt="" width="88" width="88" /></div>
+                                arhaus-chairs- 0110
+                            </li>
+                            <li>
+                                <div class="cell"><img src="static/pc-1.1/images/scene/sample-3.jpg" title="" alt="" width="88" width="88" /></div>
+                                arhaus-chairs- 0110
+                            </li>
+                            <li>
+                                <div class="cell"><img src="static/pc-1.1/images/scene/sample-3.jpg" title="" alt="" width="88" width="88" /></div>
+                                arhaus-chairs- 0110
+                            </li>
                         </ul>
-                    </div>
-                </div>
-                <input type="hidden" id="hiddenName" value="${scene.name}" />
-                <input type="hidden" id="hiddenInfo" value="${scene.info}" />
-                <div class="maiRight">
-                    <div class="Rcenter">
-                        <div class="recom">
-                            <h3><fmt:message key="info.gaichangjingzhongshangpin"/></h3>
-                            <ul class="list-recom clearfix goodslist">
-
-                            </ul>
-                        </div>
-                        <div class="recom">
-                            <h3><fmt:message key="info.gaichangjingsuoshuxilietu"/></h3>
-                            <ul class="list-recom clearfix serieslist">
-
-                            </ul>
-                        </div>
-                        <div class="recom">
-                            <h3><fmt:message key="info.tongleixingtuijian"/></h3>
-                            <ul class="list-recom clearfix sameTypeScenelist">
-
-                            </ul>
+                        <p class="strong">讨论</p>
+                        <form class="form" style="padding: 0px;">
+                            <textarea></textarea>
+                            <div class="text-right"><button type="submit">发布</button></div>
+                        </form>
+                        <div class="review">
+                            <a class="pull-left face">
+                                <img src="static/pc-1.1/images/scene/sample-4.png" title="" alt="" width="40" height="40" />
+                            </a>
+                            <div class="text">
+                                <p><span class="pull-left">Lining NIHD</span><span class="pull-right">1小时前</span></p>
+                                <p class="clear text-content">交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
+                            </div>
+                            <a class="pull-left face">
+                                <img src="static/pc-1.1/images/scene/sample-4.png" title="" alt="" width="40" height="40" />
+                            </a>
+                            <div class="text">
+                                <p><span class="pull-left">Lining NIHD</span><span class="pull-right">1小时前</span></p>
+                                <p class="clear text-content">交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
+                            </div>
+                            <a class="pull-left face">
+                                <img src="static/pc-1.1/images/scene/sample-4.png" title="" alt="" width="40" height="40" />
+                            </a>
+                            <div class="text">
+                                <p><span class="pull-left">Lining NIHD</span><span class="pull-right">1小时前</span></p>
+                                <p class="clear text-content">交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- 页面主体内容部分结束 -->
+
+        <!-- 尾部开始 -->
+        <%@ include file="common/footer.jsp"%>
+        <!-- 尾部结束 -->
     </div>
-
-
-    <!-- footer -->
-    <%@ include file="common/footer.jsp"%>
-
 </div>
 <!--右侧悬浮-->
 <%@ include file="common/other.jsp"%>
 
-<!-- JiaThis Button BEGIN -->
-<script type="text/javascript" >
-    var jiathis_config={
-        summary:$('#hiddenInfo').val(),
-        shortUrl:false,
-        hideMore:true,
-        title:$('#hiddenName').val()
-    }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-<script type="text/template" id="regPopupCont">
-    <div class="BigImg">
-        <i class="iicon close" name="case-ok"></i>
-        <img src=""/>
-    </div>
-</script>
 <script type="text/javascript" src="static/pc/js/table.js"></script>
 <script type="text/javascript" src="static/pc/js/base.js"></script>
+<script src="static/pc-1.1/js/global.js"></script>
+<script src="static/pc-1.1/js/scene.js"></script>
 <script type="text/javascript">
     $(function(){
         $(document).on("mouseover",".BigImg",function(){
@@ -319,7 +311,7 @@
             var sceneImgH = syscImgH + bfImg.height() * y + "px";
             //用绝对定位的方式显示图片
             content="<div class='shawer iicon imgtagli' onMouseOut='IonMouseOut()'  onMouseOver='IonMouseOver("+ii+")'  id-data='goodsImg" + ii + "'  style='left: " + sceneImgW + ";top: " + sceneImgH + ";position: absolute;'>" +
-            "<a class='tagcnt' href='pc/goods/detail?goodsId="+goodsId+"' target='_blank' onMouseOut='IonMouseOut()'><div class='title-style'><img src='"+goodsImg+"'><div class='tit'>"+goodsName+"<br/>价格："+goodsPrice+"</div></div></a></div>"
+                    "<a class='tagcnt' href='pc/goods/detail?goodsId="+goodsId+"' target='_blank' onMouseOut='IonMouseOut()'><div class='title-style'><img src='"+goodsImg+"'><div class='tit'>"+goodsName+"<br/>价格："+goodsPrice+"</div></div></a></div>"
             //每次点击后讲描点拼接在一个div中
             $(".bigImg").append(content);        }
     }
@@ -591,9 +583,9 @@
             }
         });
     }
-   function IonMouseOver(i) {
-       $(".imgtagli ").eq(i).find("a").show();
-       }
+    function IonMouseOver(i) {
+        $(".imgtagli ").eq(i).find("a").show();
+    }
     function IonMouseOut(){
         $(".imgtagli a").hide();
     }

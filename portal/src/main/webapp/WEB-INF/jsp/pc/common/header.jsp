@@ -1,67 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<link rel="stylesheet" href="static/pc-1.1/css/global.css" />
+<link rel="stylesheet" href="static/pc-1.1/css/index.css" />
 <script src="static/js/jquery-1.11.0.js"></script>
-<style>
-    .logo{margin: 14px 10px 14px 10px!important;}
-    .header_r a{margin-left:20px!important;}
-</style>
 <div class="header">
-    <div class="content clearfix">
-        <a class="logo fl" href="#"><img src="static/pc/images/logo.png"/></a>
+    <div class="top">
+        <div class="center">
+            <span class="pull-left">DECOR故事&emsp;&emsp;服务热线：400-800-5262</span>
+					<span class="pull-right">
+                        <input type="hidden" id="sessionUserId" value="${session_pc_user.id}"/>
+                        <c:if test="${session_pc_user != null}">
+                            <div class="user fl" style="cursor: pointer;">
+                                <a href='pc/user/detailHomePage'>${session_pc_user.shortNickname}</a>
+                                <a onclick="login.out()"><fmt:message key="info.tuichu"/></a>
+                            </div>
+                        </c:if>
+                        <c:if test="${session_pc_user == null}">
+                            <a onclick="loginPopup.showDlg()"><fmt:message key="info.denglu"/></a>
+                            <a onclick="registerPopup.showDlg()"><fmt:message key="info.zhuce"/></a>
+                        </c:if>
 
-        <div class="menu fl">
-            <ul class="clearfix">
-                <li><a href="pc/forward/to?type=scene"><fmt:message key="info.tuku"/></a></li>
-                <li><a href="pc/forward/to?type=goods"><fmt:message key="info.shangpin"/></a></li>
-                <li><a href="pc/forward/to?type=user"><fmt:message key="info.shejishi"/></a></li>
-                <li><a href="pc/forward/to?type=message"><fmt:message key="info.zixun"/></a></li>
-            </ul>
+                        <%
+                            HttpSession s = request.getSession();
+                        %>
+                        <input type="hidden" id="langua" value="<%=s.getAttribute("langua") %>"/>
+						<select onchange="lu()" id="lua" style="background: white;">
+                            <option value="zh_CN">中文</option>
+                            <option value="en_US">English</option>
+                        </select>
+						<a href="###">下载APP</a>
+					</span>
         </div>
-        <div class="header_r fr">
-            <div class="search_wrap fl">
-                <div class="search rel">
-                    <i class="iicon search-icon abs"></i><input class="search_text" style="width: 100px;float: right;"
-                                                                type="text" value="${name}"/>
-
-                    <div class="select_wrap abs">
-                        <div class="select_input rel">
-                            <i class="iicon search-select abs"></i>
-                            <span class="select-text"><fmt:message key="info.changjingtu"/></span>
-                            <input type="hidden" id="search_type" value="${type}"/>
-                            <select id="typeSelect">
-                                <option><fmt:message key="info.changjingtu"/></option>
-                                <option><fmt:message key="info.shangpintu"/></option>
-                                <option><fmt:message key="info.xilietu"/></option>
-                                <option><fmt:message key="info.shejishi"/></option>
-                                <option><fmt:message key="info.zixun"/></option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <button class="search_btn"><fmt:message key="info.sousuo"/></button>
-                <a id="alink" href="pc/forward/to?type=scene" class="search_a"></a>
-
+    </div>
+    <div class="center">
+        <a href="index" class="pull-left logo"><img src="static/pc-1.1/images/logo.png" title="" alt="" width="138" height="46" /></a>
+        <div class="pull-left nav">
+            <a href="pc/forward/to?type=scene"><fmt:message key="info.tuku"/></a>
+            <a href="pc/forward/to?type=goods"><fmt:message key="info.shangpin"/></a>
+            <a href="pc/forward/to?type=user"><fmt:message key="info.shejishi"/></a>
+            <a href="pc/forward/to?type=message"><fmt:message key="info.zixun"/></a>
+        </div>
+        <div id="searchArea" class="pull-right search">
+            <div class="dropdown pull-left">
+                <button id="typeValue" type="button"><fmt:message key="info.changjingtu"/></button>
+                <ul id="typeSelect" class="dropdown-menu">
+                    <li><a><fmt:message key="info.changjingtu"/></a></li>
+                    <li><a ><fmt:message key="info.shangpintu"/></a></li>
+                    <li><a ><fmt:message key="info.xilietu"/></a></li>
+                    <li><a ><fmt:message key="info.shejishi"/></a></li>
+                    <li><a ><fmt:message key="info.zixun"/></a></li>
+                </ul>
             </div>
-            <input type="hidden" id="sessionUserId" value="${session_pc_user.id}"/>
-            <c:if test="${session_pc_user != null}">
-                <div class="user fl" style="cursor: pointer;">
-                    <a href='pc/user/detailHomePage'><img src="${session_pc_user.headImage}" width="36" height="36"><span>${session_pc_user.shortNickname}</span></a>
-                    <span onclick="login.out()"><fmt:message key="info.tuichu"/></span>
-                </div>
-            </c:if>
-            <c:if test="${session_pc_user == null}">
-                <a onclick="loginPopup.showDlg()" style="margin:0 0 0 9px;"><fmt:message key="info.denglu"/></a>
-                <a onclick="registerPopup.showDlg()" style="margin:0 0 0 9px;"><fmt:message key="info.zhuce"/></a>
-            </c:if>
-            <%
-                HttpSession s = request.getSession();
-            %>
-            <input type="hidden" id="langua" value="<%=s.getAttribute("langua") %>"/>
-            <%--<select></select>--%>
-            <select onchange="lu()" id="lua" style="background: #fff;padding: 2px 1px 4px 3px;margin-left: 7px;">
-                <option value="zh_CN">中文</option>
-                <option value="en_US">English</option>
-            </select>
+            <form id="searchForm" class="form pull-left" action="pc/forward/to">
+                <input type="hidden" id="search_type" name="type" value="${type}"/>
+                <input id="searchText" name="name" type="text" placeholder="请输入您要查找的内容" value="${name}"/>
+                <input id="search" type="submit" value="" />
+            </form>
+            <a class="btn btn-design" href="###">在线设计</a>
         </div>
     </div>
 </div>
@@ -91,5 +86,3 @@
         window.location.href = "index?langua=" + lua;
     }
 </script>
-
-

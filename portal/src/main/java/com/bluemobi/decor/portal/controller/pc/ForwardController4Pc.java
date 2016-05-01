@@ -33,9 +33,9 @@ public class ForwardController4Pc extends CommonController {
                         String type,
                         String name){
         try {
-            if(name!=null){
-                name = java.net.URLDecoder.decode(name, "UTF-8");
-            }
+//            if(name!=null){
+//                name = java.net.URLDecoder.decode(name, "UTF-8");
+//            }
             modelMap.put("name",name);
             modelMap.put("type",type);
             if("goods".equals(type)){
@@ -49,7 +49,7 @@ public class ForwardController4Pc extends CommonController {
             }else if("message".equals(type)){
                 return "pc/资讯列表";
             }
-        } catch (UnsupportedEncodingException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
