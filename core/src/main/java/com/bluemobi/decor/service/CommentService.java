@@ -21,6 +21,8 @@ public interface CommentService extends ICommonService<Comment> {
     // 根据评论ID获取对应的评论回复列表
     public List<Comment> iFindReply(Integer pid);
 
+    public List<Comment> findListByObjectIdAndType(Integer objectId, String objectType);
+
     // 根据评论ID获取对应的评论回复列表
     public List<Comment> listReply(Integer pid);
 

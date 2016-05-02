@@ -129,6 +129,11 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    public List<Comment> findListByObjectIdAndType(Integer objectId, String objectType) {
+        return commentDao.findListByObjectIdAndType(objectId,objectType);
+    }
+
+    @Override
     public List<Comment> listReply(Integer pid) {
         return commentDao.listReply(pid);
     }
