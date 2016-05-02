@@ -56,13 +56,13 @@ $(document).ready(function(){
 	//});
 });
 $(document).ready(function(){	
-	var $category1 = $('.comment-list ul li:gt(3)');
-	$category1.hide();
-	$("#showMore1").click(function(){
-		$category1.show();
-		$(this).find('.look-more').addClass('hide');
-		$(this).find('.pages').addClass('show');
-	});
+	//var $category1 = $('.comment-list ul li:gt(3)');
+	//$category1.hide();
+	//$("#showMore1").click(function(){
+	//	$category1.show();
+	//	$(this).find('.look-more').addClass('hide');
+	//	$(this).find('.pages').addClass('show');
+	//});
 });
 
 //返回顶部

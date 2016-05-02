@@ -38,6 +38,10 @@ public class UserController4Pc extends CommonController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private CommentService commentService;
+    @Autowired
+    private SpaceTagService spaceTagService;
 
     @Autowired
     private UserThirdService userThirdService;
@@ -680,6 +684,48 @@ public class UserController4Pc extends CommonController {
             }
             modelMap.put("topSeries", topSeries);
 
+            // 最新互动
+            Page<Comment> commentPage = commentService.findCommentPage(userId, 1, 1);
+            Comment newestComment = null;
+            if(commentPage != null && CollectionUtils.isNotEmpty(commentPage.getContent())){
+                newestComment = new Comment();
+                newestComment = commentPage.getContent().get(0);
+                List<Comment> replyList =commentService.listReply(newestComment.getId());
+                Reply reply = new Reply();
+                if(CollectionUtils.isNotEmpty(replyList)){
+                    Comment temp = replyList.get(0);
+                    reply.setHeadImage(temp.getUser().getHeadImage());
+                    reply.setCreateTime(temp.getCreateTime());
+                    reply.setContent(temp.getContent());
+                }
+                newestComment.setNewestReply(reply);
+
+                // 对象信息
+                if (newestComment.getObjectType().equals("series")){
+                    Series series = seriesService.getById(newestComment.getObjectId());
+                    newestComment.setObjectCover(series.getCover());
+                    newestComment.setObjectName(series.getInfo());
+                    if(series.getSeriesTag() != null){
+                        newestComment.setTags(series.getSeriesTag().getName());
+                    }else {
+                        newestComment.setTags("");
+                    }
+                }else if (newestComment.getObjectType().equals("scene")){
+                    Scene scene=sceneService.getById(newestComment.getObjectId());
+                    newestComment.setObjectCover(scene.getImage());
+                    newestComment.setObjectName(scene.getName());
+                    String tags = spaceTagService.getTagStr(scene.getSpaceTagIds());
+                    newestComment.setTags(tags);
+                }else if (newestComment.getObjectType().equals("goods")){
+                    Goods goods=goodsService.getById(newestComment.getObjectId());
+                    newestComment.setObjectCover(goods.getCover());
+                    newestComment.setObjectName(goods.getName());
+                    String tags = spaceTagService.getTagStr(goods.getSpaceTagIds());
+                    newestComment.setTags(tags);
+                }
+            }
+            modelMap.put("newestComment", newestComment);
+
             return "pc/设计师详情页";
         } else {
             return "pc/首页";
@@ -797,6 +843,25 @@ public class UserController4Pc extends CommonController {
                 pageSize = 4;
             }
             Page<CommentUpdateStatus> page = commentUpdateStatusService.pcFindCommentPage(userId, pageNum, pageSize);
+            Map<String, Object> dataMap = PcPageFactory.fitting(page);
+            WebUtil.print(response, new Result(true).data(dataMap));
+        } catch (Exception e) {
+            e.printStackTrace();
+            WebUtil.print(response, new Result(false).msg("操作失败!"));
+        }
+    }
+
+    //查询指定用户的所有评论分页
+    @RequestMapping(value = "/findCommentPage")
+    public void findCommentPage(HttpServletRequest request, HttpServletResponse response, Integer userId, Integer pageNum, Integer pageSize) {
+        try {
+            if (pageNum == null) {
+                pageNum = 1;
+            }
+            if (pageSize == null) {
+                pageSize = 8;
+            }
+            Page<Comment> page = commentService.findCommentPage(userId, pageNum, pageSize);
             Map<String, Object> dataMap = PcPageFactory.fitting(page);
             WebUtil.print(response, new Result(true).data(dataMap));
         } catch (Exception e) {

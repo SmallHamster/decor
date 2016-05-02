@@ -186,6 +186,7 @@ public class SpaceTagServiceImpl implements SpaceTagService {
         if(StringUtils.isEmpty(spaceTagIds)){
             return "";
         }
+        spaceTagIds = spaceTagIds.replace("@","");
         String str = "";
         String[] arr  = spaceTagIds.split(",");
         for (int i = 0; i < arr.length; i++) {

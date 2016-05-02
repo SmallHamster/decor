@@ -62,7 +62,7 @@
             <div class="personRight">
                 <a href="#" class="send"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>
                 <p>共计36个作品</p>
-                <a href="#" class="like"><img src="static/pc-1.1/images/ico_btn_7.png" />被1.2万人喜欢</a>
+                <a href="#" class="like"><img src="static/pc-1.1/images/ico_btn_7.png" />被${user.fans}人喜欢</a>
             </div>
         </div>
     </div>
@@ -74,31 +74,33 @@
         <div class="interact">
             <h2 class="title">最新互动</h2>
             <div class="interact-con cleafix">
-                <div class="interact-img"><img src="static/pc-1.1/images/designer_pic1.jpg"/></div>
+                <div class="interact-img"><img src="${newestComment.objectCover}" width="357" height="300"/></div>
                 <div class="interact-right">
-                    <h2><a href="#">木屋陈设，木头吊柜</a></h2>
-                    <h3>来自设计系列图：《<a href="#">我在海边的木头房子里面患过伤风</a>》 </h3>
+                    <h2><a href="#">${newestComment.tags}&nbsp;</a></h2>
+                    <h3>来自：<span class="slh" style="color: #fb9f38;">${newestComment.objectName}</span></h3>
                     <div class="chat-content cleafix">
                         <div class="sc-new you">
-                            <img class="me-avatar" src="static/pc-1.1/images/designer_pic2.jpg" />
+                            <img class="me-avatar" src="${newestComment.user.headImage}" width="50" height="50"/>
                             <div class="content">
                                 <i class="jianjian"></i>
                                 <div class="bubble bubble-default">
-                                    <div class="plain">交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</div>
+                                    <div class="plain">${newestComment.content}</div>
                                 </div>
-                                <div class="time">1天前</div>
+                                <div class="time">${newestComment.createTime}</div>
                             </div>
                         </div>
-                        <div class="sc-new me">
-                            <img class="me-avatar" src="static/pc-1.1/images/designer_pic2.jpg" />
-                            <div class="content">
-                                <div class="time">1天前</div>
-                                <div class="bubble bubble-primary">
-                                    <div class="plain">感谢您的夸奖，您的户型比较独特，所以我使用了相对更少用的方式来进行设计</div>
+                        <c:if test="${!empty newestComment.newestReply.content}">
+                            <div class="sc-new me">
+                                <img class="me-avatar" src="${newestComment.newestReply.headImage}" width="50" height="50"/>
+                                <div class="content">
+                                    <div class="time">${newestComment.newestReply.createTime}</div>
+                                    <div class="bubble bubble-primary">
+                                        <div class="plain">${newestComment.newestReply.content}</div>
+                                    </div>
+                                    <i class="jianjian"></i>
                                 </div>
-                                <i class="jianjian"></i>
                             </div>
-                        </div>
+                        </c:if>
                     </div>
                     <a href="#" class="hudong">更多设计师互动<font>&gt;</font></a>
                 </div>
@@ -106,7 +108,7 @@
         </div>
         <!--设计系列图（36）-->
         <div class="designer">
-            <h2 class="title">设计系列图（<span class="totalNum">0</span>）</h2>
+            <h2 class="title">设计系列图（<span id="seriesNum">0</span>）</h2>
             <div class="design">
                 <div class="design-top cleafix">
                     <div class="design-top-left">
@@ -133,216 +135,7 @@
                     </div>
                 </div>
                 <ul id="seriesList" class="design-list cleafix">
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
-                        <div class="list-con cleafix">
-                            <a href="#" class="list-avater">
-                                <img src="static/pc-1.1/images/designer_pic1.png" />
-                                <p>ryel</p>
-                            </a>
-                            <div class="list-con-right">
-                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
-                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
-                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
-                            </div>
-                        </div>
-                    </li>
+
                 </ul>
             </div>
             <div id="showMore">
@@ -351,7 +144,7 @@
                 </div>
             </div>
             <div id="pageDiv" style="margin-top: -100px;background: white">
-                <%@ include file="common/page.jsp" %>
+                <%@ include file="common/page1.jsp" %>
             </div>
 
         </div>
@@ -359,70 +152,16 @@
         <div class="comments">
             <h2 class="title">评论留言</h2>
             <div class="comment-list">
-                <ul>
-                    <li class="cleafix">
-                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
-                        <div class="comment-con">
-                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
-                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
-                        </div>
-                    </li>
-                    <li class="cleafix">
-                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
-                        <div class="comment-con">
-                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
-                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
-                        </div>
-                    </li>
-                    <li class="cleafix">
-                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
-                        <div class="comment-con">
-                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
-                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
-                        </div>
-                    </li>
-                    <li class="cleafix">
-                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
-                        <div class="comment-con">
-                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
-                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
-                        </div>
-                    </li>
-                    <li class="cleafix">
-                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
-                        <div class="comment-con">
-                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
-                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
-                        </div>
-                    </li>
-                    <li class="cleafix">
-                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
-                        <div class="comment-con">
-                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
-                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
-                        </div>
-                    </li>
-                    <li class="cleafix">
-                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
-                        <div class="comment-con">
-                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
-                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
-                        </div>
-                    </li>
-                    <li class="cleafix">
-                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
-                        <div class="comment-con">
-                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
-                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
-                        </div>
-                    </li>
+                <ul id="commentList">
+
                 </ul>
                 <div id="showMore1">
                     <a href="javascript:;" class="look-more">查看更多留言</a>
                     <div class="pages cleafix">
-                        <span>总计<em>50</em>条记录</span>
-                        <div class="page"><a href="#">上一页</a><a href="#" class="cur">1</a><a href="#">2</a><a href="#">下一页</a><strong>共9页，到第</strong><input /><strong>页</strong></div>
                     </div>
+                </div>
+                <div id="pageDiv4Comment" style="margin-top: -100px;background: white">
+                    <%@ include file="common/page2.jsp" %>
                 </div>
             </div>
         </div>
@@ -437,7 +176,6 @@
 <script type="text/javascript" src="static/pc-1.1/js/jquery.SuperSlide.2.1.1.js" ></script>
 <script type="text/javascript" src="static/pc-1.1/js/index.js" ></script>
 <script type="text/javascript">
-    var thisPage = rpage; // 分页对象 rpage存在于page.jsp
     $(function(){
         //设计系列图
         jQuery(".design-top-right").slide({
@@ -451,19 +189,20 @@
         });
 
         ajaxSeriesPage();
-
+        ajaxCommentPage();
     });
 
     var ajaxTimes = 0;
     //查询指定用户的所有系列图分页
+    var seriesPage = epage;
     function ajaxSeriesPage() {
         ajaxTimes+=1;
         var userId = $("#userId").val();
         var data = {
             userId: userId,
-            pageNum: thisPage.pageNum,
+            pageNum: seriesPage.pageNum,
             pageSize: 15,
-            totalPage: thisPage.totalPage
+            totalPage: seriesPage.totalPage
         };
         $bluemobi.ajax("pc/user/seriesPage", data, function (result) {
             if (result.status == "0") {
@@ -486,10 +225,8 @@
                             </li>';
                 }
                 $("#seriesList").html(html);
-                thisPage.init(result.data.page, "ajaxSeriesPage");
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
-                $(".page_rgt_totalPage").html(thisPage.totalPage);
-
+                seriesPage.init(result.data.page, "ajaxSeriesPage",$("#pageDiv"));
+                $("#seriesNum").html(result.data.page.totalNum);
                 if(ajaxTimes == 1){
                     var $category = $('.design-list li:gt(5)');
                     $category.hide();
@@ -499,6 +236,60 @@
                         $(this).find('.look-more').addClass('hide');
                         $(this).find('.pages').addClass('show');
                         $("#pageDiv").show();
+                    });
+                }
+            }
+        });
+    }
+
+    var ajaxTimes4Comment = 0;
+    //查询指定用户的所有评论分页
+    var commentPage = lpage;
+    function ajaxCommentPage() {
+        ajaxTimes4Comment+=1;
+        var userId = $("#userId").val();
+        var data = {
+            userId: userId,
+            pageNum: commentPage.pageNum,
+            pageSize: 8,
+            totalPage: commentPage.totalPage
+        };
+        $bluemobi.ajax("pc/user/findCommentPage", data, function (result) {
+            if (result.status == "0") {
+                var html = '';
+                for (var i = 0; i < result.data.list.length; i++) {
+                    var comment = result.data.list[i];
+                    var type = "";
+                    if (comment.objectType) {
+                        if (comment.objectType == "goods") {
+                            type = "商品图";
+                        }
+                        if (comment.objectType == "scene") {
+                            type = "场景图";
+                        }
+                        if (comment.objectType == "series") {
+                            type = "系列图";
+                        }
+                    }
+                    html += ' <li class="cleafix">\
+                            <a href="#" class="comment-name"><img src="' + comment.user.headImage + '"/><p>' + comment.user.nickname + '</p></a>\
+                            <div class="comment-con">\
+                            <p class="slh">' + comment.content + '</p>\
+                            <h4><span>' + comment.tags + '</span><b></b><span>来自' + type + '：' + comment.objectName + '</span><b></b><span>' + comment.createTime + '</span></h4>\
+                            </div>\
+                            </li>';
+                }
+                $("#commentList").html(html);
+                commentPage.init(result.data.page, "ajaxCommentPage",$("#pageDiv4Comment"));
+                if(ajaxTimes4Comment == 1){
+                    var $category1 = $('.comment-list ul li:gt(3)');
+                    $category1.hide();
+                    $("#pageDiv4Comment").hide();
+                    $("#showMore1").click(function(){
+                        $category1.show();
+                        $(this).find('.look-more').addClass('hide');
+                        $(this).find('.pages').addClass('show');
+                        $("#pageDiv4Comment").show();
                     });
                 }
             }
