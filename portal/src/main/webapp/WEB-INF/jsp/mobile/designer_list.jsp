@@ -21,7 +21,7 @@
 	<%@ include file="common/header.jsp" %>
 		<div class="main">
 			<div class="filterBox">
-				在设计作品中，找到148个结果
+				在设计作品中，找到<span id="totalNum">0</span>个结果
 				<a href="javascript:;" class="filterBtn">筛选</a>
 				<div class="detailBox">
 					<div class="topWhite"></div>
@@ -63,39 +63,63 @@
 			</div>
 
 			<ul class="designerList pt30">
-				<li>
-					<div class="imgBox">
-						<img src="static/mobile/images/img1.jpg" alt="">
-						<div class="headLogo">
-							<a href="javascript:;">
-								<img src="static/mobile/images/head_logo.png" alt="">
-							</a>
-						</div>
-					</div>
-					<div class="name"><a href="javascript:;">VALERIE CRESWICK</a></div>
-					<div class="adress"><span>武汉</span><span>武汉</span></div>
-					<div class="collect"><a href="javascript:;"><span>12万</span></a></div>
-					<div class="works">112万</div>
-				</li>
-				<li>
-					<div class="imgBox">
-						<img src="static/mobile/images/img1.jpg" alt="">
-						<div class="headLogo">
-							<a href="javascript:;">
-								<img src="static/mobile/images/head_logo.png" alt="">
-							</a>
-						</div>
-					</div>
-					<div class="name"><a href="javascript:;">VALERIE CRESWICK</a></div>
-					<div class="adress"><span>武汉</span><span>武汉</span></div>
-					<div class="collect"><a href="javascript:;"><span>12万</span></a></div>
-					<div class="works">112万</div>
-				</li>
+
 			</ul>
 
-			
+			<div class="moreTitle"><a href="javascript:;">加载更多</a></div>
 		</div>
 		<script src="static/mobile/js/jquery.min.js"></script>
 		<script src="static/mobile/js/global.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$(".moreTitle").click(function(){
+				ajaxPageDesigner();
+			});
+			ajaxPageDesigner();
+		});
+
+		var page = {
+			pageNum : 1,
+			pageSize : 2,
+			next:function(){
+				page.pageNum += 1;
+			}
+		};
+		function ajaxPageDesigner(){
+			$.ajax({
+				url:'mobile/designer/page',
+				method:'get',
+				dataType:'json',
+				data: {pageNum:page.pageNum,pageSize:page.pageSize},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						debugger
+						page.next();
+						$("#totalNum").html(result.data.page.totalNum);
+						var html = '';
+						for(var i=0;i<result.data.list.length;i++){
+							var designer = result.data.list[i];
+							html+='<li>\
+								<div class="imgBox">\
+								<a href="mobile/designer/detail?designerId='+designer.id+'"><img src="'+designer.backgroundImage+'" alt=""></a>\
+								<div class="headLogo">\
+								<a href="javascript:;"><img src="'+designer.headImage+'" alt=""></a>\
+								</div>\
+								</div>\
+								<div class="name"><a href="mobile/designer/detail?designerId='+designer.id+'">'+designer.nickname+'</a></div>\
+								<div class="adress"><span>'+designer.city.province.name+'</span><span>'+designer.city.name+'</span></div>\
+								<div class="collect"><a href="javascript:;"><span>'+designer.fans+'</span></a></div>\
+								<div class="works">'+designer.opus+'</div>\
+								</li>';
+						}
+						$(".designerList").html(html);
+					}
+				}
+			});
+		}
+
+
+	</script>
 	</body>
 </html>
