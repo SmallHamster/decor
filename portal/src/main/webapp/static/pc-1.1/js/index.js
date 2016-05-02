@@ -47,13 +47,13 @@ $(function(){
 });
 
 $(document).ready(function(){
-    var $category = $('.design-list li:gt(5)');
-	$category.hide();
-	$("#showMore").click(function(){
-		$category.show();
-		$(this).find('.look-more').addClass('hide');
-		$(this).find('.pages').addClass('show');
-	});
+    //var $category = $('.design-list li:gt(5)');
+	//$category.hide();
+	//$("#showMore").click(function(){
+	//	$category.show();
+	//	$(this).find('.look-more').addClass('hide');
+	//	$(this).find('.pages').addClass('show');
+	//});
 });
 $(document).ready(function(){	
 	var $category1 = $('.comment-list ul li:gt(3)');

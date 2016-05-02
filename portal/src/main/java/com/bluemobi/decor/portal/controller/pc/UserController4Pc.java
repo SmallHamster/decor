@@ -13,6 +13,7 @@ import com.bluemobi.decor.portal.util.*;
 import com.bluemobi.decor.service.*;
 import com.bluemobi.decor.utils.JsonUtil;
 import com.bluemobi.decor.utils.SessionUtils;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -46,6 +47,9 @@ public class UserController4Pc extends CommonController {
 
     @Autowired
     private GoodsService goodsService;
+
+    @Autowired
+    private SeriesSceneService seriesSceneService;
 
     @Autowired
     private SceneService sceneService;
@@ -665,6 +669,16 @@ public class UserController4Pc extends CommonController {
                     user.setSexInfo("保密");
                     break;
             }
+
+            Series topSeries = new Series();
+            Page<Series> page = seriesService.pcFindSeriesPage(user, 1, 1);
+            List<Series> seriesList = page.getContent();
+            if(CollectionUtils.isNotEmpty(seriesList)){
+                topSeries = seriesList.get(0);
+                List<Scene> sceneList = seriesSceneService.findSceneListBySeriesId(topSeries.getId());
+                topSeries.setSceneList(sceneList);
+            }
+            modelMap.put("topSeries", topSeries);
 
             return "pc/设计师详情页";
         } else {

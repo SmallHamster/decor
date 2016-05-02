@@ -1,480 +1,509 @@
-﻿<%--
-  Created by IntelliJ IDEA.
-  User: xiaoj
-  Date: 2015/10/14
-  Time: 15:39
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="common/taglibs.jsp" %>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="common/taglibs.jsp"%>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <%@ include file="common/meta.jsp" %>
-    <%@ include file="common/css.jsp" %>
-    <title><fmt:message key="info.shejishixiangqingye"/></title>
+    <%@ include file="common/meta.jsp"%>
+    <%@ include file="common/css.jsp"%>
+    <title><fmt:message key="info.shouye"/></title>
     <link href="static/pc/css/common.css" rel="stylesheet" type="text/css">
     <link href="static/pc/css/all.css" rel="stylesheet" type="text/css">
-    <link href="static/pc/css/homepage.css" rel="stylesheet" type="text/css">
-    <style>
-        .head img{border-radius:inherit;}
-        .nav {
-            background: none;
-        }
-    </style>
+    <link rel="stylesheet" href="static/pc-1.1/css/public.css" />
+    <link rel="stylesheet" href="static/pc-1.1/css/style.css" />
 </head>
-
+<style>
+    .content {
+        width: 627px;
+    }
+    .comment-list li {
+        border-top: 0px;
+        padding: 0 0;
+        border-bottom: 1px solid #cccccc;
+        min-height:inherit;
+    }
+    .design-list {
+        margin-left: 10px;
+    }
+    .design-list li {
+        margin: 0 29px 20px 0;}
+</style>
 <body>
+<!--top-->
 <div class="wrapper">
-    <%@ include file="common/header.jsp" %>
-    <div class="search-condition" style="display: none;">
+    <div class="page">
+        <!-- 头部开始 -->
+        <%@ include file="common/header.jsp" %>
+        <!-- 头部结束 -->
         <input type="hidden" id="cur-page" value="user"/>
         <input type="hidden" id="userId" value="${user.id}"/>
         <input type="hidden" id="sex" value="${user.sex}"/>
         <input type="hidden" id="isAttention" value=""/>
     </div>
-    <div class="container">
-        <!-- 个人主页信息 -->
-        <div class="personalInfo" style="background: url('${user.backgroundImage}');height: 100%; padding-bottom: 30px;">
-            <div class="infoCont">
-                <div class="info_top clearfix rel">
-                    <div class="head fl " style="margin-left: 0px;">
-                        <img src="${user.headImage}" style="width: 154px;height: 154px;" class="vm">
-                    </div>
-                    <div class="follow fl">
-                        <a onclick="ajaxAttentionPage()"><span class="num">${user.attention}</span><span><fmt:message key="info.guangzhu"/></span></a>
-                        <a onclick="ajaxFansPage()"><span class="num">${user.fans}</span><span><fmt:message key="info.fengshi"/></span></a>
-                        <a><span class="num">${user.seeNum}</span><span><fmt:message key="info.fangwen"/></span></a>
-                    </div>
-                    <div class="attention abs">
-                        <button class="btn blackBtn" onclick="attentionUser()"><i class="iicon"></i></button>
-                    </div>
-                </div>
-                <div class="info_cont">
-                    <div class="name clearfix">
-                        <span class="nickname">${user.nickname}</span>
-                        <span class="level">
-                            <c:if test="${user.seeNum < 20}"><i class="iicon star2"></i><i class="iicon star2"></i><i class="iicon star2"></i><i class="iicon star2"></i><i class="iicon star2"></i></c:if>
-                            <c:if test="${user.seeNum < 40 && user.seeNum >= 20}"><i class="iicon star"></i><i class="iicon star2"></i><i class="iicon star2"></i><i class="iicon star2"></i><i class="iicon star2"></i></c:if>
-                            <c:if test="${user.seeNum < 60 && user.seeNum >= 40}"><i class="iicon star"></i><i class="iicon star"></i><i class="iicon star2"></i><i class="iicon star2"></i><i class="iicon star2"></i></c:if>
-                            <c:if test="${user.seeNum < 80 && user.seeNum >= 60}"><i class="iicon star"></i><i class="iicon star"></i><i class="iicon star"></i><i class="iicon star2"></i><i class="iicon star2"></i></c:if>
-                            <c:if test="${user.seeNum < 100 && user.seeNum >= 80}"><i class="iicon star"></i><i class="iicon star"></i><i class="iicon star"></i><i class="iicon star"></i><i class="iicon star2"></i></c:if>
-                            <c:if test="${user.seeNum >= 100}"><i class="iicon star"></i><i class="iicon star"></i><i class="iicon star"></i><i class="iicon star"></i><i class="iicon star"></i></c:if>
-                            <span class="colorc fs12 pl5">${user.seeNum}<fmt:message key="info.redu"/></span>
-                        </span>
-                        <!--<span class="num fr">${user.mobile}</span>-->
-                    </div>
-                    <div class="info pt15">
-                        <a style="cursor: default;" title="${user.sexInfo}">
-                            <c:if test="${user.sex == 0}"><span class="iicon sex sex1"></span></c:if>
-                            <c:if test="${user.sex == 1}"><span class="iicon sex sex2"></span></c:if>
-                            <c:if test="${user.sex != 0 && user.sex != 1}"><img src="static/images/suo.png" height="20px;" width="20px;" /></c:if>
-                        </a>
-                        <span class="location">
-                            <i class="iicon"></i>
-                            <span>${user.city.province.name}</span>
-                            <span>${user.city.name}</span>
-                        </span>
-                        <c:if test="${(null != user.info && user.info != '') ||(null != user.website && user.website != '')}">
-                            <div class="brief pt15 fs12">
-                                <c:if test="${null != user.info && user.info != '' }">
-                                    <div class="item rel clearfix">
-                                        <label class="abs color3 fl"><fmt:message key="info.gerenjianjie"/>：</label>
-                                        <p class="color6 fl">${user.info}</p>
-                                    </div>
-                                </c:if>
-                                <c:if test="${null != user.website && user.website != '' }">
-                                    <div class="item rel pt10 clearfix">
-                                        <label class="abs color3 fl"><fmt:message key="info.gerenwangzhan"/>：</label>
+</div>
 
-                                        <p class="color6 fl">${user.website}</p>
-                                    </div>
-                                </c:if>
+<!--banner-->
+<div class="bannerWrap" style="background: url('${user.backgroundImage}');">
+    <div class="w1200">
+        <div class="personal_information">
+            <div class="personLeft">
+                <a href="#" class="avater"><img src="${user.headImage}" style="width: 153px;height: 153px;"/></a>
+                <a href="#" class="name">${user.nickname}</a>
+                <div class="address"><i class="ico"></i>&emsp;${user.city.province.name}&emsp;${user.city.name}</div>
+            </div>
+            <div class="personMiddle" style="width:700px;">
+                <div class="per-mtp cleafix">
+                    <span><i>${user.attention}</i><em><fmt:message key="info.guangzhu"/></em></span>
+                    <span><i>${user.fans}</i><em><fmt:message key="info.fengshi"/></em></span>
+                    <span><i>${user.seeNum}</i><em><fmt:message key="info.fangwen"/></em></span>
+                </div>
+                <p class="slh" title="${user.info}">${user.info}</p>
+                <h3 class="slh">刚刚更新了设计系列图：<strong>《我在海边的木头房子里面患过伤风》  木屋陈设，木头吊柜…</strong></h3>
+            </div>
+            <div class="personRight">
+                <a href="#" class="send"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>
+                <p>共计36个作品</p>
+                <a href="#" class="like"><img src="static/pc-1.1/images/ico_btn_7.png" />被1.2万人喜欢</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--主体部分-->
+<div class="containeWrap">
+    <div class="w1200">
+        <!--最新互动-->
+        <div class="interact">
+            <h2 class="title">最新互动</h2>
+            <div class="interact-con cleafix">
+                <div class="interact-img"><img src="static/pc-1.1/images/designer_pic1.jpg"/></div>
+                <div class="interact-right">
+                    <h2><a href="#">木屋陈设，木头吊柜</a></h2>
+                    <h3>来自设计系列图：《<a href="#">我在海边的木头房子里面患过伤风</a>》 </h3>
+                    <div class="chat-content cleafix">
+                        <div class="sc-new you">
+                            <img class="me-avatar" src="static/pc-1.1/images/designer_pic2.jpg" />
+                            <div class="content">
+                                <i class="jianjian"></i>
+                                <div class="bubble bubble-default">
+                                    <div class="plain">交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</div>
+                                </div>
+                                <div class="time">1天前</div>
                             </div>
-                        </c:if>
+                        </div>
+                        <div class="sc-new me">
+                            <img class="me-avatar" src="static/pc-1.1/images/designer_pic2.jpg" />
+                            <div class="content">
+                                <div class="time">1天前</div>
+                                <div class="bubble bubble-primary">
+                                    <div class="plain">感谢您的夸奖，您的户型比较独特，所以我使用了相对更少用的方式来进行设计</div>
+                                </div>
+                                <i class="jianjian"></i>
+                            </div>
+                        </div>
                     </div>
+                    <a href="#" class="hudong">更多设计师互动<font>&gt;</font></a>
                 </div>
             </div>
         </div>
-        <div class="content ">
-            <div class="nav">
-                <ul>
-                    <li onclick="ajaxGoodsPage()"><fmt:message key="info.shangpintu"/></li>
-                    <li onclick="ajaxScenePage()"><fmt:message key="info.changjintu"/></li>
-                    <li onclick="ajaxSeriesPage()"><fmt:message key="info.xilietu"/></li>
-                    <li onclick="ajaxCommentPage()"><fmt:message key="info.pingjia"/></li>
+        <!--设计系列图（36）-->
+        <div class="designer">
+            <h2 class="title">设计系列图（<span class="totalNum">0</span>）</h2>
+            <div class="design">
+                <div class="design-top cleafix">
+                    <div class="design-top-left">
+                        <h2 class="slh" title="${topSeries.info}">${topSeries.info}</h2>
+                        <p>${topSeries.createTime}创建</p>
+                        <div class="shoucang cleafix">
+                            <span><img src="static/pc-1.1/images/ico_btn_15.png" /></span>
+                            <p>${topSeries.collectionNum}人收藏<br/>${topSeries.praiseNum}人觉得这设计很棒</p>
+                        </div>
+                    </div>
+                    <div class="design-top-right">
+                        <div class="hd">
+                            <a class="next"></a>
+                            <a class="prev"></a>
+                            <span class="pageState"></span>
+                        </div>
+                        <div class="bd">
+                            <ul class="picList">
+                                <c:forEach var="scene" items="${topSeries.sceneList}">
+                                    <li><a href="pc/scene/detail?sceneId=${scene.id}"><img src="${scene.image}" width="842" height="410"/></a></li>
+                                </c:forEach>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ul id="seriesList" class="design-list cleafix">
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="static/pc-1.1/images/designer_pic4.jpg" />
+                        <div class="list-con cleafix">
+                            <a href="#" class="list-avater">
+                                <img src="static/pc-1.1/images/designer_pic1.png" />
+                                <p>ryel</p>
+                            </a>
+                            <div class="list-con-right">
+                                <a href="#" class="tit">美式卧榻——最美好夏日回忆</a>
+                                <p>源自系列图：夏日回忆是某个角落吹过的威风</p>
+                                <h3><a href="#">1562次查看</a><a href="#">285人喜欢的设计</a></h3>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
-            <div class="empty tc" style="min-height: 600px">
-                <p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwujilu"/></p>
+            <div id="showMore">
+                <a href="javascript:;" class="look-more">查看更多设计系列图</a>
+                <div class="pages cleafix">
+                </div>
+            </div>
+            <div id="pageDiv" style="margin-top: -100px;background: white">
+                <%@ include file="common/page.jsp" %>
+            </div>
+
+        </div>
+        <!--评论留言-->
+        <div class="comments">
+            <h2 class="title">评论留言</h2>
+            <div class="comment-list">
+                <ul>
+                    <li class="cleafix">
+                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
+                        <div class="comment-con">
+                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
+                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
+                        </div>
+                    </li>
+                    <li class="cleafix">
+                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
+                        <div class="comment-con">
+                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
+                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
+                        </div>
+                    </li>
+                    <li class="cleafix">
+                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
+                        <div class="comment-con">
+                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
+                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
+                        </div>
+                    </li>
+                    <li class="cleafix">
+                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
+                        <div class="comment-con">
+                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
+                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
+                        </div>
+                    </li>
+                    <li class="cleafix">
+                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
+                        <div class="comment-con">
+                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
+                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
+                        </div>
+                    </li>
+                    <li class="cleafix">
+                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
+                        <div class="comment-con">
+                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
+                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
+                        </div>
+                    </li>
+                    <li class="cleafix">
+                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
+                        <div class="comment-con">
+                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
+                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
+                        </div>
+                    </li>
+                    <li class="cleafix">
+                        <a href="#" class="comment-name"><img src="static/pc-1.1/images/designer_pic1.png"/><p>前进</p></a>
+                        <div class="comment-con">
+                            <p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题</p>
+                            <h4><span>木屋陈设，木头吊柜</span><b></b><span>来自设计系列图：《我在海边的木头房子里面患过伤风》</span><b></b><span>1天前</span></h4>
+                        </div>
+                    </li>
+                </ul>
+                <div id="showMore1">
+                    <a href="javascript:;" class="look-more">查看更多留言</a>
+                    <div class="pages cleafix">
+                        <span>总计<em>50</em>条记录</span>
+                        <div class="page"><a href="#">上一页</a><a href="#" class="cur">1</a><a href="#">2</a><a href="#">下一页</a><strong>共9页，到第</strong><input /><strong>页</strong></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <%@ include file="common/page.jsp" %>
     </div>
-    <!-- footer -->
-    <%@ include file="common/footer.jsp" %>
 </div>
-<!-- 分页 -->
-
-<%@ include file="common/other.jsp" %>
+<!--bottom-->
+<%@ include file="common/footer.jsp" %>
+<!--返回顶部-->
+<div class="floatBack"><a href="javascript:;" class="gotop"><i class="ico"></i></a></div>
 <script type="text/javascript" src="static/pc/js/base.js"></script>
+<script type="text/javascript" src="static/pc-1.1/js/jquery-1.8.0.min.js" ></script>
+<script type="text/javascript" src="static/pc-1.1/js/jquery.SuperSlide.2.1.1.js" ></script>
+<script type="text/javascript" src="static/pc-1.1/js/index.js" ></script>
 <script type="text/javascript">
-    var register;
     var thisPage = rpage; // 分页对象 rpage存在于page.jsp
+    $(function(){
+        //设计系列图
+        jQuery(".design-top-right").slide({
+            titCell: ".hd ul",
+            mainCell: ".bd ul",
+            autoPage: true,
+            effect: "left",
+            autoPlay: true,
+            vis: 1,
+            trigger: "click"
+        });
 
-    $(function () {
-        window.onload = function() {
-            $(".nav ul li").eq(0).trigger("click");
-
-        }
-        ajaxIsAttention(); // 加载类别
-        // 评论回复按钮点击事件
+        ajaxSeriesPage();
 
     });
-    //加载关注状态
-    function ajaxIsAttention() {
-        var sessionUserId = $("#sessionUserId").val();
-        var userId = $(".search-condition").find("#userId").val();
-        var userSexTo = $(".search-condition").find("#sex").val();
-        if (userSexTo=='0'){
-            $(".info").find(".sex").addClass("sex1");
-        }else if(userSexTo=='2'){
-            $(".info").find(".sex").removeClass("sex");
-        }
-        if (sessionUserId == "") {
-            sessionUserId = 0
-        }
-        var data = {
-            userId: userId,
-            sessionUserId: sessionUserId
-        };
-        $bluemobi.ajax("pc/user/ajaxIsAttention", data, function (result) {
-            if (result.status == "0") {
-                var collect;
-                if (sessionUserId != 0 && result.data == true) {
-                    collect = "<fmt:message key="info.quxiaoTA"/>"
-                    $(".search-condition").find("#isAttention").val("<fmt:message key="info.guangzhu"/>");
-                } else if (sessionUserId != 0 && result.data == false) {
-                    collect = "<fmt:message key="info.guangzhuTA"/>"
-                    $(".search-condition").find("#isAttention").val("<fmt:message key="info.meiguangzhu"/>");
-                } else if (sessionUserId == 0) {
-                    collect = "<fmt:message key="info.weiguangzhu"/>"
-                    // loginPopup.showDlg();
-                    // 未登录时，隐藏评论div
 
-                }
-            }
-            $(".abs button ").html("<i class='iicon'></i>" + collect);
-
-        });
-    }
-
-
-    //关注操作
-    function attentionUser() {
-        var sessionUserId = $("#sessionUserId").val();
-        var userId = $(".search-condition").find("#userId").val();
-        var addOrDel = false;
-        var isAttention = $(".search-condition").find("#isAttention").val();
-        // 用户未登录，则弹出未登录提示框
-        if (sessionUserId == "") {
-            loginPopup.showDlg();
-            return false;
-        }
-        //判断资讯收藏状态
-        if (isAttention == "<fmt:message key="info.guangzhu"/>") {
-            $bluemobi.ajax("pc/user/updateIsAttention", {
-                addOrDel: addOrDel,
-                userId: userId,
-                sessionUserId: sessionUserId
-            }, function (result) {
-                if (result.status == "0") {
-
-                    $(".abs button").html("<i class='iicon'></i>" + "<fmt:message key="info.guangzhuTA"/>");
-                    $(".search-condition").find("#isAttention").val("<fmt:message key="info.meiguangzhu"/>");
-                    $bluemobi.notify(result.msg, "success");
-                    $(".follow span").eq(2).text(parseInt($(".follow span").eq(2).text()) - 1);
-                    ajaxUpdateFansNum(userId, false);
-                }
-            });
-        }
-        else if (isAttention == "<fmt:message key="info.meiguangzhu"/>") {
-            $bluemobi.ajax("pc/user/updateIsAttention", {
-                addOrDel: true,
-                userId: userId,
-                sessionUserId: sessionUserId
-            }, function (result) {
-                if (result.status == "0") {
-                    $(".abs button").html("<i class='iicon'></i>" + "<fmt:message key="info.quxiaoTA"/>");
-                    $(".search-condition").find("#isAttention").val("<fmt:message key="info.guangzhu"/>");
-                    $bluemobi.notify(result.msg, "success");
-                    $(".follow span").eq(2).text(parseInt($(".follow span").eq(2).text()) + 1);
-                    ajaxUpdateFansNum(userId, true);
-                }
-            });
-        }
-
-    }
-    function ajaxUpdateFansNum(userId, addOrDel) {
-        var data = {
-            userId: userId,
-            addOrDel: addOrDel
-        };
-        $bluemobi.ajax("pc/user/ajaxUpdateFansNum", data, function (result) {
-        });
-    }
-
-    // 查询当前用户所关注的user数量
-    function ajaxAttentionPage() {
-        var userId = $(".search-condition").find("#userId").val();
-        var data = {
-            userId: userId,
-            pageNum: thisPage.pageNum,
-            pageSize: 20,
-            totalPage: thisPage.totalPage
-        };
-        $bluemobi.ajax("pc/user/attentionPage", data, function (result) {
-            if (result.status == "0") {
-                var html = '<div class="fansList"><ul>';
-                for (var i = 0; i < result.data.list.length; i++) {
-                    var user = result.data.list[i].attentionUser;
-                    html += '<li class="clearfix"><img src="' + user.headImage + '" class="fl" style="width: 62px;height: 62px;"><div class="ml10 fl">\
-              <p class="fs16 colorBlack pb5">' + user.nickname + '</p><p class="pb5"><span class="location"><i class="iicon"></i><span>' + user.city.province.name + '</span><span>' + user.city.name + '</span></span></p>\
-              <p class="pt5 color6 fs12"><fmt:message key="info.guangzhu"/><span class="pl5 colorOrange">' + user.attention + '</span><span class="pl5 pr5">|</span><fmt:message key="info.fengshi"/><span class="pl5 pr5 colorOrange">' + user.collect + '</span></span>\
-              </div></li>';
-                }
-                html += '</ul></div>'
-                if(result.data.list.length==0){
-                    html += '<div class="empty tc" style="min-height: 600px"><p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwugaungzhujilu"/></p></div>'
-                }
-                if ($(".content").find(".empty").html() != null) {
-                    $(".content").find(".empty").html(html).removeClass("empty tc").addClass("list", "attentionList");
-                } else if ($(".content").find(".list").html() != null) {
-                    $(".content").find(".list").html(html);
-                }
-                thisPage.init(result.data.page, " ajaxAttentionPage");
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
-                $(".page_rgt_totalPage").html(thisPage.totalPage);
-            }
-        });
-    }
-    // 查询当前用户FANS的数量并分页展示
-    function ajaxFansPage() {
-        var userId = $(".search-condition").find("#userId").val();
-        var data = {
-            userId: userId,
-            pageNum: thisPage.pageNum,
-            pageSize: 20,
-            totalPage: thisPage.totalPage
-        };
-        $bluemobi.ajax("pc/user/fansPage", data, function (result) {
-            if (result.status == "0") {
-                var html = '<div class="fansList"><ul>';
-                for (var i = 0; i < result.data.list.length; i++) {
-                    var user = result.data.list[i].fansUser;
-                    html += '<li class="clearfix"><img src="' + user.headImage + '" class="fl" style="width: 62px;height: 62px;"><div class="ml10 fl">\
-              <p class="fs16 colorBlack pb5">' + user.nickname + '</p><p class="pb5"><span class="location"><i class="iicon"></i><span>' + user.city.province.name + '</span><span>' + user.city.name + '</span></span></p>\
-              <p class="pt5 color6 fs12"><fmt:message key="info.guangzhu"/><span class="pl5 colorOrange">' + user.attention + '</span><span class="pl5 pr5">|</span><fmt:message key="info.fengshi"/><span class="pl5 pr5 colorOrange">' + user.collect + '</span></span>\
-              </div></li>';
-                }
-                html += '</ul></div>'
-                if(result.data.list.length==0){
-                    html += '<div class="empty tc" style="min-height: 600px"><p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwuFANSjilu"/></p></div>'
-                }
-                if ($(".content").find(".empty").html() != null) {
-                    $(".content").find(".empty").html(html).removeClass("empty tc").addClass("list", "fansList");
-                } else if ($(".content").find(".list").html() != null) {
-                    $(".content").find(".list").html(html);
-                }
-                thisPage.init(result.data.page, " ajaxAttentionPage");
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
-                $(".page_rgt_totalPage").html(thisPage.totalPage);
-            }
-        });
-    }
-    //查询指定用户的所有商品分页
-    function ajaxGoodsPage() {
-        $(".nav li").removeClass("current")
-        $(".nav li").eq(0).addClass("current")
-        var userId = $(".search-condition").find("#userId").val();
-        var data = {
-            userId: userId,
-            pageNum: thisPage.pageNum,
-            pageSize: 18,
-            totalPage: thisPage.totalPage
-        };
-        $bluemobi.ajax("pc/user/goodsPage", data, function (result) {
-            if (result.status == "0") {
-                var html = '<div class="commodityList"><ul>';
-                for (var i = 0; i < result.data.list.length; i++) {
-                    var goods = result.data.list[i];
-                    html += '<li><a href="pc/goods/detail?goodsId=' + goods.id + '"><img src="' + goods.cover + '"><p class="colorBlack pl10">' + goods.name + '</p></a></li>';
-                }
-                html += '</ul></div>'
-                if(result.data.list.length==0){
-                    html+='<div class="empty tc" style="min-height: 600px"><p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwushangpingtujilu"/></p></div>'
-                }
-                if ($(".content").find(".empty").html() != null) {
-                    $(".content").find(".empty").html(html).removeClass("empty tc").addClass("list", "attentionList");
-                } else if ($(".content").find(".list").html() != null) {
-                    $(".content").find(".list").html(html);
-                }
-                thisPage.init(result.data.page, " ajaxGoodsPage");
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
-                $(".page_rgt_totalPage").html(thisPage.totalPage);
-            }
-        });
-    }
-
-    //查询指定用户的所有场景分页
-    function ajaxScenePage() {
-        $(".nav li").removeClass("current")
-        $(".nav li").eq(1).addClass("current")
-        var userId = $(".search-condition").find("#userId").val();
-        var data = {
-            userId: userId,
-            pageNum: thisPage.pageNum,
-            pageSize: 18,
-            totalPage: thisPage.totalPage
-        };
-        $bluemobi.ajax("pc/user/scenePage", data, function (result) {
-            if (result.status == "0") {
-                var html = '<div class="commodityList materialList"><ul>';
-                for (var i = 0; i < result.data.list.length; i++) {
-                    var scene = result.data.list[i];
-                    html += ' <li><a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="' + scene.image + '"></a></li>';
-                }
-                html += '</ul></div>'
-                if(result.data.list.length==0){
-                    html+='<div class="empty tc" style="min-height: 600px"><p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwuchangjintujilu"/></p></div>'
-                }
-                if ($(".content").find(".empty").html() != null) {
-                    $(".content").find(".empty").html(html).removeClass("empty tc").addClass("list", "attentionList");
-                } else if ($(".content").find(".list").html() != null) {
-                    $(".content").find(".list").html(html);
-                }
-                thisPage.init(result.data.page, " ajaxScenePage");
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
-                $(".page_rgt_totalPage").html(thisPage.totalPage);
-            }
-        });
-    }
-
+    var ajaxTimes = 0;
     //查询指定用户的所有系列图分页
     function ajaxSeriesPage() {
-        $(".nav li").removeClass("current")
-        $(".nav li").eq(2).addClass("current")
-        var userId = $(".search-condition").find("#userId").val();
+        ajaxTimes+=1;
+        var userId = $("#userId").val();
         var data = {
             userId: userId,
             pageNum: thisPage.pageNum,
-            pageSize: 9,
+            pageSize: 15,
             totalPage: thisPage.totalPage
         };
         $bluemobi.ajax("pc/user/seriesPage", data, function (result) {
             if (result.status == "0") {
-                var html = '<div class="commodityList seriesList"><ul>';
+                var html = '';
                 for (var i = 0; i < result.data.list.length; i++) {
                     var series = result.data.list[i];
-                    if (series.info.length > 14) {
-                        series.info = series.info.substring(0, 14) + "..."
-                    }
-                    html += '<li class="clearfix"><a href="pc/series/detail?seriesId=' + series.id + '"><img src="' + series.cover + '">\
-                    <p class="colorBlack pl10 fs16" style="margin-top: 8px;">\
-                    <span class="fl">"' + series.info + '"</span><span class="fr pr20 color6">' + series.sceneNum + '<fmt:message key="info.zhangchangjintu"/></span></p></a></li>';
+                    html+='<li>\
+                            <a href="pc/series/detail?seriesId=' + series.id + '"><img src="' + series.cover + '" width="300" height="200"/></a>\
+                            <div class="list-con cleafix">\
+                            <a href="#" class="list-avater">\
+                            <img src="static/pc-1.1/images/designer_pic1.png" />\
+                            <p>ryel</p>\
+                            </a>\
+                            <div class="list-con-right">\
+                            <a href="pc/series/detail?seriesId=' + series.id + '" class="tit slh">'+series.info+'</a>\
+                            <p class="slh">'+series.info+'</p>\
+                            <h3><a>'+series.seeNum+'次查看</a><a>'+series.praiseNum+'人喜欢的设计</a></h3>\
+                            </div>\
+                            </div>\
+                            </li>';
                 }
-                html += '</ul></div>'
-                if(result.data.list.length==0){
-                    html += '<div class="empty tc" style="min-height: 600px"><p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwuxilietujilu"/></p></div>'
-                }
-                if ($(".content").find(".empty").html() != null) {
-                    $(".content").find(".empty").html(html).removeClass("empty tc").addClass("list", "seriesList");
-                } else if ($(".content").find(".list").html() != null) {
-                    $(".content").find(".list").html(html);
-                }
-                thisPage.init(result.data.page, " ajaxSeriesPage");
+                $("#seriesList").html(html);
+                thisPage.init(result.data.page, "ajaxSeriesPage");
                 $(".page_rgt_pageNum").html(thisPage.pageNum);
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
+
+                if(ajaxTimes == 1){
+                    var $category = $('.design-list li:gt(5)');
+                    $category.hide();
+                    $("#pageDiv").hide();
+                    $("#showMore").click(function(){
+                        $category.show();
+                        $(this).find('.look-more').addClass('hide');
+                        $(this).find('.pages').addClass('show');
+                        $("#pageDiv").show();
+                    });
+                }
             }
         });
     }
-    //查询指定用户的所有评论分页
-    function ajaxCommentPage() {
-        $(".nav li").removeClass("current")
-        $(".nav li").eq(3).addClass("current")
-        var userId = $(".search-condition").find("#userId").val();
-        var data = {
-            userId: userId,
-            pageNum: thisPage.pageNum,
-            pageSize: 4,
-            totalPage: thisPage.totalPage
-        };
-        $bluemobi.ajax("pc/user/commentPage", data, function (result) {
-            if (result.status == "0") {
-                var html = '<div class="comment-list mb20"><ul>';
-                debugger
-                for (var i = 0; i < result.data.list.length; i++) {
-                    var commentUpdateStatus = result.data.list[i];
-                    html += '<li class="rel">\
-                    <div class="imgwarp abs">\
-                    <img src="' + commentUpdateStatus.objectCover + '">\
-                    </div><div style="margin-left: 245px;">';
-                    for (var j = 0; j < commentUpdateStatus.commentList.length; j++) {
-                        var comment = commentUpdateStatus.commentList[j];
-                        if (j == 0) {
-                            html += '<div class="rost border_bottom_dashed">'
-                            }else{
-                            html += '<div class="rost pt20 pb20">'
-                        }
-                            html+='<img src="' + comment.user.headImage + '"/>\
-                                <div class="prost">'
-                                    if(comment.replyList.length==0){
-                                    html+='<div class="Rost2">'
-                                    }else{
-                                        html+='<div class="Rost2 pb20 border_bottom_dashed">'
-                                    }
-                                html+='<p class="first fs16">\
-                                    <span class="colorc fr fs12">' + comment.createTime + '</span>' + comment.user.nickname + '\
-                                    </p>\
-                                    <p class="txt">\
-                                    ' + comment.content + '\
-                                    </p>\
-                                    <p class="inter">\
-                                        <span class="i-praise mr10">\
-                                            <i class="iicon"></i>' + comment.praiseNum + '' +
-                                        '</span>'
-                                html+='</p></div>'
-                        //回复
-                        if(comment.replyList.length!=0){
-                            html += '<div class="rost"><img src="' + comment.replyList[0].headImage + '"/>\
-                            <div class="Rost"><p class="first fs16">\
-                            <span class="fr fs12 colorc">' + comment.replyList[0].createTime + '</span>' + comment.replyList[0].nickname + '</p>\
-                            <p class="txt">' + comment.replyList[0].content + '</p></div>';
-                        }
-                        html+='</div></div>'
-
-                    }
-                    html += '</div></li>'
-                }
-                html += '</ul></div>'
-                if(result.data.list.length==0){
-                    html += '<div class="empty tc" style="min-height: 600px"><p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwupinglunjilu"/></p></div>'
-                }
-                if ($(".content").find(".empty").html() != null) {
-                    $(".content").find(".empty").html(html).removeClass("empty tc").addClass("list", "seriesList");
-                } else if ($(".content").find(".list").html() != null) {
-                    $(".content").find(".list").html(html);
-                }
-                $(".comment-list").find(".i-share").unbind("click").click(function(){
-                    $(this).parents(".prost").find(".replydiv").show();
-                });
-                thisPage.init(result.data.page, " ajaxCommentPage");
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
-                $(".page_rgt_totalPage").html(thisPage.totalPage);
-            }
-        });
-    }
-
 </script>
 </body>
 </html>
