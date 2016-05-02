@@ -32,4 +32,7 @@ public interface UserDao extends JpaRepository<User, Integer>,JpaSpecificationEx
 
     @Query("select a from User a where a.nickname =?1 and a.password = ?2")
     public List<User> getByNicknameAndPassword(String nickname,String password);
+
+    @Query("select a from User a")
+    public List<User> allUser();
 }

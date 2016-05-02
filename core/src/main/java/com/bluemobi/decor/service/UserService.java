@@ -105,4 +105,6 @@ public interface UserService extends ICommonService<User> {
     public void fansNumAddOne(Integer userId);
     // 粉丝数-1
     public void fansNumCutOne(Integer userId);
+
+    public List<User> allUser();
 }

@@ -1,16 +1,23 @@
 package com.bluemobi.decor.portal.controller.mobile;
 
+import com.bluemobi.decor.entity.User;
 import com.bluemobi.decor.portal.controller.CommonController;
+import com.bluemobi.decor.service.UserService;
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 @Controller
 @RequestMapping(value = "/mobile/forward")
 public class ForwardController4Mobile extends CommonController {
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/to")
     public String to(ModelMap modelMap,
@@ -31,6 +38,8 @@ public class ForwardController4Mobile extends CommonController {
             }else if("message".equals(type)){
                 return "mobile/message_list";
             }else if("index".equals(type)){
+                List<User> userList = userService.allUser();
+                modelMap.put("designerNum", CollectionUtils.isEmpty(userList)?0:userList.size());
                 return "mobile/index";
             }
         } catch (Exception e) {

@@ -17,6 +17,12 @@
 		<link rel="stylesheet" href="static/mobile/css/global.css">
 		<link rel="stylesheet" href="static/mobile/css/index.css">
 	</head>
+	<style>
+		.topBox img {
+			width: 71px;
+			height: 71px;
+		}
+	</style>
 	<body>
 	<%@ include file="common/header.jsp" %>
 		<div class="main">
@@ -27,7 +33,7 @@
 						<img src="static/mobile/images/main_logo.png" alt="">
 					</div>
 					<h3>就现在，改变设计方式</h3>
-					<p>4,148名室内设计师</p>
+					<p>${designerNum}名室内设计师</p>
 					<p>选择Decor平台，表达设计新主张</p>
 					<div class="icons">
 						<div class="icon icon1">
