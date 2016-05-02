@@ -61,33 +61,10 @@
 				<p>一键入驻，海量资源</p>
 			</div>
 			<ul class="designerList">
-				<li>
-					<div class="imgBox">
-						<img src="static/mobile/images/img1.jpg" alt="">
-						<div class="headLogo">
-							<a href="javascript:;"><img src="static/mobile/images/head_logo.png" alt=""></a>
-						</div>
-					</div>
-					<div class="name"><a href="javascript:;">VALERIE CRESWICK</a></div>
-					<div class="adress"><span>武汉</span><span>武汉</span></div>
-					<div class="collect"><a href="javascript:;"><span>12万</span></a></div>
-					<div class="works">112万</div>
-				</li>
-				<li>
-					<div class="imgBox">
-						<img src="static/mobile/images/img1.jpg" alt="">
-						<div class="headLogo">
-							<a href="javascript:;"><img src="static/mobile/images/head_logo.png" alt=""></a>
-						</div>
-					</div>
-					<div class="name"><a href="javascript:;">VALERIE CRESWICK</a></div>
-					<div class="adress"><span>武汉</span><span>武汉</span></div>
-					<div class="collect"><a href="javascript:;"><span>12万</span></a></div>
-					<div class="works">112万</div>
-				</li>
+
 			</ul>
 
-			<div class="moreTitle"><a href="javascript:;">更多设计师</a></div>
+			<div class="moreTitle"><a href="mobile/forward/to?type=designer">更多设计师</a></div>
 			<div class="titleBox">
 				<h3>这里，更好的设计</h3>
 				<p>正在发生</p>
@@ -121,50 +98,78 @@
 				<p>只在DECOR</p>
 			</div>
 			<ul class="infoList">
-				<li class="clearfix">
-					<div class="imgBox">
-						<img src="static/mobile/images/img3.jpg" alt="">
-					</div>
-					<div class="content">
-						<div class="title"><a href="javascript:;">哈尔滨大剧院获评世界最佳建筑</a></div>
-						<div class="time">2016-04-05</div>
-						<div class="btn"><a href="javascript:;">设计交流</a></div>
-					</div>
-				</li>
-				<li class="clearfix">
-					<div class="imgBox">
-						<img src="static/mobile/images/img3.jpg" alt="">
-					</div>
-					<div class="content">
-						<div class="title"><a href="javascript:;">哈尔滨大剧院获评世界最佳建筑</a></div>
-						<div class="time">2016-04-05</div>
-						<div class="btn"><a href="javascript:;">设计交流</a></div>
-					</div>
-				</li>
-				<li class="clearfix">
-					<div class="imgBox">
-						<img src="static/mobile/images/img3.jpg" alt="">
-					</div>
-					<div class="content">
-						<div class="title"><a href="javascript:;">哈尔滨大剧院获评世界最佳建筑</a></div>
-						<div class="time">2016-04-05</div>
-						<div class="btn"><a href="javascript:;">设计交流</a></div>
-					</div>
-				</li>
-				<li class="clearfix">
-					<div class="imgBox">
-						<img src="static/mobile/images/img3.jpg" alt="">
-					</div>
-					<div class="content">
-						<div class="title"><a href="javascript:;">哈尔滨大剧院获评世界最佳建筑</a></div>
-						<div class="time">2016-04-05</div>
-						<div class="btn"><a href="javascript:;">设计交流</a></div>
-					</div>
-				</li>
+
 			</ul>
 			<div class="moreTitle"><a href="javascript:;">更多设计作品</a></div>
 		</div>
 		<script src="static/mobile/js/jquery.min.js"></script>
 		<script src="static/mobile/js/global.js"></script>
+	<script>
+		$(function(){
+			ajaxDesigner(); // 查询两个设计师显示在首页
+			ajaxRecommendMessage(); // 加载推荐的咨询
+		});
+
+		function ajaxDesigner(){
+			$.ajax({
+				url:'mobile/homepage/ajaxDesigner',
+				method:'get',
+				dataType:'json',
+				data: {},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						var html = '';
+						for(var i=0;i<result.data.length;i++){
+							var designer = result.data[i];
+							html+='<li>\
+									<div class="imgBox">\
+									<a href="mobile/designer/detail?designerId='+designer.id+'"><img src="'+designer.backgroundImage+'" alt=""></a>\
+									<div class="headLogo">\
+									<a href="javascript:;"><img src="'+designer.headImage+'" alt=""></a>\
+									</div>\
+									</div>\
+									<div class="name"><a href="mobile/designer/detail?designerId='+designer.id+'">'+designer.nickname+'</a></div>\
+									<div class="adress"><span>'+designer.city.province.name+'</span><span>'+designer.city.name+'</span></div>\
+									<div class="collect"><a href="javascript:;"><span>'+designer.fans+'</span></a></div>\
+									<div class="works">'+designer.opus+'</div>\
+									</li>';
+						}
+						$(".designerList").html(html);
+					}
+				}
+			});
+		}
+
+		// 查询推荐的咨询
+		function ajaxRecommendMessage(){
+			$.ajax({
+				url:'mobile/homepage/ajaxRecommendMessage',
+				method:'get',
+				dataType:'json',
+				data: {},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						var html = '';
+						for(var i=0;i<result.data.length;i++){
+							var message = result.data[i];
+							html+='<li class="clearfix">\
+								<div class="imgBox">\
+								<a href="mobile/message/detail?messageId='+message.id+'"><img src="'+message.image+'" alt=""></a>\
+								</div>\
+								<div class="content">\
+								<div class="title"><a href="mobile/message/detail?messageId='+message.id+'">'+message.title+'</a></div>\
+								<div class="time">'+message.createTime+'</div>\
+								<div class="btn"><a href="javascript:;">设计交流</a></div>\
+								</div>\
+								</li>';
+						}
+						$(".infoList").html(html);
+					}
+				}
+			});
+		}
+	</script>
 	</body>
 </html>
