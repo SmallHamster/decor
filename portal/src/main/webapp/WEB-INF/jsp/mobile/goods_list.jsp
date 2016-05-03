@@ -20,7 +20,7 @@
 	<body>
 	<%@ include file="common/header.jsp" %>
 			<div class="filterBox" style="display:none;">
-				在设计作品中，找到148个结果
+				在商品中，找到148个结果
 				<a href="javascript:;" class="filterBtn">筛选</a>
 				<div class="detailBox" style="display: none;">
 					<div class="topWhite"></div>
@@ -70,7 +70,7 @@
 		</div>
 		<div class="main">
 			<div class="filterBox" style="display: block;">
-				在设计作品中，找到<span id="totalNum">0</span>个结果
+				在商品中，找到<span id="totalNum">0</span>个结果
 				<a href="javascript:;" class="filterBtn">筛选</a>
 			</div>
 			<div class="goodsBox bor0">

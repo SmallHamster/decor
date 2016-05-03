@@ -21,7 +21,7 @@
 	<%@ include file="common/header.jsp" %>
 		<div class="main">
 			<div class="filterBox">
-				在设计作品中，找到<span id="totalNum">0</span>个结果
+				在设计师中，找到<span id="totalNum">0</span>个结果
 				<a href="javascript:;" class="filterBtn">筛选</a>
 				<div class="detailBox">
 					<div class="topWhite"></div>
@@ -94,7 +94,6 @@
 				async: true,
 				success: function (result) {
 					if (result.status == "0") {
-						debugger
 						page.next();
 						$("#totalNum").html(result.data.page.totalNum);
 						var html = '';
