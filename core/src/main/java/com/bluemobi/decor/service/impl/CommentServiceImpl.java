@@ -3,8 +3,7 @@ package com.bluemobi.decor.service.impl;
 import com.bluemobi.decor.core.Constant;
 import com.bluemobi.decor.dao.CommentDao;
 import com.bluemobi.decor.entity.*;
-import com.bluemobi.decor.service.CommentService;
-import com.bluemobi.decor.service.CommentUpdateStatusService;
+import com.bluemobi.decor.service.*;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -34,6 +33,17 @@ public class CommentServiceImpl implements CommentService {
 
     @Autowired
     private CommentUpdateStatusService commentUpdateStatusService;
+
+    @Autowired
+    private SeriesService seriesService;
+    @Autowired
+    private SceneService sceneService;
+    @Autowired
+    private GoodsService goodsService;
+    @Autowired
+    private SpaceTagService spaceTagService;
+    @Autowired
+    private SeriesTagService seriesTagService;
 
     @Override
     public List<Comment> findAll() {
@@ -119,6 +129,16 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    public List<Comment> findListByObjectIdAndType(Integer objectId, String objectType) {
+        return commentDao.findListByObjectIdAndType(objectId,objectType);
+    }
+
+    @Override
+    public List<Comment> listReply(Integer pid) {
+        return commentDao.listReply(pid);
+    }
+
+    @Override
     public Page<Comment> iFindCommentPage(final Integer userId, Integer pageNum, Integer pageSize) {
         PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id");
 
@@ -150,6 +170,59 @@ public class CommentServiceImpl implements CommentService {
 
         }, pageRequest);
 
+        return page;
+    }
+
+    @Override
+    public Page<Comment> findCommentPage(final Integer userId, Integer pageNum, Integer pageSize) {
+        PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id");
+        Page<Comment> page = commentDao.findAll(new Specification<Comment>() {
+            @Override
+            public Predicate toPredicate(Root<Comment> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> predicateList = new ArrayList<Predicate>();
+                Predicate result = null;
+                // 过滤掉回复
+                Predicate predicates = cb.equal(root.get("pid").as(Integer.class), 0);
+                predicateList.add(predicates);
+                if (null != userId) {
+                    Predicate predicate = cb.equal(root.get("user").get("id").as(Integer.class), userId);
+                    predicateList.add(predicate);
+                }
+                if (predicateList.size() > 0) {
+                    result = cb.and(predicateList.toArray(new Predicate[]{}));
+                }
+                if (result != null) {
+                    query.where(result);
+                }
+                return query.getRestriction();
+            }
+
+        }, pageRequest);
+        List<Comment> commentList=page.getContent();
+        for (Comment comment:commentList){
+            if (comment.getObjectType().equals("series")){
+                Series series = seriesService.getById(comment.getObjectId());
+                comment.setObjectCover(series.getCover());
+                comment.setObjectName(series.getInfo());
+                if(series.getSeriesTag() != null){
+                    comment.setTags(series.getSeriesTag().getName());
+                }else {
+                    comment.setTags("");
+                }
+            }else if (comment.getObjectType().equals("scene")){
+                Scene scene=sceneService.getById(comment.getObjectId());
+                comment.setObjectCover(scene.getImage());
+                comment.setObjectName(scene.getName());
+                String tags = spaceTagService.getTagStr(scene.getSpaceTagIds());
+                comment.setTags(tags);
+            }else if (comment.getObjectType().equals("goods")){
+                Goods goods=goodsService.getById(comment.getObjectId());
+                comment.setObjectCover(goods.getCover());
+                comment.setObjectName(goods.getName());
+                String tags = spaceTagService.getTagStr(goods.getSpaceTagIds());
+                comment.setTags(tags);
+            }
+        }
         return page;
     }
 

@@ -161,6 +161,7 @@ public class StyleTagServiceImpl implements StyleTagService {
         if(StringUtils.isEmpty(styleTagIds)){
             return "";
         }
+        styleTagIds = styleTagIds.replace("@","");
         String str = "";
         String[] arr  = styleTagIds.split(",");
         for (int i = 0; i < arr.length; i++) {

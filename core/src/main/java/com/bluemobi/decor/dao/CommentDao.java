@@ -37,4 +37,7 @@ public interface CommentDao extends JpaRepository<Comment, Integer>, JpaSpecific
     @Modifying
     @Query("delete from Comment a where a.pid=?1")
     public void deletebyPid(Integer pId);
+
+    @Query("select a from Comment a where a.objectId = ?1 and a.objectType = ?2")
+    public List<Comment> findListByObjectIdAndType(Integer objectId, String objectType);
 }

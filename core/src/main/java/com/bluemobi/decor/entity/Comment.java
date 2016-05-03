@@ -81,8 +81,33 @@ public class Comment implements Serializable {
     private String objectName;
 
     @Transient
+    private String objectCover;
+
+    @Transient
+    private String tags;
+
+    @Transient
     // 该评论的回复列表
     private List<Reply> replyList;
+
+    @Transient
+    private Reply newestReply;
+
+    public Reply getNewestReply() {
+        return newestReply;
+    }
+
+    public void setNewestReply(Reply newestReply) {
+        this.newestReply = newestReply;
+    }
+
+    public String getObjectCover() {
+        return objectCover;
+    }
+
+    public void setObjectCover(String objectCover) {
+        this.objectCover = objectCover;
+    }
 
     public Integer getId() {
         return id;
@@ -218,5 +243,13 @@ public class Comment implements Serializable {
 
     public void setIsPraise(String isPraise) {
         this.isPraise = isPraise;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 }

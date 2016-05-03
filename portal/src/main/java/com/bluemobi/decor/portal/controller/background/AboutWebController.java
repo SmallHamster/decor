@@ -33,6 +33,7 @@ public class AboutWebController extends CommonController {
 
     @RequestMapping(value = "/index")
     public String index() {
+        
         return "关于网站";
     }
 

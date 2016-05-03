@@ -9,6 +9,7 @@ import com.bluemobi.decor.portal.util.SessionUtils;
 import com.bluemobi.decor.portal.util.WebUtil;
 import com.bluemobi.decor.service.*;
 import com.bluemobi.decor.utils.JsonUtil;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -33,6 +34,9 @@ public class SceneController4Pc extends CommonController {
 
     @Autowired
     private SceneService sceneService;
+
+    @Autowired
+    private SeriesService seriesService;
 
     @Autowired
     private SceneGoodsService sceneGoodsService;
@@ -134,6 +138,14 @@ public class SceneController4Pc extends CommonController {
         }
         scene.setUser(user);
         modelMap.put("scene",scene);
+
+        List<Series> seriesList = seriesService.iFindSeriesByUser(user);
+        if(CollectionUtils.isNotEmpty(seriesList)){
+            modelMap.put("userSeriesNum",seriesList.size());
+        }else {
+            modelMap.put("userSeriesNum",0);
+        }
+
         return "pc/场景图详情";
     }
 

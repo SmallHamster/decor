@@ -811,5 +811,10 @@ public class UserServiceImpl implements UserService {
         update(user);
     }
 
+    @Override
+    public List<User> allUser() {
+        return userDao.allUser();
+    }
+
 
 }

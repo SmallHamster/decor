@@ -1,0 +1,160 @@
+@charset "utf-8";
+.main{
+    padding-top: 1.17rem;
+    min-height: 100%;
+    background: url(../images/main_bg.jpg) 0 0 no-repeat;
+    background-size: cover;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+.main .logo{
+	width: 3.09rem;
+    height: 0.95rem;
+    margin: 0.8rem auto;
+    margin-bottom: 0;
+    font-size: 0;
+}
+.main .logo img{
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+.main .logoName{
+    text-align: center;
+    color: #fff;
+    font-size: 0.53rem;
+    line-height: 1.0rem;
+    margin-bottom: 0.13rem;
+}
+.main .loginBox{
+    width: 8.4rem;
+    margin: 0 auto;
+}
+.loginBox .title{
+    text-align: center;
+    font-size: 0.43rem;
+    line-height: 1.33rem;
+    color: #fff;
+}
+.loginBox .text{
+    width: 8.4rem;
+    height: 1.2rem;
+    padding: 0 0.47rem;
+    margin-bottom: 0.27rem;
+    line-height: 1.2rem;
+    font-size: 0.4rem;
+    color: #000;
+    border-radius: 0.6rem;
+    -webkit-border-radius: 0.6rem;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+.loginBox .keep{
+    height: 0.4rem;
+    padding: 0 0.4rem;
+    margin-bottom: 2.53rem;
+    line-height: 0.4rem;
+    font-size: 0.37rem;
+    color: #fff;
+}
+.loginBox .keep .check{
+    float: left;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-right: 0.27rem;
+    background-color: #fff;
+}
+.loginBox .keep .check.on{
+    background: url(../images/check_bg.png) center center no-repeat #fff;
+    background-size: 0.32rem 0.23rem;
+}
+.verifyCode{
+    margin-bottom: 0.27rem;
+}
+.verifyCode .vcL{
+    float: left;
+    width: 4.53rem;
+    height: 1.2rem;
+    padding-left: 0.47rem;
+    margin-right: 0.27rem;
+    line-height: 1.2rem;
+    font-size: 0.4rem;
+    color: #000;
+    border-top-left-radius: 0.6rem;
+    -webkit-border-top-left-radius: 0.6rem;
+    border-bottom-left-radius: 0.6rem;
+    -webkit-border-bottom-left-radius: 0.6rem;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+.verifyCode .vcR{
+    float: left;
+    width: 3.6rem;
+    height: 1.2rem;
+    padding-right: 0 0.47rem;
+    line-height: 1.2rem;
+    font-size: 0.4rem;
+    color: #fff;
+    background-color: #262528;
+    border-top-right-radius: 0.6rem;
+    -webkit-border-top-right-radius: 0.6rem;
+    border-bottom-right-radius: 0.6rem;
+    -webkit-border-bottom-right-radius: 0.6rem;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+.loginBtn{
+    width: 8.4rem;
+    height: 1.2rem;
+    padding: 0 0.47rem;
+    line-height: 1.2rem;
+    font-size: 0.48rem;
+    color: #fff;
+    background-color: #17171d;
+    border-radius: 0.6rem;
+    -webkit-border-radius: 0.6rem;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+.register{
+    display: block;
+    margin-bottom: 0.33rem;
+    text-align: center;
+    font-size: 0.48rem;
+    line-height: 1.33rem;
+    color: #fff;
+
+}
+.thirdPart{
+    text-align: center;
+
+}
+.thirdPart .way{
+    display: inline-block;
+    width: 1.33rem;
+    height: 1.33rem;
+    margin: 0 0.67rem;
+    
+}
+.thirdPart .way.qq{ 
+    background: url(../images/logo_qq.png) 0 0 no-repeat;
+    background-size: 1.33rem 1.33rem;
+}
+.thirdPart .way.wx{ 
+    background: url(../images/logo_wx.png) 0 0 no-repeat;
+    background-size: 1.33rem 1.33rem;
+}
+.thirdPart .way.sina{ 
+    background: url(../images/logo_sina.png) 0 0 no-repeat;
+    background-size: 1.33rem 1.33rem;
+}
+.agreement{
+    padding-top: 0.4rem;
+    text-align: center;
+    font-size: 0.37rem;
+    color: #fff;
+
+}
+.agreement a{
+    color: #fb9f38;
+}

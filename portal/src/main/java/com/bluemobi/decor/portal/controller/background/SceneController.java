@@ -391,6 +391,7 @@ public class SceneController extends CommonController {
                        String image, String isShow, String isRecommend,
                        String goodsIds) {//goodsIds: 1!50_50,2!100_100
 
+        
         Integer userId = null == SessionUtils.getCurrentUser() ? 0 : SessionUtils.getCurrentUser().getId();
         if (userId == 0) {
             WebUtil.print(response, new Result(false).msg("暂未登录！"));
@@ -400,6 +401,7 @@ public class SceneController extends CommonController {
             WebUtil.print(response, new Result(false).msg("请给场景一个名称！"));
             return;
         }
+        
         if (StringUtils.isEmpty(styleTagIds)) {
             WebUtil.print(response, new Result(false).msg("至少选择一个风格分类！"));
             return;
