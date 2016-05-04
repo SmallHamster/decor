@@ -2,15 +2,14 @@ package com.bluemobi.decor.portal.controller.pc;
 
 import com.bluemobi.decor.core.Constant;
 import com.bluemobi.decor.core.bean.Result;
-import com.bluemobi.decor.entity.Ad;
-import com.bluemobi.decor.entity.Message;
-import com.bluemobi.decor.entity.Scene;
-import com.bluemobi.decor.entity.User;
+import com.bluemobi.decor.entity.*;
 import com.bluemobi.decor.portal.controller.CommonController;
 import com.bluemobi.decor.portal.util.WebUtil;
 import com.bluemobi.decor.service.*;
 import com.bluemobi.decor.utils.SessionUtils;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -32,6 +31,8 @@ public class HomepageController4Pc extends CommonController {
 
     @Autowired
     private SceneService sceneService;
+    @Autowired
+    private SeriesService seriesService;
 
     @Autowired
     private MessageService messageService;
@@ -49,6 +50,22 @@ public class HomepageController4Pc extends CommonController {
         try {
             List<Ad> adList = adService.pcList();
             WebUtil.print(response, new Result(true).data(adList));
+        } catch (Exception e) {
+            WebUtil.print(response, new Result(false).msg("操作失败!"));
+        }
+    }
+
+    // 查询喜欢数由高到低的系列图9张
+    @RequestMapping(value = "/ajaxSeries")
+    public void ajaxSeries(HttpServletRequest request,
+                                   HttpServletResponse response) {
+        try {
+            Page<Series> page = seriesService.pageOrderByPraise(1,9);
+            List<Series> seriesList = new ArrayList<Series>();
+            if(page != null && CollectionUtils.isNotEmpty(page.getContent())){
+                seriesList = page.getContent();
+            }
+            WebUtil.print(response, new Result(true).data(seriesList));
         } catch (Exception e) {
             WebUtil.print(response, new Result(false).msg("操作失败!"));
         }

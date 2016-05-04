@@ -540,6 +540,26 @@ public class SeriesServiceImpl implements SeriesService {
     }
 
     @Override
+    public Page<Series> pageOrderByPraise(int pageNum, int pageSize) {
+        Sort sort = new Sort(Sort.Direction.DESC, "praiseNum").and(new Sort(Sort.Direction.DESC, "seeNum"));
+        Page<Series> page = seriesDao.findAll(new Specification<Series>() {
+            @Override
+            public Predicate toPredicate(Root<Series> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> predicateList = new ArrayList<Predicate>();
+                Predicate result = null;
+                if (predicateList.size() > 0) {
+                    result = cb.and(predicateList.toArray(new Predicate[]{}));
+                }
+                if (result != null) {
+                    query.where(result);
+                }
+                return query.getRestriction();
+            }
+        }, new PageRequest(pageNum-1, pageSize, sort));
+        return  page;
+    }
+
+    @Override
     @Transactional
     public void seeNumAdd(Integer id) {
         Series series = getById(id);
