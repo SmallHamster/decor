@@ -20,8 +20,8 @@
 		<li><a href="mobile/forward/to?type=index" style="color: white;">关于我们</a></li>
 	</ul>
 	<div class="searchBox" style="display:none;">
-		<span>商品</span>
-		<input class="searchText" type="text" placeholder="VALERIE CRESWICK" />
+		<span id="searchType">商品</span>
+		<input class="searchText" type="text" placeholder="VALERIE CRESWICK" value="${name}"/>
 		<ul class="typeList">
 			<li>设计师</li>
 			<li>作品</li>
@@ -31,5 +31,4 @@
 
 </div>
 <script>
-
 </script>

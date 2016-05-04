@@ -14,17 +14,23 @@ $(function () {
             $box.css('display','block');
             $logo.css('display','none');
         } else{
-        	if (val == "undefined" || val == "") {
-        		$box.css('display','none');
-	            $logo.css('display','inline-block');
-        	} else{
-        		//页面跳转代码
-        		
-        		
-        	}
-	            
+            if (val == "undefined" || val == "") {
+                $box.css('display','none');
+                $logo.css('display','inline-block');
+            } else{
+                //页面跳转代码
+                var v = $("#searchType").html();
+                var type = "goods";
+                if(v == "设计师"){
+                    type = "designer";
+                }
+                if(v == "作品"){
+                    type = "series";
+                }
+                var name = val.trim();
+                window.location.href='mobile/forward/to?type='+type+'&name='+name;
+            }
         };
-        
     });
     // 搜索列表展开收起
     $('.header .searchBox>span').on('click',function  () {
