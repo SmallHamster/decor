@@ -90,10 +90,11 @@
                     <div class="scene-show">
                         <div class="list">
                             <ul id="goodsList1">
+                                <li style="display: list-item;"><img src="${scene.image}" title="" alt="" width="715" height="715"></li>
                             </ul>
                         </div>
-                        <div class="handler-prev"></div>
-                        <div class="handler-next"></div>
+                        <%--<div class="handler-prev"></div>--%>
+                        <%--<div class="handler-next"></div>--%>
                     </div>
                     <div class="designer">
                         <div class="user" style="margin: 0px;margin-bottom: 19px;">
