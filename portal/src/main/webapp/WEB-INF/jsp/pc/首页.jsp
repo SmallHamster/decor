@@ -66,7 +66,7 @@
                     <a class="btn btn-like">被1.2万人喜欢</a>
                     <p class="text-center saw">平均每次发布换来134次浏览</p>
                 </div>
-                <a class="clear btn">现在入驻</a>
+                <a class="clear btn" id="goJoin">现在入驻</a>
                 <p class="muted">更多设计师</p>
             </div>
             <div  class="module center image-list">
@@ -105,6 +105,10 @@
 <script src="static/pc-1.1/js/index.js"></script>
 <script>
     $(function(){
+        // 现在入驻
+        $("#goJoin").click(function(){
+            $("#register").trigger("click");
+        });
         ajaxAd(); // 加载广告
         ajaxRecommendScene(); // 加载推荐的场景
         ajaxRecommendMessage(); // 加载推荐的咨询
