@@ -14,6 +14,7 @@
 <div class="wrapper">
    
     <%@ include file="common/header.jsp" %>
+    <input type="hidden" id="cur-page" value="series"/>
     <div class="search-condition" style="display: none;">
         <input type="hidden" class="seriesTagId" value=""/>
         <input type="hidden" class="name" value="${name}"/>
