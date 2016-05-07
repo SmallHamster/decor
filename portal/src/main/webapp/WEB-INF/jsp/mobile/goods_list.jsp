@@ -18,6 +18,15 @@
 		<link rel="stylesheet" href="static/mobile/css/index.css">
 	</head>
 	<body>
+
+	<input type="hidden" id="cur-page" value="goods"/>
+	<div class="search-condition" style="display: none;">
+		<input type="hidden" class="kindTagId" value=""/>
+		<input type="hidden" class="styleTagId" value=""/>
+		<input type="hidden" class="spaceTagId" value=""/>
+		<input type="hidden" class="name" value="${name}"/>
+	</div>
+
 	<%@ include file="common/header.jsp" %>
 			<div class="filterBox" style="display:none;">
 				在商品中，找到148个结果
@@ -99,11 +108,12 @@
 			}
 		};
 		function ajaxPageGoods(){
+			var name = $(".search-condition").find(".name").val();
 			$.ajax({
 				url:'mobile/goods/page',
 				method:'get',
 				dataType:'json',
-				data: {pageNum:page.pageNum,pageSize:page.pageSize},
+				data: {pageNum:page.pageNum,pageSize:page.pageSize,name:name},
 				async: true,
 				success: function (result) {
 					if (result.status == "0") {

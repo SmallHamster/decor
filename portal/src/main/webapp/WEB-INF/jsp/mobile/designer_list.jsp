@@ -18,6 +18,12 @@
 		<link rel="stylesheet" href="static/mobile/css/index.css">
 	</head>
 	<body>
+
+	<input type="hidden" id="cur-page" value="designer"/>
+	<div class="search-condition" style="display: none;">
+		<input type="hidden" class="name" value="${name}"/>
+	</div>
+
 	<%@ include file="common/header.jsp" %>
 		<div class="main">
 			<div class="filterBox">

@@ -15,9 +15,9 @@
 		<li><a href="mobile/forward/to?type=goods" style="color: white;">图库</a></li>
 		<li><a href="mobile/forward/to?type=goods" style="color: white;">商品</a></li>
 		<li><a href="mobile/forward/to?type=designer" style="color: white;">设计师</a></li>
-		<li><a href="mobile/forward/to?type=index" style="color: white;">资讯</a></li>
-		<li><a href="mobile/forward/to?type=index" style="color: white;">下载App</a></li>
-		<li><a href="mobile/forward/to?type=index" style="color: white;">关于我们</a></li>
+		<%--<li><a href="mobile/forward/to?type=index" style="color: white;">资讯</a></li>--%>
+		<%--<li><a href="mobile/forward/to?type=index" style="color: white;">下载App</a></li>--%>
+		<%--<li><a href="mobile/forward/to?type=index" style="color: white;">关于我们</a></li>--%>
 	</ul>
 	<div class="searchBox" style="display:none;">
 		<span id="searchType">商品</span>

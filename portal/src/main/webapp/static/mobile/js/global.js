@@ -5,6 +5,24 @@ $(function () {
         var $list = $('.header .list');
         $list.slideToggle();
     });
+
+    // 如果查询输入框有值，则显示查询输入框
+    var nameVal = $('.header .searchBox .searchText').val();
+    if (nameVal && nameVal != "") {
+        $('.header .searchBox').css('display','block');
+        $('.header .logo').css('display','none');
+    }
+    // 初始化查询下拉框
+    var pageType = $("#cur-page").val();
+    if(pageType == "designer"){
+        $("#searchType").html("设计师");
+    }
+    if(pageType == "series"){
+        $("#searchType").html("作品");
+    }
+    if(pageType == "goods"){
+        $("#searchType").html("商品");
+    }
     // 点击搜索按钮切换
     $('.header .search').on('click',function  () {
         var $box = $('.header .searchBox'),
