@@ -21,6 +21,8 @@
 
 	<input type="hidden" id="cur-page" value="designer"/>
 	<div class="search-condition" style="display: none;">
+		<input type="hidden" class="provinceId" value=""/>
+		<input type="hidden" class="cityId" value=""/>
 		<input type="hidden" class="name" value="${name}"/>
 	</div>
 
@@ -35,29 +37,17 @@
 						<div class="caret"></div>
 						<div class="title">所属区域</div>
 						<p>
-							<span class="orange down">省份</span>
-							<span class="up">城市</span>
+							<span class="orange down provinceTab">省份</span>
+							<span class="up cityTab">城市</span>
 						</p>
-						<ul class="tabsList clearfix">
-							<li class="on">北京</li>
-							<li>天津</li>
-							<li>河北</li>
-							<li>山西</li>
-							<li>内蒙古</li>
-							<li>辽宁</li>
-							<li>吉林</li>
-							<li>黑龙江</li>
-							<li>江苏</li>
-							<li>浙江</li>
-							<li>安徽</li>
-							<li>福建</li>
-							<li>江西</li>
-							<li>山东</li>
-							<li>河南</li>
+						<ul class="tabsList clearfix provinceList">
+
 						</ul>
-						<div class="addMore"><a href="javascript:;">加载更多</a></div>
+						<ul class="tabsList clearfix cityList" style="display:none">
+
+						</ul>
 						<div class="conBottom clearfix">
-							<a href="javascript:;">清空筛选条件</a>
+							<a class="clearCondition" href="javascript:;">清空筛选条件</a>
 							<div class="fr">
 								<a href="javascript:;" class="cancel">取消</a>
 								<a class="btn goSearch" href="javascript:;">确定</a>
@@ -78,6 +68,19 @@
 		<script src="static/mobile/js/global.js"></script>
 	<script type="text/javascript">
 		$(function () {
+			$(".provinceTab").click(function(){
+				$(this).addClass("down").removeClass("up").addClass("orange");
+				$(".cityTab").addClass("up").removeClass("down").removeClass("orange");
+				$(".provinceList").show();
+				$(".cityList").hide();
+			});
+			$(".cityTab").click(function(){
+				$(this).addClass("down").removeClass("up").addClass("orange");
+				$(".provinceTab").addClass("up").removeClass("down").removeClass("orange");
+				$(".cityList").show();
+				$(".provinceList").hide();
+			});
+			ajaxShowProvince();
 			$(".moreTitle").click(function(){
 				ajaxPageDesigner();
 			});
@@ -88,9 +91,64 @@
 			});
 			$(".clearCondition").click(function(){
 				$('.filterBox .tabsList').find("li").removeClass("on");
-				$(".search-condition").find(".kindTagId").val("");
+				$(".search-condition").find(".provinceId").val("");
+				$(".search-condition").find(".cityList").val("");
 			});
 		});
+
+		/*显示所有省份*/
+		function ajaxShowProvince() {
+			$.ajax({
+				url:'pc/user/showProvince',
+				method:'get',
+				dataType:'json',
+				data: {},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						var html='';
+						for (var i = 0; i < result.data.length; i++) {
+							var province = result.data[i];
+							var provinceName = province.name;
+							html += '<li provinceid="'+province.id+'">' + provinceName + '</li>';
+						}
+						$(".provinceList").html(html);
+						$(".provinceList").find("li").each(function(){
+							$(this).click(function(){
+								$(".search-condition").find(".provinceid").val($(this).attr("provinceid"));
+								ajaxShowCity($(this).attr("provinceid"));
+							});
+						});
+					}
+				}
+			});
+		}
+
+		/*点击获得省份下的城市*/
+		function ajaxShowCity(provinceId) {
+			$.ajax({
+				url:'pc/user/showCity',
+				method:'get',
+				dataType:'json',
+				data: {provinceId: provinceId},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						var html='';
+						for (var i = 0; i < result.data.length; i++) {
+							var city = result.data[i];
+							html += '<li cityid="'+city.id+'">' + city.name + '</li>';
+						}
+						$(".cityList").html(html);
+						$(".cityList").find("li").each(function(){
+							$(this).click(function(){
+								$(".search-condition").find(".cityId").val($(this).attr("cityid"));
+							});
+						});
+					}
+				}
+			});
+		}
 
 		var page = {
 			pageNum : 1,
@@ -100,6 +158,9 @@
 			}
 		};
 		function ajaxPageDesigner(action){
+			var name = $(".search-condition").find(".name").val();
+			var provinceId = $(".search-condition").find(".provinceId").val();
+			var cityId = $(".search-condition").find(".cityId").val();
 			if(action){
 				page.pageNum==1;
 			}
@@ -107,7 +168,7 @@
 				url:'mobile/designer/page',
 				method:'get',
 				dataType:'json',
-				data: {pageNum:page.pageNum,pageSize:page.pageSize},
+				data: {pageNum:page.pageNum,pageSize:page.pageSize,name:name,provinceId:provinceId,cityId:cityId},
 				async: true,
 				success: function (result) {
 					if (result.status == "0") {

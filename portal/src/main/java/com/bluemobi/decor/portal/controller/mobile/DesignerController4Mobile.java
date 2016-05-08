@@ -42,7 +42,7 @@ public class DesignerController4Mobile extends CommonController {
             if (pageSize == null) {
                 pageSize = 2;
             }
-            Page<User> page = userService.pcPage(pageNum, pageSize, null, "fans", name, null);
+            Page<User> page = userService.pcPage(pageNum, pageSize, cityId, "fans", name, provinceId);
             Map<String, Object> dataMap = PcPageFactory.fitting(page);
             WebUtil.print(response, new Result(true).data(dataMap));
         } catch (Exception e) {
