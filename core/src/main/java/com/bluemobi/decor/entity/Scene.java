@@ -80,6 +80,9 @@ public class Scene implements Serializable {
     @Transient
     private String isPraise;
 
+    @Transient
+    private Integer commentNum;
+
     //该场景图下的风格标签
     @Transient
     private List<String> styleTagName;
@@ -250,5 +253,13 @@ public class Scene implements Serializable {
 
     public void setThumbnailImage(String thumbnailImage) {
         this.thumbnailImage = thumbnailImage;
+    }
+
+    public Integer getCommentNum() {
+        return commentNum;
+    }
+
+    public void setCommentNum(Integer commentNum) {
+        this.commentNum = commentNum;
     }
 }
