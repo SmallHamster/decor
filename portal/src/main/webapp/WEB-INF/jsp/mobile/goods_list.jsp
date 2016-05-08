@@ -108,7 +108,7 @@
 						$(".kindTagList").html(html);
 						$(".kindTagList").find("li").each(function(){
 							$(this).click(function(){
-								$(".search-condition").find(".seriesTagId").val($(this).attr("objid"));
+								$(".search-condition").find(".kindTagId").val($(this).attr("objid"));
 							});
 						});
 					}
