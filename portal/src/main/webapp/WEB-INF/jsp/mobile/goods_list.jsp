@@ -28,59 +28,36 @@
 	</div>
 
 	<%@ include file="common/header.jsp" %>
-			<div class="filterBox" style="display:none;">
-				在商品中，找到148个结果
-				<a href="javascript:;" class="filterBtn">筛选</a>
-				<div class="detailBox" style="display: none;">
-					<div class="topWhite"></div>
-					<div class="content">
-						<div class="caret"></div>
-						<div class="title">所属区域</div>
-						<p>
-							<span class="down">省份</span>
-							<span class="up">城市</span>
-						</p>
-						<ul class="tabsList clearfix">
-							<li class="on">北京</li>
-							<li>天津</li>
-							<li>河北</li>
-							<li>山西</li>
-							<li>内蒙古</li>
-							<li>辽宁</li>
-							<li>吉林</li>
-							<li>黑龙江</li>
-							<li>江苏</li>
-							<li>浙江</li>
-							<li>安徽</li>
-							<li>福建</li>
-							<li>江西</li>
-							<li>山东</li>
-							<li>河南</li>
-						</ul>
-						<div class="title">所属区域</div>
-						<ul class="tabsList clearfix">
-							<li class="on">椅子</li>
-							<li>桌子</li>
-							<li>床</li>
-							<li>地毯</li>
-							<li>书架</li>
-						</ul>
-						<div class="conBottom clearfix">
-							<a href="javascript:;">清空筛选条件</a>
-							<div class="fr">
-								<a href="javascript:;">取消</a>
-								<a class="btn" href="javascript:;">确定</a>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="main">
 			<div class="filterBox" style="display: block;">
 				在商品中，找到<span id="totalNum">0</span>个结果
 				<a href="javascript:;" class="filterBtn">筛选</a>
+				<div class="detailBox">
+					<div class="topWhite"></div>
+					<div class="content">
+						<div class="caret"></div>
+						<div class="title">产品分类</div>
+						<ul class="tabsList clearfix kindTagList">
+
+						</ul>
+						<div class="title">空间分类</div>
+						<ul class="tabsList clearfix spaceTagList">
+
+						</ul>
+						<div class="title">风格分类</div>
+						<ul class="tabsList clearfix styleTagList">
+
+						</ul>
+						<div class="conBottom clearfix">
+							<a class="clearCondition" href="javascript:;">清空筛选条件</a>
+							<div class="fr">
+								<a href="javascript:;" class="cancel">取消</a>
+								<a class="btn goSearch" href="javascript:;">确定</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="goodsBox bor0">
 				<ul id="goodsList" class="goodsList4 clearfix">
@@ -97,8 +74,99 @@
 			$(".moreTitle").click(function(){
 				ajaxPageGoods();
 			});
-			ajaxPageGoods();
+			ajaxKindTagList(); // 加载种类分类
+			ajaxStyleTagList(); // 加载风格分类
+			ajaxSpaceTagList(); // 加载空间分类
+			ajaxPageGoods(true);
+			$(".goSearch").click(function(){
+				$('.filterBox .conBottom .cancel').trigger("click");
+				ajaxPageGoods(true);
+			});
+			$(".clearCondition").click(function(){
+				$('.filterBox .tabsList').find("li").removeClass("on");
+				$(".search-condition").find(".kindTagId").val("");
+				$(".search-condition").find(".styleTagId").val("");
+				$(".search-condition").find(".spaceTagId").val("");
+			});
 		});
+
+		// 加载种类分类
+		function ajaxKindTagList(){
+			$.ajax({
+				url:'pc/comm/ajaxKindTagList',
+				method:'get',
+				dataType:'json',
+				data: {},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						var html = '';
+						for(var i=0;i<result.data.length;i++){
+							var obj = result.data[i];
+							html += '<li objid="'+obj.id+'">'+obj.name+'</li>';
+						}
+						$(".kindTagList").html(html);
+						$(".kindTagList").find("li").each(function(){
+							$(this).click(function(){
+								$(".search-condition").find(".seriesTagId").val($(this).attr("objid"));
+							});
+						});
+					}
+				}
+			});
+		}
+
+		// 加载风格分类
+		function ajaxStyleTagList(){
+			$.ajax({
+				url:'pc/comm/ajaxStyleTagList',
+				method:'get',
+				dataType:'json',
+				data: {},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						var html = '';
+						for(var i=0;i<result.data.length;i++){
+							var obj = result.data[i];
+							html += '<li objid="'+obj.id+'">'+obj.name+'</li>';
+						}
+						$(".styleTagList").html(html);
+						$(".styleTagList").find("li").each(function(){
+							$(this).click(function(){
+								$(".search-condition").find(".styleTagId").val($(this).attr("objid"));
+							});
+						});
+					}
+				}
+			});
+		}
+
+		// 加载空间分类
+		function ajaxSpaceTagList(){
+			$.ajax({
+				url:'pc/comm/ajaxSpaceTagList',
+				method:'get',
+				dataType:'json',
+				data: {},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						var html = '';
+						for(var i=0;i<result.data.length;i++){
+							var obj = result.data[i];
+							html += '<li objid="'+obj.id+'">'+obj.name+'</li>';
+						}
+						$(".spaceTagList").html(html);
+						$(".spaceTagList").find("li").each(function(){
+							$(this).click(function(){
+								$(".search-condition").find(".spaceTagId").val($(this).attr("objid"));
+							});
+						});
+					}
+				}
+			});
+		}
 
 		var page = {
 			pageNum : 1,
@@ -107,13 +175,19 @@
 				page.pageNum += 1;
 			}
 		};
-		function ajaxPageGoods(){
+		function ajaxPageGoods(action){
 			var name = $(".search-condition").find(".name").val();
+			var kindTagId = $(".search-condition").find(".kindTagId").val();
+			var styleTagId = $(".search-condition").find(".styleTagId").val();
+			var spaceTagId = $(".search-condition").find(".spaceTagId").val();
+			if(action){
+				page.pageNum==1;
+			}
 			$.ajax({
 				url:'mobile/goods/page',
 				method:'get',
 				dataType:'json',
-				data: {pageNum:page.pageNum,pageSize:page.pageSize,name:name},
+				data: {pageNum:page.pageNum,pageSize:page.pageSize,name:name,kindTagId:kindTagId,styleTagId:styleTagId,spaceTagId:spaceTagId},
 				async: true,
 				success: function (result) {
 					if (result.status == "0") {
@@ -135,7 +209,11 @@
 									</div>\
 									</li>';
 						}
-						$("#goodsList").append(html);
+						if(action){
+							$("#goodsList").html(html);
+						}else{
+							$("#goodsList").append(html);
+						}
 					}
 				}
 			});
