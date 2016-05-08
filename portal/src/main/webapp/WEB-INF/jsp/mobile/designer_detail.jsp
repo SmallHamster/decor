@@ -36,14 +36,14 @@
 					</div>
 					<div class="sign">把目标设定为完美，结果才可能及格</div>
 					<div class="others clearfix">
-						<div class="works">作品 <span class="num">112</span></div>
+						<div class="works">作品 <span class="num totalNum">0</span></div>
 						<div class="views">访问 <span class="num">${user.seeNum}</span></div>
 					</div>
 					<div class="share"></div>
 				</div>
 			</div>
 			<div class="goodsBox bor0">
-				<h2>112个设计作品</h2>
+				<h2><span class="totalNum">0</span>个设计作品</h2>
 			</div>
 			<ul class="worksList seriesList">
 
@@ -77,11 +77,17 @@
 	<script>
 		$(function(){
 			userSeries();
+			$(".moreTitle").click(function(){
+				userSeries(true);
+			});
 		});
 
-		function userSeries(){
+		function userSeries(action){
 			var pageNum = 1;
 			var pageSize = 2;
+			if(action){
+				pageSize = 10000;
+			}
 			$.ajax({
 				url:'mobile/series/userSeries',
 				method:'get',
@@ -90,9 +96,10 @@
 				async: true,
 				success: function (result) {
 					if (result.status == "0") {
+						$(".totalNum").html(result.data.page.totalNum);
 						var html = '';
-						for(var i=0;i<result.data.length;i++){
-							var obj = result.data[i];
+						for(var i=0;i<result.data.list.length;i++){
+							var obj = result.data.list[i];
 							html+='<li>\
 									<div class="imgBox">\
 									<a href="mobile/series/detail?seriesId='+obj.id+'"><img src="'+obj.cover+'" alt=""></a>\
