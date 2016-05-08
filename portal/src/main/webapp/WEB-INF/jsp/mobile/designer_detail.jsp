@@ -34,7 +34,7 @@
 					<div class="name">
 						${user.nickname}<span class="adress">${user.city.province.name}</span><span class="adress">${user.city.name}</span>
 					</div>
-					<div class="sign">把目标设定为完美，结果才可能及格</div>
+					<div class="sign">${user.info}</div>
 					<div class="others clearfix">
 						<div class="works">作品 <span class="num totalNum">0</span></div>
 						<div class="views">访问 <span class="num">${user.seeNum}</span></div>
@@ -69,8 +69,8 @@
 				</ul>
 				
 			</div>
-			<div class="moreTitle"><a href="javascript:;">查看全部作品</a></div>
-			
+			<div class="moreTitle"><a href="javascript:;">查看全部评论</a></div>
+
 		</div>
 		<script src="static/mobile/js/jquery.min.js"></script>
 		<script src="static/mobile/js/global.js"></script>
