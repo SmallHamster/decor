@@ -30,6 +30,8 @@ public class SceneController4Mobile extends CommonController {
     @Autowired
     private SceneGoodsService sceneGoodsService;
     @Autowired
+    private SeriesSceneService seriesSceneService;
+    @Autowired
     private SceneService sceneService;
     @Autowired
     private CommentService commentService;
@@ -42,8 +44,8 @@ public class SceneController4Mobile extends CommonController {
 
         Scene scene = sceneService.getById(sceneId);
         sceneService.seeNumAdd(sceneId);
-        List<Map<String, Object>> sceneGoodsMap = new ArrayList<Map<String, Object>>();
         List<Goods> goodsList = sceneGoodsService.findGoods(sceneId);
+        modelMap.put("goodsNum",CollectionUtils.isEmpty(goodsList)?0:goodsList.size());
         User user=scene.getUser();
         if (user.getRoleType().equals("admin")||user.getRoleType()=="admin"){
             user.setNickname("Décor");
@@ -61,6 +63,15 @@ public class SceneController4Mobile extends CommonController {
 
         List<Comment> commentList = commentService.findListByObjectIdAndType(sceneId,"scene");
         modelMap.put("commentList",commentList);
+        modelMap.put("commentNum",CollectionUtils.isEmpty(commentList)?0:commentList.size());
+
+        //来自系列图
+        String comeFromSeries = "";
+        List<Series> list = seriesSceneService.findSeriesListBySceneId(sceneId);
+        if(CollectionUtils.isNotEmpty(list)){
+            comeFromSeries = list.get(0).getSeriesTag().getName();
+        }
+        modelMap.put("comeFromSeries",comeFromSeries);
         return "mobile/scene_detail";
     }
 
