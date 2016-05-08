@@ -53,7 +53,7 @@
 				
 			</div>
 			<div class="goodsBox bor0">
-				<h2>场景23个</h2>
+				<h2>场景<span class="sceneNum">0</span>个</h2>
 			</div>
 			<ul class="worksList">
 				<li class="topScene">
@@ -87,7 +87,7 @@
 				async: true,
 				success: function (result) {
 					if (result.status == "0") {
-						$(".totalNum").html(result.data.length);
+						$(".sceneNum").html(result.data.length);
 						var html = '';
 						var topHtml = '';
 						for(var i=0;i<result.data.length;i++){
