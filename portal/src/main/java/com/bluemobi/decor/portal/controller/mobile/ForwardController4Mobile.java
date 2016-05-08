@@ -1,7 +1,11 @@
 package com.bluemobi.decor.portal.controller.mobile;
 
+import com.bluemobi.decor.core.bean.Result;
+import com.bluemobi.decor.entity.Series;
 import com.bluemobi.decor.entity.User;
 import com.bluemobi.decor.portal.controller.CommonController;
+import com.bluemobi.decor.portal.util.WebUtil;
+import com.bluemobi.decor.service.SeriesService;
 import com.bluemobi.decor.service.UserService;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +15,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -19,6 +25,8 @@ import java.util.List;
 public class ForwardController4Mobile extends CommonController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private SeriesService seriesService;
 
     @RequestMapping(value = "/to")
     public String to(ModelMap modelMap,
@@ -45,6 +53,13 @@ public class ForwardController4Mobile extends CommonController {
                     designerNum = page.getTotalElements();
                 }
                 modelMap.put("designerNum", designerNum);
+
+                Page<Series> seriesPage = seriesService.pageOrderByPraise(1,2);
+                List<Series> seriesList = new ArrayList<Series>();
+                if(seriesPage != null && CollectionUtils.isNotEmpty(seriesPage.getContent())){
+                    seriesList = seriesPage.getContent();
+                }
+                modelMap.put("seriesList", seriesList);
                 return "mobile/index";
             }
         } catch (Exception e) {
