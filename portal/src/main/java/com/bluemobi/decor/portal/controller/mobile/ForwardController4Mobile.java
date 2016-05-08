@@ -5,6 +5,7 @@ import com.bluemobi.decor.portal.controller.CommonController;
 import com.bluemobi.decor.service.UserService;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,8 +39,12 @@ public class ForwardController4Mobile extends CommonController {
             }else if("message".equals(type)){
                 return "mobile/message_list";
             }else if("index".equals(type)){
-                List<User> userList = userService.allUser();
-                modelMap.put("designerNum", CollectionUtils.isEmpty(userList)?0:userList.size());
+                Page<User> page  = userService.pcPage(1,1,null,"","",null);
+                Long designerNum = 0L;
+                if(page != null && CollectionUtils.isNotEmpty(page.getContent())){
+                    designerNum = page.getTotalElements();
+                }
+                modelMap.put("designerNum", designerNum);
                 return "mobile/index";
             }
         } catch (Exception e) {

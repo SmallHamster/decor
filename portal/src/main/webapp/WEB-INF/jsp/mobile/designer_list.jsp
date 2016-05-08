@@ -60,7 +60,7 @@
 							<a href="javascript:;">清空筛选条件</a>
 							<div class="fr">
 								<a href="javascript:;" class="cancel">取消</a>
-								<a class="btn" href="javascript:;">确定</a>
+								<a class="btn goSearch" href="javascript:;">确定</a>
 							</div>
 							
 						</div>
@@ -82,6 +82,14 @@
 				ajaxPageDesigner();
 			});
 			ajaxPageDesigner();
+			$(".goSearch").click(function(){
+				$('.filterBox .conBottom .cancel').trigger("click");
+				ajaxPageDesigner(true);
+			});
+			$(".clearCondition").click(function(){
+				$('.filterBox .tabsList').find("li").removeClass("on");
+				$(".search-condition").find(".kindTagId").val("");
+			});
 		});
 
 		var page = {
@@ -91,7 +99,10 @@
 				page.pageNum += 1;
 			}
 		};
-		function ajaxPageDesigner(){
+		function ajaxPageDesigner(action){
+			if(action){
+				page.pageNum==1;
+			}
 			$.ajax({
 				url:'mobile/designer/page',
 				method:'get',
@@ -118,7 +129,11 @@
 								<div class="works">'+designer.opus+'</div>\
 								</li>';
 						}
-						$(".designerList").html(html);
+						if(action){
+							$(".designerList").html(html);
+						}else{
+							$(".designerList").append(html);
+						}
 					}
 				}
 			});
