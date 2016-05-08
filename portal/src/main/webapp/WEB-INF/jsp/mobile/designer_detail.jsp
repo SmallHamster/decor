@@ -48,28 +48,17 @@
 			<ul class="worksList seriesList">
 
 			</ul>
-			<div class="moreTitle"><a href="javascript:;">查看全部作品</a></div>
+			<div class="moreTitle allSeries"><a href="javascript:;">查看全部作品</a></div>
 			<div class="goodsBox bor0">
-				<h2>134条评价</h2>
+				<h2><span class="commentTotalNum">0</span>条评价</h2>
 			</div>
 			<div class="commentsBox white">
 				<ul class="commentsList">
-					<li>
-						<div class="name clearfix">陈进 <span class="time">1天前</span></div>
-						<p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题，帮助我们完成设计。</p>
-					</li>
-					<li>
-						<div class="name clearfix">陈进 <span class="time">1天前</span></div>
-						<p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题，帮助我们完成设计。</p>
-					</li>
-					<li>
-						<div class="name clearfix">陈进 <span class="time">1天前</span></div>
-						<p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题，帮助我们完成设计。</p>
-					</li>
+
 				</ul>
 				
 			</div>
-			<div class="moreTitle"><a href="javascript:;">查看全部评论</a></div>
+			<div class="moreTitle allComment"><a href="javascript:;">查看全部评论</a></div>
 
 		</div>
 		<script src="static/mobile/js/jquery.min.js"></script>
@@ -77,8 +66,12 @@
 	<script>
 		$(function(){
 			userSeries();
-			$(".moreTitle").click(function(){
+			ajaxCommentPage();
+			$(".allSeries").click(function(){
 				userSeries(true);
+			});
+			$(".allComment").click(function(){
+				ajaxCommentPage(true);
 			});
 		});
 
@@ -112,6 +105,35 @@
 									</li>';
 						}
 						$(".seriesList").html(html);
+					}
+				}
+			});
+		}
+
+		function ajaxCommentPage(action) {
+			var pageNum = 1;
+			var pageSize = 10;
+			if(action){
+				pageSize = 10000;
+			}
+			$.ajax({
+				url:'pc/user/findCommentPage',
+				method:'get',
+				dataType:'json',
+				data: {pageNum:pageNum,pageSize:pageSize,userId:$("#userId").val()},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						$(".commentTotalNum").html(result.data.page.totalNum);
+						var html = '';
+						for (var i = 0; i < result.data.list.length; i++) {
+							var comment = result.data.list[i];
+							html += '<li>\
+									<div class="name clearfix">'+comment.user.nickname+' <span class="time">'+comment.createTime+'</span></div>\
+									<p>'+comment.content+'</p>\
+									</li>';
+						}
+						$(".commentsList").html(html);
 					}
 				}
 			});
