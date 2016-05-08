@@ -54,7 +54,7 @@ public class ForwardController4Mobile extends CommonController {
                 }
                 modelMap.put("designerNum", designerNum);
 
-                Page<Series> seriesPage = seriesService.pageOrderByPraise(1,2);
+                Page<Series> seriesPage = seriesService.pageOrderByPraise(1,2,null);
                 List<Series> seriesList = new ArrayList<Series>();
                 if(seriesPage != null && CollectionUtils.isNotEmpty(seriesPage.getContent())){
                     seriesList = seriesPage.getContent();

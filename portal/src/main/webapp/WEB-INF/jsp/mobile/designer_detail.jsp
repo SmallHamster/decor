@@ -18,6 +18,9 @@
 		<link rel="stylesheet" href="static/mobile/css/index.css">
 	</head>
 	<body>
+
+	<input type="hidden" id="userId" value="${user.id}">
+
 	<%@ include file="common/header.jsp" %>
 		<div class="main">
 			<div class="userInfoBox">
@@ -26,15 +29,15 @@
 						<img src="static/mobile/images/img4.jpg" alt="">
 					</div>
 					<div class="collect">
-						<span>1.2万</span>
+						<span>${user.fans}</span>
 					</div>
 					<div class="name">
-						ryel<span class="adress">武汉</span><span class="adress">武汉</span>
+						${user.nickname}<span class="adress">${user.city.province.name}</span><span class="adress">${user.city.name}</span>
 					</div>
 					<div class="sign">把目标设定为完美，结果才可能及格</div>
 					<div class="others clearfix">
 						<div class="works">作品 <span class="num">112</span></div>
-						<div class="views">访问 <span class="num">15.2万</span></div>
+						<div class="views">访问 <span class="num">${user.seeNum}</span></div>
 					</div>
 					<div class="share"></div>
 				</div>
@@ -42,27 +45,8 @@
 			<div class="goodsBox bor0">
 				<h2>112个设计作品</h2>
 			</div>
-			<ul class="worksList">
-				<li>
-					<div class="imgBox">
-						<img src="static/mobile/images/img2.jpg" alt="">
-					</div>
-					<div class="name"><a href="javascipt:;">美式卧榻最美好夏日回忆</a></div>
-					<div class="info">
-						<span class="view">1159</span>
-						<span class="like">1159</span>
-					</div>
-				</li>
-				<li>
-					<div class="imgBox">
-						<img src="static/mobile/images/img2.jpg" alt="">
-					</div>
-					<div class="name"><a href="javascipt:;">美式卧榻最美好夏日回忆</a></div>
-					<div class="info">
-						<span class="view">1159</span>
-						<span class="like">1159</span>
-					</div>
-				</li>
+			<ul class="worksList seriesList">
+
 			</ul>
 			<div class="moreTitle"><a href="javascript:;">查看全部作品</a></div>
 			<div class="goodsBox bor0">
@@ -90,5 +74,41 @@
 		</div>
 		<script src="static/mobile/js/jquery.min.js"></script>
 		<script src="static/mobile/js/global.js"></script>
+	<script>
+		$(function(){
+			userSeries();
+		});
+
+		function userSeries(){
+			var pageNum = 1;
+			var pageSize = 2;
+			$.ajax({
+				url:'mobile/series/userSeries',
+				method:'get',
+				dataType:'json',
+				data: {pageNum:pageNum,pageSize:pageSize,userId:$("#userId").val()},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						var html = '';
+						for(var i=0;i<result.data.length;i++){
+							var obj = result.data[i];
+							html+='<li>\
+									<div class="imgBox">\
+									<a href="mobile/series/detail?seriesId='+obj.id+'"><img src="'+obj.cover+'" alt=""></a>\
+									</div>\
+									<div class="name"><a href="mobile/series/detail?seriesId='+obj.id+'">'+obj.seriesTag.name+'</a></div>\
+									<div class="info">\
+									<span class="view">'+obj.seeNum+'</span>\
+									<span class="like">'+obj.praiseNum+'</span>\
+									</div>\
+									</li>';
+						}
+						$(".seriesList").html(html);
+					}
+				}
+			});
+		}
+	</script>
 	</body>
 </html>

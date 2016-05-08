@@ -1,7 +1,9 @@
 package com.bluemobi.decor.portal.controller.mobile;
 
 import com.bluemobi.decor.core.bean.Result;
-import com.bluemobi.decor.entity.*;
+import com.bluemobi.decor.entity.Scene;
+import com.bluemobi.decor.entity.Series;
+import com.bluemobi.decor.entity.User;
 import com.bluemobi.decor.portal.controller.CommonController;
 import com.bluemobi.decor.portal.util.PcPageFactory;
 import com.bluemobi.decor.portal.util.WebUtil;
@@ -9,7 +11,6 @@ import com.bluemobi.decor.service.AttentionService;
 import com.bluemobi.decor.service.SeriesSceneService;
 import com.bluemobi.decor.service.SeriesService;
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -85,6 +86,17 @@ public class SeriesController4Mobile extends CommonController {
         return "mobile/series_detail";
     }
 
-
+    @RequestMapping(value = "/userSeries")
+    public void userSeries(HttpServletRequest request, HttpServletResponse response, Integer pageNum,
+                           Integer pageSize, Integer userId) {
+        try {
+            Page<Series> page = seriesService.pageOrderByPraise(pageNum, pageSize, userId);
+            Map<String, Object> dataMap = PcPageFactory.fitting(page);
+            WebUtil.print(response, new Result(true).data(dataMap));
+        } catch (Exception e) {
+            e.printStackTrace();
+            WebUtil.print(response, new Result(false).msg("操作失败!"));
+        }
+    }
 
 }

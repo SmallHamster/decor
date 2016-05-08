@@ -60,7 +60,7 @@ public class HomepageController4Pc extends CommonController {
     public void ajaxSeries(HttpServletRequest request,
                                    HttpServletResponse response) {
         try {
-            Page<Series> page = seriesService.pageOrderByPraise(1,9);
+            Page<Series> page = seriesService.pageOrderByPraise(1,9,null);
             List<Series> seriesList = new ArrayList<Series>();
             if(page != null && CollectionUtils.isNotEmpty(page.getContent())){
                 seriesList = page.getContent();
