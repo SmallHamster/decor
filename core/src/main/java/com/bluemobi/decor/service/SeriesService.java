@@ -68,5 +68,5 @@ public interface SeriesService extends ICommonService<Series>,SeeNumHandler {
     public  Page<Series> pcFindSeriesPage(User user,int pageNum,int pageSize);
 
     public Page<Series> pageOrderByPraise(int pageNum,
-                               int pageSize);
+                               int pageSize,Integer userId);
 }

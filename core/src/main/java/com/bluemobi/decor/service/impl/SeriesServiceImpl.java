@@ -540,13 +540,19 @@ public class SeriesServiceImpl implements SeriesService {
     }
 
     @Override
-    public Page<Series> pageOrderByPraise(int pageNum, int pageSize) {
+    public Page<Series> pageOrderByPraise(int pageNum, int pageSize,final Integer userId) {
         Sort sort = new Sort(Sort.Direction.DESC, "praiseNum").and(new Sort(Sort.Direction.DESC, "seeNum"));
         Page<Series> page = seriesDao.findAll(new Specification<Series>() {
             @Override
             public Predicate toPredicate(Root<Series> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 List<Predicate> predicateList = new ArrayList<Predicate>();
                 Predicate result = null;
+
+                if (userId!=null) {
+                    Predicate predicate = cb.equal(root.get("user").get("id").as(Integer.class),userId);
+                    predicateList.add(predicate);
+                }
+
                 if (predicateList.size() > 0) {
                     result = cb.and(predicateList.toArray(new Predicate[]{}));
                 }
