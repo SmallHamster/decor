@@ -26,13 +26,13 @@
 			<div class="userInfoBox">
 				<div class="content">
 					<div class="headBox">
-						<img src="static/mobile/images/img4.jpg" alt="">
+						<img src="${series.user.headImage}" alt="">
 					</div>
 					<div class="collect">
 						<span>${series.praiseNum}</span>
 					</div>
 					<div class="name">
-						ryel<span class="adress">${series.user.city.province.name}</span><span class="adress">${series.user.city.name}</span>
+						${series.user.nickname}<span class="adress">${series.user.city.province.name}</span><span class="adress">${series.user.city.name}</span>
 					</div>
 					<div class="sign">${series.user.info}</div>
 					<div class="others clearfix">
