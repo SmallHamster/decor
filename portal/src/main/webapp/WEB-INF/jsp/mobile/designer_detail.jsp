@@ -26,7 +26,7 @@
 			<div class="userInfoBox">
 				<div class="content">
 					<div class="headBox">
-						<img src="static/mobile/images/img4.jpg" alt="">
+						<img src="${user.headImage}" alt="">
 					</div>
 					<div class="collect">
 						<span>${user.fans}</span>

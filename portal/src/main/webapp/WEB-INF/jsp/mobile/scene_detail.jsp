@@ -24,19 +24,18 @@
 			<div class="userInfoBox">
 				<div class="content">
 					<div class="headBox">
-						<img src="static/mobile/images/img4.jpg" alt="">
+						<a href="mobile/designer/detail?designerId=${scene.user.id}"><img src="${scene.user.headImage}" alt=""></a>
 					</div>
 					<div class="collect">
-						<a href="javascript:;"><span>1.2万</span></a>
-						
+						<span>${scene.user.fans}</span>
 					</div>
 					<div class="name">
-						ryel<span class="adress">武汉</span><span class="adress">武汉</span>
+						${scene.user.nickname}<span class="adress">${scene.user.city.province.name}</span><span class="adress">${scene.user.city.name}</span>
 					</div>
-					<div class="sign">把目标设定为完美，结果才可能及格</div>
+					<div class="sign">${scene.user.info}</div>
 					<div class="others clearfix">
-						<div class="works">作品 <span class="num">112</span></div>
-						<div class="views">访问 <span class="num">15.2万</span></div>
+						<div class="works">作品 <span class="num">${userSeriesNum}</span></div>
+						<div class="views">访问 <span class="num">${scene.user.seeNum}</span></div>
 					</div>
 					<div class="share"><a href="javascript;"></a></div>
 				</div>
