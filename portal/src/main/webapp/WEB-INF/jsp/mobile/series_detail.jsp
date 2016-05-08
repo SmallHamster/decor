@@ -18,6 +18,9 @@
 		<link rel="stylesheet" href="static/mobile/css/index.css">
 	</head>
 	<body>
+
+	<input type="hidden" id="seriesId" value="${series.id}">
+
 	<%@ include file="common/header.jsp" %>
 		<div class="main">
 			<div class="userInfoBox">
@@ -53,53 +56,66 @@
 				<h2>场景23个</h2>
 			</div>
 			<ul class="worksList">
-				<li>
-					<div class="imgBox">
-						<img src="static/mobile/images/img2.jpg" alt="">
-					</div>
-					<div class="info2">
-						<p><a href="javascript:;">美式卧榻</a></p>
-						<span class="like">285</span>
-						<span class="cmt">285</span>
-					</div>
+				<li class="topScene">
+
 				</li>
 			</ul>
 
 			<div class="goodsBox bor0">
 				<h2>其他场景图</h2>
-				<ul class="goodsList3 clearfix">
-					<li>
-						<div class="imgWrap">
-							<img src="static/mobile/images/img10.jpg" alt="" />
-						</div>
-						<p><a href="javascript:;">客厅一角</a></p>
-					</li>
-					<li>
-						<div class="imgWrap">
-							<img src="static/mobile/images/img10.jpg" alt="" />
-						</div>
-						<p><a href="javascript:;">客厅一角</a></p>
-					</li>
-					<li>
-						<div class="imgWrap">
-							<img src="static/mobile/images/img10.jpg" alt="" />
-						</div>
-						<p><a href="javascript:;">客厅一角</a></p>
-					</li>
-					<li>
-						<div class="imgWrap">
-							<img src="static/mobile/images/img10.jpg" alt="" />
-						</div>
-						<p><a href="javascript:;">客厅一角</a></p>
-					</li>
+				<ul class="goodsList3 clearfix sceneList">
+
 				</ul>
 			</div>
 			
-			<div class="moreTitle"><a href="javascript:;">加载更多</a></div>
-			
+
 			
 		</div>
 		<script src="static/mobile/js/jquery.min.js"></script>
 		<script src="static/mobile/js/global.js"></script>
+	<script>
+		$(function(){
+			findSceneListBySeriesId();
+		});
+
+		function findSceneListBySeriesId(){
+			$.ajax({
+				url:'mobile/series/findSceneListBySeriesId',
+				method:'get',
+				dataType:'json',
+				data: {seriesId:$("#seriesId").val()},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						$(".totalNum").html(result.data.length);
+						var html = '';
+						var topHtml = '';
+						for(var i=0;i<result.data.length;i++){
+							var obj = result.data[i];
+							if(i == 0){
+								topHtml+='<div class="imgBox">\
+										<a href="mobile/scene/detail?sceneId='+obj.id+'"><img src="'+obj.image+'" alt=""></a>\
+										</div>\
+										<div class="info2">\
+										<p><a href="mobile/scene/detail?sceneId='+obj.id+'">'+obj.name+'</a></p>\
+										<span class="like">'+obj.praiseNum+'</span>\
+										<span class="cmt">'+obj.commentNum+'</span>\
+										</div>';
+							}else {
+								html+='<li>\
+									<div class="imgWrap">\
+									<a href="mobile/scene/detail?sceneId='+obj.id+'"><img src="'+obj.image+'" alt="" /></a>\
+									</div>\
+									<p><a href="mobile/scene/detail?sceneId='+obj.id+'">'+obj.name+'</a></p>\
+									</li>';
+							}
+						}
+						$(".topScene").html(topHtml);
+						$(".sceneList").html(html);
+					}
+				}
+			});
+		}
+	</script>
 	</body>
 </html>

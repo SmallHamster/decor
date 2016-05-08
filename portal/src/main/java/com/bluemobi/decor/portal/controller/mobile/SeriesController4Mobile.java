@@ -1,6 +1,7 @@
 package com.bluemobi.decor.portal.controller.mobile;
 
 import com.bluemobi.decor.core.bean.Result;
+import com.bluemobi.decor.entity.Comment;
 import com.bluemobi.decor.entity.Scene;
 import com.bluemobi.decor.entity.Series;
 import com.bluemobi.decor.entity.User;
@@ -8,6 +9,7 @@ import com.bluemobi.decor.portal.controller.CommonController;
 import com.bluemobi.decor.portal.util.PcPageFactory;
 import com.bluemobi.decor.portal.util.WebUtil;
 import com.bluemobi.decor.service.AttentionService;
+import com.bluemobi.decor.service.CommentService;
 import com.bluemobi.decor.service.SeriesSceneService;
 import com.bluemobi.decor.service.SeriesService;
 import org.apache.commons.collections.CollectionUtils;
@@ -32,6 +34,8 @@ public class SeriesController4Mobile extends CommonController {
     private SeriesSceneService seriesSceneService;
     @Autowired
     private AttentionService attentionService;
+    @Autowired
+    private CommentService commentService;
 
     @RequestMapping(value = "/page")
     public void list(HttpServletRequest request,
@@ -93,6 +97,26 @@ public class SeriesController4Mobile extends CommonController {
             Page<Series> page = seriesService.pageOrderByPraise(pageNum, pageSize, userId);
             Map<String, Object> dataMap = PcPageFactory.fitting(page);
             WebUtil.print(response, new Result(true).data(dataMap));
+        } catch (Exception e) {
+            e.printStackTrace();
+            WebUtil.print(response, new Result(false).msg("操作失败!"));
+        }
+    }
+
+    @RequestMapping(value = "/findSceneListBySeriesId")
+    public void findSceneListBySeriesId(HttpServletRequest request,
+                     HttpServletResponse response,
+                     Integer seriesId){
+        try {
+
+            List<Scene> sceneList = seriesSceneService.findSceneListBySeriesId(seriesId);
+            if(CollectionUtils.isNotEmpty(sceneList)){
+                for (Scene scene : sceneList) {
+                    List<Comment> commentList = commentService.findListByObjectIdAndType(scene.getId(),"scene");
+                    scene.setCommentNum(CollectionUtils.isEmpty(commentList)?0:commentList.size());
+                }
+            }
+            WebUtil.print(response, new Result(true).data(sceneList));
         } catch (Exception e) {
             e.printStackTrace();
             WebUtil.print(response, new Result(false).msg("操作失败!"));
