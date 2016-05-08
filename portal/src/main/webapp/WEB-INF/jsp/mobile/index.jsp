@@ -84,7 +84,7 @@
 				</c:forEach>
 			</ul>
 
-			<div class="moreTitle"><a href="javascript:;">更多设计作品</a></div>
+			<div class="moreTitle"><a href="mobile/forward/to?type=series">更多设计作品</a></div>
 			<div class="titleBox">
 				<h3>更多行业内幕资讯</h3>
 				<p>只在DECOR</p>
@@ -92,7 +92,7 @@
 			<ul class="infoList">
 
 			</ul>
-			<div class="moreTitle"><a href="javascript:;">更多设计作品</a></div>
+			<div class="moreTitle"><a href="mobile/forward/to?type=series">更多设计作品</a></div>
 		</div>
 		<script src="static/mobile/js/jquery.min.js"></script>
 		<script src="static/mobile/js/global.js"></script>
