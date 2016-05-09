@@ -108,7 +108,7 @@ public class MessageServiceImpl implements MessageService {
         // ifAll是否更多
         // 0=是，1=否
         if (null != ifAll && ifAll == 0) {
-            pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.ASC, "id");
+            pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id");
         } else {
             pageRequest = new PageRequest(0, 3, Sort.Direction.DESC, "id");
         }
