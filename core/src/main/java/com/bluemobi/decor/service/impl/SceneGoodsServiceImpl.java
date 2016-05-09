@@ -160,6 +160,11 @@ public class SceneGoodsServiceImpl implements SceneGoodsService {
     }
 
     @Override
+    public List<Goods> findGoods(Integer sceneId) {
+        return sceneGoodsDao.listGoods(sceneId);
+    }
+
+    @Override
     public void deleteBySceneId(Integer sceneId) {
         sceneGoodsDao.deleteBySceneId(sceneId);
     }

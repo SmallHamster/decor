@@ -20,6 +20,7 @@ public interface SceneGoodsService extends ICommonService<SceneGoods> {
     public List<Scene> listSceneByGoodsId(Integer goodsId);
 
     public List<SceneGoods> listBySceneId(Integer sceneId);
+    public List<Goods> findGoods(Integer sceneId);
 
     public void deleteBySceneId(Integer sceneId);
 }

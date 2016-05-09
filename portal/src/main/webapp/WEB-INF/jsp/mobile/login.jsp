@@ -49,5 +49,12 @@
 		</div>
 		<script src="static/mobile/js/jquery.min.js"></script>
 		<script src="static/mobile/js/global.js"></script>
+		<script>
+			$(function(){
+				$(".loginBtn").click(function(){
+					window.location.href = _basePath + "mobile/forward/to?type=index";
+				});
+			});
+		</script>
 	</body>
 </html>

@@ -66,4 +66,7 @@ public interface SeriesService extends ICommonService<Series>,SeeNumHandler {
     List<Series> sameTypeSeries(Integer seriesId);
     //系列图分页
     public  Page<Series> pcFindSeriesPage(User user,int pageNum,int pageSize);
+
+    public Page<Series> pageOrderByPraise(int pageNum,
+                               int pageSize,Integer userId);
 }

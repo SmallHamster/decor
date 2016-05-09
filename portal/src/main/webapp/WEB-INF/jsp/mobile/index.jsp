@@ -70,29 +70,21 @@
 				<p>正在发生</p>
 			</div>
 			<ul class="worksList">
-				<li>
-					<div class="imgBox">
-						<img src="static/mobile/images/img2.jpg" alt="">
-					</div>
-					<div class="name"><a href="javascript:;">美式卧榻最美好夏日回忆</a></div>
-					<div class="info">
-						<span class="view">1159</span>
-						<span class="like">1159</span>
-					</div>
-				</li>
-				<li>
-					<div class="imgBox">
-						<img src="static/mobile/images/img2.jpg" alt="">
-					</div>
-					<div class="name"><a href="javascript:;">美式卧榻最美好夏日回忆</a></div>
-					<div class="info">
-						<span class="view">1159</span>
-						<span class="like">1159</span>
-					</div>
-				</li>
+				<c:forEach var="series" items="${seriesList}">
+					<li>
+						<div class="imgBox">
+							<a href="mobile/series/detail?seriesId=${series.id}"><img src="${series.cover}" alt=""></a>
+						</div>
+						<div class="name"><a href="mobile/series/detail?seriesId=${series.id}">${series.seriesTag.name}</a></div>
+						<div class="info">
+							<span class="view">${series.seeNum}</span>
+							<span class="like">${series.praiseNum}</span>
+						</div>
+					</li>
+				</c:forEach>
 			</ul>
 
-			<div class="moreTitle"><a href="javascript:;">更多设计作品</a></div>
+			<div class="moreTitle"><a href="mobile/forward/to?type=series">更多设计作品</a></div>
 			<div class="titleBox">
 				<h3>更多行业内幕资讯</h3>
 				<p>只在DECOR</p>
@@ -100,7 +92,7 @@
 			<ul class="infoList">
 
 			</ul>
-			<div class="moreTitle"><a href="javascript:;">更多设计作品</a></div>
+			<div class="moreTitle"><a href="mobile/forward/to?type=series">更多设计作品</a></div>
 		</div>
 		<script src="static/mobile/js/jquery.min.js"></script>
 		<script src="static/mobile/js/global.js"></script>

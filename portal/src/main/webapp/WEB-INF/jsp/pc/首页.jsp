@@ -66,17 +66,17 @@
                     <a class="btn btn-like">被1.2万人喜欢</a>
                     <p class="text-center saw">平均每次发布换来134次浏览</p>
                 </div>
-                <a class="clear btn">现在入驻</a>
+                <a class="clear btn" id="goJoin">现在入驻</a>
                 <p class="muted">更多设计师</p>
             </div>
             <div  class="module center image-list">
                 <h3>这里，更好的设计</h3>
                 <p class="muted">正在发生</p>
-                <ul id="sceneList">
+                <ul id="seriesList">
 
                 </ul>
                 <a class="clear btn">开始设计</a>
-                <p class="muted">更多设计作品</p>
+                <a href="pc/forward/to?type=series"><p class="muted" style="font-size: 16px;margin: 18px auto;">更多设计作品</p></a>
             </div>
             <div class="module center news">
                 <h3>更多行业内幕资讯</h3>
@@ -105,8 +105,12 @@
 <script src="static/pc-1.1/js/index.js"></script>
 <script>
     $(function(){
+        // 现在入驻
+        $("#goJoin").click(function(){
+            $("#register").trigger("click");
+        });
         ajaxAd(); // 加载广告
-        ajaxRecommendScene(); // 加载推荐的场景
+        ajaxSeries(); // 加载系列图
         ajaxRecommendMessage(); // 加载推荐的咨询
     });
 
@@ -127,35 +131,35 @@
     }
 
     // 加载推荐的场景
-    function ajaxRecommendScene(){
-        $bluemobi.ajax("pc/homepage/ajaxRecommendScene",{},function(result){
+    function ajaxSeries(){
+        $bluemobi.ajax("pc/homepage/ajaxSeries",{},function(result){
             if (result.status == "0") {
                 var html = '';
                 for(var i=0;i<result.data.length;i++){
-                    var scene = result.data[i];
+                    var object = result.data[i];
                     var showName = "";
-                    if(scene.user.roleType == "admin"){
+                    if(object.user.roleType == "admin"){
                         showName = 'Décor';
                     }else{
-                        showName = '<a href="javascript:void(0)" onclick="toUserInfo('+scene.user.id+')">'+scene.user.nickname+'</a>';
+                        showName = '<a href="javascript:void(0)" onclick="toUserInfo('+object.user.id+')">'+object.user.nickname+'</a>';
                     }
-                    $bluemobi.subStrAdminNick(eval(scene),"Décor");
+                    $bluemobi.subStrAdminNick(eval(object),"Décor");
                     html+='<li>\
-                            <a href="pc/scene/detail?sceneId='+scene.id+'">\
-                            <div class="cell"><img src="'+scene.image+'" title="" alt="" width="357" width="251" /></div>\
+                            <a href="pc/series/detail?seriesId='+object.id+'">\
+                            <div class="cell"><img src="'+object.cover+'" title="" alt="" width="357" width="251" /></div>\
                             <div class="face">\
-                            <img src="'+scene.user.headImage+'" title="" alt="" width="60" height="60" />\
+                            <img src="'+object.user.headImage+'" title="" alt="" width="60" height="60" />\
                             <p class="text-center">'+showName+'</p>\
                             </div>\
                             <div class="over-hidden">\
-                            <p class="title slh">'+scene.name+'</p>\
-                            <p class="desc">'+scene.info+'</p>\
-                            <p class="count"><span class="pull-left">'+scene.seeNum+'次查看</span><span class="pull-right">'+scene.praiseNum+'人喜欢的设计</span></p>\
+                            <p class="title slh">'+object.seriesTag.name+'</p>\
+                            <p class="desc">'+object.info+'</p>\
+                            <p class="count"><span class="pull-left">'+object.seeNum+'次查看</span><span class="pull-right">'+object.praiseNum+'人喜欢的设计</span></p>\
                             </div>\
                             </a>\
                             </li>';
                 }
-                $("#sceneList").html(html);
+                $("#seriesList").html(html);
             }
         });
     }

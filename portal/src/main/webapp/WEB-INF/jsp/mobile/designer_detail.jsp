@@ -18,77 +18,126 @@
 		<link rel="stylesheet" href="static/mobile/css/index.css">
 	</head>
 	<body>
+
+	<input type="hidden" id="userId" value="${user.id}">
+
 	<%@ include file="common/header.jsp" %>
 		<div class="main">
 			<div class="userInfoBox">
 				<div class="content">
 					<div class="headBox">
-						<img src="static/mobile/images/img4.jpg" alt="">
+						<img src="${user.headImage}" alt="">
 					</div>
 					<div class="collect">
-						<span>1.2万</span>
+						<span>${user.fans}</span>
 					</div>
 					<div class="name">
-						ryel<span class="adress">武汉</span><span class="adress">武汉</span>
+						${user.nickname}<span class="adress">${user.city.province.name}</span><span class="adress">${user.city.name}</span>
 					</div>
-					<div class="sign">把目标设定为完美，结果才可能及格</div>
+					<div class="sign">${user.info}</div>
 					<div class="others clearfix">
-						<div class="works">作品 <span class="num">112</span></div>
-						<div class="views">访问 <span class="num">15.2万</span></div>
+						<div class="works">作品 <span class="num totalNum">0</span></div>
+						<div class="views">访问 <span class="num">${user.seeNum}</span></div>
 					</div>
 					<div class="share"></div>
 				</div>
 			</div>
 			<div class="goodsBox bor0">
-				<h2>112个设计作品</h2>
+				<h2><span class="totalNum">0</span>个设计作品</h2>
 			</div>
-			<ul class="worksList">
-				<li>
-					<div class="imgBox">
-						<img src="static/mobile/images/img2.jpg" alt="">
-					</div>
-					<div class="name"><a href="javascipt:;">美式卧榻最美好夏日回忆</a></div>
-					<div class="info">
-						<span class="view">1159</span>
-						<span class="like">1159</span>
-					</div>
-				</li>
-				<li>
-					<div class="imgBox">
-						<img src="static/mobile/images/img2.jpg" alt="">
-					</div>
-					<div class="name"><a href="javascipt:;">美式卧榻最美好夏日回忆</a></div>
-					<div class="info">
-						<span class="view">1159</span>
-						<span class="like">1159</span>
-					</div>
-				</li>
+			<ul class="worksList seriesList">
+
 			</ul>
-			<div class="moreTitle"><a href="javascript:;">查看全部作品</a></div>
+			<div class="moreTitle allSeries"><a href="javascript:;">查看全部作品</a></div>
 			<div class="goodsBox bor0">
-				<h2>134条评价</h2>
+				<h2><span class="commentTotalNum">0</span>条评价</h2>
 			</div>
 			<div class="commentsBox white">
 				<ul class="commentsList">
-					<li>
-						<div class="name clearfix">陈进 <span class="time">1天前</span></div>
-						<p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题，帮助我们完成设计。</p>
-					</li>
-					<li>
-						<div class="name clearfix">陈进 <span class="time">1天前</span></div>
-						<p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题，帮助我们完成设计。</p>
-					</li>
-					<li>
-						<div class="name clearfix">陈进 <span class="time">1天前</span></div>
-						<p>交流比较多，可以更好地理解客户的意图，虽然细节上有时候有点疏漏，但是通过沟通可以很轻松的解决这些问题，帮助我们完成设计。</p>
-					</li>
+
 				</ul>
 				
 			</div>
-			<div class="moreTitle"><a href="javascript:;">查看全部作品</a></div>
-			
+			<div class="moreTitle allComment"><a href="javascript:;">查看全部评论</a></div>
+
 		</div>
 		<script src="static/mobile/js/jquery.min.js"></script>
 		<script src="static/mobile/js/global.js"></script>
+	<script>
+		$(function(){
+			userSeries();
+			ajaxCommentPage();
+			$(".allSeries").click(function(){
+				userSeries(true);
+			});
+			$(".allComment").click(function(){
+				ajaxCommentPage(true);
+			});
+		});
+
+		function userSeries(action){
+			var pageNum = 1;
+			var pageSize = 2;
+			if(action){
+				pageSize = 10000;
+			}
+			$.ajax({
+				url:'mobile/series/userSeries',
+				method:'get',
+				dataType:'json',
+				data: {pageNum:pageNum,pageSize:pageSize,userId:$("#userId").val()},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						$(".totalNum").html(result.data.page.totalNum);
+						var html = '';
+						for(var i=0;i<result.data.list.length;i++){
+							var obj = result.data.list[i];
+							html+='<li>\
+									<div class="imgBox">\
+									<a href="mobile/series/detail?seriesId='+obj.id+'"><img src="'+obj.cover+'" alt=""></a>\
+									</div>\
+									<div class="name"><a href="mobile/series/detail?seriesId='+obj.id+'">'+obj.seriesTag.name+'</a></div>\
+									<div class="info">\
+									<span class="view">'+obj.seeNum+'</span>\
+									<span class="like">'+obj.praiseNum+'</span>\
+									</div>\
+									</li>';
+						}
+						$(".seriesList").html(html);
+					}
+				}
+			});
+		}
+
+		function ajaxCommentPage(action) {
+			var pageNum = 1;
+			var pageSize = 10;
+			if(action){
+				pageSize = 10000;
+			}
+			$.ajax({
+				url:'pc/user/findCommentPage',
+				method:'get',
+				dataType:'json',
+				data: {pageNum:pageNum,pageSize:pageSize,userId:$("#userId").val()},
+				async: true,
+				success: function (result) {
+					if (result.status == "0") {
+						$(".commentTotalNum").html(result.data.page.totalNum);
+						var html = '';
+						for (var i = 0; i < result.data.list.length; i++) {
+							var comment = result.data.list[i];
+							html += '<li>\
+									<div class="name clearfix">'+comment.user.nickname+' <span class="time">'+comment.createTime+'</span></div>\
+									<p>'+comment.content+'</p>\
+									</li>';
+						}
+						$(".commentsList").html(html);
+					}
+				}
+			});
+		}
+	</script>
 	</body>
 </html>
