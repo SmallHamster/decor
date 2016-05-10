@@ -2,6 +2,8 @@ package com.bluemobi.decor.dao;
 
 import com.bluemobi.decor.entity.Message;
 import com.bluemobi.decor.entity.Scene;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
@@ -18,4 +20,7 @@ public interface MessageDao extends JpaRepository<Message, Integer>, JpaSpecific
 
     @Query("select a from Message a where a.isRecommend = 'yes' ")
     public List<Message> recommendList();
+
+    @Query("select a from Message a where a.isRecommend = 'yes' ")
+    public Page<Message> recommendPage(Pageable pageable);
 }

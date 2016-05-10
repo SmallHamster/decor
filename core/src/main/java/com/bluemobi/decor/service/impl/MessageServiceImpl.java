@@ -107,7 +107,7 @@ public class MessageServiceImpl implements MessageService {
         if (null != ifAll && ifAll == 0) {
             return messageDao.findAll(new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id"));
         } else {
-            return messageDao.findAll(new PageRequest(0, 3, Sort.Direction.DESC, "id"));
+            return messageDao.recommendPage(new PageRequest(0, 3, Sort.Direction.DESC, "id"));
         }
     }
 
