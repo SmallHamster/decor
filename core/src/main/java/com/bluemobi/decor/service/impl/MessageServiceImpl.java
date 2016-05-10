@@ -2,7 +2,6 @@ package com.bluemobi.decor.service.impl;
 
 import com.bluemobi.decor.core.Constant;
 import com.bluemobi.decor.dao.MessageDao;
-import com.bluemobi.decor.dao.UserDao;
 import com.bluemobi.decor.entity.CollectionMessage;
 import com.bluemobi.decor.entity.Message;
 import com.bluemobi.decor.entity.User;
@@ -103,36 +102,13 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public Page<Message> iFindMessagePage(Integer ifAll, Integer pageNum, Integer pageSize) {
-        PageRequest pageRequest = null;
-
         // ifAll是否更多
         // 0=是，1=否
         if (null != ifAll && ifAll == 0) {
-            pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id");
+            return messageDao.findAll(new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id"));
         } else {
-            pageRequest = new PageRequest(0, 3, Sort.Direction.DESC, "id");
+            return messageDao.findAll(new PageRequest(0, 3, Sort.Direction.DESC, "id"));
         }
-
-        Page<Message> page = messageDao.findAll(new Specification<Message>() {
-            @Override
-            public Predicate toPredicate(Root<Message> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-                List<Predicate> predicateList = new ArrayList<Predicate>();
-                Predicate result = null;
-
-                if (predicateList.size() > 0) {
-                    result = cb.and(predicateList.toArray(new Predicate[]{}));
-                }
-
-                if (result != null) {
-                    query.where(result);
-                }
-
-                return query.getRestriction();
-            }
-
-        }, pageRequest);
-
-        return page;
     }
 
     @Override
@@ -202,7 +178,7 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public Page<Message> pcPage(int pageNum, int pageSize, final Integer tagId,final String name) {
+    public Page<Message> pcPage(int pageNum, int pageSize, final Integer tagId, final String name) {
         Page<Message> page = messageDao.findAll(new Specification<Message>() {
             @Override
             public Predicate toPredicate(Root<Message> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
@@ -459,7 +435,7 @@ public class MessageServiceImpl implements MessageService {
         User user = new User();
         user.setId(userId);
         List<CollectionMessage> list = collectionMessageService.pcFindCollectionWithUser(user, message);
-        if (list.size()>0){
+        if (list.size() > 0) {
             collectionMessageService.deleteById(list.get(0).getId());
         }
     }
@@ -470,8 +446,8 @@ public class MessageServiceImpl implements MessageService {
         message.setId(messageId);
         User user = new User();
         user.setId(userId);
-        List<CollectionMessage> collectionMessageList=collectionMessageService.pcFindCollectionWithUser(user, message);
-        if (collectionMessageList.size()==0) {
+        List<CollectionMessage> collectionMessageList = collectionMessageService.pcFindCollectionWithUser(user, message);
+        if (collectionMessageList.size() == 0) {
             return false;
         }
         return true;
@@ -479,11 +455,11 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     @Transactional
-    public int messageCollectionAdd(Integer messageId,boolean addOrDel) {
-        Message message=messageDao.findOne(messageId);
+    public int messageCollectionAdd(Integer messageId, boolean addOrDel) {
+        Message message = messageDao.findOne(messageId);
         if (addOrDel) {
             message.setCollectionNum(message.getCollectionNum() + 1);
-        }else{
+        } else {
             message.setCollectionNum(message.getCollectionNum() - 1);
         }
         messageDao.save(message);
