@@ -214,13 +214,13 @@ public class MessageController extends CommonController {
             }
             if (null != image) {
                 // 如果有新图片传入，则删除旧图片
-                UploadUtils.deleteFile(message.getImage());
+                // UploadUtils.deleteFile(message.getImage());
 
                 message.setImage(image);
             }
             if (null != intro_image) {
                 // 如果有新图片传入，则删除旧图片
-                UploadUtils.deleteFile(message.getIntro_image());
+                // UploadUtils.deleteFile(message.getIntro_image());
 
                 message.setIntro_image(intro_image);
             }

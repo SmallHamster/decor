@@ -1,6 +1,5 @@
 package com.bluemobi.decor.portal.util;
 
-import com.bluemobi.decor.core.Configue;
 import com.qiniu.common.QiniuException;
 import com.qiniu.storage.BucketManager;
 import com.qiniu.storage.UploadManager;
@@ -9,6 +8,7 @@ import com.qiniu.util.Auth;
 import com.qiniu.util.StringMap;
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -18,7 +18,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 七牛图片操作类
@@ -271,11 +270,12 @@ public class UploadUtils {
      */
     public static void deleteFile(String key) {
         try {
-            Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
-            BucketManager bucketManager = new BucketManager(auth);
-            String[] url = key.split("/");
+            if (StringUtils.isNotEmpty(key) && !key.replace(domain, "").trim().equals("")) {
+                Auth auth = Auth.create(ACCESS_KEY, SECRET_KEY);
+                BucketManager bucketManager = new BucketManager(auth);
 
-            bucketManager.delete(bucket, url[3]);
+                bucketManager.delete(bucket, key.replace(domain, ""));
+            }
         } catch (QiniuException e) {
             e.printStackTrace();
         }

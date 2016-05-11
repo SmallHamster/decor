@@ -8,6 +8,7 @@
     <title><fmt:message key="info.shouye"/></title>
     <link href="static/pc/css/common.css" rel="stylesheet" type="text/css">
     <link href="static/pc/css/all.css" rel="stylesheet" type="text/css">
+    <link href="static/pc-1.1/css/index.css" rel="stylesheet" type="text/css">
     <meta property="qc:admins" content="25322572076211456375" />
 </head>
 <body>
@@ -22,9 +23,9 @@
         <div class="streamer">
             <div class="list">
                 <ul>
-                    <li><a href="###"><img src="static/pc-1.1/images/logo.png" title="" alt="" width="1920" height="480" /></a></li>
-                    <li><a href="###"><img src="static/pc-1.1/images/logo.png" title="" alt="" width="1920" height="480" /></a></li>
-                    <li><a href="###"><img src="static/pc-1.1/images/logo.png" title="" alt="" width="1920" height="480" /></a></li>
+                    <li><a href="###"><img src="static/pc-1.1/images/banner.jpg" title="" alt="" width="1920" height="480" /></a></li>
+                    <li><a href="###"><img src="static/pc-1.1/images/index/streamer-1.jpg" title="" alt="" width="1920" height="480" /></a></li>
+                    <li><a href="###"><img src="static/pc-1.1/images/banner.jpg" title="" alt="" width="1920" height="480" /></a></li>
                 </ul>
             </div>
             <div class="center">
