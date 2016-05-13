@@ -6,7 +6,7 @@
     <a class="last"></a>
     <span class="p_text totalpage">共<span class="totalPage"></span>页， 到第</span>
     <input class="gotopage" type="text"/> 页
-    <input type="button" class="confirm" value="确定" />
+    <input type="button" class="confirm" value="确定" style="margin-right: 20px;" />
 </div>
 
 

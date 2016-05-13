@@ -162,13 +162,16 @@
             $bluemobi.ajax("pc/user/showProvince", {}, function (result) {
                 if (result.status == "0") {
                     $bluemobi.notify(result.msg, "success");
+                    var html = '';
                     for (var i = 0; i < result.data.length; i++) {
                         var province = result.data[i];
                         var provinceName = province.name;
-                        var html = '<a onclick="ajaxShowCity(\'' + provinceName + '\',' + province.id + ')">' + provinceName + '</a>';
-                        $(".active").eq(1).after(html);
+                        html += '<a onclick="ajaxShowCity(\'' + provinceName + '\',' + province.id + ')">' + provinceName + '</a>';
+                        // var html = '<a onclick="ajaxShowCity(\'' + provinceName + '\',' + province.id + ')">' + provinceName + '</a>';
+                        // $(".active").eq(1).after(html);
                         $("#div_province").hide();
                     }
+                    $("#div_province").append(html);
                 }
             });
         }
@@ -242,10 +245,12 @@
                         if (user.headImage == '') {
                             user.headImage = "static/pc/images/peoplePhoto.jpg"
                         }
+                        if (null == user.mobile || user.mobile == '') {
+                            user.mobile = '<fmt:message key="info.zanwujilu"/>';
+                        }
                         if (user.isShow == 'yes') {
 
                         } else {
-                            0
                             user.mobile = '<fmt:message key="info.baomi"/>';
                         }
                         html += "  <div class='belowCent clearfix'>\
@@ -274,7 +279,6 @@
                         <i class='iicon star'></i>\
                         <i class='iicon '></i>\
                         </span>\
-                        <span class='ml10'>'" + user.nickname + "'<fmt:message key="info.huifu"/></span>\
                         </p>\
                         <p class='addres'><i class='iicon locat mr10'></i><span>'" + user.province.name + "&nbsp&nbsp" + user.city.name + "'</span></p>\
                         </dd>\

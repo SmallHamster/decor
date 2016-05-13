@@ -240,7 +240,7 @@
                         </div>\
                         <div class="pro_txt clearfix">\
                         <span class="fl">'+scene.name+'</span>\
-                        <span class="fr">by：'+showName+'</span>\
+                        <span class="fr">'+showName+'</span>\
                         </div>\
                         </li>';
                     }else if(pageMode=="mid"){
@@ -254,7 +254,7 @@
                         </div>\
                         <div class="pro_txt clearfix">\
                         <span class="fl">'+scene.name+'</span>\
-                        <span class="fr">by：'+showName+'</span>\
+                        <span class="fr">'+showName+'</span>\
                         </div>\
                         </li>';
                     }else{
@@ -268,7 +268,7 @@
                         </div>\
                         <div class="pro_txt clearfix">\
                         <span class="fl">'+scene.name+'</span>\
-                        <span class="fr">by：'+showName+'</span>\
+                        <span class="fr">'+showName+'</span>\
                         </div>\
                         </li>';
                     }

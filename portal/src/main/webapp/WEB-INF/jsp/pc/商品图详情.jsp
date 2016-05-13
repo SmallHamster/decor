@@ -47,18 +47,17 @@
                             <div class="inner_wrap rel">
                                 <ul class="newpro_list clearfix">
                                     <c:forEach var="goodsImage" items="${goods.goodsImageList}">
-                                        <li
-                                                <c:if test="${goodsImage.isTurnMaterial == 'yes'}">
-                                                class="active"
-                                                </c:if>
-                                                ><span class="sign"><fmt:message key="info.sucai"/></span><a href="javascript:void(0)" style="cursor: hand"><img src="${goodsImage.image}"/></a></li>
+                                        <li <c:if test="${goodsImage.isTurnMaterial == 'yes'}">class="active"</c:if>>
+                                            <span class="sign"><fmt:message key="info.sucai"/></span>
+                                            <a href="javascript:void(0)" style="cursor: hand"><img src="${goodsImage.image}"/></a>
+                                        </li>
                                     </c:forEach>
                                 </ul>
                             </div>
                         </div>
                         <div class="pad20">
                             <div class="system clearfix">
-                                <img src="${goods.user.headImage}"/>
+                                <a href='pc/user/detail?userId=${goods.user.id}'><img src="${goods.user.headImage}"/></a>
                                 <div class="Rgtem ddddd">
                                     <span class="vt">${goods.user.nickname}</span><a class="atten mr30" ></a><a class="praise iicon mr10 dddPraise" ></a><a class="colle" ><span class="collectBtn" style="padding: 0 0;line-height:0px;"></span>(<span class="collectNum" style="padding: 0 0;line-height:0px;">${goods.collectionNum}</span>)</a>
                                     <span><fmt:message key="info.fengxiangdao"/></span>
