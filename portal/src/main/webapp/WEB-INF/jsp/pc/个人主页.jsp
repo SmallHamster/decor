@@ -22,7 +22,8 @@
             width: 90%;
             height: 90%;
         }
-        .redBorder2{
+
+        .redBorder2 {
             border: 2px solid #ff0000;
         }
     </style>
@@ -72,7 +73,7 @@
                         <a style="cursor: default;" title="${user.sexInfo}">
                             <c:if test="${user.sex == 0}"><span class="iicon sex sex1"></span></c:if>
                             <c:if test="${user.sex == 1}"><span class="iicon sex sex2"></span></c:if>
-                            <c:if test="${user.sex != 0 && user.sex != 1}"><img src="static/images/suo.png" height="20px;" width="20px;" /></c:if>
+                            <c:if test="${user.sex != 0 && user.sex != 1}"><img src="static/images/suo.png" height="20px;" width="20px;"/></c:if>
                         </a>
                         <span class="location">
                             <i class="iicon"></i>
@@ -121,17 +122,33 @@
             </div>
             <div class="myHomePage tabitem">
                 <div class="borderline"></div>
-                <div class="imageslist clearfix"><div class="imgwarp fl">
-                    <div class="collection"><p class="fs16 color6 pl20 mb20 " style="cursor:pointer;" ><fmt:message key="info.shoucangjia"/><span class="pl25" >>></span></p><ul class="clearfix">
-                        <li class="first"><div class="Thumbnails"><span class="iicon addnewimg"></span></div><p class="fs16 colorBlack tc"><fmt:message key="info.xinjianshoucangjia"/></p></li>
-                        <div id="homePageLi"></div>
-                    </ul></div>
-                    <div class="collection newestupload mt20"><p class="fs16 color6 pl20 mb20"><fmt:message key="info.zuixinshangchuan"/><span class="pl25">>></span></p>
-                        <ul class="clearfix"></ul>
+                <div class="imageslist clearfix">
+                    <div class="imgwarp fl">
+                        <div class="collection"><p class="fs16 color6 pl20 mb20 " style="cursor:pointer;"><fmt:message key="info.shoucangjia"/><span class="pl25">>></span></p>
+                            <ul class="clearfix">
+                                <li class="first">
+                                    <div class="Thumbnails"><span class="iicon addnewimg"></span></div>
+                                    <p class="fs16 colorBlack tc"><fmt:message key="info.xinjianshoucangjia"/></p>
+                                </li>
+                                <div id="homePageLi"></div>
+                            </ul>
+                        </div>
+                        <div class="collection newestupload mt20"><p class="fs16 color6 pl20 mb20"><fmt:message key="info.zuixinshangchuan"/><span class="pl25">>></span></p>
+                            <ul class="clearfix"></ul>
+                        </div>
                     </div>
-                </div> <div class="uploadimg fl"><p><button class="btn blackBtn mb20" onclick="createGoodsHandler.showCreateGoodsTab()"><fmt:message key="info.shangchuanshangpin"/></button></p>
-                    <p><button class="btn blackBtn mb20" onclick="createSceneHandler.showCreateSceneTab()"><fmt:message key="info.shangchuanchangjingtu"/></button></p><p><button class="btn blackBtn mb20" onclick="createSeriesHandler.showCreateSeriesTab()"><fmt:message key="info.shangchuanxilietu"/></button></p>
-                </div></div>
+                    <div class="uploadimg fl">
+                        <p>
+                            <button class="btn blackBtn mb20" onclick="createGoodsHandler.showCreateGoodsTab()"><fmt:message key="info.shangchuanshangpin"/></button>
+                        </p>
+                        <p>
+                            <button class="btn blackBtn mb20" onclick="createSceneHandler.showCreateSceneTab()"><fmt:message key="info.shangchuanchangjingtu"/></button>
+                        </p>
+                        <p>
+                            <button class="btn blackBtn mb20" onclick="createSeriesHandler.showCreateSeriesTab()"><fmt:message key="info.shangchuanxilietu"/></button>
+                        </p>
+                    </div>
+                </div>
             </div>
             <div class="myCollect tabitem"></div>
             <div class="myPublish tabitem"></div>
@@ -245,7 +262,20 @@
                         </div>
                         <div class="contRight choosePicList fr goodsList">
                             <p class="mb20"><fmt:message key="info.xuanzeshangpintu"/></p>
-                            <ul style="margin-left: 10px;"><li sceneid="1632"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FmwaJJyP-Clgj8dHE1XCqgzrB2yi"></li><li sceneid="1631"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FkyhwQ1npT7Ef9i0RcIdis4Dreet"></li><li sceneid="1630"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/Fi7H8y9sedOfJeUH44mxJt8rxVKG"></li><li sceneid="1629"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FmOTtFhriZKiCmMF0YIDM9eBrld1"></li><li sceneid="1628"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FlQqKg4ZjWGX5O93WBVPtf3Lmwh2"></li><li sceneid="1627"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FrAUjBMfD3TNf64Ktk8Awg_iHpkb"></li><li sceneid="1626"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FrMg-F0G4gzoZxrI5NVCTEx1JzRf"></li><li sceneid="1625"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/Fu8czSda_ARDxiJTbquRNolFlTzI"></li><li sceneid="1624"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FuBV_Kjn4YRyNaa_0FrRIGY56Pp-"></li><li sceneid="1623"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FobxuJvr8PyfbO_E0xtS1NooVOdD"></li><li sceneid="1622"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FncwjZjrgyCb2rd6zmD0uUD3Y9tu"></li><li sceneid="1621"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FgPWDQ7FBWZ8kSuVOqufJmF1LzX1"></li></ul>
+                            <ul style="margin-left: 10px;">
+                                <li sceneid="1632"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FmwaJJyP-Clgj8dHE1XCqgzrB2yi"></li>
+                                <li sceneid="1631"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FkyhwQ1npT7Ef9i0RcIdis4Dreet"></li>
+                                <li sceneid="1630"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/Fi7H8y9sedOfJeUH44mxJt8rxVKG"></li>
+                                <li sceneid="1629"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FmOTtFhriZKiCmMF0YIDM9eBrld1"></li>
+                                <li sceneid="1628"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FlQqKg4ZjWGX5O93WBVPtf3Lmwh2"></li>
+                                <li sceneid="1627"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FrAUjBMfD3TNf64Ktk8Awg_iHpkb"></li>
+                                <li sceneid="1626"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FrMg-F0G4gzoZxrI5NVCTEx1JzRf"></li>
+                                <li sceneid="1625"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/Fu8czSda_ARDxiJTbquRNolFlTzI"></li>
+                                <li sceneid="1624"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FuBV_Kjn4YRyNaa_0FrRIGY56Pp-"></li>
+                                <li sceneid="1623"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FobxuJvr8PyfbO_E0xtS1NooVOdD"></li>
+                                <li sceneid="1622"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FncwjZjrgyCb2rd6zmD0uUD3Y9tu"></li>
+                                <li sceneid="1621"><img src="http://7xksl1.com2.z0.glb.qiniucdn.com/FgPWDQ7FBWZ8kSuVOqufJmF1LzX1"></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -315,27 +345,27 @@
             <textarea></textarea>
         </div>
         <div class="tc btns">
-            <button class="btn blackBtn confirmBtn" style="margin-right: 30px;" ><fmt:message key="info.quxiao"/></button>
+            <button class="btn blackBtn confirmBtn" style="margin-right: 30px;"><fmt:message key="info.quxiao"/></button>
             <button class="btn blackBtn cancelBtn"><fmt:message key="info.queding"/></button>
         </div>
     </div>
 </script>
 <script type="text/javascript">
-    window.onload = function() {
+    window.onload = function () {
         var upload = sessionStorage.getItem("upload");
-        if(upload == 'goods') {
+        if (upload == 'goods') {
             createGoodsHandler.showCreateGoodsTab();
-        }else if(upload == 'scene'){
+        } else if (upload == 'scene') {
             createSceneHandler.showCreateSceneTab();
-        }else if(upload == 'series'){
+        } else if (upload == 'series') {
             createSeriesHandler.showCreateSeriesTab();
         }
-        sessionStorage.setItem("showSeries",""); //销毁 from 防止在b页面刷新 依然触发$('#xxx').click()
+        sessionStorage.setItem("showSeries", ""); //销毁 from 防止在b页面刷新 依然触发$('#xxx').click()
     }
     //加载
     $(function () {
 
-        if($(".brief p").text()=='null'){
+        if ($(".brief p").text() == 'null') {
             $(".brief p").text('');
         }
         ajaxMyHomePage();
@@ -347,48 +377,49 @@
     var register;
     var thisPage = rpage; // 分页对象 rpage存在于page.jsp
     //显示上传的 商品图 系列图 场景图
-    function showListImg(){
-        $(".list-img a").unbind("click").click(function(){
+    function showListImg() {
+        $(".list-img a").unbind("click").click(function () {
             paginationClass("show");
-            if($(this).text()=="<fmt:message key="info.shangpintu"/>"){
+            if ($(this).text() == "<fmt:message key="info.shangpintu"/>") {
                 ajaxPageGoods();
-            }else if($(this).text()=="<fmt:message key="info.changjingtu"/>"){
+            } else if ($(this).text() == "<fmt:message key="info.changjingtu"/>") {
                 ajaxPageScene();
-            }else if($(this).text()=="<fmt:message key="info.xilietu"/>"){
+            } else if ($(this).text() == "<fmt:message key="info.xilietu"/>") {
                 ajaxPageSeries();
-            }else if($(this).text()=="<fmt:message key="info.huabansucai"/>"){
+            } else if ($(this).text() == "<fmt:message key="info.huabansucai"/>") {
                 ajaxPageMaterial();
             }
         })
-    };
+    }
+    ;
     //上传商品图分页
-    function ajaxPageGoods(){
-        var userId=$("#sessionUserId").val();
+    function ajaxPageGoods() {
+        var userId = $("#sessionUserId").val();
         var data = {
             userId: userId,
             pageNum: thisPage.pageNum,
             pageSize: 18,
             totalPage: thisPage.totalPage
         };
-        $bluemobi.ajax("pc/user/goodsPage",data, function (result) {
+        $bluemobi.ajax("pc/user/goodsPage", data, function (result) {
             if (result.status == "0") {
-                var html=' <div class="mb20"><div class="page_rgt tr pr20 ">\
+                var html = ' <div class="mb20"><div class="page_rgt tr pr20 ">\
                 <a class="iicon back"></a><span>page<span class="page_rgt_pageNum"></span> of <span class="page_rgt_totalPage"></span>\
                 </span><a class="iicon next"></a>\
                 </div></div><div class="borderline"></div><div class="clearfix mb20" style="line-height: 37px;">\
                  <p class="fl fs16 color6"></p><button class="btn blackBtn w150 fr" onclick="createGoodsHandler.showCreateGoodsTab()"><fmt:message key="info.shangchuanshangpin"/></button></div><div class="commodityList"><ul>'
                 for (var i = 0; i < result.data.list.length; i++) {
-                    var goods=result.data.list[i];
-                    html+=' <li><a href="pc/goods/detail?goodsId=' + goods.id + '"><img src="'+goods.cover+'"><p class="colorBlack pl10">'+goods.name+'</p></a></li>';
+                    var goods = result.data.list[i];
+                    html += ' <li><a href="pc/goods/detail?goodsId=' + goods.id + '"><img src="' + goods.cover + '"><p class="colorBlack pl10">' + goods.name + '</p></a></li>';
 
                 }
-                html+='</ul></div>'
+                html += '</ul></div>'
                 $(".myPublish").html(html);
                 thisPage.init(result.data.page, " ajaxPageGoods");
-                $(".myPublish").find(".page_rgt").find(".back").unbind("click").click(function(){
+                $(".myPublish").find(".page_rgt").find(".back").unbind("click").click(function () {
                     $(".pagination").find(".first").trigger("click");
                 });
-                $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function(){
+                $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
                 $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -398,33 +429,33 @@
         });
     }
     //上传场景图分页
-    function ajaxPageScene(){
-        var userId=$("#sessionUserId").val();
+    function ajaxPageScene() {
+        var userId = $("#sessionUserId").val();
         var data = {
             userId: userId,
             pageNum: thisPage.pageNum,
             pageSize: 18,
             totalPage: thisPage.totalPage
         };
-        $bluemobi.ajax("pc/user/scenePage",data, function (result) {
+        $bluemobi.ajax("pc/user/scenePage", data, function (result) {
             if (result.status == "0") {
-                var html=' <div class="mb20"><div class="page_rgt tr pr20 ">\
+                var html = ' <div class="mb20"><div class="page_rgt tr pr20 ">\
                 <a class="iicon back"></a><span>page<span class="page_rgt_pageNum"></span> of <span class="page_rgt_totalPage"></span>\
                 </span><a class="iicon next"></a>\
                 </div></div><div class="borderline"></div><div class="clearfix mb20" style="line-height: 37px;">\
                  <p class="fl fs16 color6"></p><button class="btn blackBtn w150 fr" onclick="createSceneHandler.showCreateSceneTab()"><fmt:message key="info.shangchuanchangjingtu"/></button></div><div class="commodityList"><ul>'
                 for (var i = 0; i < result.data.list.length; i++) {
-                    var scene=result.data.list[i];
-                    html+=' <li><a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="'+scene.image+'"><p class="colorBlack pl10">'+scene.name+'</p></a></li>';
+                    var scene = result.data.list[i];
+                    html += ' <li><a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="' + scene.image + '"><p class="colorBlack pl10">' + scene.name + '</p></a></li>';
 
                 }
-                html+='</ul></div>'
+                html += '</ul></div>'
                 $(".myPublish").html(html);
                 thisPage.init(result.data.page, " ajaxPageScene");
-                $(".myPublish").find(".page_rgt").find(".back").unbind("click").click(function(){
+                $(".myPublish").find(".page_rgt").find(".back").unbind("click").click(function () {
                     $(".pagination").find(".first").trigger("click");
                 });
-                $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function(){
+                $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
                 $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -434,38 +465,38 @@
         });
     }
     //上传系列图分页
-    function ajaxPageSeries(){
-        var userId=$("#sessionUserId").val();
+    function ajaxPageSeries() {
+        var userId = $("#sessionUserId").val();
         var data = {
             userId: userId,
             pageNum: thisPage.pageNum,
             pageSize: 9,
             totalPage: thisPage.totalPage
         };
-        $bluemobi.ajax("pc/user/seriesPage",data, function (result) {
+        $bluemobi.ajax("pc/user/seriesPage", data, function (result) {
             if (result.status == "0") {
-                var html=' <div class="mb20"><div class="page_rgt tr pr20 ">\
+                var html = ' <div class="mb20"><div class="page_rgt tr pr20 ">\
                 <a class="iicon back"></a><span>page<span class="page_rgt_pageNum"></span> of <span class="page_rgt_totalPage"></span>\
                 </span><a class="iicon next"></a></div></div><div class="borderline"></div>\
                <div class="clearfix mb20" style="line-height: 37px;padding:0 20px;">\
                 <p class="fl fs16 color6"></p>\
                 <button class="btn blackBtn w150 fr" onclick="createSeriesHandler.showCreateSeriesTab()"><fmt:message key="info.shangchuanxilietu"/></button></div><div class="commodityList seriesList"><ul>'
                 for (var i = 0; i < result.data.list.length; i++) {
-                    var series=result.data.list[i];
+                    var series = result.data.list[i];
                     if (series.info.length > 14) {
                         series.info = series.info.substring(0, 14) + "..."
                     }
-                    html+=' <li><a href="pc/series/detail?seriesId=' + series.id + '"><img src="'+series.cover+'"><p class="colorBlack pl10 fs16" style="margin-top: 8px;"' +
-                    '><span class="fl">'+series.info+'</span><span class="fr color6 pr10">'+series.sceneNum+'<fmt:message key="info.zhangchangjingtu"/></span></p></a></li>';
+                    html += ' <li><a href="pc/series/detail?seriesId=' + series.id + '"><img src="' + series.cover + '"><p class="colorBlack pl10 fs16" style="margin-top: 8px;"' +
+                            '><span class="fl">' + series.info + '</span><span class="fr color6 pr10">' + series.sceneNum + '<fmt:message key="info.zhangchangjingtu"/></span></p></a></li>';
 
                 }
-                html+='</ul></div>'
+                html += '</ul></div>'
                 $(".myPublish").html(html);
                 thisPage.init(result.data.page, " ajaxPageSeries");
-                $(".myPublish").find(".page_rgt").find(".back").unbind("click").click(function(){
+                $(".myPublish").find(".page_rgt").find(".back").unbind("click").click(function () {
                     $(".pagination").find(".first").trigger("click");
                 });
-                $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function(){
+                $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
                 $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -475,31 +506,31 @@
         });
     }
     //上传画板素材分页
-    function ajaxPageMaterial(){
-        var userId=$("#sessionUserId").val();
+    function ajaxPageMaterial() {
+        var userId = $("#sessionUserId").val();
         var data = {
             userId: userId,
             pageNum: thisPage.pageNum,
             pageSize: 12,
             totalPage: thisPage.totalPage
         };
-        $bluemobi.ajax("pc/user/materialPage",data, function (result) {
+        $bluemobi.ajax("pc/user/materialPage", data, function (result) {
             if (result.status == "0") {
-                var html='<div class="borderline"></div>\
+                var html = '<div class="borderline"></div>\
                  <div class="clearfix mb20" style="line-height: 37px;padding: 0 20px;"><div class="page_rgt tr pr20 ">\
                 <a class="iicon back"></a><span>page<span class="page_rgt_pageNum"></span> of <span class="page_rgt_totalPage"></span>\
                 </span><a class="iicon next"></a></div><p class="fl fs16 color6"></p></div><div class="commodityList materialList"><ul>'
                 for (var i = 0; i < result.data.list.length; i++) {
-                    var material=result.data.list[i];
-                    html+='<li><img src="'+material.image+'"></li>';
+                    var material = result.data.list[i];
+                    html += '<li><img src="' + material.image + '"></li>';
                 }
-                html+='</ul></div>'
+                html += '</ul></div>'
                 $(".myPublish").html(html);
                 thisPage.init(result.data.page, " ajaxPageMaterial");
-                $(".myPublish").find(".page_rgt").find(".back").unbind("click").click(function(){
+                $(".myPublish").find(".page_rgt").find(".back").unbind("click").click(function () {
                     $(".pagination").find(".first").trigger("click");
                 });
-                $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function(){
+                $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
                 $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -515,13 +546,13 @@
         $bluemobi.ajax("pc/user/favoriteList", {userId: userId}, function (result) {
             if (result.status == "0") {
                 var html = ' ';
-                if(result.data.length<=3) {
+                if (result.data.length <= 3) {
                     for (var i = 0; i < result.data.length; i++) {
                         var favorite = result.data[i];
                         html += '<li onclick="pageShowFavorite(this,' + favorite.id + ')" favoriteName=' + favorite.name + ' style="cursor:pointer"><div class="Thumbnails"><img src="' + favorite.cover + '" style="width: 175px;height:148px;">\
                   </div><p class="fs16 colorBlack tc">' + favorite.name + '</p></li>';
                     }
-                }else{
+                } else {
                     for (var i = 0; i < 3; i++) {
                         var favorite = result.data[i];
                         html += '<li onclick="pageShowFavorite(this,' + favorite.id + ')" favoriteName=' + favorite.name + ' style="cursor:pointer"><div class="Thumbnails"><img src="' + favorite.cover + '" style="width: 175px;height:148px;">\
@@ -530,10 +561,10 @@
 
                 }
                 $("#homePageLi").html(html);
-                $(".myHomePage p").eq(0).unbind("click").click(function(){
+                $(".myHomePage p").eq(0).unbind("click").click(function () {
                     $("#myCollect").trigger("click");
                 });
-                $(".myHomePage li").eq(0).unbind("click").click(function(){
+                $(".myHomePage li").eq(0).unbind("click").click(function () {
                     newFavorite();
                 });
             }
@@ -541,15 +572,15 @@
         $bluemobi.ajax("pc/user/imagesList", {userId: userId}, function (result) {
             if (result.status == "0") {
                 var html = ' ';
-                if( result.data.length>=4){
+                if (result.data.length >= 4) {
                     for (var i = 0; i < 4; i++) {
                         var picObj = result.data[i];
-                        html += '<li><a href="pc/'+picObj.objectType+'/detail?'+picObj.objectType+'Id=' + picObj.id + '"><div class="Thumbnails"><img src="'+picObj.image+'"></div></a></li>';
+                        html += '<li><a href="pc/' + picObj.objectType + '/detail?' + picObj.objectType + 'Id=' + picObj.id + '"><div class="Thumbnails"><img src="' + picObj.image + '"></div></a></li>';
                     }
-                }else{
-                    for (var i = 0; i <  result.data.length; i++) {
+                } else {
+                    for (var i = 0; i < result.data.length; i++) {
                         var picObj = result.data[i];
-                        html += '<li><a href="pc/'+picObj.objectType+'/detail?'+picObj.objectType+'Id=' + picObj.id + '"><div class="Thumbnails"><img src="'+picObj.image+'"></div></a></li>';
+                        html += '<li><a href="pc/' + picObj.objectType + '/detail?' + picObj.objectType + 'Id=' + picObj.id + '"><div class="Thumbnails"><img src="' + picObj.image + '"></div></a></li>';
                     }
                 }
                 $(".newestupload ul").html(html);
@@ -573,7 +604,7 @@
                 html += '</ul></div>'
 
                 $(".myCollect").html(html);
-                $(".myCollect li").eq(0).unbind("click").click(function(){
+                $(".myCollect li").eq(0).unbind("click").click(function () {
                     newFavorite();
                 })
             }
@@ -609,15 +640,15 @@
                           </li>';
                 }
                 html += '</ul></div>'
-                if(result.data.list.length==0){
+                if (result.data.list.length == 0) {
                     html += '<div class="empty tc" style="min-height: 600px"><p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwuzixunjilu"/></p></div>'
                 }
                 $(".myMessage").html(html);
                 thisPage.init(result.data.page, "ajaxMyMessage");
-                $(".myMessage").find(".page_rgt").find(".back").unbind("click").click(function(){
+                $(".myMessage").find(".page_rgt").find(".back").unbind("click").click(function () {
                     $(".pagination").find(".first").trigger("click");
                 });
-                $(".myMessage").find(".page_rgt").find(".next").unbind("click").click(function(){
+                $(".myMessage").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
                 $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -681,19 +712,19 @@
         ajaxLightBoxBtns(lightBox);
     }
     //收藏夹按钮
-    function ajaxLightBoxBtns(lightBox){
-        $(".btns").find(".confirmBtn").unbind("click").click(function(){
+    function ajaxLightBoxBtns(lightBox) {
+        $(".btns").find(".confirmBtn").unbind("click").click(function () {
             lightBox.hideDlg();
         })
-        $(".btns").find(".cancelBtn").unbind("click").click(function(){
-            var name=$(".btns").parent().find("input").val();
-            var info=$(".btns").parent().find("textarea").val();
-            var userId=$("#sessionUserId").val();
-            $bluemobi.ajax("pc/user/newFavorite", {name:name,info:info,userId:userId}, function (result) {
+        $(".btns").find(".cancelBtn").unbind("click").click(function () {
+            var name = $(".btns").parent().find("input").val();
+            var info = $(".btns").parent().find("textarea").val();
+            var userId = $("#sessionUserId").val();
+            $bluemobi.ajax("pc/user/newFavorite", {name: name, info: info, userId: userId}, function (result) {
                 if (result.status == "0") {
                     $bluemobi.notify(result.msg, "success");
                     lightBox.hideDlg();
-                    setTimeout(1000,location.reload());
+                    setTimeout(1000, location.reload());
                 }
             });
         })
@@ -714,8 +745,8 @@
                 var html = '<div class="fansList"><ul>';
                 for (var i = 0; i < result.data.list.length; i++) {
                     var user = result.data.list[i].fansUser;
-                    if(user.nickname==null){
-                        user.nickname='';
+                    if (user.nickname == null) {
+                        user.nickname = '';
                     }
                     html += '<li class="clearfix"><img src="' + user.headImage + '" class="fl" style="width: 62px;height: 62px;"><div class="ml10 fl">\
               <p class="fs16 colorBlack pb5">' + user.nickname + '</p><p class="pb5"><span class="location"><i class="iicon"></i><span>' + user.city.province.name + '</span><span>' + user.city.name + '</span></span></p>\
@@ -723,7 +754,7 @@
               </div></li>';
                 }
                 html += '</ul></div>'
-                if(result.data.list.length==0){
+                if (result.data.list.length == 0) {
                     html += '<div class="empty tc" style="min-height: 600px"><p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwufensijilu"/></p></div>'
                 }
                 $(".myHomePage").hide();
@@ -762,7 +793,7 @@
               </div></li>';
                 }
                 html += '</ul></div>'
-                if(result.data.list.length==0){
+                if (result.data.list.length == 0) {
                     html += '<div class="empty tc" style="min-height: 600px"><p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwuguanzhujilu"/></p></div>'
                 }
                 $(".createSceneTab").hide();
@@ -823,13 +854,13 @@
                                     <p class="inter">\
                                         <span class="i-praise mr10">\
                                             <i class="iicon"></i>' + comment.praiseNum + '' +
-                        '</span>'
+                                '</span>'
                         if (comment.replyList.length == 0 && $("#sessionUserId").val() != "") {
                             html += '<span class="i-share pl20"></i><fmt:message key="info.huifu"/></span><div class="rost replydiv none" style="width: 500px" ><textarea class="tared" maxlength="200"  style="height: 75px;width: 500px; resize: none"></textarea>\
                                         <button class="replybtn" onclick="saveCommentReply(' + comment.id + ',this)"><fmt:message key="info.fabu"/></button></div>';
                         }
                         html += '</p></div>'
-                        if(result.data.list.length==0){
+                        if (result.data.list.length == 0) {
                             html += '<div class="empty tc" style="min-height: 600px"><p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwupinglunjilu"/></p></div>'
                         }
                         //回复
@@ -845,7 +876,7 @@
                     html += '</div></li>'
                 }
                 html += '</ul></div>'
-                if(result.data.list.length==0){
+                if (result.data.list.length == 0) {
                     html += '<div class="empty tc" style="min-height: 600px"><p class="color9 pt20" style="font-size: 20px;"><fmt:message key="info.zanwupinglunjilu"/></p></div>'
                 }
                 $(".myComment").html(html);
@@ -853,10 +884,10 @@
                     $(this).parents(".prost").find(".replydiv").show();
                 });
                 thisPage.init(result.data.page, " ajaxMyComment");
-                $(".myComment").find(".page_rgt").find(".back").unbind("click").click(function(){
+                $(".myComment").find(".page_rgt").find(".back").unbind("click").click(function () {
                     $(".pagination").find(".first").trigger("click");
                 });
-                $(".myComment").find(".page_rgt").find(".next").unbind("click").click(function(){
+                $(".myComment").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 });
                 $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -878,7 +909,7 @@
             $(_this).parents(".replydiv").find("textarea").focus();
             return false;
         }
-        $bluemobi.ajax("pc/comment/saveCommentReply",{
+        $bluemobi.ajax("pc/comment/saveCommentReply", {
             userId: userId,
             commentId: commentId,
             content: content
@@ -904,13 +935,13 @@
                 label: ""
             }).on("fileComplete.dropper", function (e, file, response) {
                 var html = '<p class="fs16 color6 mt20">\
-                        <img src="' + response.image + '" thumbnailsrc="'+response.thumbnailImage+'" width="24" height="24"/>\
+                        <img src="' + response.image + '" thumbnailsrc="' + response.thumbnailImage + '" width="24" height="24"/>\
                 <span><i class="iicon choose1 checkbox _cover"></i><fmt:message key="info.sheweifengmian"/></span>\
                 <span><i class="iicon choose2 i-check"></i><fmt:message key="info.zhuanweisucai"/></span>\
                 </p>';
                 $(".createGoodsTab .piclist").append(html);
                 $(".createGoodsTab i").unbind("click").click(function () {
-                    if($(this).hasClass("_cover")){
+                    if ($(this).hasClass("_cover")) {
                         $(".createGoodsTab ._cover").not($(this)).removeClass("checked");
                         $(this).addClass("_isCover");
                     }
@@ -989,10 +1020,10 @@
                 }
             });
         },
-        pcCreateGoods:function(){
+        pcCreateGoods: function () {
             var userId = $("#sessionUserId").val();
             // 用户未登录，则弹出未登录提示框
-            if(userId==""){
+            if (userId == "") {
                 loginPopup.showDlg();
                 return false;
             }
@@ -1004,108 +1035,110 @@
             var link = $('.createGoodsTab input[name="link"]').val();
             var info = $('.createGoodsTab textarea[name="info"]').val();
 
-            if(name==""){
-                $bluemobi.notify("<fmt:message key="info.qingshurushangpinmingcheng"/>!","error");
+            if (name == "") {
+                $bluemobi.notify("<fmt:message key="info.qingshurushangpinmingcheng"/>!", "error");
                 $('.createGoodsTab input[name="name"]').focus();
                 return false;
             }
 
             var kindTagIds = $(".createGoodsTab .kingTagSelect option:selected").val();
-            if(!kindTagIds){
-                $bluemobi.notify("<fmt:message key="info.qingxuanzefenlei"/>!","error");
+            if (!kindTagIds) {
+                $bluemobi.notify("<fmt:message key="info.qingxuanzefenlei"/>!", "error");
                 return false;
             }
 
             var styleTagIds = "";
-            $(".createGoodsTab .styleTagSelected").find("span").each(function(index){
-                if(index!=0){
-                    styleTagIds+=",";
+            $(".createGoodsTab .styleTagSelected").find("span").each(function (index) {
+                if (index != 0) {
+                    styleTagIds += ",";
                 }
-                styleTagIds+="@"+$(this).attr("styletagid")+"@";
+                styleTagIds += "@" + $(this).attr("styletagid") + "@";
             });
-            if(styleTagIds==""){
-                $bluemobi.notify("<fmt:message key="info.qingxuanzefenggebiaoqian"/>!","error");
+            if (styleTagIds == "") {
+                $bluemobi.notify("<fmt:message key="info.qingxuanzefenggebiaoqian"/>!", "error");
                 return false;
             }
 
             var spaceTagIds = "";
-            $(".createGoodsTab .spaceTagSelected").find("span").each(function(index){
-                if(index!=0){
-                    spaceTagIds+=",";
+            $(".createGoodsTab .spaceTagSelected").find("span").each(function (index) {
+                if (index != 0) {
+                    spaceTagIds += ",";
                 }
-                spaceTagIds+="@"+$(this).attr("spacetagid")+"@";
+                spaceTagIds += "@" + $(this).attr("spacetagid") + "@";
             });
-            if(spaceTagIds==""){
-                $bluemobi.notify("<fmt:message key="info.qingxuanzekongjianbiaoqian"/>!","error");
+            if (spaceTagIds == "") {
+                $bluemobi.notify("<fmt:message key="info.qingxuanzekongjianbiaoqian"/>!", "error");
                 return false;
             }
 
-            if(price==""){
-                $bluemobi.notify("<fmt:message key="info.qingshurujiage"/>!","error");
+            if (price == "") {
+                $bluemobi.notify("<fmt:message key="info.qingshurujiage"/>!", "error");
                 $('.createGoodsTab input[name="price"]').focus();
                 return false;
             }
-            if(size==""){
-                $bluemobi.notify("<fmt:message key="info.qingshuruchicun"/>!","error");
+            if (size == "") {
+                $bluemobi.notify("<fmt:message key="info.qingshuruchicun"/>!", "error");
                 $('.createGoodsTab input[name="size"]').focus();
                 return false;
             }
-            if(texture==""){
-                $bluemobi.notify("<fmt:message key="info.qingshurucaizhi"/>!","error");
+            if (texture == "") {
+                $bluemobi.notify("<fmt:message key="info.qingshurucaizhi"/>!", "error");
                 $('.createGoodsTab input[name="texture"]').focus();
                 return false;
             }
-            if(link==""){
-                $bluemobi.notify("<fmt:message key="info.qingshurugoumailianjie"/>!","error");
+            if (link == "") {
+                $bluemobi.notify("<fmt:message key="info.qingshurugoumailianjie"/>!", "error");
                 $('.createGoodsTab input[name="link"]').focus();
                 return false;
             }
-            if(info==""){
-                $bluemobi.notify("<fmt:message key="info.qingshurushangpinmiaoshu"/>!","error");
+            if (info == "") {
+                $bluemobi.notify("<fmt:message key="info.qingshurushangpinmiaoshu"/>!", "error");
                 $('.createGoodsTab textarea[name="info"]').focus();
                 return false;
             }
 
-            var cover="";
-            var thumbnailCover="";
-            var images="";
-            var thumbnailImages="";
-            var isTurnMaterials="";
-            $('.createGoodsTab .piclist').find("p").each(function(index){
+            var cover = "";
+            var thumbnailCover = "";
+            var images = "";
+            var thumbnailImages = "";
+            var isTurnMaterials = "";
+            $('.createGoodsTab .piclist').find("p").each(function (index) {
                 var span0 = $(this).find("span").eq(0);
                 var span1 = $(this).find("span").eq(1);
-                if(index!=0){
-                    images+=",";
-                    thumbnailImages+=",";
-                    isTurnMaterials+=",";
+                if (index != 0) {
+                    images += ",";
+                    thumbnailImages += ",";
+                    isTurnMaterials += ",";
                 }
-                images+=$(this).find("img").attr("src");
-                thumbnailImages+=$(this).find("img").attr("thumbnailsrc");
-                if(span1.find("i").hasClass("checked")){
-                    isTurnMaterials+="yes";
-                }else{
-                    isTurnMaterials+="no";
+                images += $(this).find("img").attr("src");
+                thumbnailImages += $(this).find("img").attr("thumbnailsrc");
+                if (span1.find("i").hasClass("checked")) {
+                    isTurnMaterials += "yes";
+                } else {
+                    isTurnMaterials += "no";
                 }
-                if(span0.find("i").hasClass("_isCover")){
-                    cover=span0.parent().find("img").attr("src");
-                    thumbnailCover=span0.parent().find("img").attr("thumbnailsrc");
+                if (span0.find("i").hasClass("_isCover")) {
+                    cover = span0.parent().find("img").attr("src");
+                    thumbnailCover = span0.parent().find("img").attr("thumbnailsrc");
                 }
             });
-            if(images==""){
-                $bluemobi.notify("<fmt:message key="info.qingshangchuanshangpintupian"/>!","error");
+            if (images == "") {
+                $bluemobi.notify("<fmt:message key="info.qingshangchuanshangpintupian"/>!", "error");
                 return false;
             }
-            if(cover==""){
-                $bluemobi.notify("<fmt:message key="info.qingxuanzefengmiantu"/>!","error");
+            if (cover == "") {
+                $bluemobi.notify("<fmt:message key="info.qingxuanzefengmiantu"/>!", "error");
                 return false;
             }
 
-            var data={name:name,kindTagIds:kindTagIds,styleTagIds:styleTagIds,spaceTagIds:spaceTagIds,price:price,texture:texture,size:size,link:link,info:info
-                ,cover:cover,thumbnailCover:thumbnailCover,images:images,thumbnailImages:thumbnailImages,isTurnMaterials:isTurnMaterials};
+            var data = {
+                name: name, kindTagIds: kindTagIds, styleTagIds: styleTagIds, spaceTagIds: spaceTagIds, price: price, texture: texture, size: size, link: link, info: info
+                , cover: cover, thumbnailCover: thumbnailCover, images: images, thumbnailImages: thumbnailImages, isTurnMaterials: isTurnMaterials
+            };
 
             $bluemobi.ajax("pc/goods/pcCreateGoods", data, function (result) {
                 if (result.status == "0") {
-                    $bluemobi.notify(result.msg,"success");
+                    $bluemobi.notify(result.msg, "success");
                     location.reload(true);
 //                    $('.createGoodsTab input[name="name"]').val("");
 //                    $('.createGoodsTab input[name="price"]').val("");
@@ -1114,15 +1147,15 @@
 //                    $('.createGoodsTab input[name="link"]').val("");
 //                    $('.createGoodsTab textarea[name="info"]').val("");
 //                    $('.createGoodsTab .piclist').html("");
-                }else{
-                    $bluemobi.notify(result.msg,"error");
+                } else {
+                    $bluemobi.notify(result.msg, "error");
                 }
             });
         }
     };
 
     var createSceneHandler = {
-        i:0,
+        i: 0,
         showCreateSceneTab: function () {
             $(".tabitem").hide();
             $(".createSceneTab").show();
@@ -1135,8 +1168,8 @@
                 postData: {},
                 label: ""
             }).on("fileComplete.dropper", function (e, file, response) {
-                $("#sceneImage").attr("src",response.image);
-                $("#sceneImage").attr("thumbnailsrc",response.thumbnailImage);
+                $("#sceneImage").attr("src", response.image);
+                $("#sceneImage").attr("thumbnailsrc", response.thumbnailImage);
             }).on("fileError.dropper", function () {
                 console.log("upload error")
             });
@@ -1193,35 +1226,35 @@
             });
         },
         // 查询场景图列表
-        ajaxGoods4CreateScene:function(action){
-            if(action && action=="pageAttributeInit"){
+        ajaxGoods4CreateScene: function (action) {
+            if (action && action == "pageAttributeInit") {
                 thisPage.pageAttributeInit();
             }
             thisPage.pageSize = 12;
-            var data = {pageNum:thisPage.pageNum,pageSize:thisPage.pageSize};
-            $bluemobi.ajax("pc/goods/page",data,function(result){
+            var data = {pageNum: thisPage.pageNum, pageSize: thisPage.pageSize};
+            $bluemobi.ajax("pc/goods/page", data, function (result) {
                 if (result.status == "0") {
                     var html = '';
-                    for(var i=0;i<result.data.list.length;i++){
+                    for (var i = 0; i < result.data.list.length; i++) {
                         var goods = result.data.list[i];
-                        html+='<li ><img goodsid='+goods.id+' src="'+goods.cover+'"></li>';
+                        html += '<li ><img goodsid=' + goods.id + ' src="' + goods.cover + '"></li>';
                     }
                     $(".createSceneTab ul").html(html);
-                    thisPage.init(result.data.page,"createSceneHandler.ajaxGoods4CreateScene");
+                    thisPage.init(result.data.page, "createSceneHandler.ajaxGoods4CreateScene");
 
-                    $(".createSceneTab .choosePicList img").unbind("click").click(function(){
+                    $(".createSceneTab .choosePicList img").unbind("click").click(function () {
                         createSceneHandler.addGoodsImage($(this));
                     });
                 }
             });
         },
-        getPointPosition:function(event){
-            if($("#sceneImage").attr("src")==""){
-                $bluemobi.notify("<fmt:message key="info.qingxianshangchuantupian"/>！","error");
+        getPointPosition: function (event) {
+            if ($("#sceneImage").attr("src") == "") {
+                $bluemobi.notify("<fmt:message key="info.qingxianshangchuantupian"/>！", "error");
                 return false;
             }
             if ($(".fa-plus-square").length >= 1 || $(".goodsXZ").length >= 1) {
-                $bluemobi.notify("<fmt:message key="info.qingxianwanchengshangyigeshangpinbiaoqianxinxi"/>！","error");
+                $bluemobi.notify("<fmt:message key="info.qingxianwanchengshangyigeshangpinbiaoqianxinxi"/>！", "error");
                 return false;
             }
             //获取描点相对图片左边的距离(offsetX在IE,360,谷歌兼容，layerX在火狐兼容)
@@ -1229,8 +1262,8 @@
             //获取描点相对图片上边的距离(offsetX在IE,360,谷歌兼容，layerX在火狐兼容)
             var y_px_scr = event.offsetY || event.layerY;
             //1.获取描点相对浏览器左边距离(显示描点图片用) 2.event.pageX是相对整个页面的左偏移量 3. $("#pointimg").width()是图片宽4，相减是为了在描点处居中显示描点图片
-            var mleft = (event.pageX-6) + "px";
-            var mtop = (event.pageY-6) + "px";
+            var mleft = (event.pageX - 6) + "px";
+            var mtop = (event.pageY - 6) + "px";
             //获取描点相对主图片左边距离百分比
 //      var percentX = (x_px_scr / $("#sceneImage").width()) * 100 + "%";
 //      var percentY = (y_px_scr / $("#sceneImage").height()) * 100 + "%";
@@ -1253,110 +1286,112 @@
         },
         addGoodsImage: function ($img) {
             if ($(".fa-plus-square").length > 0) {
-                $("#goodsTagList").find("img").last().attr("src",$img.attr("src"));
-                $("#goodsTagList").find("input").last().attr("goodsid",$img.attr("goodsid"));
+                $("#goodsTagList").find("img").last().attr("src", $img.attr("src"));
+                $("#goodsTagList").find("input").last().attr("goodsid", $img.attr("goodsid"));
                 $(".fa-plus-square").removeClass("fa-plus-square").addClass("fa-tags");
             }
             else {
-                $bluemobi.notify("<fmt:message key="info.qingxianxuanzeyigezuobiao"/>","error");
+                $bluemobi.notify("<fmt:message key="info.qingxianxuanzeyigezuobiao"/>", "error");
             }
         },
-        pcCreateScene:function(){
+        pcCreateScene: function () {
             var userId = $("#sessionUserId").val();
             // 用户未登录，则弹出未登录提示框
-            if(userId==""){
+            if (userId == "") {
                 loginPopup.showDlg();
                 return false;
             }
             var name = $('.createSceneTab input[name="name"]').val();
             var info = $('.createSceneTab textarea[name="info"]').val();
 
-            if(name==""){
-                $bluemobi.notify("<fmt:message key="info.qingshurumingcheng"/>!","error");
+            if (name == "") {
+                $bluemobi.notify("<fmt:message key="info.qingshurumingcheng"/>!", "error");
                 $('.createSceneTab input[name="name"]').focus();
                 return false;
             }
 
             var styleTagIds = "";
-            $(".createSceneTab .styleTagSelected").find("span").each(function(index){
-                if(index!=0){
-                    styleTagIds+=",";
+            $(".createSceneTab .styleTagSelected").find("span").each(function (index) {
+                if (index != 0) {
+                    styleTagIds += ",";
                 }
-                styleTagIds+="@"+$(this).attr("styletagid")+"@";
+                styleTagIds += "@" + $(this).attr("styletagid") + "@";
             });
-            if(styleTagIds==""){
-                $bluemobi.notify("<fmt:message key="info.qingxuanzefenggebiaoqian"/>!","error");
+            if (styleTagIds == "") {
+                $bluemobi.notify("<fmt:message key="info.qingxuanzefenggebiaoqian"/>!", "error");
                 return false;
             }
 
             var spaceTagIds = "";
-            $(".createSceneTab .spaceTagSelected").find("span").each(function(index){
-                if(index!=0){
-                    spaceTagIds+=",";
+            $(".createSceneTab .spaceTagSelected").find("span").each(function (index) {
+                if (index != 0) {
+                    spaceTagIds += ",";
                 }
-                spaceTagIds+="@"+$(this).attr("spacetagid")+"@";
+                spaceTagIds += "@" + $(this).attr("spacetagid") + "@";
             });
-            if(spaceTagIds==""){
-                $bluemobi.notify("<fmt:message key="info.qingxuanzekongjianbiaoqian"/>!","error");
+            if (spaceTagIds == "") {
+                $bluemobi.notify("<fmt:message key="info.qingxuanzekongjianbiaoqian"/>!", "error");
                 return false;
             }
 
-            if(info==""){
-                $bluemobi.notify("<fmt:message key="info.qingshurushangpinmiaoshu"/>!","error");
+            if (info == "") {
+                $bluemobi.notify("<fmt:message key="info.qingshurushangpinmiaoshu"/>!", "error");
                 $('.createSceneTab textarea[name="info"]').focus();
                 return false;
             }
-            if($("#sceneImage").attr("src")==""){
-                $bluemobi.notify("<fmt:message key="info.shangchuantupian"/>!","error");
+            if ($("#sceneImage").attr("src") == "") {
+                $bluemobi.notify("<fmt:message key="info.shangchuantupian"/>!", "error");
                 return false;
             }
-            if($('#goodsTagList').html()==""){
-                $bluemobi.notify("<fmt:message key="info.qingweichangjingtutianjiashangpin"/>!","error");
+            if ($('#goodsTagList').html() == "") {
+                $bluemobi.notify("<fmt:message key="info.qingweichangjingtutianjiashangpin"/>!", "error");
                 return false;
             }
-            if($('#goodsTagList img').last() && $('#goodsTagList img').last().attr("src")==""){
-                $bluemobi.notify("<fmt:message key="info.qingweizuihouyigezuobiaoxunazetupian"/>!","error");
+            if ($('#goodsTagList img').last() && $('#goodsTagList img').last().attr("src") == "") {
+                $bluemobi.notify("<fmt:message key="info.qingweizuihouyigezuobiaoxunazetupian"/>!", "error");
                 return false;
             }
 
             var image = $("#sceneImage").attr("src");
             var thumbnailImage = $("#sceneImage").attr("thumbnailsrc");
-            var goodsIds="";
-            var positons="";
-            $('#goodsTagList .goodsYWC').each(function(index){
-                if(index!=0){
-                    goodsIds+="@";
-                    positons+="@";
+            var goodsIds = "";
+            var positons = "";
+            $('#goodsTagList .goodsYWC').each(function (index) {
+                if (index != 0) {
+                    goodsIds += "@";
+                    positons += "@";
                 }
-                goodsIds+=$(this).find("input").attr("goodsid");
-                positons+=$(this).find("input").val();
+                goodsIds += $(this).find("input").attr("goodsid");
+                positons += $(this).find("input").val();
             });
 
-            var isShow="no";
-            if($(".createSceneTab ._isShow").hasClass("checked")){
-                isShow="yes";
+            var isShow = "no";
+            if ($(".createSceneTab ._isShow").hasClass("checked")) {
+                isShow = "yes";
             }
 
-            var data={name:name,styleTagIds:styleTagIds,spaceTagIds:spaceTagIds,info:info
-                ,image:image,thumbnailImage:thumbnailImage,goodsIds:goodsIds,positons:positons,isShow:isShow};
+            var data = {
+                name: name, styleTagIds: styleTagIds, spaceTagIds: spaceTagIds, info: info
+                , image: image, thumbnailImage: thumbnailImage, goodsIds: goodsIds, positons: positons, isShow: isShow
+            };
 
             $bluemobi.ajax("pc/scene/pcCreateScene", data, function (result) {
                 if (result.status == "0") {
-                    $bluemobi.notify(result.msg,"success");
+                    $bluemobi.notify(result.msg, "success");
                     location.reload(true);
-                }else{
-                    $bluemobi.notify(result.msg,"error");
+                } else {
+                    $bluemobi.notify(result.msg, "error");
                 }
             });
         }
     };
 
     var createSeriesHandler = {
-        selectedSceneIdArr:[], // 已选择的场景id
+        selectedSceneIdArr: [], // 已选择的场景id
         showCreateSeriesTab: function () {
             var userId = $("#sessionUserId").val();
             // 用户未登录，则弹出未登录提示框
-            if(userId==""){
+            if (userId == "") {
                 loginPopup.showDlg();
                 return false;
             }
@@ -1367,41 +1402,41 @@
             createSeriesHandler.ajaxScene4CreateSeries("pageAttributeInit");
         },
         // 查询场景图列表
-        ajaxScene4CreateSeries:function(action){
-            if(action && action=="pageAttributeInit"){
+        ajaxScene4CreateSeries: function (action) {
+            if (action && action == "pageAttributeInit") {
                 thisPage.pageAttributeInit();
             }
             thisPage.pageSize = 12;
-            var data = {pageNum:thisPage.pageNum,pageSize:thisPage.pageSize};
-            $bluemobi.ajax("pc/scene/page",data,function(result){
+            var data = {pageNum: thisPage.pageNum, pageSize: thisPage.pageSize};
+            $bluemobi.ajax("pc/scene/page", data, function (result) {
                 if (result.status == "0") {
                     var html = '';
-                    for(var i=0;i<result.data.list.length;i++){
+                    for (var i = 0; i < result.data.list.length; i++) {
                         var scene = result.data.list[i];
-                        var sceneid = scene.id+"";
-                        html+='<li sceneid='+scene.id+'><img ';
-                        if(createSeriesHandler.selectedSceneIdArr.indexOf(sceneid) >= 0){
-                            html+='class="redBorder2"';
+                        var sceneid = scene.id + "";
+                        html += '<li sceneid=' + scene.id + '><img ';
+                        if (createSeriesHandler.selectedSceneIdArr.indexOf(sceneid) >= 0) {
+                            html += 'class="redBorder2"';
                         }
-                        html+=' src="'+scene.image+'"></li>';
+                        html += ' src="' + scene.image + '"></li>';
                     }
                     $(".createSeriesTab .choosePicList ul").html(html);
-                    thisPage.init(result.data.page,"createSeriesHandler.ajaxScene4CreateSeries");
+                    thisPage.init(result.data.page, "createSeriesHandler.ajaxScene4CreateSeries");
 
                     $(".createSeriesTab .page_rgt_pageNum").html(thisPage.pageNum);
                     $(".createSeriesTab .page_rgt_totalPage").html(thisPage.totalPage);
 
-                    $(".createSeriesTab .choosePicList li img").unbind("click").click(function(){
+                    $(".createSeriesTab .choosePicList li img").unbind("click").click(function () {
                         var sceneid = $(this).parent().attr("sceneid");
                         // 取消选中
-                        if($(this).hasClass("redBorder2")){
+                        if ($(this).hasClass("redBorder2")) {
                             $(this).removeClass("redBorder2");
                             createSeriesHandler.selectedSceneIdArr.remove(sceneid);
                         }
                         // 选中
-                        else{
+                        else {
                             $(this).addClass("redBorder2");
-                            if(createSeriesHandler.selectedSceneIdArr.indexOf(sceneid) < 0){
+                            if (createSeriesHandler.selectedSceneIdArr.indexOf(sceneid) < 0) {
                                 createSeriesHandler.selectedSceneIdArr.push(sceneid);
                             }
                         }
@@ -1409,64 +1444,63 @@
                 }
             });
         },
-        ajaxSeriesTagList:function(){
-            $bluemobi.ajax("pc/comm/ajaxSeriesTagList",{},function(result){
+        ajaxSeriesTagList: function () {
+            $bluemobi.ajax("pc/comm/ajaxSeriesTagList", {}, function (result) {
                 if (result.status == "0") {
                     var html = '';
-                    for(var i=0;i<result.data.length;i++){
+                    for (var i = 0; i < result.data.length; i++) {
                         var seriesTag = result.data[i];
-                        html+='<option value="'+seriesTag.id+'">'+seriesTag.name+'</option>';
+                        html += '<option value="' + seriesTag.id + '">' + seriesTag.name + '</option>';
                     }
                     $(".createSeriesTab select").html(html);
                     $(".createSeriesTab .select-text").html($(".createSeriesTab select option:selected").text());
                 }
             });
         },
-        pcCreateSeries:function(){
+        pcCreateSeries: function () {
             var userId = $("#sessionUserId").val();
             // 用户未登录，则弹出未登录提示框
-            if(userId==""){
+            if (userId == "") {
                 loginPopup.showDlg();
                 return false;
             }
             var seriesTagId = "";
-            if($(".createSeriesTab select option:selected").val()){
+            if ($(".createSeriesTab select option:selected").val()) {
                 seriesTagId = $(".createSeriesTab select option:selected").val()
             }
-            if(seriesTagId == ""){
-                $bluemobi.notify("<fmt:message key="info.qingxuanzeanlifenlei"/>","error");
+            if (seriesTagId == "") {
+                $bluemobi.notify("<fmt:message key="info.qingxuanzeanlifenlei"/>", "error");
                 return false;
             }
             var info = $(".createSeriesTab textarea").val();
-            if(info==""){
-                $bluemobi.notify("<fmt:message key="info.qingshurujieshaoxinxi"/>","error");
+            if (info == "") {
+                $bluemobi.notify("<fmt:message key="info.qingshurujieshaoxinxi"/>", "error");
                 $(".createSeriesTab textarea").focus();
                 return false;
             }
-            if(createSeriesHandler.selectedSceneIdArr.length==0){
-                $bluemobi.notify("<fmt:message key="info.qingxuanzechangjingtu"/>","error");
+            if (createSeriesHandler.selectedSceneIdArr.length == 0) {
+                $bluemobi.notify("<fmt:message key="info.qingxuanzechangjingtu"/>", "error");
                 return false;
             }
-            var sceneIds="";
-            $.each(createSeriesHandler.selectedSceneIdArr,function(index,item){
-                if(index!=0){
-                    sceneIds+=",";
+            var sceneIds = "";
+            $.each(createSeriesHandler.selectedSceneIdArr, function (index, item) {
+                if (index != 0) {
+                    sceneIds += ",";
                 }
-                sceneIds+=item;
+                sceneIds += item;
             });
 
-            var data={seriesTagId:seriesTagId,info:info,sceneIds:sceneIds};
-            $bluemobi.ajax("pc/series/pcCreateSeries",data,function(result){
+            var data = {seriesTagId: seriesTagId, info: info, sceneIds: sceneIds};
+            $bluemobi.ajax("pc/series/pcCreateSeries", data, function (result) {
                 if (result.status == "0") {
-                    $bluemobi.notify(result.msg,"success");
+                    $bluemobi.notify(result.msg, "success");
                     location.reload(true);
-                }else{
-                    $bluemobi.notify(result.msg,"error");
+                } else {
+                    $bluemobi.notify(result.msg, "error");
                 }
             });
         }
     };
-
 
 
     //点击按钮
@@ -1504,31 +1538,31 @@
 
     // 改变分页导航的样式
     // 因为有的页面需要显示分页，有的页面不需要，主要是显示隐藏
-    function paginationClass(flag){
-        if("hide"==flag){
+    function paginationClass(flag) {
+        if ("hide" == flag) {
             $(".pagination").hide();
-        }else if("show"==flag){
+        } else if ("show" == flag) {
             $(".pagination").show();
             $(".pagination").removeClass("createSeries");
-        }else if("createSeries"==flag){
+        } else if ("createSeries" == flag) {
             $(".pagination").show();
             $(".pagination").addClass("createSeries");
         }
     }
 
-    function skinHandler(){
+    function skinHandler() {
         $("._setting .dropped").dropper({
             postKey: "file",
             action: "pc/upload/uploadImageToQiniu",
             postData: {},
             label: ""
         }).on("fileComplete.dropper", function (e, file, response) {
-            $bluemobi.ajax("pc/userSetting/saveUserBackgroundImage",{backgroundImage:response.image},function(result){
+            $bluemobi.ajax("pc/userSetting/saveUserBackgroundImage", {backgroundImage: response.image}, function (result) {
                 if (result.status == "0") {
-                    $bluemobi.notify(result.msg,"success");
+                    $bluemobi.notify(result.msg, "success");
                     location.reload(true);
-                }else{
-                    $bluemobi.notify(result.msg,"error");
+                } else {
+                    $bluemobi.notify(result.msg, "error");
                 }
             });
         }).on("fileError.dropper", function () {
