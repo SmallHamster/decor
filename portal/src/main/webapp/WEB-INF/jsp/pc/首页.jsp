@@ -23,9 +23,6 @@
         <div class="streamer">
             <div class="list">
                 <ul>
-                    <li><a href="###"><img src="static/pc-1.1/images/banner.jpg" title="" alt="" width="1920" height="480" /></a></li>
-                    <li><a href="###"><img src="static/pc-1.1/images/index/streamer-1.jpg" title="" alt="" width="1920" height="480" /></a></li>
-                    <li><a href="###"><img src="static/pc-1.1/images/banner.jpg" title="" alt="" width="1920" height="480" /></a></li>
                 </ul>
             </div>
             <div class="center">
@@ -129,14 +126,67 @@
             if (result.status == "0") {
                 var html = '';
                 for(var i=0;i<result.data.length;i++){
-                    html += '<li><a target="_blank" href="'+result.data[i].link+'"><img src="'+result.data[i].image+'" alt=""></a></li>';
+                    html += '<li><a target="_blank" href="'+result.data[i].link+'"><img src="'+result.data[i].image+'" alt="" width="1920" height="480"></a></li>';
                 }
-                $(".ck-slide-wrapper").html(html);
-                $('.ck-slide').ckSlide({
-                    autoPlay: true
-                });
+                $(".streamer").find("ul").html(html);
+                roll($('div.streamer'));
             }
         });
+    }
+
+    //图片轮播
+    function roll($layer){
+        var $img = [],
+                cur, intval, lock = false,
+                $handlers = $layer.find('div.handlerList');
+
+        $layer.find('ul li').each(function(i){
+            $img.push($(this));
+            $handlers.append('<span></span>');
+        });
+
+        cur = $img.length - 1;
+        cur = cur < 0 ? 0 : cur;
+
+        $layer.find('div.list').on({
+            mouseenter : function(){ lock = true;},
+            mouseleave : function(){ lock = false;}
+        });
+
+        $handlers.find('span').each(function(i){
+            $(this).click(function(){
+                clearTimeout(intval);
+                show(i);
+            });
+        });
+
+        $layer.find('.handler-prev').click(function(){
+            show(cur - 1);
+        });
+
+        $layer.find('.handler-next').click(function(){
+            show(cur + 1);
+        });
+
+        function show(n){
+            if(cur == n || lock){ loop(); return}
+            else if(n < 0) n = $img.length - 1;
+            else if(n > $img.length - 1) n = 0;
+            $img[cur].stop().fadeOut('slow');
+            $handlers.find('span:eq(' + cur + ')').removeClass('cur');
+            $img[n].stop().fadeIn('slow');
+            $handlers.find('span:eq(' + n + ')').addClass('cur');
+            cur = n;
+            loop();
+        }
+
+        function loop(){
+            clearInterval(intval);
+            intval = setTimeout(function(){ show(cur + 1)}, 5000);
+        }
+
+        show(0);
+
     }
 
     // 加载推荐的场景
