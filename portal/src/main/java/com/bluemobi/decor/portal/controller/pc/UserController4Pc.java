@@ -365,7 +365,7 @@ public class UserController4Pc extends CommonController {
                 user.setShortNickname(shortNickname);
 
                 int loginMaxAge = 30 * 24 * 60 * 60; // 定义cookies的生命周期，这里是一个月。单位为秒
-                CookiesUtils.addCookie(response, "userId", user.getId().toString(), loginMaxAge);
+//                CookiesUtils.addCookie(response, "userId", user.getId().toString(), loginMaxAge);
                 WebUtil.print(response, new Result(true).data(user));
             } else {
                 WebUtil.print(response, new Result(false).msg("用户名或密码错误!"));
@@ -492,6 +492,7 @@ public class UserController4Pc extends CommonController {
                        HttpServletResponse response) {
         try {
             SessionUtils.remove(Constant.SESSION_PC_USER);
+            SessionUtils.clear();
             WebUtil.print(response, new Result(true).msg("操作成功!"));
         } catch (Exception e) {
             WebUtil.print(response, new Result(false).msg("操作失败!"));
