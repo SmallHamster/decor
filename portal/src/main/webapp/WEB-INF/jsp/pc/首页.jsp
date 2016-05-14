@@ -106,6 +106,14 @@
 <script src="static/pc-1.1/js/index.js"></script>
 <script>
     $(function(){
+        if ((screen.height<=800) && (screen.width<=600)) {
+            // 手机
+            window.location.replace('mobile/forward/to?type=index');
+        } else {
+            // pc pad
+            //window.location.replace('index');
+        }
+
         // 现在入驻
         $("#goJoin").click(function(){
             $("#register").trigger("click");

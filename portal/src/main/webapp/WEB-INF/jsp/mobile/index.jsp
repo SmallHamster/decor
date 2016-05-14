@@ -98,6 +98,14 @@
 		<script src="static/mobile/js/global.js"></script>
 	<script>
 		$(function(){
+			if ((screen.height<=800) && (screen.width<=600)) {
+				// 手机
+				//window.location.replace('mobile/forward/to?type=index');
+			} else {
+				// pc pad
+				window.location.replace('index');
+			}
+
 			ajaxDesigner(); // 查询两个设计师显示在首页
 			ajaxRecommendMessage(); // 加载推荐的咨询
 		});
