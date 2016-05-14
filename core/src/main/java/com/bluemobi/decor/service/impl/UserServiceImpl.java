@@ -687,6 +687,72 @@ public class UserServiceImpl implements UserService {
 
         return page;
     }
+    @Override
+    public Page<User> hottestDesigner() {
+        PageRequest pageRequest = new PageRequest(1 - 1, 1, Sort.Direction.DESC, "isRecommend", "fans");
+        Page<User> page = userDao.findAll(new Specification<User>() {
+            @Override
+            public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> predicateList = new ArrayList<Predicate>();
+                Predicate result = null;
+
+                Predicate predicates = cb.equal(root.get("status").as(String.class), "enable");
+                predicateList.add(predicates);
+
+                Predicate predicates1 = cb.equal(root.get("roleType").as(String.class), "member");
+                predicateList.add(predicates1);
+
+                Predicate predicate = cb.notEqual(root.get("roleType").as(String.class), "admin");
+                predicateList.add(predicate);
+                if (predicateList.size() > 0) {
+                    result = cb.and(predicateList.toArray(new Predicate[]{}));
+                }
+                if (result != null) {
+                    query.where(result);
+                }
+
+                return query.getRestriction();
+            }
+
+        }, pageRequest);
+        List<User> listUser = page.getContent();
+        for (int i = 0; i < listUser.size(); i++) {
+            final Integer userId = listUser.get(i).getId();
+            Integer cityIdToS = listUser.get(i).getCity().getId();
+            Integer provinceIdTo = cityDao.findOne(cityIdToS).getProvince().getId();
+            String provinceName = provinceDao.findOne(provinceIdTo).getName();
+            Province province = new Province();
+            province.setName(provinceName);
+            listUser.get(i).setProvince(province);
+            Page<Series> seriesPage = seriesDao.findAll(new Specification<Series>() {
+                @Override
+                public Predicate toPredicate(Root<Series> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                    List<Predicate> predicateList = new ArrayList<Predicate>();
+                    Predicate result = null;
+                    if (userId != null) {
+                        Predicate predicate = cb.equal(root.get("user").get("id").as(Integer.class), userId);
+                        predicateList.add(predicate);
+                    }
+                    if (predicateList.size() > 0) {
+                        result = cb.and(predicateList.toArray(new Predicate[]{}));
+                    }
+                    if (result != null) {
+                        query.where(result);
+                    }
+
+                    return query.getRestriction();
+                }
+
+            }, new PageRequest(1 - 1, 5, Sort.Direction.DESC, "createTime"));
+            List<Series> seriesList = seriesPage.getContent();
+            for (int j = 0; j < seriesList.size(); j++) {
+                seriesList.get(j).setUser(null);
+            }
+            listUser.get(i).setSeriesList(seriesList);
+        }
+
+        return page;
+    }
 
     @Override
     public List<User> maxFans() {

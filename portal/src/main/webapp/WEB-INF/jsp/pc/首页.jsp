@@ -10,6 +10,7 @@
     <link href="static/pc/css/all.css" rel="stylesheet" type="text/css">
     <link href="static/pc-1.1/css/index.css" rel="stylesheet" type="text/css">
     <meta property="qc:admins" content="25322572076211456375" />
+
 </head>
 <body>
 <div class="wrapper">
@@ -44,25 +45,11 @@
             <div class="module center source">
                 <h3>你的设计，正在改变生活</h3>
                 <p class="muted">一键入驻，海量资源</p>
-                <a class="pull-left">
-                    <img src="static/pc-1.1/images/index/sample-1.jpg" title="" alt="" width="344" height="387" />
-                    <img src="static/pc-1.1/images/index/sample-2.jpg" title="" alt="" width="309" height="190" />
-                    <img src="static/pc-1.1/images/index/sample-3.jpg" title="" alt="" width="309" height="190" />
-                    <img src="static/pc-1.1/images/index/sample-4.jpg" title="" alt="" width="309" height="190" />
-                    <img src="static/pc-1.1/images/index/sample-5.jpg" title="" alt="" width="309" height="190" />
-                    <div class="alpha-mask">
-                        <div class="alpha"></div>
-                        <div class="text">系列作品：我们仍未知道那个夏天午后闻到的花的名字</div>
-                    </div>
+                <a class="pull-left" id="hotSeries">
+
                 </a>
-                <div class="pull-right">
-                    <div class="text-center face"><img src="static/pc-1.1/images/index/sample-6.png" title="" alt="" width="78" height="78" /></div>
-                    <p class="text-center name">VALERIE CRESWICK</p>
-                    <p class="text-center address"><i class="icon-addr"></i>武汉  武汉</p>
-                    <p class="text-center works">112个作品</p>
-                    <div class="text-center note">我就是我，不一样的烟火</div>
-                    <a class="btn btn-like">被1.2万人喜欢</a>
-                    <p class="text-center saw">平均每次发布换来134次浏览</p>
+                <div class="pull-right" id="hottestDesigner">
+
                 </div>
                 <a class="clear btn" id="goJoin">现在入驻</a>
                 <p class="muted">更多设计师</p>
@@ -118,7 +105,44 @@
         ajaxAd(); // 加载广告
         ajaxSeries(); // 加载系列图
         ajaxRecommendMessage(); // 加载推荐的咨询
+        hottestDesigner();
     });
+
+    // 最热设计师
+    function hottestDesigner(){
+        $bluemobi.ajax("pc/homepage/hottestDesigner",{},function(result){
+            if (result.status == "0") {
+                if(result.data.list.length > 0){
+                    var user = result.data.list[0];
+                    var seriesList = user.seriesList;
+                    var html='<div class="text-center face"><a href="pc/user/detail?userId=' + user.id + '"><img src="'+user.headImage+'" title="" alt="" width="78" height="78" /></a></div>\
+                            <p class="text-center name"><a href="pc/user/detail?userId=' + user.id + '">'+user.nickname+'</a></p>\
+                    <p class="text-center address"><i class="icon-addr"></i>'+user.province.name+'  '+user.city.name+'</p>\
+                    <p class="text-center works">'+user.opus+'个作品</p>\
+                    <div class="text-center note">'+user.info+'</div>\
+                    <a class="btn btn-like">被'+user.fans+'人喜欢</a>\
+                    <p class="text-center saw">平均每次发布换来'+user.seeNum+'次浏览</p>';
+                    $("#hottestDesigner").html(html);
+                    var hotSeriesHtml='';
+                    var div='';
+                    for(var i=0;i<seriesList.length;i++){
+                        var series = seriesList[i];
+                        if(i==0){
+                            hotSeriesHtml+='<a href="pc/series/detail?seriesId=' + series.id + '"><img src="'+series.cover+'" title="" alt="" width="344" height="387" /></a>';
+                            div='<div class="alpha-mask">\
+                            <div class="alpha"></div>\
+                            <div class="text">系列作品：'+series.seriesTag.name+'</div></div>';
+                        }else {
+                            hotSeriesHtml+='<a href="pc/series/detail?seriesId=' + series.id + '"><img src="'+series.cover+'" title="" alt="" width="306" height="190" style="margin-left: 6px;"/></a>';
+
+                        }
+                    }
+                    hotSeriesHtml+=div;
+                    $("#hotSeries").html(hotSeriesHtml);
+                }
+            }
+        });
+    }
 
     // 加载广告
     function ajaxAd(){

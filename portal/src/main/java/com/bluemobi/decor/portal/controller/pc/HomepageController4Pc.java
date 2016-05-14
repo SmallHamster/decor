@@ -4,6 +4,7 @@ import com.bluemobi.decor.core.Constant;
 import com.bluemobi.decor.core.bean.Result;
 import com.bluemobi.decor.entity.*;
 import com.bluemobi.decor.portal.controller.CommonController;
+import com.bluemobi.decor.portal.util.PcPageFactory;
 import com.bluemobi.decor.portal.util.WebUtil;
 import com.bluemobi.decor.service.*;
 import com.bluemobi.decor.utils.SessionUtils;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 首页
@@ -42,6 +44,8 @@ public class HomepageController4Pc extends CommonController {
 
     @Autowired
     private CollectionService collectionService;
+    @Autowired
+    private UserService userService;
 
     // ajax查询广告
     @RequestMapping(value = "/ajaxAd")
@@ -134,5 +138,15 @@ public class HomepageController4Pc extends CommonController {
         }
     }
 
-
+    @RequestMapping(value = "/hottestDesigner")
+    public void hottestDesigner(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            Page<User> page = userService.hottestDesigner();
+            Map<String, Object> dataMap = PcPageFactory.fitting(page);
+            WebUtil.print(response, new Result(true).data(dataMap));
+        } catch (Exception e) {
+            e.printStackTrace();
+            WebUtil.print(response, new Result(false).msg("操作失败!"));
+        }
+    }
 }

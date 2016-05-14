@@ -91,6 +91,7 @@ public interface UserService extends ICommonService<User> {
     public List<City> showCity(Integer provinceId);
     //根据条件查询用户分页
     public  Page<User> pcPage(Integer pageNum,Integer pageSize, Integer cityId ,String sort,String name,Integer provinceId);
+    public  Page<User> hottestDesigner();
     //FANS最多的四位
     public List<User> maxFans();
     //查询当前用户是否被登录用户关注
