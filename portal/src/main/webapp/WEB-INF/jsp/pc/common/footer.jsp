@@ -106,8 +106,8 @@
         <textarea class="tare favoriteInfo" maxlength="200"></textarea>
 
         <div class="Btn">
-            <button class="nobtn" name="case-no"><fmt:message key="info.queding"/></button>
-            <button class="okbtn" name="case-ok"><fmt:message key="info.quxiao"/></button>
+            <button class="okbtn" name="case-no"><fmt:message key="info.queding"/></button>
+            <button class="nobtn" name="case-ok"><fmt:message key="info.quxiao"/></button>
         </div>
     </div>
 </script>
