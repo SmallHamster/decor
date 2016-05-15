@@ -239,7 +239,7 @@
                         </div>\
                         </div>\
                         <div class="pro_txt clearfix">\
-                        <span class="fl">'+scene.name+'</span>\
+                        <span class="fl slh" style="width: 140px;" title="'+scene.name+'">'+scene.name+'</span>\
                         <span class="fr">'+showName+'</span>\
                         </div>\
                         </li>';
@@ -253,7 +253,7 @@
                         </div>\
                         </div>\
                         <div class="pro_txt clearfix">\
-                        <span class="fl">'+scene.name+'</span>\
+                        <span class="fl slh" style="width: 210px;" title="'+scene.name+'">'+scene.name+'</span>\
                         <span class="fr">'+showName+'</span>\
                         </div>\
                         </li>';
@@ -267,7 +267,7 @@
                         </div>\
                         </div>\
                         <div class="pro_txt clearfix">\
-                        <span class="fl">'+scene.name+'</span>\
+                        <span class="fl slh" style="width: 310px;" title="'+scene.name+'">'+scene.name+'</span>\
                         <span class="fr">'+showName+'</span>\
                         </div>\
                         </li>';
