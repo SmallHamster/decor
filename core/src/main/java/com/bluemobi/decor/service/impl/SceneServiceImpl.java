@@ -276,6 +276,10 @@ public class SceneServiceImpl implements SceneService {
                     Predicate predicate = cb.like(root.get("styleTagIds").as(String.class), "%@" + styleTagId + "@%");
                     predicateList.add(predicate);
                 }
+                {
+                    Predicate predicate = cb.equal(root.get("isShow").as(String.class), "yes");
+                    predicateList.add(predicate);
+                }
 
                 if (predicateList.size() > 0) {
                     result = cb.and(predicateList.toArray(new Predicate[]{}));
