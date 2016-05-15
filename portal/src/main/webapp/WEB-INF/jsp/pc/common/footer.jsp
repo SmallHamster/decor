@@ -53,8 +53,9 @@
     <div class='Poplogo'><img src='static/pc/images/login_logo.png'/></div>
     <div class="form loginDiv">
         <div class="form-item rel">
-            <span class="iicon phone abs"></span><input type="text" class="loginmobile"
-                                                        placeholder="<fmt:message key="info.shoujihao"/>">
+            <span class="iicon phone abs"></span>
+            <input type="text" class="loginmobile" placeholder="<fmt:message key="info.shoujihao"/>"
+                   onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
         </div>
         <div class="form-item rel">
             <span class="iicon password abs"></span><input type="password" class="loginpassword"
