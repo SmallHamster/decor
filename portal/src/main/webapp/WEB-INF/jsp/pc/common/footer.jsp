@@ -153,7 +153,7 @@
     <p class="tc fs16 color3 mb20"><fmt:message key="info.zhaohuimima"/></p>
     <div class="form findPasswordDiv">
         <div class="form-item rel">
-            <span class="iicon phone abs"></span><input type="text" placeholder="<fmt:message key="info.qingshuruninzhucedeshoujihao"/>">
+            <span class="iicon phone abs"></span><input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="<fmt:message key="info.qingshuruninzhucedeshoujihao"/>">
         </div>
         <div class="clearfix">
             <div class="form-item rel fl" style="width: 315px">
@@ -810,6 +810,24 @@
             }
         });
     }
+
+//    var _time;
+//    var _timeIndex=0;
+//    function testChange(){
+//        var obj = $(".findPasswordDiv .sendCodeBtn");
+//        var _val = $(".findPasswordDiv .sendCodeBtn").attr("_val");
+//        var val = $(".findPasswordDiv .sendCodeBtn").html();
+//        if(_timeIndex==0){
+//            val= 10;
+//        }else if(val == 0){
+//            val =_val;
+//        }else {
+//            val = val*1-1;
+//        }
+//        obj.html(val);
+//        _timeIndex+=1;
+//        _time=setTimeout("testChange()", 1000)
+//    }
 
     // 找回密码验证验证码
     function pcFindPasswordCheckCode() {
