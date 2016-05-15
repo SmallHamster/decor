@@ -26,6 +26,10 @@
         .redBorder2 {
             border: 2px solid #ff0000;
         }
+        .nav {
+            background: none;
+        }
+
     </style>
 </head>
 
@@ -421,9 +425,14 @@
                 });
                 $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
-                })
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
+                });
+                if(thisPage.totalPage==0){
+                    $(".page_rgt_pageNum").html(0);
+                }else{
+                    $(".page_rgt_pageNum").html(thisPage.pageNum);
+                }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
+
                 $(".fl").filter(".fs16").text("<fmt:message key="info.wofabudeshangpintu"/>（" + rpage.totalNum + "）")
             }
         });
@@ -458,8 +467,13 @@
                 $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
+                if(thisPage.totalPage==0){
+                    $(".page_rgt_pageNum").html(0);
+                }else{
+                    $(".page_rgt_pageNum").html(thisPage.pageNum);
+                }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
+
                 $(".fl").filter(".fs16").text("<fmt:message key="info.wofabudechangjingtu"/>（" + rpage.totalNum + "）")
             }
         });
@@ -499,8 +513,13 @@
                 $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
+                if(thisPage.totalPage==0){
+                    $(".page_rgt_pageNum").html(0);
+                }else{
+                    $(".page_rgt_pageNum").html(thisPage.pageNum);
+                }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
+
                 $(".fl").filter(".fs16").text("<fmt:message key="info.wofabudexilietu"/>（" + rpage.totalNum + "）")
             }
         });
@@ -533,8 +552,13 @@
                 $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
+                if(thisPage.totalPage==0){
+                    $(".page_rgt_pageNum").html(0);
+                }else{
+                    $(".page_rgt_pageNum").html(thisPage.pageNum);
+                }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
+
                 $(".fl").filter(".fs16").text("<fmt:message key="info.huabansucai"/>（" + rpage.totalNum + "）")
             }
         });
@@ -651,8 +675,13 @@
                 $(".myMessage").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
+                if(thisPage.totalPage==0){
+                    $(".page_rgt_pageNum").html(0);
+                }else{
+                    $(".page_rgt_pageNum").html(thisPage.pageNum);
+                }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
+
                 $(".fl").filter(".fs16").text("<fmt:message key="info.woshoucangdezixun"/>（" + rpage.totalNum + "）")
             }
         });
@@ -695,8 +724,13 @@
                 $(".myCollect").show();
                 $(".myCollect").html(html)
                 thisPage.init(result.data.page, " ajaxPageGoods");
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
+                if(thisPage.totalPage==0){
+                    $(".page_rgt_pageNum").html(0);
+                }else{
+                    $(".page_rgt_pageNum").html(thisPage.pageNum);
+                }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
+
             }
         })
     }
@@ -767,8 +801,13 @@
                 $(".myMessage").show();
                 $(".myMessage").html(html);
                 thisPage.init(result.data.page, " ajaxAttentionPage");
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
+                if(thisPage.totalPage==0){
+                    $(".page_rgt_pageNum").html(0);
+                }else{
+                    $(".page_rgt_pageNum").html(thisPage.pageNum);
+                }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
+
             }
         });
     }
@@ -806,8 +845,13 @@
                 $(".myMessage").show();
                 $(".myMessage").html(html)
                 thisPage.init(result.data.page, " ajaxAttentionPage");
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
+                if(thisPage.totalPage==0){
+                    $(".page_rgt_pageNum").html(0);
+                }else{
+                    $(".page_rgt_pageNum").html(thisPage.pageNum);
+                }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
+
             }
         });
     }
@@ -822,7 +866,7 @@
         };
         $bluemobi.ajax("pc/user/commentPage", data, function (result) {
             if (result.status == "0") {
-                var html = '<div class="clearfix mb20" style="line-height: 37px;padding:0 20px;"><p class="fl fs16 color6"><fmt:message key="info.pinglunliebiao"/>（123）</p>\
+                var html = '<div class="clearfix mb20" style="line-height: 37px;padding:0 20px;"><p class="fl fs16 color6"><fmt:message key="info.pinglunliebiao"/>（'+result.data.page.totalNum+'）</p>\
                 <div class="page_rgt tr pr20 fr pagabs"><a class="iicon back"></a><span>page <span class="page_rgt_pageNum"></span> of <span class="page_rgt_totalPage"></span></span>\
                 <a class="iicon next"></a></div></div><div class="comment-list mb20"><ul>';
                 for (var i = 0; i < result.data.list.length; i++) {
@@ -890,8 +934,13 @@
                 $(".myComment").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 });
-                $(".page_rgt_pageNum").html(thisPage.pageNum);
+                if(thisPage.totalPage==0){
+                    $(".page_rgt_pageNum").html(0);
+                }else{
+                    $(".page_rgt_pageNum").html(thisPage.pageNum);
+                }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
+
             }
         });
     }
@@ -1423,8 +1472,13 @@
                     $(".createSeriesTab .choosePicList ul").html(html);
                     thisPage.init(result.data.page, "createSeriesHandler.ajaxScene4CreateSeries");
 
-                    $(".createSeriesTab .page_rgt_pageNum").html(thisPage.pageNum);
+                    if(thisPage.totalPage==0){
+                        $(".createSeriesTab .page_rgt_pageNum").html(0);
+                    }else{
+                        $(".createSeriesTab .page_rgt_pageNum").html(thisPage.pageNum);
+                    }
                     $(".createSeriesTab .page_rgt_totalPage").html(thisPage.totalPage);
+
 
                     $(".createSeriesTab .choosePicList li img").unbind("click").click(function () {
                         var sceneid = $(this).parent().attr("sceneid");
