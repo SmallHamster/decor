@@ -85,7 +85,7 @@
         <!-- 页面主体内容开始 -->
         <div class="main" style="margin-top: 20px;">
             <div class="center scene">
-                <div class="breadcrumb" style="height: 55px;"><a href="###">< 返回系列图</a></div>
+                <div class="breadcrumb" style="height: 55px;"><a href="pc/forward/to?type=series">< 返回系列图</a></div>
                 <div class="wall">
                     <div class="scene-show">
                         <div class="list">
