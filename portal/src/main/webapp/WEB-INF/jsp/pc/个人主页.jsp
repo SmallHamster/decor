@@ -427,6 +427,7 @@
                     $(".pagination").find(".last").trigger("click");
                 });
                 if(thisPage.totalPage==0){
+                    $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
                 }else{
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -468,6 +469,7 @@
                     $(".pagination").find(".last").trigger("click");
                 })
                 if(thisPage.totalPage==0){
+                    $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
                 }else{
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -514,6 +516,7 @@
                     $(".pagination").find(".last").trigger("click");
                 })
                 if(thisPage.totalPage==0){
+                    $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
                 }else{
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -553,6 +556,7 @@
                     $(".pagination").find(".last").trigger("click");
                 })
                 if(thisPage.totalPage==0){
+                    $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
                 }else{
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -676,6 +680,7 @@
                     $(".pagination").find(".last").trigger("click");
                 })
                 if(thisPage.totalPage==0){
+                    $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
                 }else{
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -725,6 +730,7 @@
                 $(".myCollect").html(html)
                 thisPage.init(result.data.page, " ajaxPageGoods");
                 if(thisPage.totalPage==0){
+                    $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
                 }else{
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -802,6 +808,7 @@
                 $(".myMessage").html(html);
                 thisPage.init(result.data.page, " ajaxAttentionPage");
                 if(thisPage.totalPage==0){
+                    $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
                 }else{
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -846,6 +853,7 @@
                 $(".myMessage").html(html)
                 thisPage.init(result.data.page, " ajaxAttentionPage");
                 if(thisPage.totalPage==0){
+                    $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
                 }else{
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -935,6 +943,7 @@
                     $(".pagination").find(".last").trigger("click");
                 });
                 if(thisPage.totalPage==0){
+                    $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
                 }else{
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
@@ -1473,6 +1482,8 @@
                     thisPage.init(result.data.page, "createSeriesHandler.ajaxScene4CreateSeries");
 
                     if(thisPage.totalPage==0){
+                        $(".createSeriesTab .page_rgt").hide();
+                        $(".createSeriesTab .page_rgt_pageNum").html(0);
                         $(".createSeriesTab .page_rgt_pageNum").html(0);
                     }else{
                         $(".createSeriesTab .page_rgt_pageNum").html(thisPage.pageNum);
