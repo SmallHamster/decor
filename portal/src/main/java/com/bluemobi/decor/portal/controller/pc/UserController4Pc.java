@@ -229,18 +229,18 @@ public class UserController4Pc extends CommonController {
 
             String result = null;
 
-            result = MsgSmsUtil.sendSms(mobile, "【华科Decor】您的验证码为" + code + "。(请勿告知他人)");
+            result = MsgSmsUtil.sendSms(mobile, "您的验证码是：【" + code + "】。请不要把验证码泄露给其他人。");
             if (null == result) {
                 WebUtil.print(response, new Result(false).msg(sendErrorMsg));
                 return;
             }
 
-            if (result.contains("<returnstatus>Success</returnstatus>")) {
+//            if (result.contains("<returnstatus>Success</returnstatus>")) {
                 cacheService.put(mobile, code);
                 WebUtil.print(response, new Result(true).msg("发送成功,请在手机查收!"));
-            } else {
-                WebUtil.print(response, new Result(false).msg(sendErrorMsg));
-            }
+//            } else {
+//                WebUtil.print(response, new Result(false).msg(sendErrorMsg));
+//            }
         } catch (Exception e) {
             e.printStackTrace();
             WebUtil.print(response, new Result(false).msg(sendErrorMsg));
