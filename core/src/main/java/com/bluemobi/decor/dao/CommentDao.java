@@ -3,6 +3,8 @@ package com.bluemobi.decor.dao;
 import com.bluemobi.decor.entity.Comment;
 import com.bluemobi.decor.entity.Praise;
 import com.bluemobi.decor.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
@@ -20,6 +22,9 @@ public interface CommentDao extends JpaRepository<Comment, Integer>, JpaSpecific
 
     @Query("select a from Comment a where a.objectId = ?1 and a.objectType = ?2 order by a.createTime desc")
     public List<Comment> findCommentByObjectIdAndObjectType(Integer objectId, String objectType);
+
+    @Query("select a from Comment a where a.objectId = ?1 and a.objectType = ?2 order by a.createTime desc")
+    public Page<Comment> pageByObjectIdAndObjectType(Integer objectId, String objectType, Pageable pageable);
 
     @Query("select a from Comment a where a.user = ?1 and a.pid = 0")
     public List<Comment> iGetCommentNumByUser(User user);

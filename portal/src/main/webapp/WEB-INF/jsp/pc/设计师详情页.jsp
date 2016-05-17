@@ -1,31 +1,35 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="common/taglibs.jsp"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ include file="common/taglibs.jsp" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <%@ include file="common/meta.jsp"%>
-    <%@ include file="common/css.jsp"%>
+    <%@ include file="common/meta.jsp" %>
+    <%@ include file="common/css.jsp" %>
     <title><fmt:message key="info.shouye"/></title>
     <link href="static/pc/css/common.css" rel="stylesheet" type="text/css">
     <link href="static/pc/css/all.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="static/pc-1.1/css/public.css" />
-    <link rel="stylesheet" href="static/pc-1.1/css/style.css" />
+    <link rel="stylesheet" href="static/pc-1.1/css/public.css"/>
+    <link rel="stylesheet" href="static/pc-1.1/css/style.css"/>
 </head>
 <style>
     .content {
         width: 627px;
     }
+
     .comment-list li {
         border-top: 0px;
         padding: 0 0;
         border-bottom: 1px solid #cccccc;
-        min-height:inherit;
+        min-height: inherit;
     }
+
     .design-list {
         margin-left: 10px;
     }
+
     .design-list li {
-        margin: 0 29px 20px 0;}
+        margin: 0 29px 20px 0;
+    }
 </style>
 <body>
 <!--top-->
@@ -57,12 +61,12 @@
                     <span><i>${user.seeNum}</i><em><fmt:message key="info.fangwen"/></em></span>
                 </div>
                 <p class="slh" title="${user.info}">${user.info}</p>
-                <h3 class="slh">刚刚更新了设计系列图：<strong>《我在海边的木头房子里面患过伤风》  木屋陈设，木头吊柜…</strong></h3>
+                <h3 class="slh">刚刚更新了设计系列图：<strong>《我在海边的木头房子里面患过伤风》 木屋陈设，木头吊柜…</strong></h3>
             </div>
             <div class="personRight">
-                <a href="#" class="send"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>
+                <a href="#" class="send"><img src="static/pc-1.1/images/ico_btn_6.png"/>发私信</a>
                 <p>共计36个作品</p>
-                <a href="#" class="like"><img src="static/pc-1.1/images/ico_btn_7.png" />被${user.fans}人喜欢</a>
+                <a href="#" class="like"><img src="static/pc-1.1/images/ico_btn_7.png"/>被${user.fans}人喜欢</a>
             </div>
         </div>
     </div>
@@ -71,79 +75,84 @@
 <div class="containeWrap">
     <div class="w1200">
         <!--最新互动-->
-        <div class="interact">
-            <h2 class="title">最新互动</h2>
-            <div class="interact-con cleafix">
-                <div class="interact-img"><img src="${newestComment.objectCover}" width="357" height="300"/></div>
-                <div class="interact-right">
-                    <h2><a href="#">${newestComment.tags}&nbsp;</a></h2>
-                    <h3>来自：<span class="slh" style="color: #fb9f38;">${newestComment.objectName}</span></h3>
-                    <div class="chat-content cleafix">
-                        <div class="sc-new you">
-                            <img class="me-avatar" src="${newestComment.user.headImage}" width="50" height="50"/>
-                            <div class="content">
-                                <i class="jianjian"></i>
-                                <div class="bubble bubble-default">
-                                    <div class="plain">${newestComment.content}</div>
-                                </div>
-                                <div class="time">${newestComment.createTime}</div>
-                            </div>
-                        </div>
-                        <c:if test="${!empty newestComment.newestReply.content}">
-                            <div class="sc-new me">
-                                <img class="me-avatar" src="${newestComment.newestReply.headImage}" width="50" height="50"/>
+        <c:if test="${null != newestComment}">
+            <div class="interact">
+                <h2 class="title">最新互动</h2>
+                <div class="interact-con cleafix">
+                    <div class="interact-img"><img src="${newestComment.objectCover}" width="357" height="300"/></div>
+                    <div class="interact-right">
+                        <h2><a href="#">${newestComment.tags}&nbsp;</a></h2>
+                        <h3>来自：<span class="slh" style="color: #fb9f38;">${newestComment.objectName}</span></h3>
+                        <div class="chat-content cleafix">
+                            <div class="sc-new you">
+                                <img class="me-avatar" src="${newestComment.user.headImage}" width="50" height="50"/>
                                 <div class="content">
-                                    <div class="time">${newestComment.newestReply.createTime}</div>
-                                    <div class="bubble bubble-primary">
-                                        <div class="plain">${newestComment.newestReply.content}</div>
-                                    </div>
                                     <i class="jianjian"></i>
+                                    <div class="bubble bubble-default">
+                                        <div class="plain">${newestComment.content}</div>
+                                    </div>
+                                    <div class="time">${newestComment.createTime}</div>
                                 </div>
                             </div>
-                        </c:if>
+                            <c:if test="${!empty newestComment.newestReply.content}">
+                                <div class="sc-new me">
+                                    <img class="me-avatar" src="${newestComment.newestReply.headImage}" width="50" height="50"/>
+                                    <div class="content">
+                                        <div class="time">${newestComment.newestReply.createTime}</div>
+                                        <div class="bubble bubble-primary">
+                                            <div class="plain">${newestComment.newestReply.content}</div>
+                                        </div>
+                                        <i class="jianjian"></i>
+                                    </div>
+                                </div>
+                            </c:if>
+                        </div>
+                        <a href="#" class="hudong">更多设计师互动<font>&gt;</font></a>
                     </div>
-                    <a href="#" class="hudong">更多设计师互动<font>&gt;</font></a>
                 </div>
             </div>
-        </div>
+        </c:if>
+
         <!--设计系列图（36）-->
         <div class="designer">
             <h2 class="title">设计系列图（<span id="seriesNum">0</span>）</h2>
-            <div class="design">
-                <div class="design-top cleafix">
-                    <div class="design-top-left">
-                        <h2 class="slh" title="${topSeries.info}">${topSeries.info}</h2>
-                        <p>${topSeries.createTime}创建</p>
-                        <div class="shoucang cleafix">
-                            <span><img src="static/pc-1.1/images/ico_btn_15.png" /></span>
-                            <p>${topSeries.collectionNum}人收藏<br/>${topSeries.praiseNum}人觉得这设计很棒</p>
+            <c:if test="${null != topSeries}">
+                <div class="design">
+                    <div class="design-top cleafix">
+                        <div class="design-top-left">
+                            <h2 class="slh" title="${topSeries.info}">${topSeries.info}</h2>
+                            <p>${topSeries.createTime}创建</p>
+                            <div class="shoucang cleafix">
+                                <span><img src="static/pc-1.1/images/ico_btn_15.png"/></span>
+                                <p>${topSeries.collectionNum}人收藏<br/>${topSeries.praiseNum}人觉得这设计很棒</p>
+                            </div>
+                        </div>
+                        <div class="design-top-right">
+                            <div class="hd">
+                                <a class="next"></a>
+                                <a class="prev"></a>
+                                <span class="pageState"></span>
+                            </div>
+                            <div class="bd">
+                                <ul class="picList">
+                                    <c:forEach var="scene" items="${topSeries.sceneList}">
+                                        <li><a href="pc/scene/detail?sceneId=${scene.id}"><img src="${scene.image}" width="842" height="410"/></a></li>
+                                    </c:forEach>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div class="design-top-right">
-                        <div class="hd">
-                            <a class="next"></a>
-                            <a class="prev"></a>
-                            <span class="pageState"></span>
-                        </div>
-                        <div class="bd">
-                            <ul class="picList">
-                                <c:forEach var="scene" items="${topSeries.sceneList}">
-                                    <li><a href="pc/scene/detail?sceneId=${scene.id}"><img src="${scene.image}" width="842" height="410"/></a></li>
-                                </c:forEach>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <ul id="seriesList" class="design-list cleafix">
+                    <ul id="seriesList" class="design-list cleafix">
 
-                </ul>
-            </div>
+                    </ul>
+                </div>
+            </c:if>
             <div id="showMore">
                 <a href="javascript:;" class="look-more">查看更多设计系列图</a>
                 <div class="pages cleafix">
                 </div>
             </div>
-            <div id="pageDiv" style="margin-top: -100px;background: white">
+            <div id="pageDiv" style="margin-top: -100px;background: white;">
                 <%@ include file="common/page1.jsp" %>
             </div>
 
@@ -160,7 +169,7 @@
                     <div class="pages cleafix">
                     </div>
                 </div>
-                <div id="pageDiv4Comment" style="margin-top: -100px;background: white">
+                <div id="pageDiv4Comment" style="margin-top: -70px;background: white;">
                     <%@ include file="common/page2.jsp" %>
                 </div>
             </div>
@@ -172,11 +181,11 @@
 <!--返回顶部-->
 <div class="floatBack"><a href="javascript:;" class="gotop"><i class="ico"></i></a></div>
 <script type="text/javascript" src="static/pc/js/base.js"></script>
-<script type="text/javascript" src="static/pc-1.1/js/jquery-1.8.0.min.js" ></script>
-<script type="text/javascript" src="static/pc-1.1/js/jquery.SuperSlide.2.1.1.js" ></script>
-<script type="text/javascript" src="static/pc-1.1/js/index.js" ></script>
+<script type="text/javascript" src="static/pc-1.1/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="static/pc-1.1/js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="static/pc-1.1/js/index.js"></script>
 <script type="text/javascript">
-    $(function(){
+    $(function () {
         //设计系列图
         jQuery(".design-top-right").slide({
             titCell: ".hd ul",
@@ -196,7 +205,7 @@
     //查询指定用户的所有系列图分页
     var seriesPage = epage;
     function ajaxSeriesPage() {
-        ajaxTimes+=1;
+        ajaxTimes += 1;
         var userId = $("#userId").val();
         var data = {
             userId: userId,
@@ -209,7 +218,7 @@
                 var html = '';
                 for (var i = 0; i < result.data.list.length; i++) {
                     var series = result.data.list[i];
-                    html+='<li>\
+                    html += '<li>\
                             <a href="pc/series/detail?seriesId=' + series.id + '"><img src="' + series.cover + '" width="300" height="200"/></a>\
                             <div class="list-con cleafix">\
                             <a href="#" class="list-avater">\
@@ -217,21 +226,21 @@
                             <p>ryel</p>\
                             </a>\
                             <div class="list-con-right">\
-                            <a href="pc/series/detail?seriesId=' + series.id + '" class="tit slh">'+series.info+'</a>\
-                            <p class="slh">'+series.info+'</p>\
-                            <h3><a>'+series.seeNum+'次查看</a><a>'+series.praiseNum+'人喜欢的设计</a></h3>\
+                            <a href="pc/series/detail?seriesId=' + series.id + '" class="tit slh">' + series.info + '</a>\
+                            <p class="slh">' + series.info + '</p>\
+                            <h3><a>' + series.seeNum + '次查看</a><a>' + series.praiseNum + '人喜欢的设计</a></h3>\
                             </div>\
                             </div>\
                             </li>';
                 }
                 $("#seriesList").html(html);
-                seriesPage.init(result.data.page, "ajaxSeriesPage",$("#pageDiv"));
+                seriesPage.init(result.data.page, "ajaxSeriesPage", $("#pageDiv"));
                 $("#seriesNum").html(result.data.page.totalNum);
-                if(ajaxTimes == 1){
+                if (ajaxTimes == 1) {
                     var $category = $('.design-list li:gt(5)');
                     $category.hide();
                     $("#pageDiv").hide();
-                    $("#showMore").click(function(){
+                    $("#showMore").click(function () {
                         $category.show();
                         $(this).find('.look-more').addClass('hide');
                         $(this).find('.pages').addClass('show');
@@ -246,7 +255,7 @@
     //查询指定用户的所有评论分页
     var commentPage = lpage;
     function ajaxCommentPage() {
-        ajaxTimes4Comment+=1;
+        ajaxTimes4Comment += 1;
         var userId = $("#userId").val();
         var data = {
             userId: userId,
@@ -280,12 +289,12 @@
                             </li>';
                 }
                 $("#commentList").html(html);
-                commentPage.init(result.data.page, "ajaxCommentPage",$("#pageDiv4Comment"));
-                if(ajaxTimes4Comment == 1){
+                commentPage.init(result.data.page, "ajaxCommentPage", $("#pageDiv4Comment"));
+                if (ajaxTimes4Comment == 1) {
                     var $category1 = $('.comment-list ul li:gt(3)');
                     $category1.hide();
                     $("#pageDiv4Comment").hide();
-                    $("#showMore1").click(function(){
+                    $("#showMore1").click(function () {
                         $category1.show();
                         $(this).find('.look-more').addClass('hide');
                         $(this).find('.pages').addClass('show');

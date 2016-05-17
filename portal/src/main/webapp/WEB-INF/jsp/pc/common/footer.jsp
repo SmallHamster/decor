@@ -116,17 +116,17 @@
     <div class='Poplogo'><img src='static/pc/images/login_logo.png'/></div>
     <div class="form registerDiv">
         <div class="form-item rel">
-            <span class="iicon phone abs"></span><input type="text" placeholder="<fmt:message key="info.shoujihao"/>">
+            <span class="iicon phone abs"></span><input type="text" maxlength="11" placeholder="<fmt:message key="info.shoujihao"/>">
         </div>
         <div class="form-item rel">
-            <span class="iicon nickname abs"></span><input type="text" placeholder="<fmt:message key="info.nichen"/>">
+            <span class="iicon nickname abs"></span><input type="text" maxlength="15" placeholder="<fmt:message key="info.nichen"/>">
         </div>
         <div class="form-item rel">
-            <span class="iicon password abs"></span><input type="password" placeholder="<fmt:message key="info.mima"/>">
+            <span class="iicon password abs"></span><input type="password" maxlength="16" placeholder="<fmt:message key="info.mima"/>">
         </div>
         <div class="clearfix">
             <div class="form-item rel fl" style="width: 315px">
-                <span class="iicon validate abs"></span><input type="text" style="width: 250px;" placeholder="<fmt:message key="info.duanxinyanzhengma"/>">
+                <span class="iicon validate abs"></span><input type="text" style="width: 250px;" maxlength="10" placeholder="<fmt:message key="info.duanxinyanzhengma"/>">
             </div>
             <div class="fr curp">
                 <button class="btn blackBtn sendCodeBtn"><fmt:message key="info.fasongyanzhengma"/></button>
@@ -788,6 +788,18 @@
             if (result.status == "0") {
                 $bluemobi.notify(result.msg, "success");
                 registerPopup.hideDlg();
+                $(".registerDiv").find("input").eq(0).val('');
+                $(".registerDiv").find("input").eq(1).val('');
+                $(".registerDiv").find("input").eq(2).val('');
+                $(".registerDiv").find("input").eq(3).val('');
+
+                $bluemobi.ajax("pc/user/login", {username: mobile, password: password}, function (result) {
+                    if (result.status == "0") {
+                        location.reload(true);
+                    } else {
+                        $(".loginDiv .error").text("<fmt:message key="info.yonghuminghuomimacuowu"/>");
+                    }
+                });
             } else {
                 $bluemobi.notify(result.msg, "error");
             }

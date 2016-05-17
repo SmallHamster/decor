@@ -11,7 +11,6 @@ import com.bluemobi.decor.portal.cache.CacheService;
 import com.bluemobi.decor.portal.controller.CommonController;
 import com.bluemobi.decor.portal.util.*;
 import com.bluemobi.decor.service.*;
-import com.bluemobi.decor.utils.JsonUtil;
 import com.bluemobi.decor.utils.SessionUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -20,7 +19,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -935,8 +933,7 @@ public class UserController4Pc extends CommonController {
 
     // 收藏夹封面图查询
     @RequestMapping(value = "/favoriteList")
-    public void ajaxFavoriteList(HttpServletRequest request,
-                                 HttpServletResponse response,
+    public void ajaxFavoriteList(HttpServletResponse response,
                                  Integer userId) {
         try {
             List<Favorite> favoriteList = favoriteService.listByUserId(userId);
@@ -1015,8 +1012,7 @@ public class UserController4Pc extends CommonController {
 
     //新增收藏夹
     @RequestMapping(value = "/newFavorite")
-    public void newFavorite(HttpServletRequest request,
-                            HttpServletResponse response,
+    public void newFavorite(HttpServletResponse response,
                             Integer userId, String name, String info) {
         try {
             Favorite favorite = new Favorite();
@@ -1034,8 +1030,7 @@ public class UserController4Pc extends CommonController {
 
     // 收藏夹封面图查询
     @RequestMapping(value = "/pageMessage")
-    public void ajaxPageMessage(HttpServletRequest request,
-                                HttpServletResponse response,
+    public void ajaxPageMessage(HttpServletResponse response,
                                 Integer userId, Integer pageNum, Integer pageSize) {
         if (pageNum == null) {
             pageNum = 1;

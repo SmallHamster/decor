@@ -43,8 +43,11 @@ public interface CommentService extends ICommonService<Comment> {
     //根据评论对象删除评论与回复
     public void deleteByObjectIdAndObjectType(Integer objectId, String objectType);
 
-    //根据评论对象删除评论与回复
-    public List<Comment> listCommentIncludeReply(Integer objectId,String objectType);
+    //根据评论对象查询评论与回复
+    public List<Comment> listCommentIncludeReply(Integer objectId, String objectType);
+
+    //根据评论对象查询评论与回复（分页）
+    public Page<Comment> pageCommentIncludeReply(Integer objectId, String objectType, Integer pageNum, Integer pageSize);
 
     // 保存评论信息
     public void createComment(Integer userId,

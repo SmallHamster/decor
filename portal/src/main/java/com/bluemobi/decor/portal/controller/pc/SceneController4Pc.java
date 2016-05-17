@@ -62,38 +62,38 @@ public class SceneController4Pc extends CommonController {
                      String name,
                      Integer spaceTagId,
                      Integer styleTagId,
-                     Integer userId){
+                     Integer userId) {
         try {
-            if(pageNum == null){
+            if (pageNum == null) {
                 pageNum = 1;
             }
-            if(pageSize == null){
+            if (pageSize == null) {
                 pageSize = 9;
             }
             Page<Scene> page = sceneService.pcPage(pageNum, pageSize, name, spaceTagId, styleTagId);
-            for (Scene scene : page.getContent()){
+            for (Scene scene : page.getContent()) {
                 // 判断是否收藏是否点赞
-                if(userId != null){
+                if (userId != null) {
                     Integer sceneId = scene.getId();
                     Boolean flag = praiseService.isPraise(userId, sceneId, Constant.PRAISE_TYPE_SCENE);
-                    if(flag){
+                    if (flag) {
                         scene.setIsPraise("yes");
-                    }else {
+                    } else {
                         scene.setIsPraise("no");
                     }
 
                     Boolean flag2 = collectionService.isCollectionScene(userId, sceneId);
-                    if(flag2){
+                    if (flag2) {
                         scene.setIsCollection("yes");
-                    }else {
+                    } else {
                         scene.setIsCollection("no");
                     }
-                }else {
+                } else {
                     scene.setIsPraise("no");
                     scene.setIsCollection("no");
                 }
-                User user=scene.getUser();
-                if (user.getRoleType().equals("admin")||user.getRoleType()=="admin"){
+                User user = scene.getUser();
+                if (user.getRoleType().equals("admin") || user.getRoleType() == "admin") {
                     user.setNickname("Décor");
                 }
                 scene.setUser(user);
@@ -110,8 +110,8 @@ public class SceneController4Pc extends CommonController {
     // forward to 场景图详情页
     @RequestMapping(value = "/detail")
     public String detail(ModelMap modelMap,
-                     HttpServletRequest request,
-                     Integer sceneId){
+                         HttpServletRequest request,
+                         Integer sceneId) {
         Scene scene = sceneService.getById(sceneId);
         sceneService.seeNumAdd(sceneId);
         List<Map<String, Object>> sceneGoodsMap = new ArrayList<Map<String, Object>>();
@@ -132,19 +132,25 @@ public class SceneController4Pc extends CommonController {
         }
         String jsonSceneGoods = JsonUtil.obj2Json(sceneGoodsMap);
         modelMap.put("jsonSceneGoods", jsonSceneGoods);
-        User user=scene.getUser();
-        if (user.getRoleType().equals("admin")||user.getRoleType()=="admin"){
+        User user = scene.getUser();
+        if (user.getRoleType().equals("admin") || user.getRoleType() == "admin") {
             user.setNickname("Décor");
         }
         scene.setUser(user);
-        modelMap.put("scene",scene);
+        modelMap.put("scene", scene);
 
         List<Series> seriesList = seriesService.iFindSeriesByUser(user);
-        if(CollectionUtils.isNotEmpty(seriesList)){
-            modelMap.put("userSeriesNum",seriesList.size());
-        }else {
-            modelMap.put("userSeriesNum",0);
+        if (CollectionUtils.isNotEmpty(seriesList)) {
+            modelMap.put("userSeriesNum", seriesList.size());
+        } else {
+            modelMap.put("userSeriesNum", 0);
         }
+
+        Page<Comment> page = commentService.pageCommentIncludeReply(sceneId, "scene", 1, 5);
+
+        modelMap.put("totalPages", page.getTotalPages());
+        modelMap.put("pageNum", page.getNumber() + 1);
+        modelMap.put("pageSize", page.getSize());
 
         return "pc/场景图详情";
     }
@@ -152,8 +158,8 @@ public class SceneController4Pc extends CommonController {
     // ajax查询场景中的商品
     @RequestMapping(value = "/ajaxGoodsListBySceneId")
     public void ajaxGoodsListBySceneId(HttpServletRequest request,
-                          HttpServletResponse response,
-                          Integer sceneId){
+                                       HttpServletResponse response,
+                                       Integer sceneId) {
         try {
             // 场景中的商品
             List<Goods> goodsList = sceneGoodsService.listGoods(sceneId);
@@ -166,8 +172,8 @@ public class SceneController4Pc extends CommonController {
     // ajax查询场景所属系列图
     @RequestMapping(value = "/ajaxSeriesBySceneId")
     public void ajaxSeriesBySceneId(HttpServletRequest request,
-                               HttpServletResponse response,
-                               Integer sceneId){
+                                    HttpServletResponse response,
+                                    Integer sceneId) {
         try {
             // 场景所属的系列
             List<Series> seriesList = seriesSceneService.findSeriesListBySceneId(sceneId);
@@ -180,8 +186,8 @@ public class SceneController4Pc extends CommonController {
     // ajax查询同类型场景6条
     @RequestMapping(value = "/ajaxSameTypeScene")
     public void ajaxSameTypeScene(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    Integer sceneId){
+                                  HttpServletResponse response,
+                                  Integer sceneId) {
         try {
             List<Scene> sceneList = sceneService.sameTypeScene(sceneId);
             WebUtil.print(response, new Result(true).data(sceneList));
@@ -192,36 +198,37 @@ public class SceneController4Pc extends CommonController {
 
     // ajax查询场景评论列表
     @RequestMapping(value = "/ajaxSceneComment")
-    public void ajaxSceneComment(HttpServletRequest request,
-                                  HttpServletResponse response,
-                                  Integer sceneId){
+    public void ajaxSceneComment(HttpServletResponse response,
+                                 Integer sceneId,
+                                 Integer pageNum,
+                                 Integer pageSize) {
         try {
-            User user = (User)SessionUtils.get(Constant.SESSION_PC_USER);
-            List<Comment> commentList = commentService.listCommentIncludeReply(sceneId, "scene");
-            for (Comment comment : commentList){
+            User user = (User) SessionUtils.get(Constant.SESSION_PC_USER);
+            Page<Comment> page = commentService.pageCommentIncludeReply(sceneId, "scene", pageNum, pageSize);
+            for (Comment comment : page.getContent()) {
                 comment.setIsPraise("no");
-                if(user != null){
+                if (user != null) {
                     Integer userId = user.getId();
                     Integer commentId = comment.getId();
                     Boolean flag = praiseService.isPraise(userId, commentId, Constant.PRAISE_TYPE_COMMENT);
-                    if(flag){
+                    if (flag) {
                         comment.setIsPraise("yes");
                     }
                 }
-                if(comment.getReplyList() != null && comment.getReplyList().size() > 0){
-                    for (Reply reply : comment.getReplyList()){
+                if (comment.getReplyList() != null && comment.getReplyList().size() > 0) {
+                    for (Reply reply : comment.getReplyList()) {
                         reply.setIsPraise("no");
-                        if(user != null){
+                        if (user != null) {
                             Integer replyId = reply.getId();
                             Boolean flag = praiseService.isPraise(user.getId(), replyId, Constant.PRAISE_TYPE_COMMENT);
-                            if(flag){
+                            if (flag) {
                                 reply.setIsPraise("yes");
                             }
                         }
                     }
                 }
             }
-            WebUtil.print(response, new Result(true).data(commentList));
+            WebUtil.print(response, new Result(true).data(page.getContent()));
         } catch (Exception e) {
             e.printStackTrace();
             WebUtil.print(response, new Result(false).msg("操作失败!"));
@@ -231,44 +238,44 @@ public class SceneController4Pc extends CommonController {
     // ajax 新增商品
     @RequestMapping(value = "/pcCreateScene")
     public void pcCreateScene(HttpServletRequest request,
-                               HttpServletResponse response,
-                               String name,
-                               String styleTagIds,
-                               String spaceTagIds,
-                               String info,
-                               String image,
-                               String thumbnailImage,
-                               String goodsIds,
-                               String positons,
-                               String isShow){
+                              HttpServletResponse response,
+                              String name,
+                              String styleTagIds,
+                              String spaceTagIds,
+                              String info,
+                              String image,
+                              String thumbnailImage,
+                              String goodsIds,
+                              String positons,
+                              String isShow) {
         try {
-            User user = (User)SessionUtils.get(Constant.SESSION_PC_USER);
-            if(user==null){
+            User user = (User) SessionUtils.get(Constant.SESSION_PC_USER);
+            if (user == null) {
                 WebUtil.print(response, new Result(false).msg("请先登录!"));
                 return;
             }
-            if(StringUtils.isEmpty(styleTagIds)){
+            if (StringUtils.isEmpty(styleTagIds)) {
                 WebUtil.print(response, new Result(false).msg("请选择风格分类!"));
                 return;
             }
-            if(StringUtils.isEmpty(spaceTagIds)){
+            if (StringUtils.isEmpty(spaceTagIds)) {
                 WebUtil.print(response, new Result(false).msg("请选择空间分类!"));
                 return;
             }
-            if(StringUtils.isEmpty(info)){
+            if (StringUtils.isEmpty(info)) {
                 WebUtil.print(response, new Result(false).msg("请输入介绍信息!"));
                 return;
             }
-            if(StringUtils.isEmpty(image)){
+            if (StringUtils.isEmpty(image)) {
                 WebUtil.print(response, new Result(false).msg("请上传图片!"));
                 return;
             }
-            if(StringUtils.isEmpty(goodsIds)){
+            if (StringUtils.isEmpty(goodsIds)) {
                 WebUtil.print(response, new Result(false).msg("请为场景选择商品!"));
                 return;
             }
 
-            sceneService.pcAddScene(user.getId(),name,spaceTagIds,styleTagIds,info,isShow,image,thumbnailImage,goodsIds,positons);
+            sceneService.pcAddScene(user.getId(), name, spaceTagIds, styleTagIds, info, isShow, image, thumbnailImage, goodsIds, positons);
 
             WebUtil.print(response, new Result(true).msg("新增场景图成功!"));
         } catch (Exception e) {
@@ -276,8 +283,6 @@ public class SceneController4Pc extends CommonController {
             WebUtil.print(response, new Result(false).msg("操作失败!"));
         }
     }
-
-
 
 
 }

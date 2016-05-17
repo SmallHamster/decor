@@ -622,6 +622,10 @@ a {
 	background:none;
 	background:url(../images/iicon_bg.png) -302px 3px no-repeat;
 }
+.pagination a.firstPlus{
+    background:none;
+    background:url(../images/iicon_bg.png) -302px 3px no-repeat #e5e5e5;
+}
 .pagination a.last{
 	background:none;
 	background:url(../images/iicon_bg.png) -302px -25px no-repeat #e5e5e5;

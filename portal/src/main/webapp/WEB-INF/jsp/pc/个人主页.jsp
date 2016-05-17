@@ -50,7 +50,7 @@
                         <a><span class="num">${user.seeNum}</span><span><fmt:message key="info.fangwen"/></span></a>
                     </div>
                     <div class="setup mt20 fr _setting">
-                        <a style="cursor: hand" title="修改背景"><span class="iicon skin"></span></a>
+                        <a style="cursor: hand" title="修改背景"><img id="bgImg" src="static/pc/images/bgImg.png" width="35px" height="35px" style="margin-top: 30px;" /></a>
                         <div class="dropped" style="display: none"></div>
                         <a href="pc/userSetting/goto"><span class="iicon install"></span></a>
                     </div>
@@ -549,12 +549,18 @@
                 if (result.data.length <= 3) {
                     for (var i = 0; i < result.data.length; i++) {
                         var favorite = result.data[i];
+                        if (null == favorite.cover || favorite.cover == '') {
+                            favorite.cover = 'static/pc-1.1/images/designer_pic1.jpg';
+                        }
                         html += '<li onclick="pageShowFavorite(this,' + favorite.id + ')" favoriteName=' + favorite.name + ' style="cursor:pointer"><div class="Thumbnails"><img src="' + favorite.cover + '" style="width: 175px;height:148px;">\
                   </div><p class="fs16 colorBlack tc">' + favorite.name + '</p></li>';
                     }
                 } else {
                     for (var i = 0; i < 3; i++) {
                         var favorite = result.data[i];
+                        if (null == favorite.cover || favorite.cover == '') {
+                            favorite.cover = 'static/pc-1.1/images/designer_pic1.jpg';
+                        }
                         html += '<li onclick="pageShowFavorite(this,' + favorite.id + ')" favoriteName=' + favorite.name + ' style="cursor:pointer"><div class="Thumbnails"><img src="' + favorite.cover + '" style="width: 175px;height:148px;">\
                   </div><p class="fs16 colorBlack tc">' + favorite.name + '</p></li>';
                     }
@@ -1568,7 +1574,7 @@
         }).on("fileError.dropper", function () {
             console.log("upload error")
         });
-        $(".skin").unbind("click").click(function () {
+        $("#bgImg").unbind("click").click(function () {
             $("._setting .dropped .dropper-dropzone").trigger("click");
         });
     }
