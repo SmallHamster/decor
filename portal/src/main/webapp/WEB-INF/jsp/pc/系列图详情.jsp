@@ -26,7 +26,7 @@
     <div class="w1200">
         <div class="personal_information">
             <div class="personLeft">
-                <a href="#" class="avater"><img src="${series.user.headImage}" height="153" width="153"/></a>
+                <a href="pc/user/detail?userId=${series.user.id}" class="avater"><img src="${series.user.headImage}" height="153" width="153"/></a>
                 <a href="#" class="name">${series.user.nickname}</a>
                 <div class="address"><i class="ico"></i>&emsp;${series.user.city.name}&emsp;${series.user.city.province.name}</div>
             </div>
@@ -125,11 +125,14 @@
                 <h2 class="slh">${series.info}</h2>
                 <p>${series.info}</p>
                 <p>创建时间：${series.createTime}<br/>包含场景：23个</p>
-                <h3><a href="#" class="collect"><i></i>${series.collectionNum}次收藏</a></h3>
-                <h3><a href="#" class="share"><i></i>分享给朋友</a></h3>
+                <h3>
+                    <a id="collect" class="collect" style="display: none"><i></i>${series.collectionNum}次收藏</a>
+                    <a id="cancelCollect" class="collect" style="display: none"><i></i>取消收藏</a>
+                </h3>
+                <h3><a class="share"><i></i>分享给朋友</a></h3>
                 <h2 class="all">全部系列图（36）</h2>
                 <p>我在海边的木头房子里面患过伤风<br/>SOMA Condo<br/>South of Market loft<br/>Tiny Bathroom Remodels<br/>Small San Francisco Bathroom Remodel<br/>San Francisco Charmer<br/>Custom Furniture<br/>My Houzz: Stylish City Living, Toddler Included<br/>Forest Hill Transformation</p>
-                <a href="#" class="back">返回设计师首页</a>
+                <a href="pc/user/detail?userId=${series.user.id}" class="back">返回设计师首页</a>
             </div>
         </div>
         <!--同类热门-->
@@ -145,7 +148,7 @@
 <%@ include file="common/footer.jsp"%>
 <!--返回顶部-->
 <div class="floatBack"><a href="javascript:;" class="gotop"><i class="ico"></i></a></div>
-<script type="text/javascript" src="static/pc-1.1/js/jquery-1.8.0.min.js" ></script>
+<%--<script type="text/javascript" src="static/pc-1.1/js/jquery-1.8.0.min.js" ></script>--%>
 <script type="text/javascript" src="static/pc-1.1/js/jquery.SuperSlide.2.1.1.js" ></script>
 <script type="text/javascript" src="static/pc-1.1/js/index.js" ></script>
 <script type="text/javascript" src="static/pc/js/base.js"></script>
@@ -170,10 +173,39 @@
         });
 
         commFun.handlerAttention(); // 处理关注
+        handlerCollection();
         ajaxSameTypeSeries($("#seriesId").val());
     });
 
-
+    function handlerCollection(){
+        var userId = $("#sessionUserId").val();
+        var objectId = $("#seriesId").val();
+        var objectType = "series";
+        var flag = commFun.isCollect(userId,objectId,objectType);
+        if(flag){
+            $("#cancelCollect").show();
+        }else{
+            $("#collect").show();
+        }
+        $("#collect").unbind("click").click(function(){
+            if($("#sessionUserId").val()==""){
+                loginPopup.showDlg();
+                return false;
+            }
+            collectDlg.show(objectId,objectType,function(){
+                location.reload();
+            });
+        });
+        $("#cancelCollect").unbind("click").click(function(){
+            if($("#sessionUserId").val()==""){
+                loginPopup.showDlg();
+                return false;
+            }
+            collectDlg.cancelCollect(objectId,objectType,function(){
+                location.reload();
+            });
+        });
+    }
 
     // 加载同类型场景图
     function ajaxSameTypeSeries(seriesId){
