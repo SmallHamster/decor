@@ -743,7 +743,7 @@
                 }
                 commFun.attention(userId,fansId,function(result){
                     if (result.status == "0") {
-                        $bluemobi.notify(result.msg,"success");
+//                        $bluemobi.notify(result.msg,"success");
                         location.reload();
                     }
                 });
@@ -755,7 +755,7 @@
                 }
                 commFun.cancelAttention(userId,fansId,function(result){
                     if (result.status == "0") {
-                        $bluemobi.notify(result.msg,"success");
+//                        $bluemobi.notify(result.msg,"success");
                         location.reload();
                     }
                 });

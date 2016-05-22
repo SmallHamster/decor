@@ -42,7 +42,8 @@
             <div class="personRight">
                 <a href="#" class="send"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>
                 <p>共计${userSeriesNum}个作品</p>
-                <a href="#" class="like"><img src="static/pc-1.1/images/ico_btn_7.png" />被${series.user.fans}人喜欢</a>
+                <a id="attention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png" />被${series.user.fans}人喜欢</a>
+                <a id="cancelAttention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png" />取消关注</a>
             </div>
         </div>
     </div>
@@ -147,6 +148,7 @@
 <script type="text/javascript" src="static/pc-1.1/js/jquery-1.8.0.min.js" ></script>
 <script type="text/javascript" src="static/pc-1.1/js/jquery.SuperSlide.2.1.1.js" ></script>
 <script type="text/javascript" src="static/pc-1.1/js/index.js" ></script>
+<script type="text/javascript" src="static/pc/js/base.js"></script>
 <script type="text/javascript">
     $(function(){
         //主体部分
@@ -167,6 +169,7 @@
         	trigger: "click"
         });
 
+        commFun.handlerAttention(); // 处理关注
         ajaxSameTypeSeries($("#seriesId").val());
     });
 
@@ -174,8 +177,7 @@
 
     // 加载同类型场景图
     function ajaxSameTypeSeries(seriesId){
-        debugger
-        $bluemobi.ajax("pc/series/ajaxSameTypeSeries",{seriesId:seriesId},function(result){debugger
+        $bluemobi.ajax("pc/series/ajaxSameTypeSeries",{seriesId:seriesId},function(result){
             if (result.status == "0") {
                 if (result.data.length > 0) {
                     var html = '';
