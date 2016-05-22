@@ -569,20 +569,20 @@ public class UserController4Pc extends CommonController {
     public String detail(ModelMap modelMap,
                          HttpServletRequest request,
                          Integer userId) {
-        User user = userService.getById(userId);
-        /*设置访问量*/
-        if (user.getSeeNum() == null) {
-            user.setSeeNum(1);
-        }
-        user.setSeeNum(user.getSeeNum() + 1);
-        /*查询收藏量 和被收藏量*/
-        List<Integer> list = attentionService.findFansNum(user);
-        Integer collect = list.get(0);
-        Integer attention = list.get(1);
-        user.setAttention(attention);
-        user.setCollect(collect);
-        modelMap.put("user", user);
-        return "pc/设计师详情页";
+//        User user = userService.getById(userId);
+//        /*设置访问量*/
+//        if (user.getSeeNum() == null) {
+//            user.setSeeNum(1);
+//        }
+//        user.setSeeNum(user.getSeeNum() + 1);
+//        /*查询收藏量 和被收藏量*/
+//        List<Integer> list = attentionService.findFansNum(user);
+//        Integer collect = list.get(0);
+//        Integer attention = list.get(1);
+//        user.setAttention(attention);
+//        user.setCollect(collect);
+//        modelMap.put("user", user);
+        return "redirect:detailPage?userId=" + userId;
     }
 
     // forward to 个人主页
