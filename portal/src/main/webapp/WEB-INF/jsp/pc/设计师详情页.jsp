@@ -46,8 +46,8 @@
     <div class="w1200">
         <div class="personal_information">
             <div class="personLeft">
-                <a href="#" class="avater"><img src="${user.headImage}" style="width: 153px;height: 153px;"/></a>
-                <a href="#" class="name">${user.nickname}</a>
+                <a class="avater"><img src="${user.headImage}" style="width: 153px;height: 153px;"/></a>
+                <a class="name">${user.nickname}</a>
                 <div class="address"><i class="ico"></i>&emsp;${user.city.province.name}&emsp;${user.city.name}</div>
             </div>
             <div class="personMiddle" style="width:700px;">
@@ -60,7 +60,7 @@
                 <h3 class="slh">刚刚更新了设计系列图：<strong>《我在海边的木头房子里面患过伤风》  木屋陈设，木头吊柜…</strong></h3>
             </div>
             <div class="personRight">
-                <a href="#" class="send"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>
+                <a class="send"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>
                 <p>共计36个作品</p>
                 <a id="attention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png" />被${user.fans}人喜欢</a>
                 <a id="cancelAttention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png" />取消关注</a>
@@ -78,7 +78,7 @@
                 <div class="interact-con cleafix">
                 <div class="interact-img"><img src="${newestComment.objectCover}" width="357" height="300"/></div>
                 <div class="interact-right">
-                    <h2><a href="#">${newestComment.tags}&nbsp;</a></h2>
+                    <h2><a>${newestComment.tags}&nbsp;</a></h2>
                     <h3>来自：<span class="slh" style="color: #fb9f38;">${newestComment.objectName}</span></h3>
                     <div class="chat-content cleafix">
                         <div class="sc-new you">
@@ -104,7 +104,7 @@
                             </div>
                         </c:if>
                     </div>
-                    <a href="#" class="hudong">更多设计师互动<font>&gt;</font></a>
+                    <a class="hudong">更多设计师互动<font>&gt;</font></a>
                 </div>
             </div>
             </c:if>
