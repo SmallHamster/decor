@@ -235,7 +235,7 @@
                             <p class="text-center">'+showName+'</p>\
                             </div>\
                             <div class="over-hidden">\
-                            <p class="title slh">'+object.seriesTag.name+'</p>\
+                            <p class="title slh"><a href="pc/series/detail?seriesId='+object.id+'">'+object.seriesTag.name+'</a></p>\
                             <p class="desc">'+object.info+'</p>\
                             <p class="count"><span class="pull-left">'+object.seeNum+'次查看</span><span class="pull-right">'+object.praiseNum+'人喜欢的设计</span></p>\
                             </div>\
