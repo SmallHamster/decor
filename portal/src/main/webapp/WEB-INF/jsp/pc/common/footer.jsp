@@ -160,7 +160,7 @@
                 <span class="iicon validate abs"></span><input type="text" style="width: 250px;" placeholder="<fmt:message key="info.duanxinyanzhengma"/>">
             </div>
             <div class="fr">
-                <button class="btn blackBtn sendCodeBtn"><fmt:message key="info.huoquyanzhengma"/></button>
+                <button class="btn blackBtn sendCodeBtn" defaultVal="<fmt:message key="info.huoquyanzhengma"/>"><fmt:message key="info.huoquyanzhengma"/></button>
             </div>
         </div>
         <button class="btn blackBtn registerBtn"><fmt:message key="info.xiayibu"/></button>
@@ -827,9 +827,14 @@
             $bluemobi.notify("<fmt:message key="info.shoujihaobunengweikong"/>", "error");
             return false;
         }
+        _changeBtn = $(".findPasswordDiv .sendCodeBtn");
+        if(_changeBtn.text()!=_changeBtn.attr("defaultVal")){
+            return false;
+        }
         $bluemobi.ajax("pc/user/sendMessage2FindPassword", {mobile: mobile}, function (result) {
             if (result.status == "0") {
                 $bluemobi.notify(result.msg, "success");
+                btnValueChange();
             } else {
                 $bluemobi.notify(result.msg, "error");
             }
