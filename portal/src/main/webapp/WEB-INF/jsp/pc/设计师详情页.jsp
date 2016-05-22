@@ -73,7 +73,8 @@
         <!--最新互动-->
         <div class="interact">
             <h2 class="title">最新互动</h2>
-            <div class="interact-con cleafix">
+            <c:if test="${newestComment != null}">
+                <div class="interact-con cleafix">
                 <div class="interact-img"><img src="${newestComment.objectCover}" width="357" height="300"/></div>
                 <div class="interact-right">
                     <h2><a href="#">${newestComment.tags}&nbsp;</a></h2>
@@ -105,6 +106,7 @@
                     <a href="#" class="hudong">更多设计师互动<font>&gt;</font></a>
                 </div>
             </div>
+            </c:if>
         </div>
         <!--设计系列图（36）-->
         <div class="designer">
@@ -238,6 +240,11 @@
                         $("#pageDiv").show();
                     });
                 }
+                if(result.data.page.totalNum==0){
+                    $(".design").hide();
+                    $("#showMore").hide();
+                    $("#pageDiv").hide();
+                }
             }
         });
     }
@@ -291,6 +298,9 @@
                         $(this).find('.pages').addClass('show');
                         $("#pageDiv4Comment").show();
                     });
+                }
+                if(result.data.page.totalNum==0){
+                    $(".comment-list").hide();
                 }
             }
         });
