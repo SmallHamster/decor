@@ -129,7 +129,7 @@
                 <span class="iicon validate abs"></span><input type="text" style="width: 250px;" placeholder="<fmt:message key="info.duanxinyanzhengma"/>">
             </div>
             <div class="fr curp">
-                <button class="btn blackBtn sendCodeBtn"><fmt:message key="info.fasongyanzhengma"/></button>
+                <button class="btn blackBtn sendCodeBtn" defaultVal="<fmt:message key="info.fasongyanzhengma"/>"><fmt:message key="info.fasongyanzhengma"/></button>
             </div>
         </div>
         <div class="agree">
@@ -739,13 +739,38 @@
             $bluemobi.notify("<fmt:message key="info.shoujihaobunengweikong"/>", "error");
             return false;
         }
+        _changeBtn = $(".registerDiv .sendCodeBtn");
+        if(_changeBtn.text()!=_changeBtn.attr("defaultVal")){
+            return false;
+        }
         $bluemobi.ajax("pc/user/sendMessage", {mobile: mobile}, function (result) {
             if (result.status == "0") {
                 $bluemobi.notify(result.msg, "success");
+                btnValueChange();
             } else {
                 $bluemobi.notify(result.msg, "error");
             }
         });
+    }
+
+//    clearTimeout(_time);
+    var _changeBtn;
+    var _time;
+    function btnValueChange(){
+        var obj = _changeBtn;
+        var btnValue = obj.attr("defaultVal");
+        var text=obj.text();
+        if(text==btnValue){
+            text = 60;
+        }else if(text>0){
+            text=text-1;
+        }else{
+            text =btnValue;
+        }
+        obj.text(text);
+        if(text!=btnValue){
+            _time=setTimeout("btnValueChange()", 1000);
+        }
     }
 
     // 用户注册
