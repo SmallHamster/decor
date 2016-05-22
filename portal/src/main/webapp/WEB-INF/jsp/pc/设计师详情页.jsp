@@ -40,7 +40,7 @@
         <input type="hidden" id="isAttention" value=""/>
     </div>
 </div>
-
+<input type="hidden" id="creator" value="${user.id}"/>
 <!--banner-->
 <div class="bannerWrap" style="background: url('${user.backgroundImage}');">
     <div class="w1200">
@@ -62,7 +62,8 @@
             <div class="personRight">
                 <a href="#" class="send"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>
                 <p>共计36个作品</p>
-                <a href="#" class="like"><img src="static/pc-1.1/images/ico_btn_7.png" />被${user.fans}人喜欢</a>
+                <a id="attention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png" />被${user.fans}人喜欢</a>
+                <a id="cancelAttention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png" />取消关注</a>
             </div>
         </div>
     </div>
@@ -189,7 +190,7 @@
             vis: 1,
             trigger: "click"
         });
-
+        commFun.handlerAttention(); // 处理关注
         ajaxSeriesPage();
         ajaxCommentPage();
     });
