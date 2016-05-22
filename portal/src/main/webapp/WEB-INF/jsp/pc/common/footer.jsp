@@ -726,6 +726,40 @@
                     callback(result);
                 }
             });
+        },
+        handlerAttention:function(){
+            var fansId = $("#sessionUserId").val();
+            var userId = $("#creator").val();
+            var flag = commFun.isAttention(userId,fansId);
+            if(flag){
+                $("#cancelAttention").show();
+            }else{
+                $("#attention").show();
+            }
+            $("#attention").unbind("click").click(function(){
+                if($("#sessionUserId").val()==""){
+                    loginPopup.showDlg();
+                    return false;
+                }
+                commFun.attention(userId,fansId,function(result){
+                    if (result.status == "0") {
+                        $bluemobi.notify(result.msg,"success");
+                        location.reload();
+                    }
+                });
+            });
+            $("#cancelAttention").unbind("click").click(function(){
+                if($("#sessionUserId").val()==""){
+                    loginPopup.showDlg();
+                    return false;
+                }
+                commFun.cancelAttention(userId,fansId,function(result){
+                    if (result.status == "0") {
+                        $bluemobi.notify(result.msg,"success");
+                        location.reload();
+                    }
+                });
+            });
         }
 
     };

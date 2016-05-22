@@ -106,7 +106,8 @@
 								<span class="address"><i class="icon-addr"></i>${scene.user.city.name}  ${scene.user.city.province.name}</span><br/>
 								<span class="text-orange">${userSeriesNum}套设计系列图作品</span>
 							</span>
-                            <a class="btn btn-like">被${scene.user.fans}人喜欢</a>
+                            <a id="attention" class="btn btn-like" style="display: none">被${scene.user.fans}人喜欢</a>
+                            <a id="cancelAttention" class="btn btn-like" style="display: none">取消关注</a>
                         </div>
                         <h4 class="title">${scene.name}</h4>
                         <p class="desc">来自系列图：<a id="seriesName" class="text-orange"></a><br/>${scene.info}</p>
@@ -191,7 +192,7 @@
         ajaxSeriesBySceneId($("#sceneId").val()); // 查询场景所属系列图
         ajaxSameTypeScene($("#sceneId").val()); // 查询同类
         ajaxSceneComment($("#sceneId").val()); // 查询评论
-        handlerAttention(); // 处理关注
+        commFun.handlerAttention(); // 处理关注
         handlerPraise(); // 处理点赞
         handlerCollection(); // 处理收藏
     });
@@ -369,40 +370,6 @@
                 $bluemobi.notify(result.msg,"success");
                 $(_this).parents(".replydiv").find("textarea").val("");
                 ajaxSceneComment($("#sceneId").val());
-            }
-        });
-    }
-
-    // 处理关注状态
-    function handlerAttention(){
-        var fansId = $("#sessionUserId").val();
-        var userId = $("#creator").val();
-        var flag = commFun.isAttention(userId,fansId);
-        if(flag){
-            $(".ddddd .atten").html("<fmt:message key="info.quxiaoguanzhu"/>");
-        }else{
-            $(".ddddd .atten").html("<fmt:message key="info.guanzhuTA"/>");
-        }
-        $(".ddddd .atten").unbind("click").click(function(){
-            if($("#sessionUserId").val()==""){
-                loginPopup.showDlg();
-                return false;
-            }
-            if($(this).html()=="<fmt:message key="info.guanzhuTA"/>"){
-                commFun.attention(userId,fansId,function(result){
-                    if (result.status == "0") {
-                        $bluemobi.notify(result.msg,"success");
-                        $(".ddddd .atten").html("<fmt:message key="info.quxiaoguanzhu"/>");
-                    }
-                });
-            }
-            else if($(this).html()=="<fmt:message key="info.quxiaoguanzhu"/>"){
-                commFun.cancelAttention(userId,fansId,function(result){
-                    if (result.status == "0") {
-                        $bluemobi.notify(result.msg,"success");
-                        $(".ddddd .atten").html("<fmt:message key="info.guanzhuTA"/>");
-                    }
-                });
             }
         });
     }
