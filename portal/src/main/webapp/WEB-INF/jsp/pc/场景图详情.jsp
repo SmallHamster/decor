@@ -98,9 +98,11 @@
                     </div>
                     <div class="designer">
                         <div class="user" style="margin: 0px;margin-bottom: 19px;">
-                            <img style="border-radius:0;" src="${scene.user.headImage}" title="" alt="" width="57" height="57" />
+                            <a href="pc/user/detailPage?userId=${scene.user.id}">
+                                <img style="border-radius:0;" src="${scene.user.headImage}" title="" alt="" width="57" height="57" />
+                            </a>
 							<span class="inb" style="">
-								<span class="name">${scene.user.nickname}</span>
+								<span class="name"><a href="pc/user/detailPage?userId=${scene.user.id}">${scene.user.nickname}</a></span>
 								<span class="address"><i class="icon-addr"></i>${scene.user.city.name}  ${scene.user.city.province.name}</span><br/>
 								<span class="text-orange">${userSeriesNum}套设计系列图作品</span>
 							</span>
