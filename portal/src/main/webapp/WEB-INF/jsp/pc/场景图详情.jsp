@@ -111,7 +111,8 @@
                         </div>
                         <h4 class="title">${scene.name}</h4>
                         <p class="desc">来自系列图：<a id="seriesName" class="text-orange"></a><br/>${scene.info}</p>
-                        <button class="btn btn-count">${scene.praiseNum}人喜欢</button>
+                        <button id="collect" class="btn btn-count" style="display: none">${scene.collectionNum}人喜欢</button>
+                        <button id="cancelCollect" class="btn btn-count" style="display: none">取消收藏</button>
                         <p class="strong">场景中的商品</p>
                         <ul id="goodsList" class="image-list">
 
@@ -418,35 +419,27 @@
         var objectType = "scene";
         var flag = commFun.isCollect(userId,objectId,objectType);
         if(flag){
-            $(".ddddd .collectBtn").html("<fmt:message key="info.quxiaoshoucang"/>");
+            $("#cancelCollect").show();
         }else{
-            $(".ddddd .collectBtn").html("<fmt:message key="info.shoucang"/>");
+            $("#collect").show();
         }
-        $(".ddddd .collectBtn").unbind("click").click(function(){
-            if($(this).html()=="<fmt:message key="info.shoucang"/>"){
-                collectDlg.show(objectId,"scene",function(){
-                    $(".ddddd .collectBtn").html("<fmt:message key="info.quxiaoshoucang"/>");
-                    var num = $(".ddddd .collectNum").html();
-                    if(num==""){
-                        num = 0;
-                    }
-                    num = num*1 + 1;
-                    $(".ddddd .collectNum").html(num);
-                });
-            }else if($(this).html()=="<fmt:message key="info.quxiaoshoucang"/>"){
-                collectDlg.cancelCollect(objectId,"scene",function(){
-                    $(".ddddd .collectBtn").html("<fmt:message key="info.shoucang"/>");
-                    var num = $(".ddddd .collectNum").html();
-                    if(num==""){
-                        num = 0;
-                    }
-                    num = num*1 - 1;
-                    if(num<0){
-                        num=0
-                    }
-                    $(".ddddd .collectNum").html(num);
-                });
+        $("#collect").unbind("click").click(function(){
+            if($("#sessionUserId").val()==""){
+                loginPopup.showDlg();
+                return false;
             }
+            collectDlg.show(objectId,objectType,function(){
+                location.reload();
+            });
+        });
+        $("#cancelCollect").unbind("click").click(function(){
+            if($("#sessionUserId").val()==""){
+                loginPopup.showDlg();
+                return false;
+            }
+            collectDlg.cancelCollect(objectId,objectType,function(){
+                location.reload();
+            });
         });
     }
     function IonMouseOver(i) {
