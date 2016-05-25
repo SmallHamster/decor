@@ -101,7 +101,7 @@
 				//window.location.replace('mobile/forward/to?type=index');
 			} else {
 				// pc pad
-				//window.location.replace('index');
+				window.location.replace('index');
 			}
 
 			ajaxDesigner(); // 查询两个设计师显示在首页
