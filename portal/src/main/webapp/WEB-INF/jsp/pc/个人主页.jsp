@@ -144,15 +144,12 @@
                     <div class="uploadimg fl">
                         <p>
                             <button class="btn blackBtn mb20" style="width: 190px;"  onclick="createGoodsHandler.showCreateGoodsTab()"><fmt:message key="info.shangchuanshangpin"/></button>
-                            <button class="btn blackBtn mb20" onclick="createGoodsHandler.showCreateGoodsTab()" style="width: 150px;"><fmt:message key="info.shangchuanshangpin"/></button>
                         </p>
                         <p>
                             <button class="btn blackBtn mb20" style="width: 190px;" onclick="createSceneHandler.showCreateSceneTab()"><fmt:message key="info.shangchuanchangjingtu"/></button>
-                            <button class="btn blackBtn mb20" onclick="createSceneHandler.showCreateSceneTab()" style="width: 150px;"><fmt:message key="info.shangchuanchangjingtu"/></button>
                         </p>
                         <p>
                             <button class="btn blackBtn mb20" style="width: 190px;" onclick="createSeriesHandler.showCreateSeriesTab()"><fmt:message key="info.shangchuanxilietu"/></button>
-                            <button class="btn blackBtn mb20" onclick="createSeriesHandler.showCreateSeriesTab()" style="width: 150px;"><fmt:message key="info.shangchuanxilietu"/></button>
                         </p>
                     </div>
                 </div>
