@@ -159,6 +159,8 @@ function dialogBox( configparam ){
  */
 dialogBox.prototype = {
 	showDlg : function( showFunc ){
+		$('.loginpassword').val('');
+
 		if( showFunc && typeof showFunc == "function" ){ //自定义处理
 			showFunc( this.curDlg );
 		}

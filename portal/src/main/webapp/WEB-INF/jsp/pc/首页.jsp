@@ -310,8 +310,8 @@
                         }else {
                             html+='<div class="text pull-right">';
                         }
-                        html+='<h5 class="title slh">'+message.title+'</h5>\
-                        <a href="pc/message/detail?messageId='+message.id+'"><div class="text-content">'+message.subContent+'</div></a>\
+                        html+='<a href="pc/message/detail?messageId='+message.id+'"><h5 class="title slh">'+message.title+'</h5>\
+                        <div class="text-content">'+message.subContent+'</div></a>\
                         <a class="btn btn-store" messageId='+message.id+'><span >'+collect+'</span>（<span>'+message.collectionNum+'</span>）</a>\
                         </div>\
                         <div class="images">\

@@ -47,9 +47,9 @@
         <profile>
             <id>dev-gll</id>
             <properties>
-                <pro.jdbc.url>jdbc:mysql://10.58.168.91:3306/decor?characterEncoding=UTF-8</pro.jdbc.url>
+                <pro.jdbc.url>jdbc:mysql://localhost:3306/decor?characterEncoding=UTF-8</pro.jdbc.url>
                 <pro.jdbc.username>root</pro.jdbc.username>
-                <pro.jdbc.password>root</pro.jdbc.password>
+                <pro.jdbc.password>1234</pro.jdbc.password>
                 <pro.upload.url>http://10.58.169.86:8080/files/upload/</pro.upload.url>
                 <pro.upload.path>D:/work/apache-tomcat-7.0.56/webapps/files/upload/</pro.upload.path>
             </properties>

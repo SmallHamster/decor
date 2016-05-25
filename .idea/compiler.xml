@@ -17,24 +17,24 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="decor-core" />
-      </profile>
       <profile default="false" name="Annotation profile for decor-portal" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="decor-portal" />
       </profile>
+      <profile default="false" name="Annotation profile for decor-core" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="decor-core" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="decor" target="1.5" />
-      <module name="decor-core" target="1.5" />
+      <module name="decor-core" target="1.6" />
       <module name="decor-portal" target="1.7" />
     </bytecodeTargetLevel>
   </component>

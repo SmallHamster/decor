@@ -54,7 +54,7 @@
                         <a><span class="num">${user.seeNum}</span><span><fmt:message key="info.fangwen"/></span></a>
                     </div>
                     <div class="setup mt20 fr _setting">
-                        <a style="cursor: hand" title="修改背景"><span class="iicon skin"></span></a>
+                        <a style="cursor: hand" title="修改背景"><img id="bgImg" src="static/pc/images/bgImg.png" width="35px" height="35px" style="margin-top: 30px;" /></a>
                         <div class="dropped" style="display: none"></div>
                         <a href="pc/userSetting/goto"><span class="iicon install"></span></a>
                     </div>
@@ -144,12 +144,15 @@
                     <div class="uploadimg fl">
                         <p>
                             <button class="btn blackBtn mb20" style="width: 190px;"  onclick="createGoodsHandler.showCreateGoodsTab()"><fmt:message key="info.shangchuanshangpin"/></button>
+                            <button class="btn blackBtn mb20" onclick="createGoodsHandler.showCreateGoodsTab()" style="width: 150px;"><fmt:message key="info.shangchuanshangpin"/></button>
                         </p>
                         <p>
                             <button class="btn blackBtn mb20" style="width: 190px;" onclick="createSceneHandler.showCreateSceneTab()"><fmt:message key="info.shangchuanchangjingtu"/></button>
+                            <button class="btn blackBtn mb20" onclick="createSceneHandler.showCreateSceneTab()" style="width: 150px;"><fmt:message key="info.shangchuanchangjingtu"/></button>
                         </p>
                         <p>
                             <button class="btn blackBtn mb20" style="width: 190px;" onclick="createSeriesHandler.showCreateSeriesTab()"><fmt:message key="info.shangchuanxilietu"/></button>
+                            <button class="btn blackBtn mb20" onclick="createSeriesHandler.showCreateSeriesTab()" style="width: 150px;"><fmt:message key="info.shangchuanxilietu"/></button>
                         </p>
                     </div>
                 </div>
@@ -577,12 +580,18 @@
                 if (result.data.length <= 3) {
                     for (var i = 0; i < result.data.length; i++) {
                         var favorite = result.data[i];
+                        if (null == favorite.cover || favorite.cover == '') {
+                            favorite.cover = 'static/pc-1.1/images/designer_pic1.jpg';
+                        }
                         html += '<li onclick="pageShowFavorite(this,' + favorite.id + ')" favoriteName=' + favorite.name + ' style="cursor:pointer"><div class="Thumbnails"><img src="' + favorite.cover + '" style="width: 175px;height:148px;">\
                   </div><p class="fs16 colorBlack tc">' + favorite.name + '</p></li>';
                     }
                 } else {
                     for (var i = 0; i < 3; i++) {
                         var favorite = result.data[i];
+                        if (null == favorite.cover || favorite.cover == '') {
+                            favorite.cover = 'static/pc-1.1/images/designer_pic1.jpg';
+                        }
                         html += '<li onclick="pageShowFavorite(this,' + favorite.id + ')" favoriteName=' + favorite.name + ' style="cursor:pointer"><div class="Thumbnails"><img src="' + favorite.cover + '" style="width: 175px;height:148px;">\
                   </div><p class="fs16 colorBlack tc">' + favorite.name + '</p></li>';
                     }
@@ -1633,7 +1642,7 @@
         }).on("fileError.dropper", function () {
             console.log("upload error")
         });
-        $(".skin").unbind("click").click(function () {
+        $("#bgImg").unbind("click").click(function () {
             $("._setting .dropped .dropper-dropzone").trigger("click");
         });
     }

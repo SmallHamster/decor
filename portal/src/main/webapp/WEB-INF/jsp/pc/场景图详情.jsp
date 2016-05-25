@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="common/taglibs.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ include file="common/taglibs.jsp" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <%@ include file="common/meta.jsp"%>
-    <%@ include file="common/css.jsp"%>
+    <%@ include file="common/meta.jsp" %>
+    <%@ include file="common/css.jsp" %>
     <title><fmt:message key="info.shouye"/></title>
     <link href="static/pc/css/common.css" rel="stylesheet" type="text/css">
     <link href="static/pc/css/all.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="static/pc-1.1/css/global.css" />
-    <link rel="stylesheet" href="static/pc-1.1/css/scene-detail.css" />
+    <link rel="stylesheet" href="static/pc-1.1/css/global.css"/>
+    <link rel="stylesheet" href="static/pc-1.1/css/scene-detail.css"/>
     <style>
         .praiseZdy {
             width: 28px;
@@ -18,19 +18,22 @@
             border-radius: 4px;
             background-position: -83px -61px;
         }
-        .tagcnt{
+
+        .tagcnt {
             width: 280px;
             height: 100px;
 
         }
-        .tagcnt img{
-            margin-left:10px;
-            margin-top:10px;
+
+        .tagcnt img {
+            margin-left: 10px;
+            margin-top: 10px;
             float: left;
             width: 80px;
             height: 80px;
             margin-right: 10px;
         }
+
         .tagcnt .tit {
             padding-top: 10px;
             margin-left: 80px;
@@ -39,8 +42,9 @@
             color: #fcfcfc;
             font-weight: bold;
             width: 220px;
-            font-family: "微软雅黑",Microsoft YaHei;
+            font-family: "微软雅黑", Microsoft YaHei;
         }
+
         .imgtagli {
             display: block;
             width: 24px;
@@ -50,21 +54,25 @@
             margin-top: -6px;
             z-index: 1;
         }
-        .imgtagli a{
+
+        .imgtagli a {
             display: none;
             background-color: #0066cc;
         }
-        .title-style{
+
+        .title-style {
             height: 100px;
             width: 320px;
             background-color: #080808;
-            filter:alpha(opacity=50);
-            opacity:0.8;
+            filter: alpha(opacity=50);
+            opacity: 0.8;
         }
 
-        .user span{
-            padding-left: 0px;line-height: inherit;
+        .user span {
+            padding-left: 0px;
+            line-height: inherit;
         }
+
         .clear {
             height: inherit;
         }
@@ -81,6 +89,9 @@
 
         <input type="hidden" id="sceneId" value="${scene.id}"/>
         <input type="hidden" id="creator" value="${scene.user.id}"/>
+        <input type="hidden" id="pageNum" value="${pageNum}"/>
+        <input type="hidden" id="pageSize" value="${pageSize}"/>
+        <input type="hidden" id="totalPages" value="${totalPages}"/>
 
         <!-- 页面主体内容开始 -->
         <div class="main" style="margin-top: 20px;">
@@ -98,10 +109,13 @@
                     </div>
                     <div class="designer">
                         <div class="user" style="margin: 0px;margin-bottom: 19px;">
+                            <img style="border-radius:0;" src="${scene.user.headImage}" title="" alt="" width="57" height="57"/>
                             <a href="pc/user/detailPage?userId=${scene.user.id}">
                                 <img style="border-radius:0;" src="${scene.user.headImage}" title="" alt="" width="57" height="57" />
                             </a>
 							<span class="inb" style="">
+								<span class="name">${scene.user.nickname}</span>
+								<span class="address"><i class="icon-addr"></i>${scene.user.city.name} ${scene.user.city.province.name}</span><br/>
 								<span class="name"><a href="pc/user/detailPage?userId=${scene.user.id}">${scene.user.nickname}</a></span>
 								<span class="address"><i class="icon-addr"></i>${scene.user.city.name}  ${scene.user.city.province.name}</span><br/>
 								<span class="text-orange">${userSeriesNum}套设计系列图作品</span>
@@ -120,10 +134,22 @@
                         <p class="strong">讨论</p>
                         <div class="form" style="padding: 0px;">
                             <textarea id="commentContent"></textarea>
-                            <div class="text-right"><button onclick="saveSceneComment()">发布</button></div>
+                            <div class="text-right">
+                                <button onclick="saveSceneComment()">发布</button>
+                            </div>
                         </div>
                         <div id="commentList" class="review">
 
+                        </div>
+                        <div id="pageDiv" style="background: white;">
+                            <div class="pagination">
+                                <a class="firstPlus" onclick="movePageUp()"></a>
+                                当前页：<b id="currentNum">${pageNum}</b>
+                                <a class="last" onclick="movePageDown()"></a>
+                                <span class="p_text totalpage">共<span class="totalPage">${totalPages}</span>页， 到第
+                                <input class="gotopage" type="text" id="gotoIndex"/> 页</span>
+                                <input type="button" class="confirm" onclick="movePage()" value="确定"/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -132,61 +158,61 @@
         <!-- 页面主体内容部分结束 -->
 
         <!-- 尾部开始 -->
-        <%@ include file="common/footer.jsp"%>
+        <%@ include file="common/footer.jsp" %>
         <!-- 尾部结束 -->
     </div>
 </div>
 <!--右侧悬浮-->
-<%@ include file="common/other.jsp"%>
+<%@ include file="common/other.jsp" %>
 
 <script type="text/javascript" src="static/pc/js/table.js"></script>
 <script type="text/javascript" src="static/pc/js/base.js"></script>
 <script src="static/pc-1.1/js/global.js"></script>
 <script src="static/pc-1.1/js/scene.js"></script>
 <script type="text/javascript">
-    $(function(){
-        $(document).on("mouseover",".BigImg",function(){
-            $(".BigImg i.close").css("display","block");
+    $(function () {
+        $(document).on("mouseover", ".BigImg", function () {
+            $(".BigImg i.close").css("display", "block");
         });
-        $(document).on("mouseout",".BigImg",function(){
-            $(".BigImg i.close").css("display","none");
+        $(document).on("mouseout", ".BigImg", function () {
+            $(".BigImg i.close").css("display", "none");
         });
-        var x=$(".BigImg img").width();
-        var y=$(window).height();
-        $(".bigImg img").click(function(){
-            bigImg=$(this).attr("src");//获取点击图片的地址
-            $(".BigImg img").attr("src",bigImg); //更换大图的图片地址
+        var x = $(".BigImg img").width();
+        var y = $(window).height();
+        $(".bigImg img").click(function () {
+            bigImg = $(this).attr("src");//获取点击图片的地址
+            $(".BigImg img").attr("src", bigImg); //更换大图的图片地址
         })
         var register = new dialogBox({
             // popupBoxW: x,
             // popupBoxH: y,
             contentHtml: $('#regPopupCont').html(),
-            initEvent : function(){
-                $(".popup-case .popup-cent").css({"max-height":y});
-                $(".BigImg img").css({"max-height":y-20});
+            initEvent: function () {
+                $(".popup-case .popup-cent").css({"max-height": y});
+                $(".BigImg img").css({"max-height": y - 20});
             }
         });
         $(".bigImg img.bfimg").click(function () {
             register.showDlg();
         });
-        $(".horizonalList").each(function(){
+        $(".horizonalList").each(function () {
             var config = {
-                wrapObj : $(this),   //配置最外层包裹对象
-                innerObj : $(".inner_wrap"),     //配置内层包裹对象
-                listObj : $(".newpro_list"),     //配置列表包裹对象
-                scrollElements : $(".newpro_list li"),
-                leftArrow : $(".scroll_left") ,  //配置左箭头
-                rightArrow : $(".scroll_right"),  //配置右箭头
-                animateTime : 600,
-                scrollStep : 4
+                wrapObj: $(this),   //配置最外层包裹对象
+                innerObj: $(".inner_wrap"),     //配置内层包裹对象
+                listObj: $(".newpro_list"),     //配置列表包裹对象
+                scrollElements: $(".newpro_list li"),
+                leftArrow: $(".scroll_left"),  //配置左箭头
+                rightArrow: $(".scroll_right"),  //配置右箭头
+                animateTime: 600,
+                scrollStep: 4
             };
-            new HorizontalList( config );
+            new HorizontalList(config);
         });
-        var bigImg='';
-        $(".newpro_list li img").click(function(){
+        var bigImg = '';
+        $(".newpro_list li img").click(function () {
             $(this).parent('li').addClass('current').siblings().removeClass('current');
-            bigImg=$(this).attr("src");//获取点击图片的地址
-            $(".detImg img").attr("src",bigImg); //更换大图的图片地址
+            bigImg = $(this).attr("src");//获取点击图片的地址
+            $(".detImg img").attr("src", bigImg); //更换大图的图片地址
         });
 
         ajaxGoodsListBySceneId($("#sceneId").val()); // 查询场景中的商品
@@ -198,6 +224,83 @@
         handlerCollection(); // 处理收藏
     });
 
+    // 上一页
+    function movePageUp() {
+        var currentNum = $('#pageNum').val();
+
+        if (Number(currentNum) <= Number(1)) {
+            $bluemobi.notify("已经是第一页了", "error");
+            return;
+        } else {
+            currentNum = Number(currentNum) - Number(1);
+        }
+
+        loadSceneComment($("#sceneId").val(), currentNum, 5);
+    }
+
+    // 下一页
+    function movePageDown() {
+        var currentNum = $('#pageNum').val();
+        var totalPages = $('#totalPages').val();
+
+        if (Number(currentNum) >= Number(totalPages)) {
+            $bluemobi.notify("已经是最后一页了", "error");
+            return;
+        } else {
+            currentNum = Number(currentNum) + Number(1);
+        }
+
+        loadSceneComment($("#sceneId").val(), currentNum, 5);
+    }
+
+    // 跳页
+    function movePage() {
+        var num = $('#gotoIndex').val();
+        var currentNum = $('#pageNum').val();
+        var totalPages = $('#totalPages').val();
+
+        if (isNaN(num)) {
+            $bluemobi.notify("请输入数字", "error");
+            return;
+        }
+
+        if (Number(num) < Number(1) || Number(num) > Number(totalPages)) {
+            $bluemobi.notify("请输入正确的页码", "error");
+            return;
+        }
+
+        if (Number(num) == Number(currentNum)) {
+            $bluemobi.notify("已在当前页", "error");
+            return;
+        }
+
+        loadSceneComment($("#sceneId").val(), num, 5);
+    }
+
+    function loadSceneComment(sceneId, pageNum, pageSize) {
+        $("#commentList").html('');
+
+        $bluemobi.ajax("pc/scene/ajaxSceneComment", {sceneId: sceneId, pageNum: pageNum, pageSize: pageSize}, function (result) {
+            if (result.status == "0") {
+                var html = '';
+                for (var i = 0; i < result.data.length; i++) {
+                    var comment = result.data[i];
+                    html += '<a class="pull-left face">\
+                            <img src="' + comment.user.headImage + '" title="" alt="" width="40" height="40" />\
+                            </a>\
+                            <div class="text">\
+                            <p><span class="pull-left">' + comment.user.nickname + '</span><span class="pull-right">' + comment.createTime + '</span></p>\
+                            <p class="clear text-content">' + comment.content + '</p>\
+                            </div>';
+                }
+                $("#commentList").html(html);
+            }
+        });
+
+        $('#pageNum').val(pageNum);
+        $('#currentNum').html(pageNum);
+    }
+
     // 加载场景中的商品
     function ajaxGoodsListBySceneId(sceneId) {
         $bluemobi.ajax("pc/scene/ajaxGoodsListBySceneId", {sceneId: sceneId}, function (result) {
@@ -207,16 +310,16 @@
                     var html1 = '';
                     for (var i = 0; i < result.data.length; i++) {
                         var goods = result.data[i];
-                        html+='<li>\
+                        html += '<li>\
                                 <div class="cell">\
                                 <a href="pc/goods/detail?goodsId=' + goods.id + '">\
                                 <img src="' + goods.cover + '" title="" alt="" width="88" width="88" />\
                                 </a>\
                                 </div>\
-                                '+goods.name+'\
+                                ' + goods.name + '\
                                 </li>';
 
-                        html1+='<li><img src="' + goods.cover + '" title="" alt="" width="715" height="715" /></li>';
+                        html1 += '<li><img src="' + goods.cover + '" title="" alt="" width="715" height="715" /></li>';
                     }
                     $("#goodsList").html(html);
                     $("#goodsList1").html(html1);
@@ -264,45 +367,30 @@
     var i = 1;
 
     // 加载场景图评论
-    function ajaxSceneComment(sceneId){
-        $bluemobi.ajax("pc/scene/ajaxSceneComment",{sceneId:sceneId},function(result){
-            if (result.status == "0") {
-                var html = '';
-                for(var i=0;i<result.data.length;i++){
-                    var comment = result.data[i];
-                    html+='<a class="pull-left face">\
-                            <img src="'+comment.user.headImage+'" title="" alt="" width="40" height="40" />\
-                            </a>\
-                            <div class="text">\
-                            <p><span class="pull-left">'+comment.user.nickname+'</span><span class="pull-right">'+comment.createTime+'</span></p>\
-                            <p class="clear text-content">'+comment.content+'</p>\
-                            </div>';
-                }
-                $("#commentList").html(html);
-            }
-        });
+    function ajaxSceneComment(sceneId) {
+        loadSceneComment(sceneId, $('#pageNum').val(), $('#pageSize').val())
     }
 
     // 新增商品评论
-    function saveSceneComment(){
+    function saveSceneComment() {
         debugger
         var userId = $("#sessionUserId").val();
         // 用户未登录，则弹出未登录提示框
-        if(userId==""){
+        if (userId == "") {
             loginPopup.showDlg();
             return false;
         }
         var sceneId = $("#sceneId").val();
         var content = $("#commentContent").val();
-        if(content==""){
-            $bluemobi.notify("<fmt:message key="info.qingshurupinglunleirong"/>","error");
+        if (content == "") {
+            $bluemobi.notify("<fmt:message key="info.qingshurupinglunleirong"/>", "error");
             $(".commentContent").focus();
             return false;
         }
 
-        $bluemobi.ajax("pc/comment/saveSceneComment",{userId:userId,sceneId:sceneId,content:content},function(result){
+        $bluemobi.ajax("pc/comment/saveSceneComment", {userId: userId, sceneId: sceneId, content: content}, function (result) {
             if (result.status == "0") {
-                $bluemobi.notify(result.msg,"success");
+                $bluemobi.notify(result.msg, "success");
                 $(".commentContent").val("");
                 ajaxSceneComment($("#sceneId").val());
             }
@@ -310,101 +398,135 @@
     }
 
     // 评论 点赞/取消点赞
-    function commentPraiseOrCancelPraise(userId,commentId,$obj){
-        if(userId==""){
+    function commentPraiseOrCancelPraise(userId, commentId, $obj) {
+        if (userId == "") {
             loginPopup.showDlg();
             return false;
         }
-        if($obj.hasClass("i-praise")){ // 点赞
-            $bluemobi.ajax("pc/praise/praise",{userId:userId,objectId:commentId,objectType:"comment"},function(result){
+        if ($obj.hasClass("i-praise")) { // 点赞
+            $bluemobi.ajax("pc/praise/praise", {userId: userId, objectId: commentId, objectType: "comment"}, function (result) {
                 if (result.status == "0") {
-                    $bluemobi.notify(result.msg,"success");
+                    $bluemobi.notify(result.msg, "success");
                     $obj.removeClass("i-praise").addClass("i-praised");
                     var num = $obj.find(".praiseNum").text();
-                    if(num==""){
+                    if (num == "") {
                         num = 0;
                     }
-                    num = num*1 + 1;
+                    num = num * 1 + 1;
                     $obj.find(".praiseNum").text(num);
-                }else{
-                    $bluemobi.notify(result.msg,"error");
+                } else {
+                    $bluemobi.notify(result.msg, "error");
                 }
             });
-        }else if($obj.hasClass("i-praised")){ // 取消点赞
-            $bluemobi.ajax("pc/praise/cancelPraise",{userId:userId,objectId:commentId,objectType:"comment"},function(result){
+        } else if ($obj.hasClass("i-praised")) { // 取消点赞
+            $bluemobi.ajax("pc/praise/cancelPraise", {userId: userId, objectId: commentId, objectType: "comment"}, function (result) {
                 if (result.status == "0") {
-                    $bluemobi.notify(result.msg,"success");
+                    $bluemobi.notify(result.msg, "success");
                     $obj.removeClass("i-praised").addClass("i-praise");
                     var num = $obj.find(".praiseNum").text();
-                    if(num==""){
+                    if (num == "") {
                         num = 0;
                     }
-                    num = num*1 -1;
-                    if(num<0){
-                        num=0;
+                    num = num * 1 - 1;
+                    if (num < 0) {
+                        num = 0;
                     }
                     $obj.find(".praiseNum").text(num);
-                }else{
-                    $bluemobi.notify(result.msg,"error");
+                } else {
+                    $bluemobi.notify(result.msg, "error");
                 }
             });
         }
     }
 
     // 新增评论回复
-    function saveCommentReply(commentId,_this){
+    function saveCommentReply(commentId, _this) {
         var userId = $("#sessionUserId").val();
         // 用户未登录，则弹出未登录提示框
-        if(userId==""){
+        if (userId == "") {
             loginPopup.showDlg();
             return false;
         }
         var content = $(_this).parents(".replydiv").find("textarea").val();
-        if(content==""){
-            $bluemobi.notify("<fmt:message key="info.qingshurupinglunleirong"/>","error");
+        if (content == "") {
+            $bluemobi.notify("<fmt:message key="info.qingshurupinglunleirong"/>", "error");
             $(_this).parents(".replydiv").find("textarea").focus();
             return false;
         }
 
-        $bluemobi.ajax("pc/comment/saveCommentReply",{userId:userId,commentId:commentId,content:content},function(result){
+        $bluemobi.ajax("pc/comment/saveCommentReply", {userId: userId, commentId: commentId, content: content}, function (result) {
             if (result.status == "0") {
-                $bluemobi.notify(result.msg,"success");
+                $bluemobi.notify(result.msg, "success");
                 $(_this).parents(".replydiv").find("textarea").val("");
                 ajaxSceneComment($("#sceneId").val());
             }
         });
     }
 
+    // 处理关注状态
+    function handlerAttention() {
+        var fansId = $("#sessionUserId").val();
+        var userId = $("#creator").val();
+        var flag = commFun.isAttention(userId, fansId);
+        if (flag) {
+            $(".ddddd .atten").html("<fmt:message key="info.quxiaoguanzhu"/>");
+        } else {
+            $(".ddddd .atten").html("<fmt:message key="info.guanzhuTA"/>");
+        }
+        $(".ddddd .atten").unbind("click").click(function () {
+            if ($("#sessionUserId").val() == "") {
+                loginPopup.showDlg();
+                return false;
+            }
+            if ($(this).html() == "<fmt:message key="info.guanzhuTA"/>") {
+                commFun.attention(userId, fansId, function (result) {
+                    if (result.status == "0") {
+                        $bluemobi.notify(result.msg, "success");
+                        $(".ddddd .atten").html("<fmt:message key="info.quxiaoguanzhu"/>");
+                    }
+                });
+            }
+            else if ($(this).html() == "<fmt:message key="info.quxiaoguanzhu"/>") {
+                commFun.cancelAttention(userId, fansId, function (result) {
+                    if (result.status == "0") {
+                        $bluemobi.notify(result.msg, "success");
+                        $(".ddddd .atten").html("<fmt:message key="info.guanzhuTA"/>");
+                    }
+                });
+            }
+        });
+    }
+
     // 处理点赞
-    function handlerPraise(){
+    function handlerPraise() {
         var userId = $("#sessionUserId").val();
         var objectId = $("#sceneId").val();
         var objectType = "scene";
-        var flag = commFun.isPraise(userId,objectId,objectType);
-        if(flag){
+        var flag = commFun.isPraise(userId, objectId, objectType);
+        if (flag) {
             $(".ddddd .dddPraise").removeClass("praise").addClass("praiseZdy");
-        }else{
+        } else {
             $(".ddddd .dddPraise").removeClass("praiseZdy").addClass("praise");
         }
-        $(".ddddd .dddPraise").unbind("click").click(function(){
-            if($("#sessionUserId").val()==""){
+        $(".ddddd .dddPraise").unbind("click").click(function () {
+            if ($("#sessionUserId").val() == "") {
                 loginPopup.showDlg();
                 return false;
             }
             // 点赞
-            if($(".ddddd .dddPraise").hasClass("praise")){
-                commFun.praise(userId,objectId,objectType,function(result){
+            if ($(".ddddd .dddPraise").hasClass("praise")) {
+                commFun.praise(userId, objectId, objectType, function (result) {
                     if (result.status == "0") {
                         $(".ddddd .dddPraise").removeClass("praise").addClass("praiseZdy");
-                        $bluemobi.notify(result.msg,"success");
+                        $bluemobi.notify(result.msg, "success");
                     }
                 });
             }
             // 取消点赞
-            else if($(".ddddd .dddPraise").hasClass("praiseZdy")){
-                commFun.cancelPraise(userId,objectId,objectType,function(result){
+            else if ($(".ddddd .dddPraise").hasClass("praiseZdy")) {
+                commFun.cancelPraise(userId, objectId, objectType, function (result) {
                     if (result.status == "0") {
-                        $bluemobi.notify(result.msg,"success");
+                        $bluemobi.notify(result.msg, "success");
                         $(".ddddd .dddPraise").removeClass("praiseZdy").addClass("praise");
                     }
                 });
@@ -413,16 +535,45 @@
     }
 
     // 处理收藏
-    function handlerCollection(){
+    function handlerCollection() {
         var userId = $("#sessionUserId").val();
         var objectId = $("#sceneId").val();
         var objectType = "scene";
+        var flag = commFun.isCollect(userId, objectId, objectType);
+        if (flag) {
+            $(".ddddd .collectBtn").html("<fmt:message key="info.quxiaoshoucang"/>");
+        } else {
+            $(".ddddd .collectBtn").html("<fmt:message key="info.shoucang"/>");
         var flag = commFun.isCollect(userId,objectId,objectType);
         if(flag){
             $("#cancelCollect").show();
         }else{
             $("#collect").show();
         }
+        $(".ddddd .collectBtn").unbind("click").click(function () {
+            if ($(this).html() == "<fmt:message key="info.shoucang"/>") {
+                collectDlg.show(objectId, "scene", function () {
+                    $(".ddddd .collectBtn").html("<fmt:message key="info.quxiaoshoucang"/>");
+                    var num = $(".ddddd .collectNum").html();
+                    if (num == "") {
+                        num = 0;
+                    }
+                    num = num * 1 + 1;
+                    $(".ddddd .collectNum").html(num);
+                });
+            } else if ($(this).html() == "<fmt:message key="info.quxiaoshoucang"/>") {
+                collectDlg.cancelCollect(objectId, "scene", function () {
+                    $(".ddddd .collectBtn").html("<fmt:message key="info.shoucang"/>");
+                    var num = $(".ddddd .collectNum").html();
+                    if (num == "") {
+                        num = 0;
+                    }
+                    num = num * 1 - 1;
+                    if (num < 0) {
+                        num = 0
+                    }
+                    $(".ddddd .collectNum").html(num);
+                });
         $("#collect").unbind("click").click(function(){
             if($("#sessionUserId").val()==""){
                 loginPopup.showDlg();
@@ -445,10 +596,9 @@
     function IonMouseOver(i) {
         $(".imgtagli ").eq(i).find("a").show();
     }
-    function IonMouseOut(){
+    function IonMouseOut() {
         $(".imgtagli a").hide();
     }
-
 
 
 </script>

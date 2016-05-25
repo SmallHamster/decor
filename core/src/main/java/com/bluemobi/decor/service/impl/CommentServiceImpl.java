@@ -77,10 +77,10 @@ public class CommentServiceImpl implements CommentService {
     @Override
     @Transactional
     public Comment create(Comment comment) {
-        if(comment.getPraiseNum() == null){
+        if (comment.getPraiseNum() == null) {
             comment.setPraiseNum(0);
         }
-        if(comment.getCreateTime() == null){
+        if (comment.getCreateTime() == null) {
             comment.setCreateTime(new Date());
         }
         commentDao.save(comment);
@@ -104,7 +104,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Comment iFindByUserAndObjectId(User user, Integer objectId, String objectType) {
         List<Comment> list = commentDao.iFindByUserAndObjectId(user, objectId, objectType);
-        if(list != null && list.size() > 0 ){
+        if (list != null && list.size() > 0) {
             return list.get(0);
         }
         return null;
@@ -130,7 +130,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> findListByObjectIdAndType(Integer objectId, String objectType) {
-        return commentDao.findListByObjectIdAndType(objectId,objectType);
+        return commentDao.findListByObjectIdAndType(objectId, objectType);
     }
 
     @Override
@@ -198,25 +198,25 @@ public class CommentServiceImpl implements CommentService {
             }
 
         }, pageRequest);
-        List<Comment> commentList=page.getContent();
-        for (Comment comment:commentList){
-            if (comment.getObjectType().equals("series")){
+        List<Comment> commentList = page.getContent();
+        for (Comment comment : commentList) {
+            if (comment.getObjectType().equals("series")) {
                 Series series = seriesService.getById(comment.getObjectId());
                 comment.setObjectCover(series.getCover());
                 comment.setObjectName(series.getInfo());
-                if(series.getSeriesTag() != null){
+                if (series.getSeriesTag() != null) {
                     comment.setTags(series.getSeriesTag().getName());
-                }else {
+                } else {
                     comment.setTags("");
                 }
-            }else if (comment.getObjectType().equals("scene")){
-                Scene scene=sceneService.getById(comment.getObjectId());
+            } else if (comment.getObjectType().equals("scene")) {
+                Scene scene = sceneService.getById(comment.getObjectId());
                 comment.setObjectCover(scene.getImage());
                 comment.setObjectName(scene.getName());
                 String tags = spaceTagService.getTagStr(scene.getSpaceTagIds());
                 comment.setTags(tags);
-            }else if (comment.getObjectType().equals("goods")){
-                Goods goods=goodsService.getById(comment.getObjectId());
+            } else if (comment.getObjectType().equals("goods")) {
+                Goods goods = goodsService.getById(comment.getObjectId());
                 comment.setObjectCover(goods.getCover());
                 comment.setObjectName(goods.getName());
                 String tags = spaceTagService.getTagStr(goods.getSpaceTagIds());
@@ -306,7 +306,7 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public List<Comment> listCommentIncludeReply(Integer objectId, String objectType) {
         // 查询评论列表
-        List<Comment> commentList = commentDao.findCommentByObjectIdAndObjectType(objectId,objectType);
+        List<Comment> commentList = commentDao.findCommentByObjectIdAndObjectType(objectId, objectType);
 
         // 查询评论列表的回复
         for (int i = 0; i < commentList.size(); i++) {
@@ -315,7 +315,7 @@ public class CommentServiceImpl implements CommentService {
             for (int j = 0; j < replyList.size(); j++) {
                 Reply reply = new Reply();
                 Comment c = replyList.get(j);
-                if(c.getUser() != null){
+                if (c.getUser() != null) {
                     reply.setNickname(c.getUser().getNickname());
                     reply.setHeadImage(c.getUser().getHeadImage());
                 }
@@ -328,6 +328,33 @@ public class CommentServiceImpl implements CommentService {
             commentList.get(i).setReplyList(reList);
         }
         return commentList;
+    }
+
+    @Override
+    public Page<Comment> pageCommentIncludeReply(Integer objectId, String objectType, Integer pageNum, Integer pageSize) {
+        // 查询评论列表
+        Page<Comment> page = commentDao.pageByObjectIdAndObjectType(objectId, objectType, new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id"));
+
+        // 查询评论列表的回复
+        for (int i = 0; i < page.getContent().size(); i++) {
+            List<Comment> replyList = commentDao.listReply(page.getContent().get(i).getId());
+            List<Reply> reList = new ArrayList<Reply>();
+            for (int j = 0; j < replyList.size(); j++) {
+                Reply reply = new Reply();
+                Comment c = replyList.get(j);
+                if (c.getUser() != null) {
+                    reply.setNickname(c.getUser().getNickname());
+                    reply.setHeadImage(c.getUser().getHeadImage());
+                }
+                reply.setId(c.getId());
+                reply.setContent(c.getContent());
+                reply.setCreateTime(c.getCreateTime());
+                reply.setPraiseNum(c.getPraiseNum());
+                reList.add(reply);
+            }
+            page.getContent().get(i).setReplyList(reList);
+        }
+        return page;
     }
 
     @Override
@@ -351,10 +378,10 @@ public class CommentServiceImpl implements CommentService {
         create(comment);
 
         // 记录评论状态
-        if(Constant.COMMENT_TYPE_GOODS.equals(objectType)
-                ||Constant.COMMENT_TYPE_SCENE.equals(objectType)
-                ||Constant.COMMENT_TYPE_SERIES.equals(objectType)){
-            commentUpdateStatusService.createOrUpdateBusiness(comment.getUser().getId(),comment.getObjectId(),comment.getObjectType());
+        if (Constant.COMMENT_TYPE_GOODS.equals(objectType)
+                || Constant.COMMENT_TYPE_SCENE.equals(objectType)
+                || Constant.COMMENT_TYPE_SERIES.equals(objectType)) {
+            commentUpdateStatusService.createOrUpdateBusiness(comment.getUser().getId(), comment.getObjectId(), comment.getObjectType());
         }
     }
 
@@ -364,10 +391,10 @@ public class CommentServiceImpl implements CommentService {
         create(comment);
         String objectType = comment.getObjectType();
         // 记录评论状态
-        if(Constant.COMMENT_TYPE_GOODS.equals(objectType)
-                ||Constant.COMMENT_TYPE_SCENE.equals(objectType)
-                ||Constant.COMMENT_TYPE_SERIES.equals(objectType)){
-            commentUpdateStatusService.createOrUpdateBusiness(comment.getUser().getId(),comment.getObjectId(),comment.getObjectType());
+        if (Constant.COMMENT_TYPE_GOODS.equals(objectType)
+                || Constant.COMMENT_TYPE_SCENE.equals(objectType)
+                || Constant.COMMENT_TYPE_SERIES.equals(objectType)) {
+            commentUpdateStatusService.createOrUpdateBusiness(comment.getUser().getId(), comment.getObjectId(), comment.getObjectType());
         }
     }
 
