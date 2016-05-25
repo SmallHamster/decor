@@ -8,6 +8,7 @@ public interface Constant {
     String SESSION_MEMBER = "session_member";
     String SESSION_ADMIN_USER = "user";
     String SESSION_PC_USER = "session_pc_user";
+    String SESSION_MOBILE_USER = "session_mobile_user";
 
     String ENCODING = "UTF-8";
 

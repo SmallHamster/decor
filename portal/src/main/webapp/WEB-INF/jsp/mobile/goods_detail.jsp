@@ -49,7 +49,7 @@
 				<p>${goods.info}</p>
 				<div class="info">
 					<span class="star">${goods.praiseNum}</span>
-					<span class="cmt">${commentNum}</span>
+					<span id="commentNum" class="cmt">${commentNum}</span>
 				</div>
 			</div>
 			<div class="commentsBox">
@@ -64,7 +64,6 @@
 				</ul>
 				<div class="cmtBottom">
 					<a href="javascript:;" class="link">更多评价</a>
-					<a href="javascript:;" class="link orange">添加评价</a>
 				</div>
 			</div>
 			<div class="goodsBox">
@@ -93,8 +92,6 @@
 				</ul>
 			</div>
 		</div>
-		<script src="static/mobile/js/jquery.min.js"></script>
-		<script src="static/mobile/js/global.js"></script>
 		<script>
 			$(function(){
 				//banner交互
@@ -112,6 +109,10 @@
 					$this.addClass('cur').siblings().removeClass('cur');
 					imgWrap.find('>a').eq(index).css('display','block').siblings().css('display','none');
 				});
+
+				if($("#commentNum").html()=="0"){
+					$(".commentsBox").hide();
+				}
 
 				ajaxSceneByGoodsId($("#goodsId").val());
 				ajaxSameTypeGoods($("#goodsId").val());
@@ -131,7 +132,7 @@
 							for (var i = 0; i < result.data.length; i++) {
 								var scene = result.data[i];
 								html+='<li>\
-										<a href="pc/scene/detail?sceneId=' + scene.id + '">\
+										<a href="mobile/scene/detail?sceneId=' + scene.id + '">\
 										<img src="' + scene.image + '" alt="">\
 										</a>\
 										</li>';

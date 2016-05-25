@@ -26,8 +26,8 @@
 			<div class="logoName">设计新主张</div>
 			<div class="loginBox">
 				<div class="title">注册成为DECOR用户</div>
-				<input class="text phoneNum" type="text" placeholder="手机号" >
-				<input class="text nickname" type="text" placeholder="昵称" >
+				<input class="text phoneNum" type="text" id="username" placeholder="手机号" >
+				<input class="text nickname" type="password" id="password" placeholder="密码" >
 				<!-- <input class="text password" type="password" placeholder="密码" >
 				<div class="verifyCode clearfix">
 					<input class="vcL" type="text" placeholder="验证码">
@@ -47,14 +47,30 @@
 			</div>
 			<div class="agreement">点击注册即为认同 <a href="javascript:;">《注册协议》</a></div>
 		</div>
-		<script src="static/mobile/js/jquery.min.js"></script>
-		<script src="static/mobile/js/global.js"></script>
+
 		<script>
 			$(function(){
 				$(".loginBtn").click(function(){
-					window.location.href = _basePath + "mobile/forward/to?type=index";
+					login();
 				});
 			});
+			function login(){
+				$.ajax({
+					url:'mobile/login/login',
+					method:'get',
+					dataType:'json',
+					data: {username:$("#username").val(),password:$("#password").val()},
+					async: true,
+					success: function (result) {
+						if (result.status == "0") {
+							$bluemobi.notify("登录成功", "success");
+							window.location.href = _basePath + "mobile/forward/to?type=index";
+						}else{
+							$bluemobi.notify(result.msg, "error");
+						}
+					}
+				});
+			}
 		</script>
 	</body>
 </html>

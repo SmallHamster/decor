@@ -167,6 +167,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User mobileLogin(String username, String password) {
+        List<User> userList = userDao.getByMobileAndPassword(username, password);
+        if (userList == null || userList.size() == 0) {
+            return null;
+        } else {
+            SessionUtils.put(Constant.SESSION_MOBILE_USER, userList.get(0));
+            return userList.get(0);
+        }
+    }
+
+    @Override
     public User pcLoginPlus(String username, String password) {
         List<User> userList = userDao.getByNicknameAndPassword(username, password);
         if (userList == null || userList.size() == 0) {

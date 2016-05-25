@@ -94,8 +94,6 @@
 			</ul>
 			<div class="moreTitle"><a href="mobile/forward/to?type=series">更多设计作品</a></div>
 		</div>
-		<script src="static/mobile/js/jquery.min.js"></script>
-		<script src="static/mobile/js/global.js"></script>
 	<script>
 		$(function(){
 			if ((screen.height<=800) && (screen.width<=600)) {
@@ -103,7 +101,7 @@
 				//window.location.replace('mobile/forward/to?type=index');
 			} else {
 				// pc pad
-				window.location.replace('index');
+				//window.location.replace('index');
 			}
 
 			ajaxDesigner(); // 查询两个设计师显示在首页
@@ -126,7 +124,7 @@
 									<div class="imgBox">\
 									<a href="mobile/designer/detail?designerId='+designer.id+'"><img src="'+designer.backgroundImage+'" alt=""></a>\
 									<div class="headLogo">\
-									<a href="javascript:;"><img src="'+designer.headImage+'" alt=""></a>\
+									<a href="mobile/designer/detail?designerId='+designer.id+'"><img src="'+designer.headImage+'" alt=""></a>\
 									</div>\
 									</div>\
 									<div class="name"><a href="mobile/designer/detail?designerId='+designer.id+'">'+designer.nickname+'</a></div>\

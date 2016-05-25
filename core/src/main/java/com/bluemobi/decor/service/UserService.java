@@ -23,6 +23,9 @@ public interface UserService extends ICommonService<User> {
     // pc端登录操作
     public User pcLogin(String username, String password);
 
+    // mobile端登录操作
+    public User mobileLogin(String username, String password);
+
     // pc端第三方登录操作
     public User pcLoginPlus(String username, String password);
 

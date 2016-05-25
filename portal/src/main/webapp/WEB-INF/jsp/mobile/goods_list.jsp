@@ -66,8 +66,6 @@
 			</div>
 			<div class="moreTitle"><a href="javascript:;">加载更多</a></div>
 		</div>
-		<script src="static/mobile/js/jquery.min.js"></script>
-		<script src="static/mobile/js/global.js"></script>
 
 	<script type="text/javascript">
 		$(function () {

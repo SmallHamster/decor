@@ -54,8 +54,6 @@
 			</ul>
 			<div class="moreTitle"><a href="javascript:;">加载更多</a></div>
 		</div>
-		<script src="static/mobile/js/jquery.min.js"></script>
-		<script src="static/mobile/js/global.js"></script>
 	<script type="text/javascript">
 		$(function () {
 			$(".moreTitle").click(function(){
@@ -101,7 +99,7 @@
 
 		var page = {
 			pageNum : 1,
-			pageSize : 2,
+			pageSize : 10,
 			next:function(){
 				page.pageNum += 1;
 			}

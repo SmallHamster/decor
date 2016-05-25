@@ -23,8 +23,8 @@
 
 	<%@ include file="common/header.jsp" %>
 		<div class="main">
-			<div class="userInfoBox">
-				<div class="content">
+			<div class="userInfoBox" style="height: auto;">
+				<div class="content" style="height:auto;">
 					<div class="headBox">
 						<img src="${user.headImage}" alt="">
 					</div>
@@ -61,8 +61,7 @@
 			<div class="moreTitle allComment"><a href="javascript:;">查看全部评论</a></div>
 
 		</div>
-		<script src="static/mobile/js/jquery.min.js"></script>
-		<script src="static/mobile/js/global.js"></script>
+
 	<script>
 		$(function(){
 			userSeries();

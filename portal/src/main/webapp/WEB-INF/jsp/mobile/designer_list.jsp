@@ -64,8 +64,6 @@
 
 			<div class="moreTitle"><a href="javascript:;">加载更多</a></div>
 		</div>
-		<script src="static/mobile/js/jquery.min.js"></script>
-		<script src="static/mobile/js/global.js"></script>
 	<script type="text/javascript">
 		$(function () {
 			$(".provinceTab").click(function(){
@@ -152,7 +150,7 @@
 
 		var page = {
 			pageNum : 1,
-			pageSize : 2,
+			pageSize : 10,
 			next:function(){
 				page.pageNum += 1;
 			}
@@ -181,7 +179,7 @@
 								<div class="imgBox">\
 								<a href="mobile/designer/detail?designerId='+designer.id+'"><img src="'+designer.backgroundImage+'" alt=""></a>\
 								<div class="headLogo">\
-								<a href="javascript:;"><img src="'+designer.headImage+'" alt=""></a>\
+								<a href="mobile/designer/detail?designerId='+designer.id+'"><img src="'+designer.headImage+'" alt=""></a>\
 								</div>\
 								</div>\
 								<div class="name"><a href="mobile/designer/detail?designerId='+designer.id+'">'+designer.nickname+'</a></div>\

@@ -21,8 +21,8 @@
 	<body>
 	<%@ include file="common/header.jsp" %>
 		<div class="main">
-			<div class="userInfoBox">
-				<div class="content">
+			<div class="userInfoBox" style="height: auto">
+				<div class="content" style="height: auto">
 					<div class="headBox">
 						<a href="mobile/designer/detail?designerId=${scene.user.id}"><img src="${scene.user.headImage}" alt=""></a>
 					</div>
@@ -58,7 +58,7 @@
 				<div class="info">
 					<span class="like">${scene.praiseNum}</span>
 					<span class="star">${scene.collectionNum}</span>
-					<span class="cmt">${commentNum}</span>
+					<span id="commentNum" class="cmt">${commentNum}</span>
 				</div>
 			</div>
 			<div class="commentsBox">
@@ -73,7 +73,6 @@
 				</ul>
 				<div class="cmtBottom">
 					<a href="javascript:;" class="link">更多评价</a>
-					<a href="javascript:;" class="link orange">添加评价</a>
 				</div>
 			</div>
 			<div class="goodsBox">
@@ -82,7 +81,7 @@
 					<c:forEach var="goods" items="${goodsList}">
 						<li>
 							<div class="imgBox">
-								<img src="${goods.cover}" alt="">
+								<a href="mobile/goods/detail?goodsId=${goods.id}"><img src="${goods.cover}" alt=""></a>
 							</div>
 							<div class="name">
 								<a href="javascript:;">${goods.name}</a>
@@ -92,9 +91,7 @@
 				</ul>
 			</div>
 		</div>
-		<script src="static/mobile/js/jquery.min.js"></script>
 		<script src="static/mobile/js/swiper.jquery.min.js"></script>
-		<script src="static/mobile/js/global.js"></script>
 		<script>
 			$(function(){
 				var bannerBox = $('.bannerWrap');
@@ -113,6 +110,10 @@
 				    }
 				    
 			  	});
+
+				if($("#commentNum").html()=="0"){
+					$(".commentsBox").hide();
+				}
 			});
 		</script>
 	</body>

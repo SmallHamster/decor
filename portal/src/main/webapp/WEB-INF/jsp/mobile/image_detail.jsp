@@ -100,7 +100,5 @@
 			
 			
 		</div>
-		<script src="static/mobile/js/jquery.min.js"></script>
-		<script src="static/mobile/js/global.js"></script>
 	</body>
 </html>
