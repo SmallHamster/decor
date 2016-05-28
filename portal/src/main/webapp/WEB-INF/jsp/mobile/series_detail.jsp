@@ -25,11 +25,12 @@
 		<div class="main">
 			<div class="userInfoBox">
 				<div class="content">
+					<input type="hidden" id="creator" value="${series.user.id}"/>
 					<div class="headBox">
 						<img src="${series.user.headImage}" alt="">
 					</div>
-					<div class="collect">
-						<span>${series.praiseNum}</span>
+					<div id="attention" class="collect">
+						<span>${series.user.fans}</span>
 					</div>
 					<div class="name">
 						${series.user.nickname}<span class="adress">${series.user.city.province.name}</span><span class="adress">${series.user.city.name}</span>
@@ -74,7 +75,35 @@
 	<script>
 		$(function(){
 			findSceneListBySeriesId();
+			handlerAttention();
 		});
+
+		// 处理关注状态
+		function handlerAttention() {
+			var fansId = $("#mobileUserId").val();
+			var userId = $("#creator").val();
+			var flag = commFun.isAttention(userId, fansId);
+			$("#attention").unbind("click").click(function () {
+				if($("#mobileUserId").val() == ""){
+					window.location.href = _bPath + "mobile/login/loginPage";
+					return false;
+				}
+				if (!flag) {
+					commFun.attention(userId, fansId, function (result) {
+						if (result.status == "0") {
+							location.reload();
+						}
+					});
+				}
+				else{
+					commFun.cancelAttention(userId, fansId, function (result) {
+						if (result.status == "0") {
+							location.reload();
+						}
+					});
+				}
+			});
+		}
 
 		function findSceneListBySeriesId(){
 			$.ajax({
