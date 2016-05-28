@@ -382,7 +382,7 @@
     var headerPart = {
         init: function () {
             headerPart.globalSearchInit();
-//            headerPart.curPageInit();
+            headerPart.curPageInit();
         },
         globalSearchInit: function () {
             // header查询 查询类型回写
@@ -460,19 +460,32 @@
         },
         curPageInit: function () {
             var v = $("#cur-page").val();
-            $(".header .menu ul li").removeClass("active");
-            if (v == "scene") {
-                $(".header .menu ul li").eq(0).addClass("active");
+            var index = 0;
+            if(v=="scene"){
+                index=0;
+            }else if(v=="goods"){
+                index=1;
+            }else if(v=="series"){
+                index=2;
+            }else if(v=="user"){
+                index=3;
+            }else if(v=="message"){
+                index=4;
             }
-            else if (v == "goods") {
-                $(".header .menu ul li").eq(1).addClass("active");
-            }
-            else if (v == "user") {
-                $(".header .menu ul li").eq(2).addClass("active");
-            }
-            else if (v == "message") {
-                $(".header .menu ul li").eq(3).addClass("active");
-            }
+            $("#typeSelect").find("li").eq(index).trigger("click");
+//            $(".header .menu ul li").removeClass("active");
+//            if (v == "scene") {
+//                $(".header .menu ul li").eq(0).addClass("active");
+//            }
+//            else if (v == "goods") {
+//                $(".header .menu ul li").eq(1).addClass("active");
+//            }
+//            else if (v == "user") {
+//                $(".header .menu ul li").eq(2).addClass("active");
+//            }
+//            else if (v == "message") {
+//                $(".header .menu ul li").eq(3).addClass("active");
+//            }
         }
     };
 
