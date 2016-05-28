@@ -34,6 +34,16 @@ public interface MaterialService extends ICommonService<Material> {
                                                       int pageSize,
                                                       Integer userId);
 
+    // 我收藏的素材
+    public Page<CollectionMaterial> pageMyCollection(int pageNum,
+                                                      int pageSize,
+                                                      Integer userId,
+                                                      String name,
+                                                      Integer kindTagId,
+                                                      Integer spaceTagId,
+                                                      Integer styleTagId,
+                                                      String sort);
+
     // 素材图列表（分页）
     public Page<Material> iPageWithUser(int pageNum,
                                         int pageSize,

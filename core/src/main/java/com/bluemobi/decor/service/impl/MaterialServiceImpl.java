@@ -277,6 +277,55 @@ public class MaterialServiceImpl implements MaterialService {
     }
 
     @Override
+    public Page<CollectionMaterial> pageMyCollection(int pageNum, int pageSize, final Integer userId,
+                                                     final String name,
+                                                     final Integer kindTagId,
+                                                     final Integer spaceTagId,
+                                                     final Integer styleTagId,
+                                                     final String sort) {
+        PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id");
+        if (StringUtils.isNotBlank(sort)) {
+                pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, sort);
+        }
+        Page<CollectionMaterial> page = collectionMaterialDao.findAll(new Specification<CollectionMaterial>() {
+            @Override
+            public Predicate toPredicate(Root<CollectionMaterial> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> predicateList = new ArrayList<Predicate>();
+                Predicate result = null;
+                if (userId != null) {
+                    Predicate predicate = cb.equal(root.get("user").get("id").as(Integer.class), userId);
+                    predicateList.add(predicate);
+                }
+                if (StringUtils.isNotEmpty(name)) {
+                    Predicate predicate = cb.like(root.get("name").as(String.class), "%" + name + "%");
+                    predicateList.add(predicate);
+                }
+                if (kindTagId != null) {
+                    Predicate predicate = cb.like(root.get("kindTagIds").as(String.class), "%@" + kindTagId + "@%");
+                    predicateList.add(predicate);
+                }
+                if (spaceTagId != null) {
+                    Predicate predicate = cb.like(root.get("spaceTagIds").as(String.class), "%@" + spaceTagId + "@%");
+                    predicateList.add(predicate);
+                }
+                if (styleTagId != null) {
+                    Predicate predicate = cb.like(root.get("styleTagIds").as(String.class), "%@" + styleTagId + "@%");
+                    predicateList.add(predicate);
+                }
+                if (predicateList.size() > 0) {
+                    result = cb.and(predicateList.toArray(new Predicate[]{}));
+                }
+                if (result != null) {
+                    query.where(result);
+                }
+                return query.getRestriction();
+            }
+
+        }, pageRequest);
+        return page;
+    }
+
+    @Override
     public Page<Material> iPageWithUser(int pageNum, int pageSize, final Integer kindTagId, final Integer spaceTagId, final Integer styleTagId, String sort, final String name) {
         PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.ASC, "id");
 

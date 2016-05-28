@@ -189,6 +189,31 @@
             return false;
         }
     });
+
+    function pageMyCollection(){
+        $.ajax({
+            type: 'get',
+            url: 'pc/material/pageMyCollection',
+            data: {userId:$("#sessionUserId").val()},
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.status!="0") {
+                    $bluemobi.notify(data.msg, "error");
+                } else {
+                    var html='';
+                    for(var i=0;i<data.list.length;i++){
+                        var material = data.material;
+                        html+='<li><a class="drop"><img src="'+material.image+'" alt="" title="" /></a></li>';
+                    }
+                    $(".imgList").find("ul").html(html);
+                }
+            },
+            error: function (err) {
+                $bluemobi.notify("系统异常，请刷新页面后重试！", "error");
+            }
+        });
+    }
 </script>
 </body>
 
