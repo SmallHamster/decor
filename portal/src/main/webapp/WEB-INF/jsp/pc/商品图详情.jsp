@@ -57,9 +57,22 @@
                         </div>
                         <div class="pad20">
                             <div class="system clearfix">
-                                <a href='pc/user/detail?userId=${goods.user.id}'><img src="${goods.user.headImage}"/></a>
+                                <c:if test="${goods.user.roleType == 'admin'}">
+                                    <img src="${goods.user.headImage}"/>
+                                </c:if>
+                                <c:if test="${goods.user.roleType != 'admin'}">
+                                    <a href='pc/user/detail?userId=${goods.user.id}'><img src="${goods.user.headImage}"/></a>
+                                </c:if>
+
                                 <div class="Rgtem ddddd">
-                                    <span class="vt">${goods.user.nickname}</span><a class="atten mr30" ></a><a class="praise iicon mr10 dddPraise" ></a><a class="colle" ><span class="collectBtn" style="padding: 0 0;line-height:0px;"></span>(<span class="collectNum" style="padding: 0 0;line-height:0px;">${goods.collectionNum}</span>)</a>
+                                    <span class="vt">
+                                        <c:if test="${goods.user.roleType == 'admin'}">
+                                            ${goods.user.nickname}
+                                        </c:if>
+                                        <c:if test="${goods.user.roleType != 'admin'}">
+                                            <a href='pc/user/detail?userId=${goods.user.id}'>${goods.user.nickname}</a>
+                                        </c:if>
+                                    </span><a class="atten mr30" ></a><a class="praise iicon mr10 dddPraise" ></a><a class="colle" ><span class="collectBtn" style="padding: 0 0;line-height:0px;"></span>(<span class="collectNum" style="padding: 0 0;line-height:0px;">${goods.collectionNum}</span>)</a>
                                     <span><fmt:message key="info.fengxiangdao"/></span>
                                     <div class="jiathis_style_32x32" style="float: right">
                                         <a class="jiathis_button_tsina"></a>
