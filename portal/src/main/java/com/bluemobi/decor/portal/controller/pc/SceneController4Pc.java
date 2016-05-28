@@ -146,11 +146,11 @@ public class SceneController4Pc extends CommonController {
             modelMap.put("userSeriesNum", 0);
         }
 
-        Page<Comment> page = commentService.pageCommentIncludeReply(sceneId, "scene", 1, 5);
+//        Page<Comment> page = commentService.pageCommentIncludeReply(sceneId, "scene", 1, 5);
 
-        modelMap.put("totalPages", page.getTotalPages());
-        modelMap.put("pageNum", page.getNumber() + 1);
-        modelMap.put("pageSize", page.getSize());
+//        modelMap.put("totalPages", page.getTotalPages());
+//        modelMap.put("pageNum", page.getNumber() + 1);
+//        modelMap.put("pageSize", page.getSize());
 
         return "pc/场景图详情";
     }
@@ -228,7 +228,8 @@ public class SceneController4Pc extends CommonController {
                     }
                 }
             }
-            WebUtil.print(response, new Result(true).data(page.getContent()));
+            Map<String, Object> dataMap = PcPageFactory.fitting(page);
+            WebUtil.print(response, new Result(true).data(dataMap));
         } catch (Exception e) {
             e.printStackTrace();
             WebUtil.print(response, new Result(false).msg("操作失败!"));

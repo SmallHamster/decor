@@ -89,9 +89,6 @@
 
         <input type="hidden" id="sceneId" value="${scene.id}"/>
         <input type="hidden" id="creator" value="${scene.user.id}"/>
-        <input type="hidden" id="pageNum" value="${pageNum}"/>
-        <input type="hidden" id="pageSize" value="${pageSize}"/>
-        <input type="hidden" id="totalPages" value="${totalPages}"/>
 
         <!-- 页面主体内容开始 -->
         <div class="main" style="margin-top: 20px;">
@@ -144,9 +141,9 @@
                         <div id="pageDiv" style="background: white;">
                             <div class="pagination">
                                 <a class="firstPlus" onclick="movePageUp()"></a>
-                                当前页：<b id="currentNum">${pageNum}</b>
+                                当前页：<b id="currentNum">1</b>
                                 <a class="last" onclick="movePageDown()"></a>
-                                <span class="p_text totalpage">共<span class="totalPage">${totalPages}</span>页， 到第
+                                <span class="p_text totalpage">共<span id="totalPage" class="totalPage">0</span>页， 到第
                                 <input class="gotopage" type="text" id="gotoIndex"/> 页</span>
                                 <input type="button" class="confirm" onclick="movePage()" value="确定"/>
                             </div>
@@ -218,7 +215,7 @@
         ajaxGoodsListBySceneId($("#sceneId").val()); // 查询场景中的商品
         ajaxSeriesBySceneId($("#sceneId").val()); // 查询场景所属系列图
         ajaxSameTypeScene($("#sceneId").val()); // 查询同类
-        ajaxSceneComment($("#sceneId").val()); // 查询评论
+        ajaxSceneComment($("#sceneId").val(),1,5); // 查询评论
         commFun.handlerAttention(); // 处理关注
         handlerPraise(); // 处理点赞
         handlerCollection(); // 处理收藏
@@ -226,65 +223,56 @@
 
     // 上一页
     function movePageUp() {
-        var currentNum = $('#pageNum').val();
-
+        var currentNum = $('#currentNum').html();
         if (Number(currentNum) <= Number(1)) {
             $bluemobi.notify("已经是第一页了", "error");
             return;
         } else {
             currentNum = Number(currentNum) - Number(1);
         }
-
         loadSceneComment($("#sceneId").val(), currentNum, 5);
     }
 
     // 下一页
     function movePageDown() {
-        var currentNum = $('#pageNum').val();
-        var totalPages = $('#totalPages').val();
-
+        var currentNum = $('#currentNum').html();
+        var totalPages = $('#totalPage').html();
         if (Number(currentNum) >= Number(totalPages)) {
             $bluemobi.notify("已经是最后一页了", "error");
             return;
         } else {
             currentNum = Number(currentNum) + Number(1);
         }
-
         loadSceneComment($("#sceneId").val(), currentNum, 5);
     }
 
     // 跳页
     function movePage() {
         var num = $('#gotoIndex').val();
-        var currentNum = $('#pageNum').val();
-        var totalPages = $('#totalPages').val();
-
+        var currentNum = $('#currentNum').html();
+        var totalPages = $('#totalPage').html();
         if (isNaN(num)) {
             $bluemobi.notify("请输入数字", "error");
             return;
         }
-
         if (Number(num) < Number(1) || Number(num) > Number(totalPages)) {
             $bluemobi.notify("请输入正确的页码", "error");
             return;
         }
-
         if (Number(num) == Number(currentNum)) {
             $bluemobi.notify("已在当前页", "error");
             return;
         }
-
         loadSceneComment($("#sceneId").val(), num, 5);
     }
 
     function loadSceneComment(sceneId, pageNum, pageSize) {
         $("#commentList").html('');
-
         $bluemobi.ajax("pc/scene/ajaxSceneComment", {sceneId: sceneId, pageNum: pageNum, pageSize: pageSize}, function (result) {
             if (result.status == "0") {
                 var html = '';
-                for (var i = 0; i < result.data.length; i++) {
-                    var comment = result.data[i];
+                for (var i = 0; i < result.data.list.length; i++) {
+                    var comment = result.data.list[i];
                     html += '<a class="pull-left face">\
                             <img src="' + comment.user.headImage + '" title="" alt="" width="40" height="40" />\
                             </a>\
@@ -294,11 +282,10 @@
                             </div>';
                 }
                 $("#commentList").html(html);
+                $('#totalPage').html(result.data.page.totalPage);
+                $('#currentNum').html(result.data.page.currentPage);
             }
         });
-
-        $('#pageNum').val(pageNum);
-        $('#currentNum').html(pageNum);
     }
 
     // 加载场景中的商品
@@ -367,8 +354,8 @@
     var i = 1;
 
     // 加载场景图评论
-    function ajaxSceneComment(sceneId) {
-        loadSceneComment(sceneId, $('#pageNum').val(), $('#pageSize').val())
+    function ajaxSceneComment(sceneId,pageNum,pageSize) {
+        loadSceneComment(sceneId, 1, 5)
     }
 
     // 新增商品评论
