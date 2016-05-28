@@ -18,9 +18,9 @@
 
     <input type="hidden" id="cur-page" value="goods"/>
     <div class="search-condition" style="display: none;">
-        <input type="hidden" class="kindTagId" value=""/>
-        <input type="hidden" class="styleTagId" value=""/>
-        <input type="hidden" class="spaceTagId" value=""/>
+        <input type="hidden" class="kindTagId" value="${kindTagId}"/>
+        <input type="hidden" class="styleTagId" value="${styleTagId}"/>
+        <input type="hidden" class="spaceTagId" value="${spaceTagId}"/>
         <input type="hidden" class="name" value="${name}"/>
     </div>
 
@@ -146,6 +146,14 @@
                         ajaxPageGoods("pageAttributeInit");
                     });
                 });
+                // 回写选中效果
+                var kindTagId = $(".search-condition").find(".kindTagId").val();
+                $(".kindTagList").find("a").each(function(){
+                    var k = $(this).attr("kindtagid");
+                    if(kindTagId != "" && kindTagId == k){
+                        $(this).trigger("click");
+                    }
+                });
             }
         });
     }
@@ -170,6 +178,14 @@
                         ajaxPageGoods("pageAttributeInit");
                     });
                 });
+                // 回写选中效果
+                var styleTagId = $(".search-condition").find(".styleTagId").val();
+                $(".styleTagList").find("a").each(function(){
+                    var k = $(this).attr("styletagid");
+                    if(styleTagId != "" && styleTagId == k){
+                        $(this).trigger("click");
+                    }
+                });
             }
         });
     }
@@ -193,6 +209,14 @@
                         $(".spaceTagName").html($(this).html());
                         ajaxPageGoods("pageAttributeInit");
                     });
+                });
+                // 回写选中效果
+                var spaceTagId = $(".search-condition").find(".spaceTagId").val();
+                $(".spaceTagList").find("a").each(function(){
+                    var k = $(this).attr("spacetagid");
+                    if(spaceTagId != "" && spaceTagId == k){
+                        $(this).trigger("click");
+                    }
                 });
             }
         });

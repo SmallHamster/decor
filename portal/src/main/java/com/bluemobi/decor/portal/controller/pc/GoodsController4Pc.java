@@ -8,6 +8,8 @@ import com.bluemobi.decor.portal.util.PcPageFactory;
 import com.bluemobi.decor.portal.util.SessionUtils;
 import com.bluemobi.decor.portal.util.WebUtil;
 import com.bluemobi.decor.service.*;
+import com.bluemobi.decor.utils.ComFun;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,6 +49,12 @@ public class GoodsController4Pc extends CommonController {
 
     @Autowired
     private CollectionService collectionService;
+    @Autowired
+    private KindTagService kindTagService;
+    @Autowired
+    private SpaceTagService spaceTagService;
+    @Autowired
+    private StyleTagService styleTagService;
 
     // 查询page
     @RequestMapping(value = "/page")
@@ -106,15 +116,7 @@ public class GoodsController4Pc extends CommonController {
                          HttpServletRequest request,
                          Integer goodsId){
         Goods goods = goodsService.getById(goodsId);
-        String tagHtml = "";
-        if(StringUtils.isNotEmpty(goods.getTagsStr())){
-            String[] arr = goods.getTagsStr().split(",");
-            for (int i = 0; i < arr.length; i++) {
-                tagHtml += "<span class=\"bodr\">"+arr[i]+"</span>";
-            }
-        }else {
-            goods.setTagsStr("");
-        }
+        goods.setTagsStr("");
         List<GoodsImage> goodsImageList = goodsImageService.listByGoodsId(goodsId);
         goods.setGoodsImageList(goodsImageList);
         User user=goods.getUser();
@@ -123,10 +125,42 @@ public class GoodsController4Pc extends CommonController {
         }
         goods.setUser(user);
         modelMap.put("goods",goods);
-        modelMap.put("tagHtml",tagHtml);
+        modelMap.put("tagHtml",getTagHtml(goods));
 
         goodsService.seeNumAdd(goodsId);
         return "pc/商品图详情";
+    }
+
+    public String getTagHtml(Goods goods) {
+        String tagHtml = "";
+        if(goods == null){
+            return "";
+        }
+        String kindTagIds = goods.getKindTagIds();
+        String spaceTagIds = goods.getSpaceTagIds();
+        String styleTagIds = goods.getStyleTagIds();
+        List<Integer> kindTagIdList = ComFun.tagsToList(kindTagIds);
+        List<Integer> spaceTagIdList = ComFun.tagsToList(spaceTagIds);
+        List<Integer> styleTagIdList = ComFun.tagsToList(styleTagIds);
+        List<KindTag> kindTagList = kindTagService.listByIds(kindTagIdList);
+        List<SpaceTag> spaceTagList = spaceTagService.listByIds(spaceTagIdList);
+        List<StyleTag> styleTagList = styleTagService.listByIds(styleTagIdList);
+        if(CollectionUtils.isNotEmpty(kindTagList)){
+            for (KindTag kindTag : kindTagList) {
+                tagHtml += "<span tagid=\""+kindTag.getId()+"\" tagtype=\"kindTagId\" class=\"bodr\">"+kindTag.getName()+"</span>";
+            }
+        }
+        if(CollectionUtils.isNotEmpty(spaceTagList)){
+            for (SpaceTag spaceTag : spaceTagList) {
+                tagHtml += "<span tagid=\""+spaceTag.getId()+"\" tagtype=\"spaceTagId\" class=\"bodr\">"+spaceTag.getName()+"</span>";
+            }
+        }
+        if(CollectionUtils.isNotEmpty(styleTagList)){
+            for (StyleTag styleTag : styleTagList) {
+                tagHtml += "<span tagid=\""+styleTag.getId()+"\" tagtype=\"styleTagId\" class=\"bodr\">"+styleTag.getName()+"</span>";
+            }
+        }
+        return tagHtml;
     }
 
     // ajax查询商品所属场景图

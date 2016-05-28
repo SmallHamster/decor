@@ -9,6 +9,7 @@ import com.bluemobi.decor.portal.util.WebUtil;
 import com.bluemobi.decor.service.AdService;
 import com.bluemobi.decor.service.MessageService;
 import com.bluemobi.decor.service.SceneService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,7 +32,10 @@ public class ForwardController4Pc extends CommonController {
     public String to(ModelMap modelMap,
                         HttpServletRequest request,
                         String type,
-                        String name){
+                        String name,
+                     String kindTagId,
+                     String spaceTagId,
+                     String styleTagId){
         try {
 //            if(name!=null){
 //                name = java.net.URLDecoder.decode(name, "UTF-8");
@@ -39,6 +43,18 @@ public class ForwardController4Pc extends CommonController {
             modelMap.put("name",name);
             modelMap.put("type",type);
             if("goods".equals(type)){
+                if(StringUtils.isBlank(kindTagId)){
+                    kindTagId = "";
+                }
+                if(StringUtils.isBlank(spaceTagId)){
+                    spaceTagId = "";
+                }
+                if(StringUtils.isBlank(styleTagId)){
+                    styleTagId = "";
+                }
+                modelMap.put("kindTagId",kindTagId);
+                modelMap.put("spaceTagId",spaceTagId);
+                modelMap.put("styleTagId",styleTagId);
                 return "pc/商品图列表";
             }else if("scene".equals(type)){
                 return "pc/场景图列表";

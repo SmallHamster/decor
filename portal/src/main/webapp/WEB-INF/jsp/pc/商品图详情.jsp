@@ -87,7 +87,7 @@
                             <div class="refer">
                                 <p><i class="iicon buy"></i><a onclick="noMoney('${goods.link}')" style="cursor: hand;color: #339900;"><fmt:message key="info.goumai"/></a>【${goods.price}】</p>
                                 <p><i class="iicon size"></i><fmt:message key="info.cicun"/>【${goods.size}】</p>
-                                <p><i class="iicon tag"></i><fmt:message key="info.biaoqian"/>${tagHtml}</p>
+                                <p id="tags"><i class="iicon tag"></i><fmt:message key="info.biaoqian"/>${tagHtml}</p>
                                 <p><i class="iicon mode"></i><fmt:message key="info.caizhi"/>  ${goods.texture}</p>
                             </div>
                         </div>
@@ -170,6 +170,13 @@
             $(this).parent('li').addClass('current').siblings().removeClass('current');
             bigImg=$(this).attr("src");//获取点击图片的地址
             $(".detImg img").attr("src",bigImg); //更换大图的图片地址
+        });
+
+        // 点击标签
+        $("#tags").find("span").click(function(){
+            var id = $(this).attr("tagid");
+            var type = $(this).attr("tagtype");
+            location.href = "pc/forward/to?type=goods&"+type+"="+id;
         });
 
         ajaxSceneByGoodsId($("#goodsId").val());
