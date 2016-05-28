@@ -68,6 +68,7 @@
 			$(".clearCondition").click(function(){
 				$('.filterBox .tabsList').find("li").removeClass("on");
 				$(".search-condition").find(".seriesTagId").val("");
+				$('.filterBox .conBottom .cancel').trigger("click");
 			});
 		});
 

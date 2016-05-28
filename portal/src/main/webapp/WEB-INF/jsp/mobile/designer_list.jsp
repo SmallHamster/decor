@@ -91,6 +91,7 @@
 				$('.filterBox .tabsList').find("li").removeClass("on");
 				$(".search-condition").find(".provinceId").val("");
 				$(".search-condition").find(".cityList").val("");
+				$('.filterBox .conBottom .cancel').trigger("click");
 			});
 		});
 

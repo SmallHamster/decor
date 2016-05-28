@@ -85,6 +85,7 @@
 				$(".search-condition").find(".kindTagId").val("");
 				$(".search-condition").find(".styleTagId").val("");
 				$(".search-condition").find(".spaceTagId").val("");
+				$('.filterBox .conBottom .cancel').trigger("click");
 			});
 		});
 
