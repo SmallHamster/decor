@@ -39,7 +39,7 @@
             <div class="module design">
                 <h3>就现在，改变设计方式</h3>
                 <p class="muted">12万名设计师已经启程</p>
-                <a class="btn">开始设计</a>
+                <a href="pc/drawBoard/page" class="btn">开始设计</a>
             </div>
             <div class="module introduce"></div>
             <div class="module center source">
