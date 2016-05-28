@@ -3,10 +3,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <%@ include file="common/meta.jsp"%>
-    <meta charset="UTF-8">
-    <title>画板</title>
+    <%@ include file="common/meta.jsp" %>
+    <%@ include file="common/css.jsp" %>
+    <title><fmt:message key="info.gerenzhuye"/></title>
+    <link href="static/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="static/pc/css/common.css" rel="stylesheet" type="text/css">
+    <link href="static/pc/css/homepage.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="static/drawBoard/css/drawing.css" />
+    <style>
+        .popup-wrap{
+            z-index: 99999;
+        }
+    </style>
 </head>
 <body>
 <%@ include file="common/header.jsp" %>
@@ -16,8 +24,8 @@
             <div class="saveBox">
                 <a href="javascript:;" class="news">新 建</a>
                 <a href="javascript:;" class="save" onclick="save()">保 存</a>
-                <p><a href="javascript:;" class="leftx"></a><a href="##" class="rightx"></a></p>
-                <p><a href="javascript:;" class="big"></a><a href="##" class="small"></a></p>
+                <p><a href="javascript:;" class="leftx"></a><a href="javascript:;" class="rightx"></a></p>
+                <p><a href="javascript:;" class="big"></a><a href="javascript:;" class="small"></a></p>
             </div>
             <div class="editor">
                 <a href="javascript:;" class="fx" onClick="document.getElementsByClassName('selected')[0].style.filter='fliph';">水平翻转</a>
@@ -73,9 +81,9 @@
                                         <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
                                     </ul>
                                     <div class="pages">
-                                        <a href="##" class="prev">&lt;</a>
+                                        <a href="javascript:;" class="prev">&lt;</a>
                                         <span>page 1 of 10</span>
-                                        <a href="##" class="next">&gt;</a>
+                                        <a href="javascript:;" class="next">&gt;</a>
                                     </div>
                                 </div>
                             </div>
@@ -94,18 +102,18 @@
                                 <ul class="slideList s_xl">
                                     <li><a href="javascript:;">分类</a>
                                         <dl class="clearfix">
-                                            <dt><a href="##">全部</a></dt>
+                                            <dt><a href="javascript:;">全部</a></dt>
                                             <dd>
-                                                <a href="##">办公</a>
-                                                <a href="##">餐饮娱乐</a>
-                                                <a href="##">客厅</a>
-                                                <a href="##">餐厅</a>
-                                                <a href="##">厨房</a>
-                                                <a href="##">卧室</a>
-                                                <a href="##">玄关</a>
-                                                <a href="##">卫生间</a>
-                                                <a href="##">酒店</a>
-                                                <a href="##">玄关</a>
+                                                <a href="javascript:;">办公</a>
+                                                <a href="javascript:;">餐饮娱乐</a>
+                                                <a href="javascript:;">客厅</a>
+                                                <a href="javascript:;">餐厅</a>
+                                                <a href="javascript:;">厨房</a>
+                                                <a href="javascript:;">卧室</a>
+                                                <a href="javascript:;">玄关</a>
+                                                <a href="javascript:;">卫生间</a>
+                                                <a href="javascript:;">酒店</a>
+                                                <a href="javascript:;">玄关</a>
                                             </dd>
                                         </dl>
                                     </li>
@@ -127,9 +135,9 @@
                                         <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
                                     </ul>
                                     <div class="pages">
-                                        <a href="##" class="prev">&lt;</a>
+                                        <a href="javascript:;" class="prev">&lt;</a>
                                         <span>page 1 of 10</span>
-                                        <a href="##" class="next">&gt;</a>
+                                        <a href="javascript:;" class="next">&gt;</a>
                                     </div>
                                 </div>
                             </div>
@@ -156,9 +164,9 @@
                     <li><a class="drop bg"><img src="static/drawBoard/images/bg1.jpg" /></a></li>
                 </ul>
                 <div class="pages">
-                    <a href="##" class="prev">&lt;</a>
+                    <a href="javascript:;" class="prev">&lt;</a>
                     <span>page 1 of 10</span>
-                    <a href="##" class="next">&gt;</a>
+                    <a href="javascript:;" class="next">&gt;</a>
                 </div>
             </div>
         </div>
@@ -167,7 +175,7 @@
 <%@ include file="common/footer.jsp" %>
 <script type="text/javascript" src="static/pc/js/base.js"></script>
 
-<script src="static/drawBoard/js/jquery-1.8.2.min.js"></script>
+<%--<script src="static/drawBoard/js/jquery-1.8.2.min.js"></script>--%>
 <script src="static/drawBoard/js/jquery-ui.min.js"></script>
 <script src="static/drawBoard/js/jquery.searchableSelect.js"></script>
 <script src="static/drawBoard/js/jQueryRotate.2.2.js"></script>

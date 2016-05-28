@@ -3,6 +3,7 @@ package com.bluemobi.decor.portal.controller.pc;
 import com.bluemobi.decor.core.bean.Result;
 import com.bluemobi.decor.portal.controller.CommonController;
 import com.bluemobi.decor.portal.util.UploadUtils;
+import com.bluemobi.decor.portal.util.WebUtil;
 import com.bluemobi.decor.service.DrawBoardService;
 import com.bluemobi.decor.service.UploadImageService;
 import org.apache.commons.lang.StringUtils;
@@ -55,8 +56,7 @@ public class UploadController extends CommonController {
 
     // 上传base64图片
     @RequestMapping(value = "/uploadBase64ImageToQiniu")
-    @ResponseBody
-    public Result uploadBase64ImageToQiniu(HttpServletRequest request,
+    public void uploadBase64ImageToQiniu(HttpServletRequest request,
                                            HttpServletResponse response,Integer userId) {
         String image = request.getParameter("image");
         String header = "data:image/png;base64,";
@@ -73,17 +73,25 @@ public class UploadController extends CommonController {
             // 上传到七牛
             String qiniuPath = UploadUtils.uploadFile(file);
             if(StringUtils.isBlank(qiniuPath)){
-                return new Result(false).msg("系统异常，请刷新后重试！");
+                WebUtil.print(response, new Result(false).msg("系统异常，请刷新后重试！"));
             }
             if(userId == null){
-                return new Result(false).msg("用户身份失效，请刷新后重试！");
+                WebUtil.print(response, new Result(false).msg("用户身份失效，请刷新后重试！"));
             }
             // 保存到数据库
             drawBoardService.save(userId,qiniuPath);
-            return new Result(true);
+            // 删除本地文件
+            try {
+                if(file.isFile() && file.exists()){
+                    file.delete();
+                }
+            }catch (Exception Ec){
+                // do nothing
+            }
+            WebUtil.print(response, new Result(true));
         } catch (IOException e) {
             e.printStackTrace();
-            return new Result(false).msg("系统异常，请刷新后重试！");
+            WebUtil.print(response, new Result(false).msg("系统异常，请刷新后重试！"));
         }
     }
 
