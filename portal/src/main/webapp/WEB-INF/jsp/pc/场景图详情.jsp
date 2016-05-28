@@ -373,7 +373,6 @@
 
     // 新增商品评论
     function saveSceneComment() {
-        debugger
         var userId = $("#sessionUserId").val();
         // 用户未登录，则弹出未登录提示框
         if (userId == "") {
@@ -544,6 +543,7 @@
             $(".ddddd .collectBtn").html("<fmt:message key="info.quxiaoshoucang"/>");
         } else {
             $(".ddddd .collectBtn").html("<fmt:message key="info.shoucang"/>");
+        }
         var flag = commFun.isCollect(userId,objectId,objectType);
         if(flag){
             $("#cancelCollect").show();
@@ -574,6 +574,8 @@
                     }
                     $(".ddddd .collectNum").html(num);
                 });
+            }
+        })
         $("#collect").unbind("click").click(function(){
             if($("#sessionUserId").val()==""){
                 loginPopup.showDlg();
