@@ -45,4 +45,110 @@
 			}
 		});
 	});
+
+	var commFun = {
+		// 判断是否关注,第一个参数：被关注用户id，第2个参数：当前用户id
+		isAttention: function (userId, fansId) {
+			var flag = false;
+			jQuery.ajax({
+				dataType: 'json',
+				url: "pc/comm/isAttention",
+				type: "post",
+				data: {userId: userId, fansId: fansId},
+				async: false,
+				success: function (result) {
+					if (result.status == "0") {
+						flag = result.data;
+					}
+				}
+			});
+			return flag;
+		},
+		// 判断是否点赞
+		isPraise: function (userId, objectId, objectType) {
+			var flag = false;
+			jQuery.ajax({
+				dataType: 'json',
+				url: "pc/comm/isPraise",
+				type: "post",
+				data: {userId: userId, objectId: objectId, objectType: objectType},
+				async: false,
+				success: function (result) {
+					if (result.status == "0") {
+						flag = result.data;
+					}
+				}
+			});
+			return flag;
+		},
+		// 判断是否收藏
+		isCollect: function (userId, objectId, objectType) {
+			var flag = false;
+			jQuery.ajax({
+				dataType: 'json',
+				url: "pc/comm/isCollect",
+				type: "post",
+				data: {userId: userId, objectId: objectId, objectType: objectType},
+				async: false,
+				success: function (result) {
+					if (result.status == "0") {
+						flag = result.data;
+					}
+				}
+			});
+			return flag;
+		},
+		// 关注
+		attention: function (userId, fansId, callback) {
+			jQuery.ajax({
+				dataType: 'json',
+				url: "pc/comm/attention",
+				type: "post",
+				data: {userId: userId, fansId: fansId},
+				async: false,
+				success: function (result) {
+					callback(result);
+				}
+			});
+		},
+		// 取消关注
+		cancelAttention: function (userId, fansId, callback) {
+			jQuery.ajax({
+				dataType: 'json',
+				url: "pc/comm/cancelAttention",
+				type: "post",
+				data: {userId: userId, fansId: fansId},
+				async: false,
+				success: function (result) {
+					callback(result);
+				}
+			});
+		},
+		// 点赞
+		praise: function (userId, objectId, objectType, callback) {
+			jQuery.ajax({
+				dataType: 'json',
+				url: "pc/praise/praise",
+				type: "post",
+				data: {userId: userId, objectId: objectId, objectType: objectType},
+				async: false,
+				success: function (result) {
+					callback(result);
+				}
+			});
+		},
+		// 取消点赞
+		cancelPraise: function (userId, objectId, objectType, callback) {
+			jQuery.ajax({
+				dataType: 'json',
+				url: "pc/praise/cancelPraise",
+				type: "post",
+				data: {userId: userId, objectId: objectId, objectType: objectType},
+				async: false,
+				success: function (result) {
+					callback(result);
+				}
+			});
+		}
+	};
 </script>

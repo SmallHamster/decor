@@ -23,10 +23,11 @@
 		<div class="main">
 			<div class="userInfoBox" style="height: auto">
 				<div class="content" style="height: auto">
+					<input type="hidden" id="creator" value="${scene.user.id}"/>
 					<div class="headBox">
 						<a href="mobile/designer/detail?designerId=${scene.user.id}"><img src="${scene.user.headImage}" alt=""></a>
 					</div>
-					<div class="collect">
+					<div id="attention" class="collect">
 						<span>${scene.user.fans}</span>
 					</div>
 					<div class="name">
@@ -114,7 +115,36 @@
 				if($("#commentNum").html()=="0"){
 					$(".commentsBox").hide();
 				}
+
+				handlerAttention();
 			});
+
+			// 处理关注状态
+			function handlerAttention() {
+				var fansId = $("#mobileUserId").val();
+				var userId = $("#creator").val();
+				var flag = commFun.isAttention(userId, fansId);
+				$("#attention").unbind("click").click(function () {
+					if($("#mobileUserId").val() == ""){
+						window.location.href = _bPath + "mobile/login/loginPage";
+						return false;
+					}
+					if (!flag) {
+						commFun.attention(userId, fansId, function (result) {
+							if (result.status == "0") {
+								location.reload();
+							}
+						});
+					}
+					else{
+						commFun.cancelAttention(userId, fansId, function (result) {
+							if (result.status == "0") {
+								location.reload();
+							}
+						});
+					}
+				});
+			}
 		</script>
 	</body>
 </html>
