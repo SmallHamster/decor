@@ -42,13 +42,58 @@
             <div class="crawTabs">
                 <div class="hd">
                     <ul>
-                        <li class="on"><b>素材图库</b></li>
-                        <li><b>个人图库</b></li>
+                        <li class="on"><b>个人图库</b></li>
+                        <li ><b>素材图库</b></li>
                     </ul>
                 </div>
                 <div class="bd">
+                    <!--个人图库开始-->
+                    <div id="my" class="con" >
+                        <div class="searchBox">
+                            <form>
+                                <input type="text" class="drawInp" /><input type="submit" class="drawBtn" value="搜索" />
+                            </form>
+                        </div>
+                        <div class="tabscon">
+                            <div class="slideBox">
+                                <ul class="slideList s_xl">
+                                    <li><a href="javascript:;">分类</a>
+                                        <dl class="clearfix">
+                                            <dt><a href="javascript:;">全部</a></dt>
+                                            <dd>
+                                                <a href="javascript:;">办公</a>
+                                                <a href="javascript:;">餐饮娱乐</a>
+                                                <a href="javascript:;">客厅</a>
+                                                <a href="javascript:;">餐厅</a>
+                                                <a href="javascript:;">厨房</a>
+                                                <a href="javascript:;">卧室</a>
+                                                <a href="javascript:;">玄关</a>
+                                                <a href="javascript:;">卫生间</a>
+                                                <a href="javascript:;">酒店</a>
+                                                <a href="javascript:;">玄关</a>
+                                            </dd>
+                                        </dl>
+                                    </li>
+                                </ul>
+
+                                <div class="imgList">
+                                    <ul class="clearfix">
+
+                                    </ul>
+                                    <div class="pages">
+                                        <input type="hidden" class="pageNum" value="1"/>
+                                        <input type="hidden" class="pageSize" value="12"/>
+                                        <a href="javascript:;" class="prev">&lt;</a>
+                                        <span>page <span class="showPageNum">0</span> of <span class="totalPage">0</span></span>
+                                        <a href="javascript:;" class="next">&gt;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--个人图库结束-->
                     <!--素材图库开始-->
-                    <div class="con">
+                    <div class="con" style="display:none;">
                         <div class="searchBox">
                             <form><input type="text" class="drawInp" /><input type="submit" class="drawBtn" value="搜索" /></form>
                         </div>
@@ -90,60 +135,7 @@
                         </div>
                     </div>
                     <!--素材图库结束-->
-                    <!--个人图库开始-->
-                    <div class="con" style="display:none;">
-                        <div class="searchBox">
-                            <form>
-                                <input type="text" class="drawInp" /><input type="submit" class="drawBtn" value="搜索" />
-                            </form>
-                        </div>
-                        <div class="tabscon">
-                            <div class="slideBox">
-                                <ul class="slideList s_xl">
-                                    <li><a href="javascript:;">分类</a>
-                                        <dl class="clearfix">
-                                            <dt><a href="javascript:;">全部</a></dt>
-                                            <dd>
-                                                <a href="javascript:;">办公</a>
-                                                <a href="javascript:;">餐饮娱乐</a>
-                                                <a href="javascript:;">客厅</a>
-                                                <a href="javascript:;">餐厅</a>
-                                                <a href="javascript:;">厨房</a>
-                                                <a href="javascript:;">卧室</a>
-                                                <a href="javascript:;">玄关</a>
-                                                <a href="javascript:;">卫生间</a>
-                                                <a href="javascript:;">酒店</a>
-                                                <a href="javascript:;">玄关</a>
-                                            </dd>
-                                        </dl>
-                                    </li>
-                                </ul>
 
-                                <div class="imgList">
-                                    <ul class="clearfix">
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                        <li><a class="drop"><img src="static/drawBoard/images/pro1.jpg" alt="" title="" /></a></li>
-                                    </ul>
-                                    <div class="pages">
-                                        <a href="javascript:;" class="prev">&lt;</a>
-                                        <span>page 1 of 10</span>
-                                        <a href="javascript:;" class="next">&gt;</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--个人图库结束-->
                     <!--页面加载-->
                     <div id="load"></div>
                     <!--页面加载-->
@@ -188,25 +180,54 @@
             loginPopup.showDlg();
             return false;
         }
+
+        pageMyCollection();
+        $("#my").find(".prev").click(function(){
+            var pageNum = Number($("#my").find(".pageNum").val());
+            if(pageNum > 1){
+                $("#my").find(".pageNum").val(pageNum - 1);
+                pageMyCollection();
+            }
+        });
+        $("#my").find(".next").click(function(){
+            var pageNum = Number($("#my").find(".pageNum").val());
+            var totalPage = Number($("#my").find(".totalPage").html());
+            if(pageNum < totalPage){
+                $("#my").find(".pageNum").val(pageNum + 1);
+                pageMyCollection();
+            }
+        });
     });
 
+    // 个人图库
     function pageMyCollection(){
+        var $pageNum = $("#my").find(".pageNum");
+        var $pageSize = $("#my").find(".pageSize");
         $.ajax({
             type: 'get',
             url: 'pc/material/pageMyCollection',
-            data: {userId:$("#sessionUserId").val()},
+            data: {userId:$("#sessionUserId").val(),pageNum:$pageNum.val(),pageSize:$pageSize.val()},
             async: false,
             dataType: 'json',
-            success: function (data) {
-                if (data.status!="0") {
-                    $bluemobi.notify(data.msg, "error");
+            success: function (result) {
+                if (result.status!="0") {
+                    $bluemobi.notify(result.msg, "error");
                 } else {
                     var html='';
-                    for(var i=0;i<data.list.length;i++){
-                        var material = data.material;
-                        html+='<li><a class="drop"><img src="'+material.image+'" alt="" title="" /></a></li>';
+                    for(var i=0;i<result.data.list.length;i++){
+                        var material = result.data.list[i].material;
+                        html+='<li><a class="drop bg ui-draggable ui-draggable-handle"><img src="'+material.image+'" alt="" title="" width="92" height="92"/></a></li>';
                     }
                     $(".imgList").find("ul").html(html);
+                    // 绑定拖拽事件
+                    drop();
+                    $("#my").find(".pageNum").val(result.data.page.currentPage);
+                    if(result.data.page.totalPage==0){
+                        $("#my").find(".showPageNum").html(0);
+                    }else {
+                        $("#my").find(".showPageNum").html(result.data.page.currentPage);
+                    }
+                    $("#my").find(".totalPage").html(result.data.page.totalPage);
                 }
             },
             error: function (err) {
