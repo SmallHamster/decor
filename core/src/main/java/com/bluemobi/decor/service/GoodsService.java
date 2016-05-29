@@ -23,6 +23,14 @@ public interface GoodsService extends ICommonService<Goods>,SeeNumHandler {
                              Integer styleTagId,
                              String sort);
 
+    public Page<Goods> pageHasMaterial(int pageNum,
+                             int pageSize,
+                             String name,
+                             Integer kindTagId,
+                             Integer spaceTagId,
+                             Integer styleTagId,
+                             String sort);
+
     public Page<Goods> iPageMy(int pageNum,
                                int pageSize,
                                Integer userId);

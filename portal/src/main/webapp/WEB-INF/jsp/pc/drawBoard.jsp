@@ -43,7 +43,7 @@
                 <div class="hd">
                     <ul>
                         <li class="on"><b>个人图库</b></li>
-                        <li ><b>素材图库</b></li>
+                        <li><b>素材图库</b></li>
                     </ul>
                 </div>
                 <div class="bd">
@@ -93,7 +93,7 @@
                     </div>
                     <!--个人图库结束-->
                     <!--素材图库开始-->
-                    <div class="con" style="display:none;">
+                    <div id="all" class="con"  style="display:none;">
                         <div class="searchBox">
                             <form><input type="text" class="drawInp" /><input type="submit" class="drawBtn" value="搜索" /></form>
                         </div>
@@ -102,7 +102,7 @@
                                 <h3>
                                     产品分类
                                 </h3>
-                                <div class="classList">
+                                <div class="classList goods">
                                     <ul class="clearfix">
                                         <li><a href="javascript:;" name="yizi.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
                                         <li><a href="javascript:;" name="yizi2.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>桌</p></a></li>
@@ -126,8 +126,10 @@
                                         <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
                                     </ul>
                                     <div class="pages">
+                                        <input type="hidden" class="pageNum" value="1"/>
+                                        <input type="hidden" class="pageSize" value="20"/>
                                         <a href="javascript:;" class="prev">&lt;</a>
-                                        <span>page 1 of 10</span>
+                                        <span>page <span class="showPageNum">0</span> of <span class="totalPage">0</span></span>
                                         <a href="javascript:;" class="next">&gt;</a>
                                     </div>
                                 </div>
@@ -135,10 +137,6 @@
                         </div>
                     </div>
                     <!--素材图库结束-->
-
-                    <!--页面加载-->
-                    <div id="load"></div>
-                    <!--页面加载-->
                 </div>
             </div>
 
@@ -197,6 +195,8 @@
                 pageMyCollection();
             }
         });
+
+        pageGoodsHasMaterial();
     });
 
     // 个人图库
@@ -216,7 +216,7 @@
                     var html='';
                     for(var i=0;i<result.data.list.length;i++){
                         var material = result.data.list[i].material;
-                        html+='<li><a class="drop bg ui-draggable ui-draggable-handle"><img src="'+material.image+'" alt="" title="" width="92" height="92"/></a></li>';
+                        html+='<li><a class="drop"><img src="'+material.image+'" alt="" title="" width="92" height="92"/></a></li>';
                     }
                     $(".imgList").find("ul").html(html);
                     // 绑定拖拽事件
@@ -229,6 +229,43 @@
                     }
                     $("#my").find(".totalPage").html(result.data.page.totalPage);
                 }
+            },
+            error: function (err) {
+                $bluemobi.notify("系统异常，请刷新页面后重试！", "error");
+            }
+        });
+    }
+
+    // 素材图库
+    function pageGoodsHasMaterial(){
+        var $div = $("#all");
+        var $pageNum = $div.find(".pageNum");
+        var $pageSize = $div.find(".pageSize");
+        $.ajax({
+            type: 'get',
+            url: 'pc/material/pageGoodsHasMaterial',
+            data: {pageNum:$pageNum.val(),pageSize:$pageSize.val()},
+            async: false,
+            dataType: 'json',
+            success: function (result) {
+                if (result.status!="0") {
+                    $bluemobi.notify(result.msg, "error");
+                } else {
+                    var html='';
+                    for(var i=0;i<result.data.list.length;i++){
+                        var goods = result.data.list[i];
+                        html+='<li><a goodsid="'+goods.id+'"><img src="'+goods.cover+'" alt="" title="'+goods.name+'" /><p class="slh" title="'+goods.name+'">'+goods.name+'</p></a></li>';
+                    }
+                    $div.find(".classList").find("ul").html(html);
+                    $div.find(".pageNum").val(result.data.page.currentPage);
+                    if(result.data.page.totalPage==0){
+                        $div.find(".showPageNum").html(0);
+                    }else {
+                        $div.find(".showPageNum").html(result.data.page.currentPage);
+                    }
+                    $div.find(".totalPage").html(result.data.page.totalPage);
+                }
+                goodsClick();
             },
             error: function (err) {
                 $bluemobi.notify("系统异常，请刷新页面后重试！", "error");

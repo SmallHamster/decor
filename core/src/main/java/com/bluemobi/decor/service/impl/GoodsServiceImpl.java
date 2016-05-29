@@ -8,7 +8,10 @@ import com.bluemobi.decor.dao.SeriesDao;
 import com.bluemobi.decor.entity.*;
 import com.bluemobi.decor.service.*;
 import com.bluemobi.decor.thread.UserHasUpdateThread;
-import com.bluemobi.decor.utils.*;
+import com.bluemobi.decor.utils.ClassUtil;
+import com.bluemobi.decor.utils.ComFun;
+import com.bluemobi.decor.utils.SessionUtils;
+import com.bluemobi.decor.utils.UploadUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -195,6 +198,59 @@ public class GoodsServiceImpl implements GoodsService {
                 List<Predicate> predicateList = new ArrayList<Predicate>();
                 Predicate result = null;
 
+                if (StringUtils.isNotEmpty(name)) {
+                    Predicate predicate = cb.like(root.get("name").as(String.class), "%" + name + "%");
+                    predicateList.add(predicate);
+                }
+                if (kindTagId != null) {
+                    Predicate predicate = cb.like(root.get("kindTagIds").as(String.class), "%@" + kindTagId + "@%");
+                    predicateList.add(predicate);
+                }
+                if (spaceTagId != null) {
+                    Predicate predicate = cb.like(root.get("spaceTagIds").as(String.class), "%@" + spaceTagId + "@%");
+                    predicateList.add(predicate);
+                }
+                if (styleTagId != null) {
+                    Predicate predicate = cb.like(root.get("styleTagIds").as(String.class), "%@" + styleTagId + "@%");
+                    predicateList.add(predicate);
+                }
+
+                if (predicateList.size() > 0) {
+                    result = cb.and(predicateList.toArray(new Predicate[]{}));
+                }
+                if (result != null) {
+                    query.where(result);
+                }
+
+                return query.getRestriction();
+            }
+
+        }, pageRequest);
+
+        return page;
+    }
+
+    @Override
+    public Page<Goods> pageHasMaterial(int pageNum,
+                             int pageSize,
+                             final String name,
+                             final Integer kindTagId,
+                             final Integer spaceTagId,
+                             final Integer styleTagId,
+                             String sort) {
+        PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id");
+        if (StringUtils.isNotBlank(sort)) {
+            pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, sort);
+        }
+        Page<Goods> page = goodsDao.findAll(new Specification<Goods>() {
+            @Override
+            public Predicate toPredicate(Root<Goods> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> predicateList = new ArrayList<Predicate>();
+                Predicate result = null;
+                {
+                    Predicate predicate = cb.equal(root.get("hasMaterial").as(String.class), "yes");
+                    predicateList.add(predicate);
+                }
                 if (StringUtils.isNotEmpty(name)) {
                     Predicate predicate = cb.like(root.get("name").as(String.class), "%" + name + "%");
                     predicateList.add(predicate);

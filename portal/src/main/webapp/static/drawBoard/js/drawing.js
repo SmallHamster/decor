@@ -15,72 +15,106 @@ $(function(){
     })
 
     //标签增加删除
-    var click = $('.classList li a');
-    function add(Name,href) {
-                var add_li = $('<li class="on" name='+href+'><b>' + Name + '</b><span>×</span></li>');
-                $('.crawTabs .hd ul').append(add_li);
-                $('.crawTabs .bd').find('.con').hide();
-            }
-    click.click(function() {
-        var texts = $(this).find('p').text();
-        var href = $(this).attr("name");
-        var show1a = $('.crawTabs .hd li b');
-        var nowgeshu = $('.crawTabs .hd li').length;
-        for (var i = 0; i < show1a.length; i++) {
-            if (show1a.eq(i).text() == texts) {
-                alert("您已打开了一个相同的标签页！")
-                return false;
-            }
-        }
-        if (nowgeshu < 5) {
-            $('.crawTabs .hd li').removeClass('on');
-            add(texts,href);
-            $('#load').empty();
-            $('#load').load(href,function(){
-                drop();
-                info();
-            });
-        }else{
-            alert('您已打开了3个标签。请关闭部分标签后再打开新标签！');
-            return false;
-        }
-    })
-    $('.crawTabs .hd').on('click','ul li span',function(event){
-                event.stopPropagation();
-                var index = $('.crawTabs .hd li').index($(this).parent());
-                if($(this).parent().hasClass('on')){
-                    $('.crawTabs .hd li').eq(index-1).addClass('on');
-                }
+    //var click = $('.goods li a');
 
-                $(this).parent().remove();
-                if(index > 2){
-                    var href = $('.crawTabs .hd li').eq(index-1).attr("name");
-                    $('#load').empty();
-                    $('#load').load(href,function(){
-                        drop();
-                        info();
-                    });
-                }else{
-                    //alert(index)
-                    $('#load').empty();
-                    $('.crawTabs .bd .con').eq(1).show();
-                }
-            })
-        $('.crawTabs .hd').on('click', 'ul li[name]', function(event) {
-            var index = $('.crawTabs .hd li').index($(this));
-            $(this).addClass('on').siblings().removeClass('on')
-            var href = $(this).attr('name');
-            $('.crawTabs .bd').find('.con').hide();
-            $('#load').empty();
-            $('#load').load(href,function(){
-                        drop();
-                        info();
-                    });
-        })
+
+
+
     
     drop();
 })
-    
+
+function goodsClick(){
+    $('.goods li a').click(function() {
+        var texts = $(this).find('p').text();
+        var show1a = $('.crawTabs .hd li b');
+        var nowgeshu = $('.crawTabs .hd li').length;
+        //for (var i = 0; i < show1a.length; i++) {
+        //    if (show1a.eq(i).attr("title") == texts) {
+        //        $bluemobi.notify("您已打开了一个相同的标签页！", "error");
+        //        return false;
+        //    }
+        //}
+        if (nowgeshu < 5) {
+            $.ajax({
+                type: 'get',
+                url: 'pc/material/getGoodsMaterial',
+                data: {goodsId:$(this).attr("goodsid")},
+                async: false,
+                dataType: 'json',
+                success: function (result) {
+                    if (result.status!="0") {
+                        $bluemobi.notify(result.msg, "error");
+                    } else {
+                        // 数据加载成功
+                        $('.crawTabs .hd li').removeClass('on');
+                        addTab(texts);
+                        $('.crawTabs .bd').find('.con').hide();
+                        var divhtml='<div class="con">\
+                            <div class="tabscon">\
+                            <div class="slideBox proClass">\
+                            <div class="classList">\
+                            <ul class="clearfix">\
+                            </ul>\
+                            </div>\
+                            </div>\
+                            </div>\
+                            </div>';
+                        $('.crawTabs .bd').append(divhtml);
+
+                        // 组装数据
+                        var html='';
+                        for(var i=0;i<result.data.length;i++){
+                            var material = result.data[i].material;
+                            if(material && material != null && material != "null"){
+                                html+='<li><a ><img src="'+material.image+'" alt="" /></a></li>';
+                            }
+                        }
+                        if(html==''){
+                            html="暂无数据";
+                        }
+                        $('.crawTabs .bd .con').last().find("ul").html(html);
+                    }
+                },
+                error: function (err) {
+                    $bluemobi.notify("系统异常，请刷新页面后重试！", "error");
+                }
+            });
+        }else{
+            $bluemobi.notify("您已打开了3个标签。请关闭部分标签后再打开新标签！", "error");
+            return false;
+        }
+
+        $('.crawTabs .hd li').click(function(){
+            $(this).addClass('on').siblings().removeClass('on');
+            var index = $(this).index();
+            //$('#load').empty();
+            $('#load').empty();
+            $('.crawTabs .bd .con').hide();
+            $('.crawTabs .bd .con').eq(index).show();
+        })
+    })
+}
+
+function addTab(Name){
+    var showName = "";
+    if(Name && Name.length>3){
+        showName = Name.substring(0,3);
+    }
+    var add_li = $('<li class="on"><b title="'+Name+'">'+showName+'</b><span class="godel">×</span></li>');
+    $('.crawTabs .hd ul').append(add_li);
+    $('.crawTabs .bd').find('.con').hide();
+    $(".godel").unbind("click").click(function(){
+        var index = $('.crawTabs .hd li').index($(this).parent());
+        $(this).parent().remove();
+        $('.crawTabs .hd li').eq(index-1).addClass('on');
+        $('.crawTabs .bd .con').hide();
+        $('.crawTabs .bd .con').eq(index).remove();
+        $('.crawTabs .bd .con').eq(index-1).show();
+    });
+}
+
+
     //商品详情
     function info(){
         $('.nlist li').click(function(){
