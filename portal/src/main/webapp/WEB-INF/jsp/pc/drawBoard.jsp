@@ -48,7 +48,7 @@
                 </div>
                 <div class="bd">
                     <!--个人图库开始-->
-                    <div id="my" class="con" >
+                    <div id="my" class="con" style="display:none;">
                         <div class="searchBox">
                             <form>
                                 <input type="text" class="drawInp" /><input type="submit" class="drawBtn" value="搜索" />
@@ -93,7 +93,7 @@
                     </div>
                     <!--个人图库结束-->
                     <!--素材图库开始-->
-                    <div id="kindTag" class="con"  style="display:none;">
+                    <div id="kindTag" class="con"  >
                         <div class="searchBox">
                             <input type="text" class="drawInp" /><input type="button" class="drawBtn" value="搜索" />
                         </div>
@@ -102,7 +102,7 @@
                                 <h3>
                                     产品分类
                                 </h3>
-                                <div class="classList goods">
+                                <div class="classList kindTag">
                                     <ul class="clearfix">
                                         <li><a href="javascript:;" name="yizi.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
                                         <li><a href="javascript:;" name="yizi2.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>桌</p></a></li>
@@ -178,7 +178,8 @@
 //            loginPopup.showDlg();
 //            return false;
 //        }
-
+        // 默认选中第2个tab
+        $('.crawTabs .hd li').eq(1).trigger("click");
 //        pageMyCollection();
         $("#my").find(".prev").click(function(){
             var pageNum = Number($("#my").find(".pageNum").val());
@@ -270,7 +271,7 @@
                     }
                     $div.find(".totalPage").html(result.data.page.totalPage);
                 }
-                goodsClick();
+                kindTagClick();
             },
             error: function (err) {
                 $bluemobi.notify("系统异常，请刷新页面后重试！", "error");

@@ -3,6 +3,7 @@ package com.bluemobi.decor.service.impl;
 import com.bluemobi.decor.core.Constant;
 import com.bluemobi.decor.dao.GoodsImageDao;
 import com.bluemobi.decor.entity.GoodsImage;
+import com.bluemobi.decor.entity.Material;
 import com.bluemobi.decor.utils.ClassUtil;
 import com.bluemobi.decor.service.GoodsImageService;
 import com.bluemobi.decor.utils.UploadUtils;
@@ -136,6 +137,45 @@ public class GoodsImageServiceImpl implements GoodsImageService {
                     query.where(result);
                 }
 
+                return query.getRestriction();
+            }
+
+        }, pageRequest);
+
+        return page;
+    }
+
+    @Override
+    public Page<GoodsImage> pageByKindTag(int pageNum, int pageSize,final String kindTagId) {
+        PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id");
+        Page<GoodsImage> page = goodsImageDao.findAll(new Specification<GoodsImage>() {
+            @Override
+            public Predicate toPredicate(Root<GoodsImage> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> predicateList = new ArrayList<Predicate>();
+                Predicate result = null;
+                {
+                    Predicate predicate = cb.like(root.get("goods").get("kindTagIds").as(String.class), "%@" + kindTagId + "@%");
+                    predicateList.add(predicate);
+                }
+//                {
+//                    Predicate predicate = cb.notEqual(root.get("material").as(Material.class), null);
+//                    predicateList.add(predicate);
+//                }
+                {
+                    Predicate predicate = cb.isNotNull(root.get("material").as(Material.class));
+                    predicateList.add(predicate);
+                }
+                {
+                    Predicate predicate = cb.equal(root.get("isTurnMaterial").as(String.class), "yes");
+                    predicateList.add(predicate);
+                }
+
+                if (predicateList.size() > 0) {
+                    result = cb.and(predicateList.toArray(new Predicate[]{}));
+                }
+                if (result != null) {
+                    query.where(result);
+                }
                 return query.getRestriction();
             }
 

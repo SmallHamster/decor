@@ -15,6 +15,8 @@ public interface GoodsImageService extends ICommonService<GoodsImage> {
 
     Page<GoodsImage> findMaterial(Integer materialId, String styleId, String spaceId, String tagId, int pageNum, int pageSize);
 
+    Page<GoodsImage> pageByKindTag(int pageNum, int pageSize,String kindTagId);
+
     public void deleteByGoodsId(Integer goodsId);
 
     public void clearByGoodsId(Integer goodsId);

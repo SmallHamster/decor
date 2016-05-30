@@ -34,22 +34,22 @@ $(function(){
     drop();
 })
 
-function goodsClick(){
-    $('.goods li a').click(function() {
+function kindTagClick(){
+    $('.kindTag li a').click(function() {
         var texts = $(this).find('p').text();
         var show1a = $('.crawTabs .hd li b');
         var nowgeshu = $('.crawTabs .hd li').length;
-        //for (var i = 0; i < show1a.length; i++) {
-        //    if (show1a.eq(i).attr("title") == texts) {
-        //        $bluemobi.notify("您已打开了一个相同的标签页！", "error");
-        //        return false;
-        //    }
-        //}
+        for (var i = 0; i < show1a.length; i++) {
+            if (show1a.eq(i).attr("title") == texts) {
+                $bluemobi.notify("您已打开了一个相同的标签页！", "error");
+                return false;
+            }
+        }
         if (nowgeshu < 5) {
             $.ajax({
                 type: 'get',
-                url: 'pc/material/getGoodsMaterial',
-                data: {goodsId:$(this).attr("goodsid")},
+                url: 'pc/goods/pageGoodsImageByKindTag',
+                data: {kindTagId:$(this).attr("kindtagid")},
                 async: false,
                 dataType: 'json',
                 success: function (result) {
@@ -74,10 +74,10 @@ function goodsClick(){
 
                         // 组装数据
                         var html='';
-                        for(var i=0;i<result.data.length;i++){
-                            var material = result.data[i].material;
-                            if(material && material != null && material != "null"){
-                                html+='<li><a ><img src="'+material.image+'" alt="" /></a></li>';
+                        for(var i=0;i<result.data.list.length;i++){
+                            var goods = result.data.list[i].goods;
+                            if(goods && goods != null && goods != "null"){
+                                html+='<li><a ><img src="'+goods.cover+'" alt="" /></a></li>';
                             }
                         }
                         if(html==''){

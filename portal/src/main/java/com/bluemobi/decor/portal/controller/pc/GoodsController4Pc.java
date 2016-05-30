@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -312,8 +310,28 @@ public class GoodsController4Pc extends CommonController {
         }
     }
 
-
-
+    // page goodsimage
+    @RequestMapping(value = "/pageGoodsImageByKindTag")
+    public void pageGoodsImageByKindTag(HttpServletRequest request,
+                     HttpServletResponse response,
+                     Integer pageNum,
+                     Integer pageSize,
+                     Integer kindTagId){
+        try {
+            if(pageNum == null){
+                pageNum = 1;
+            }
+            if(pageSize == null){
+                pageSize = 12;
+            }
+            Page<GoodsImage> page = goodsImageService.pageByKindTag(pageNum, pageSize,kindTagId.toString());
+            Map<String, Object> dataMap = PcPageFactory.fitting(page);
+            WebUtil.print(response, new Result(true).data(dataMap));
+        } catch (Exception e) {
+            e.printStackTrace();
+            WebUtil.print(response, new Result(false).msg("操作失败!"));
+        }
+    }
 
 
 }
