@@ -1,13 +1,23 @@
 
 $(function(){
         $('.crawTabs .hd li').click(function(){
+            if($(this).hasClass("personal")){
+                if ($("#sessionUserId").val() == "") {
+                    loginPopup.showDlg();
+                    return false;
+                }else {
+                    if($(".imgList").find("ul").html().trim()==""){
+                        pageMyCollection();
+                    }
+                }
+            }
             $(this).addClass('on').siblings().removeClass('on');
             var index = $(this).index();
             //$('#load').empty();
             $('#load').empty();
             $('.crawTabs .bd .con').hide();
             $('.crawTabs .bd .con').eq(index).show();
-        })
+        });
     
     //下拉
     $('.s_xl li').click(function(){

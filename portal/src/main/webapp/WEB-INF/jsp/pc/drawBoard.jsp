@@ -42,8 +42,8 @@
             <div class="crawTabs">
                 <div class="hd">
                     <ul>
-                        <li class="on"><b>个人图库</b></li>
-                        <li><b>素材图库</b></li>
+                        <li class="personal"><b>个人图库</b></li>
+                        <li class="on"><b>素材图库</b></li>
                     </ul>
                 </div>
                 <div class="bd">
@@ -174,12 +174,12 @@
 <script src="static/drawBoard/js/drawing.js"></script>
 <script type="text/javascript">
     $(function () {
-        if ($("#sessionUserId").val() == "") {
-            loginPopup.showDlg();
-            return false;
-        }
+//        if ($("#sessionUserId").val() == "") {
+//            loginPopup.showDlg();
+//            return false;
+//        }
 
-        pageMyCollection();
+//        pageMyCollection();
         $("#my").find(".prev").click(function(){
             var pageNum = Number($("#my").find(".pageNum").val());
             if(pageNum > 1){
