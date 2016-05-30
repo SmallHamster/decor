@@ -14,6 +14,8 @@ public interface KindTagService extends ICommonService<KindTag> {
     // 商品图分类查询
     public Page<KindTag> iFindGoodsSortPage(Integer pageNum, Integer pageSize);
 
+    public Page<KindTag> page(Integer pageNum, Integer pageSize,final String name);
+
     // 根据id查询
     public List<KindTag> listByIds(List<Integer> ids);
 

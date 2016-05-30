@@ -93,9 +93,9 @@
                     </div>
                     <!--个人图库结束-->
                     <!--素材图库开始-->
-                    <div id="all" class="con"  style="display:none;">
+                    <div id="kindTag" class="con"  style="display:none;">
                         <div class="searchBox">
-                            <form><input type="text" class="drawInp" /><input type="submit" class="drawBtn" value="搜索" /></form>
+                            <input type="text" class="drawInp" /><input type="button" class="drawBtn" value="搜索" />
                         </div>
                         <div class="tabscon">
                             <div class="slideBox proClass">
@@ -196,7 +196,11 @@
             }
         });
 
-        pageGoodsHasMaterial();
+        $("#kindTag").find(".drawBtn").click(function(){
+            $("#kindTag").find(".pageNum").val(1);
+            pageKindTag();
+        });
+        pageKindTag();
     });
 
     // 个人图库
@@ -236,15 +240,16 @@
         });
     }
 
-    // 素材图库
-    function pageGoodsHasMaterial(){
-        var $div = $("#all");
+    // 商品种类
+    function pageKindTag(){
+        var $div = $("#kindTag");
         var $pageNum = $div.find(".pageNum");
         var $pageSize = $div.find(".pageSize");
+        var name = $div.find(".name").val();
         $.ajax({
             type: 'get',
-            url: 'pc/material/pageGoodsHasMaterial',
-            data: {pageNum:$pageNum.val(),pageSize:$pageSize.val()},
+            url: 'pc/kindTag/page',
+            data: {pageNum:$pageNum.val(),pageSize:$pageSize.val(),name:name},
             async: false,
             dataType: 'json',
             success: function (result) {
@@ -253,8 +258,8 @@
                 } else {
                     var html='';
                     for(var i=0;i<result.data.list.length;i++){
-                        var goods = result.data.list[i];
-                        html+='<li><a goodsid="'+goods.id+'"><img src="'+goods.cover+'" alt="" title="'+goods.name+'" /><p class="slh" title="'+goods.name+'">'+goods.name+'</p></a></li>';
+                        var kindTag = result.data.list[i];
+                        html+='<li><a kindtagid="'+kindTag.id+'"><img src="'+kindTag.image+'" alt="" title="'+kindTag.name+'" /><p class="slh" title="'+kindTag.name+'">'+kindTag.name+'</p></a></li>';
                     }
                     $div.find(".classList").find("ul").html(html);
                     $div.find(".pageNum").val(result.data.page.currentPage);

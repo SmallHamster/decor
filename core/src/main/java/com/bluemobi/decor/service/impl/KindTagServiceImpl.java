@@ -118,6 +118,34 @@ public class KindTagServiceImpl implements KindTagService {
     }
 
     @Override
+    public Page<KindTag> page(Integer pageNum, Integer pageSize,final String name) {
+        PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "createDate");
+        Page<KindTag> page = kindTagDao.findAll(new Specification<KindTag>() {
+            @Override
+            public Predicate toPredicate(Root<KindTag> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> predicateList = new ArrayList<Predicate>();
+                Predicate result = null;
+                if (StringUtils.isNotEmpty(name)) {
+                    Predicate predicate = cb.like(root.get("name").as(String.class), "%" + name + "%");
+                    predicateList.add(predicate);
+                }
+                if (predicateList.size() > 0) {
+                    result = cb.and(predicateList.toArray(new Predicate[]{}));
+                }
+
+                if (result != null) {
+                    query.where(result);
+                }
+
+                return query.getRestriction();
+            }
+
+        }, pageRequest);
+
+        return page;
+    }
+
+    @Override
     public List<KindTag> listByIds(List<Integer> ids) {
         return kindTagDao.listByIds(ids);
     }
