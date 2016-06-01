@@ -304,7 +304,7 @@
         var $div = $("#kindTag");
         var $pageNum = $div.find(".pageNum");
         var $pageSize = $div.find(".pageSize");
-        var name = $div.find(".name").val();
+        var name = $div.find(".drawInp").val();
         $.ajax({
             type: 'get',
             url: 'pc/kindTag/page',
