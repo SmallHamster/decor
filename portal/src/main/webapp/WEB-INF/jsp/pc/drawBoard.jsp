@@ -243,7 +243,7 @@
                         var material = result.data.list[i].material;
                         html+='<li><a class="drop"><img src="'+material.image+'" alt="" title="" width="92" height="92"/></a></li>';
                     }
-                    $(".imgList").find("ul").html(html);
+                    $("#my").find(".imgList").find("ul").html(html);
                     // 绑定拖拽事件
                     drop();
                     $("#my").find(".pageNum").val(result.data.page.currentPage);

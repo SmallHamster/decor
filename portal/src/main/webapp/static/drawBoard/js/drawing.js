@@ -63,7 +63,7 @@ function kindTagClick(){
                         var divhtml='<div class="con">\
                             <div class="tabscon">\
                             <div class="slideBox proClass">\
-                            <div class="classList">\
+                            <div class="imgList nlist">\
                             <ul class="clearfix">\
                             </ul>\
                             </div>\
@@ -76,14 +76,26 @@ function kindTagClick(){
                         var html='';
                         for(var i=0;i<result.data.list.length;i++){
                             var goods = result.data.list[i].goods;
-                            if(goods && goods != null && goods != "null"){
-                                html+='<li><a ><img src="'+goods.cover+'" alt="" /></a></li>';
+                            var material = result.data.list[i].material;
+                            if(goods && goods != null && goods != "null" && material && material != null && material !="null"){
+                                html+='<li><a class="drop"><img src="'+material.image+'" alt="" title="" width="92" height="92"/></a>\
+                                    <div class="imgInfo" style="display: none">\
+                                    <a class="drop"><img src="'+material.image+'" width="138" height="138"></a>\
+                                    <div class="info">\
+                                    <h4>'+goods.name+'</h4>\
+                                    <p>'+goods.price+'</p>\
+                                </div>\
+                                <span class="close">×</span>\
+                                </div>\
+                                </li>';
                             }
                         }
                         if(html==''){
                             html="暂无数据";
                         }
                         $('.crawTabs .bd .con').last().find("ul").html(html);
+                        info();
+                        drop();
                     }
                 },
                 error: function (err) {
