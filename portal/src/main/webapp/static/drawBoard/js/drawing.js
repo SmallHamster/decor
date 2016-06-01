@@ -585,25 +585,68 @@ function addTab(Name){
 
     //保存为图片
     function save(){
-        //$('#container').Jcrop();
-        $('.drop1').removeClass('imgselected').find('span').remove();
-        html2canvas( $('#container') ,{
-            onrendered: function(canvas){
-                document.body.appendChild(canvas);
-                var img = canvas.toDataURL("image/png")
-                //alert(img)
-                //console.log(img)
-                //window.location.href=img;
-                uploadBase64(img)
+        var index = layer.load(0, {shade: [0.1, '#000']});
+        chanceQiniuPathToLocal(function(){
+            $('.drop1').removeClass('imgselected').find('span').remove();
+            html2canvas( $('#container') ,{
+                onrendered: function(canvas){
+                    document.body.appendChild(canvas);
+                    var img = canvas.toDataURL("image/png");
+                    //alert(img)
+                    //console.log(img)
+                    //window.location.href=img;
+                    uploadBase64(img);
+                    layer.close(index);
+                    $('.news').trigger("click");
+                }
+            });
+        });
+    }
+
+    function chanceQiniuPathToLocal(callback){
+        var path = "";
+        $('#container').find("img").each(function(index){
+            if(index != 0){
+                path += '@@@@@';
             }
-        })
+            path += $(this).attr("src");
+        });
+
+        $.ajax({
+            type: 'POST',
+            url: 'pc/upload/chanceQiniuPathToLocal',
+            data: {path:path},
+            async: false,
+            dataType: 'json',
+            success: function (result) {
+                if (result.status=="0") {
+                    for(var i=0;i<result.data.length;i++){
+                        var localPath = result.data[i];
+                        $('#container').find("img").eq(i).attr("src",localPath);
+                    }
+                    callback();
+                } else {
+                    $bluemobi.notify(result.msg, "error");
+                }
+            },
+            error: function (err) {
+                $bluemobi.notify("系统异常，请刷新页面后重试！", "error");
+            }
+        });
     }
 
     function uploadBase64(image) {
+        var path = "";
+        $('#container').find("img").each(function(index){
+            if(index != 0){
+                path += '@@@@@';
+            }
+            path += $(this).attr("src");
+        });
         $.ajax({
             type: 'POST',
             url: 'pc/upload/uploadBase64ImageToQiniu',
-            data: {image: image,userId:$("#sessionUserId").val()},
+            data: {image: image,userId:$("#sessionUserId").val(),path:path},
             async: false,
             dataType: 'json',
             success: function (data) {
@@ -612,6 +655,7 @@ function addTab(Name){
                 } else {
                     $bluemobi.notify(data.msg, "error");
                 }
+
             },
             error: function (err) {
                 $bluemobi.notify("系统异常，请刷新页面后重试！", "error");

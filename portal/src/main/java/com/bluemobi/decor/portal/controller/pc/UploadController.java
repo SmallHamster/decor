@@ -17,10 +17,12 @@ import sun.misc.BASE64Decoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -57,7 +59,7 @@ public class UploadController extends CommonController {
     // 上传base64图片
     @RequestMapping(value = "/uploadBase64ImageToQiniu")
     public void uploadBase64ImageToQiniu(HttpServletRequest request,
-                                           HttpServletResponse response,Integer userId) {
+                                           HttpServletResponse response,Integer userId,String path) {
         String image = request.getParameter("image");
         String header = "data:image/png;base64,";
         image = image.substring(header.length());
@@ -88,6 +90,22 @@ public class UploadController extends CommonController {
             }catch (Exception Ec){
                 // do nothing
             }
+            // 删除临时文件
+            if(StringUtils.isNotBlank(path)){
+                String[] pathArr = path.trim().split("@@@@@");
+                for(String p : pathArr){
+                    String localPath = getLocalPath() + p;
+                    File tempFile = new File(localPath);
+                    try {
+                        if(tempFile.isFile() && tempFile.exists()){
+                            tempFile.delete();
+                        }
+                    }catch (Exception Ec){
+                        // do nothing
+                    }
+                }
+            }
+
             WebUtil.print(response, new Result(true));
         } catch (IOException e) {
             e.printStackTrace();
@@ -96,10 +114,61 @@ public class UploadController extends CommonController {
     }
 
     public String getFilePath(){
-        String filePath = "drawBoardUploadFile/" + System.currentTimeMillis() + "png";
+        String filePath = "drawBoardUploadFile/" + System.currentTimeMillis() + ".png";
         String projectPath = UploadController.class.getResource("/").getPath();
         return projectPath.substring(0,projectPath.indexOf("WEB-INF")) + filePath;
     }
 
+    public String getLocalPath(){
+        String projectPath = UploadController.class.getResource("/").getPath();
+        return projectPath.substring(0,projectPath.indexOf("WEB-INF"));
+    }
+
+    @RequestMapping(value = "/chanceQiniuPathToLocal")
+    public void chanceQiniuPathToLocal(HttpServletRequest request,
+                                         HttpServletResponse response,String path) {
+        try {
+            if(StringUtils.isBlank(path)){
+                WebUtil.print(response, new Result(true).data(""));
+            }else {
+                String[] pathArr = path.trim().split("@@@@@");
+                List<String> list = new ArrayList<String>();
+                for(String p : pathArr){
+                    String tempPath = "static/changePathArea/" + System.currentTimeMillis() + ".png";
+                    String localPath = getLocalPath() + tempPath;
+                    download(p,localPath);
+                    list.add(tempPath);
+                }
+                WebUtil.print(response, new Result(true).data(list));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            WebUtil.print(response, new Result(false).msg("系统异常，请刷新后重试！"));
+        }
+    }
+
+    public void download(String urlString, String filename){
+        try {
+            URL url = new URL(urlString);
+            URLConnection con = url.openConnection();
+            // 输入流
+            InputStream is = con.getInputStream();
+            // 1K的数据缓冲
+            byte[] bs = new byte[1024];
+            // 读取到的数据长度
+            int len;
+            // 输出的文件流
+            OutputStream os = new FileOutputStream(filename);
+            // 开始读取
+            while ((len = is.read(bs)) != -1) {
+                os.write(bs, 0, len);
+            }
+            // 完毕，关闭所有链接
+            os.close();
+            is.close();
+        }  catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

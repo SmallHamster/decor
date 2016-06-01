@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="static/pc-1.1/css/global.css" />
 <link rel="stylesheet" href="static/pc-1.1/css/index.css" />
 <script src="static/js/jquery-1.11.0.js"></script>
+<script src="static/layer-v2.3/layer/layer.js"></script>
 <div class="header">
     <div class="top">
         <div class="center">
