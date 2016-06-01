@@ -175,15 +175,13 @@
 <script src="static/drawBoard/js/export-canvas.js"></script>
 <script src="static/drawBoard/js/drawing.js"></script>
 <script type="text/javascript">
+    // 背景图div对象
     var $bg = $(".bgList");
     $(function () {
-//        if ($("#sessionUserId").val() == "") {
-//            loginPopup.showDlg();
-//            return false;
-//        }
-        // 默认选中第2个tab
+        // 默认选中第2个
         $('.crawTabs .hd li').eq(1).trigger("click");
-//        pageMyCollection();
+
+        // 个人图库查询
         $("#my").find(".prev").click(function(){
             var pageNum = Number($("#my").find(".pageNum").val());
             if(pageNum > 1){
@@ -200,6 +198,7 @@
             }
         });
 
+        // 商品种类查询
         $("#kindTag").find(".drawBtn").click(function(){
             $("#kindTag").find(".pageNum").val(1);
             pageKindTag();
