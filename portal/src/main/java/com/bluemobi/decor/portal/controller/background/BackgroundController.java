@@ -48,16 +48,16 @@ public class BackgroundController extends CommonController {
     @RequestMapping(value = "/save")
     public void save(HttpServletRequest request,
                      HttpServletResponse response,
-                     String image,
-                     Integer status) {
+                     Background background) {
         try {
-            if (StringUtils.isEmpty(image)) {
+            if (StringUtils.isEmpty(background.getImage())) {
                 WebUtil.print(response, new Result(false).msg("图片不能为空"));
                 return;
             }
-            Background background = new Background();
-            background.setImage(image);
-            background.setStatus(status);
+            if (background.getStatus() == null) {
+                WebUtil.print(response, new Result(false).msg("状态为空，请刷新页面后重试"));
+                return;
+            }
             if (background.getId() == null) {
                 backgroundService.create(background);
             } else {
@@ -79,6 +79,7 @@ public class BackgroundController extends CommonController {
             backgroundService.deleteById(id);
             WebUtil.print(response, new Result(true).msg("操作成功！"));
         } catch (Exception e) {
+            e.printStackTrace();
             WebUtil.print(response, new Result(false).msg("操作失败！"));
         }
     }

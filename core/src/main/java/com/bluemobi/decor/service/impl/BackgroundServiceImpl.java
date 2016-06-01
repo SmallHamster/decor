@@ -18,6 +18,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -64,6 +65,15 @@ public class BackgroundServiceImpl implements BackgroundService {
     @Override
     @Transactional
     public Background create(Background ad) {
+        if(ad == null){
+            return null;
+        }
+        if(ad.getStatus() == null){
+            ad.setStatus(0);
+        }
+        if(ad.getUpdateTime() == null){
+            ad.setUpdateTime(new Date());
+        }
         backgroundDao.save(ad);
         return ad;
     }

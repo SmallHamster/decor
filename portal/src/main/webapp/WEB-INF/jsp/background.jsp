@@ -111,8 +111,9 @@ To change this template use File | Settings | File Templates.
                         <div class="form-group">
                             <label class="col-sm-2 control-label">是否推荐</label>
                             <div class="col-sm-5">
-                                <input type="radio" name="status" value="1" checked/>推荐
-                                <input type="radio" name="status" value="0" />不推荐
+                                <input type="radio" class="statusRadio" name="status" value="1" checked/>推荐
+                                <input type="radio" class="statusRadio" name="status" value="0" />不推荐
+                                <%--<input type="hidden" id="status" name="status" value="1"/>--%>
                             </div>
                         </div>
 
@@ -150,6 +151,14 @@ To change this template use File | Settings | File Templates.
                 $("#new").click(function () {
                     background_.fn.showModal("新增");
                 });
+
+
+//                $(".statusRadio").eq(0).click(function(){
+//                    $("#status").val(1);
+//                });
+//                $(".statusRadio").eq(1).click(function(){
+//                    $("#status").val(0);
+//                });
 
                 //点击保存按钮，执行表单提交方法
                 $("#save").click(function () {
@@ -240,6 +249,12 @@ To change this template use File | Settings | File Templates.
                         $('td', row).last().html(option);
                     },
                     rowCallback: function (row, data) {
+                        if (data.status == "1") {
+                            $('td', row).eq(1).html("推荐");
+                        } else {
+                            $('td', row).eq(1).html("未推荐");
+                        }
+
                         var items = background_.v.list;
                         $('td', row).last().find(".edit").click(function () {
                             background_.fn.edit(data.id);
@@ -257,7 +272,7 @@ To change this template use File | Settings | File Templates.
             },
             deleteRow: function (id) {
                 $bluemobi.optNotify(function () {
-                    $bluemobi.ajax("backend/ad/delete", {id: id}, function (result) {
+                    $bluemobi.ajax("backend/background/delete", {id: id}, function (result) {
                         if (result.status == "0") {
                             $bluemobi.notify(result.msg, "success");
                             background_.v.dTable.ajax.reload();
@@ -280,6 +295,16 @@ To change this template use File | Settings | File Templates.
                             if (key == "image") {
                                 background_.fn.viewImage(item[key]);
                             }
+                            // 初始化数据
+                            $(".statusRadio").eq(0).val(1);
+                            $(".statusRadio").eq(1).val(0);
+                            if(key == "status"){
+                                if(item[key]==1){
+                                    $(".statusRadio").eq(0).trigger("click");
+                                }else{
+                                    $(".statusRadio").eq(1).trigger("click");
+                                }
+                            }
                         }
                     }
                 })
@@ -288,6 +313,7 @@ To change this template use File | Settings | File Templates.
                 if (!$('#form').isValid()) {
                     return false;
                 }
+                $('input[name="statusRadio"]:checked').val();
                 $("#form").ajaxSubmit({
                     dataType: "json",
                     success: function (result) {
@@ -318,6 +344,9 @@ To change this template use File | Settings | File Templates.
                 if (title) {
                     $("#modal .modal-title").text(title);
                 }
+                // 初始化数据
+                $(".statusRadio").eq(0).val(1);
+                $(".statusRadio").eq(1).val(0);
             }
         }
     }
