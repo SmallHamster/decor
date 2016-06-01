@@ -107,7 +107,7 @@ function kindTagClick(){
 }
 
 function addTab(Name){
-    var showName = "";
+    var showName = Name;
     if(Name && Name.length>3){
         showName = Name.substring(0,3);
     }
