@@ -114,12 +114,14 @@ function addTab(Name){
     var add_li = $('<li class="on"><b title="'+Name+'">'+showName+'</b><span class="godel">×</span></li>');
     $('.crawTabs .hd ul').append(add_li);
     $('.crawTabs .bd').find('.con').hide();
+    // 绑定删除事件
     $(".godel").unbind("click").click(function(){
         var index = $('.crawTabs .hd li').index($(this).parent());
         $(this).parent().remove();
+        $('.crawTabs .hd li').removeClass('on');
         $('.crawTabs .hd li').eq(index-1).addClass('on');
-        $('.crawTabs .bd .con').hide();
         $('.crawTabs .bd .con').eq(index).remove();
+        $('.crawTabs .bd .con').hide();
         $('.crawTabs .bd .con').eq(index-1).show();
     });
 }
