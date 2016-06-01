@@ -154,8 +154,10 @@
                     <li><a class="drop bg"><img src="static/drawBoard/images/bg1.jpg" /></a></li>
                 </ul>
                 <div class="pages">
+                    <input type="hidden" class="pageNum" value="1"/>
+                    <input type="hidden" class="pageSize" value="12"/>
                     <a href="javascript:;" class="prev">&lt;</a>
-                    <span>page 1 of 10</span>
+                    <span>page <span class="showPageNum">0</span> of <span class="totalPage">0</span></span>
                     <a href="javascript:;" class="next">&gt;</a>
                 </div>
             </div>
@@ -173,6 +175,7 @@
 <script src="static/drawBoard/js/export-canvas.js"></script>
 <script src="static/drawBoard/js/drawing.js"></script>
 <script type="text/javascript">
+    var $bg = $(".bgList");
     $(function () {
 //        if ($("#sessionUserId").val() == "") {
 //            loginPopup.showDlg();
@@ -202,6 +205,24 @@
             pageKindTag();
         });
         pageKindTag();
+
+        // 背景图查询
+        $bg.find(".prev").click(function(){
+            var pageNum = Number($bg.find(".pageNum").val());
+            if(pageNum > 1){
+                $bg.find(".pageNum").val(pageNum - 1);
+                pageBackground();
+            }
+        });
+        $bg.find(".next").click(function(){
+            var pageNum = Number($bg.find(".pageNum").val());
+            var totalPage = Number($bg.find(".totalPage").html());
+            if(pageNum < totalPage){
+                $bg.find(".pageNum").val(pageNum + 1);
+                pageBackground();
+            }
+        });
+        pageBackground();
     });
 
     // 个人图库
@@ -233,6 +254,43 @@
                         $("#my").find(".showPageNum").html(result.data.page.currentPage);
                     }
                     $("#my").find(".totalPage").html(result.data.page.totalPage);
+                }
+            },
+            error: function (err) {
+                $bluemobi.notify("系统异常，请刷新页面后重试！", "error");
+            }
+        });
+    }
+
+    // 背景图分页
+    function pageBackground(){
+        var $pageNum = $bg.find(".pageNum");
+        var $pageSize = $bg.find(".pageSize");
+        $.ajax({
+            type: 'get',
+            url: 'pc/background/page',
+            data: {pageNum:$pageNum.val(),pageSize:$pageSize.val()},
+            async: false,
+            dataType: 'json',
+            success: function (result) {
+                if (result.status!="0") {
+                    $bluemobi.notify(result.msg, "error");
+                } else {
+                    var html='';
+                    for(var i=0;i<result.data.list.length;i++){
+                        var background = result.data.list[i];
+                        html+='<li><a class="drop bg"><img src="'+background.image+'"/></a></li>';
+                    }
+                    $bg.find("ul").html(html);
+                    // 绑定拖拽事件
+                    drop();
+                    $bg.find(".pageNum").val(result.data.page.currentPage);
+                    if(result.data.page.totalPage==0){
+                        $bg.find(".showPageNum").html(0);
+                    }else {
+                        $bg.find(".showPageNum").html(result.data.page.currentPage);
+                    }
+                    $bg.find(".totalPage").html(result.data.page.totalPage);
                 }
             },
             error: function (err) {
