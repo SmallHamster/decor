@@ -301,15 +301,15 @@ public class MaterialServiceImpl implements MaterialService {
                     predicateList.add(predicate);
                 }
                 if (kindTagId != null) {
-                    Predicate predicate = cb.like(root.get("kindTagIds").as(String.class), "%@" + kindTagId + "@%");
+                    Predicate predicate = cb.like(root.get("material").get("kindTagIds").as(String.class), "%@" + kindTagId + "@%");
                     predicateList.add(predicate);
                 }
                 if (spaceTagId != null) {
-                    Predicate predicate = cb.like(root.get("spaceTagIds").as(String.class), "%@" + spaceTagId + "@%");
+                    Predicate predicate = cb.like(root.get("material").get("spaceTagIds").as(String.class), "%@" + spaceTagId + "@%");
                     predicateList.add(predicate);
                 }
                 if (styleTagId != null) {
-                    Predicate predicate = cb.like(root.get("styleTagIds").as(String.class), "%@" + styleTagId + "@%");
+                    Predicate predicate = cb.like(root.get("material").get("styleTagIds").as(String.class), "%@" + styleTagId + "@%");
                     predicateList.add(predicate);
                 }
                 if (predicateList.size() > 0) {
