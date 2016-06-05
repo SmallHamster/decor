@@ -103,6 +103,10 @@
 				// pc pad
 				window.location.replace('index');
 			}
+			$(".icons").find("img").height($(".icons").find("img").eq(0).width());
+			window.onresize = function(){
+				$(".icons").find("img").height($(".icons").find("img").eq(0).width());
+			};
 
 			ajaxDesigner(); // 查询两个设计师显示在首页
 			ajaxRecommendMessage(); // 加载推荐的咨询
