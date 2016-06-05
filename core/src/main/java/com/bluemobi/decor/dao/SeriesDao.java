@@ -17,6 +17,9 @@ public interface SeriesDao extends JpaRepository<Series, Integer>,JpaSpecificati
     @Query("select a from Series a where a.user = ?1")
     public List<Series> iFindSeriesByUser(User user);
 
+    @Query("select a from Series a where a.user = ?1 order by a.id desc")
+    public List<Series> findSeriesByUser(User user);
+
     @Query("select a from Series a where a.info like ?1")
     public List<Series> findSeries(String info);
 

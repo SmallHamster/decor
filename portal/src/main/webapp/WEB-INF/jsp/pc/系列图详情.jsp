@@ -10,6 +10,11 @@
     <link href="static/pc/css/all.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="static/pc-1.1/css/public.css" />
     <link rel="stylesheet" href="static/pc-1.1/css/style.css" />
+    <style>
+        .personMiddle h3 strong a {
+            color: #fb9f38;
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper">
@@ -37,7 +42,7 @@
                     <span><i>${series.user.seeNum}</i><em>访问</em></span>
                 </div>
                 <p class="slh" style="width: 500px;">${series.user.info}</p>
-                <h3>刚刚更新了设计系列图：<strong>《我在海边的木头房子里面患过伤风》  木屋陈设，木头吊柜…</strong></h3>
+                ${infoHtml}
             </div>
             <div class="personRight">
                 <a href="#" class="send"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>

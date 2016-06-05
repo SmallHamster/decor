@@ -39,6 +39,9 @@ public interface SeriesService extends ICommonService<Series>,SeeNumHandler {
     // 查询指定用户的系列图列表
     public List<Series> iFindSeriesByUser(User user);
 
+    // 查询指定用户的系列图列表
+    public List<Series> findSeriesByUser(User user);
+
     // 获取封面图全地址
     public String getHeadPath(Integer seriesId);
 

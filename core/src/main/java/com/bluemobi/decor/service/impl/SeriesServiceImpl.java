@@ -272,6 +272,11 @@ public class SeriesServiceImpl implements SeriesService {
     }
 
     @Override
+    public List<Series> findSeriesByUser(User user) {
+        return seriesDao.findSeriesByUser(user);
+    }
+
+    @Override
     public String getHeadPath(Integer seriesId) {
         List<Scene> sceneList = seriesSceneService.findSceneListBySeriesId(seriesId);
         if (sceneList != null && sceneList.size() > 0) {

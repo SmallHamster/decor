@@ -142,12 +142,18 @@ public class SeriesController4Pc extends CommonController {
         modelMap.put("series",series);
         seriesService.seeNumAdd(seriesId);
 
-        List<Series> seriesList = seriesService.iFindSeriesByUser(user);
+        String infoHtml = "";
+        List<Series> seriesList = seriesService.findSeriesByUser(user);
         if(CollectionUtils.isNotEmpty(seriesList)){
             modelMap.put("userSeriesNum",seriesList.size());
+            Series series1 = seriesList.get(0);
+            if(series1.getSeriesTag() != null && series1.getSeriesTag().getName() != null){
+                infoHtml = "<h3>刚刚更新了设计系列图：<strong><a href=\"pc/series/detail?seriesId="+series1.getId()+"\">《"+series1.getSeriesTag().getName()+"》</a></strong></h3>";
+            }
         }else {
             modelMap.put("userSeriesNum",0);
         }
+        modelMap.put("infoHtml",infoHtml);
 
         return "pc/系列图详情";
     }
