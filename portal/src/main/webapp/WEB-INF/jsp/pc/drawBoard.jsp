@@ -104,26 +104,6 @@
                                 </h3>
                                 <div class="classList kindTag">
                                     <ul class="clearfix">
-                                        <li><a href="javascript:;" name="yizi.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
-                                        <li><a href="javascript:;" name="yizi2.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>桌</p></a></li>
-                                        <li><a href="javascript:;" name="yizi3.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>地毯</p></a></li>
-                                        <li><a href="javascript:;" name="yizi4.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>吧台</p></a></li>
-                                        <li><a href="javascript:;" name="yizi5.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>沙发</p></a></li>
-                                        <li><a href="javascript:;" name="yizi6.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>酒柜</p></a></li>
-                                        <li><a href="javascript:;" name="yizi7.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>相框</p></a></li>
-                                        <li><a href="javascript:;" name="yizi8.html"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>床</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>吧台酒柜</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
-                                        <li><a href="javascript:;"><img src="static/drawBoard/images/fl.jpg" alt="" title="" /><p>椅</p></a></li>
                                     </ul>
                                     <div class="pages">
                                         <input type="hidden" class="pageNum" value="1"/>
@@ -143,15 +123,7 @@
             <div class="bgList">
                 <h3>背景</h3>
                 <ul class="clearfix">
-                    <li><a class="drop bg"><img src="static/drawBoard/images/bg2.jpg" /></a></li>
-                    <li><a class="drop bg"><img src="static/drawBoard/images/bg1.jpg" /></a></li>
-                    <li><a class="drop bg"><img src="static/drawBoard/images/bg1.jpg" /></a></li>
-                    <li><a class="drop bg"><img src="static/drawBoard/images/bg1.jpg" /></a></li>
-                    <li><a class="drop bg"><img src="static/drawBoard/images/bg1.jpg" /></a></li>
-                    <li><a class="drop bg"><img src="static/drawBoard/images/bg1.jpg" /></a></li>
-                    <li><a class="drop bg"><img src="static/drawBoard/images/bg1.jpg" /></a></li>
-                    <li><a class="drop bg"><img src="static/drawBoard/images/bg1.jpg" /></a></li>
-                    <li><a class="drop bg"><img src="static/drawBoard/images/bg1.jpg" /></a></li>
+
                 </ul>
                 <div class="pages">
                     <input type="hidden" class="pageNum" value="1"/>
