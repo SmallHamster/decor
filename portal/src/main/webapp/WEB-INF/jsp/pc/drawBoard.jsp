@@ -57,20 +57,12 @@
                         <div class="tabscon">
                             <div class="slideBox">
                                 <ul class="slideList s_xl">
+                                    <input type="hidden" id="kindTagId" value=""/>
                                     <li><a href="javascript:;">分类</a>
-                                        <dl class="clearfix">
-                                            <dt><a href="javascript:;">全部</a></dt>
+                                        <dl id="kindTagList" class="clearfix">
+                                            <dt><a dataid="" href="javascript:;">全部</a></dt>
                                             <dd>
-                                                <a href="javascript:;">办公</a>
-                                                <a href="javascript:;">餐饮娱乐</a>
-                                                <a href="javascript:;">客厅</a>
-                                                <a href="javascript:;">餐厅</a>
-                                                <a href="javascript:;">厨房</a>
-                                                <a href="javascript:;">卧室</a>
-                                                <a href="javascript:;">玄关</a>
-                                                <a href="javascript:;">卫生间</a>
-                                                <a href="javascript:;">酒店</a>
-                                                <a href="javascript:;">玄关</a>
+
                                             </dd>
                                         </dl>
                                     </li>
@@ -194,16 +186,37 @@
             }
         });
         pageBackground();
+
+        allKindTag();
     });
+
+    // 全部分类
+    function allKindTag(){
+        $bluemobi.ajax("pc/comm/ajaxKindTagList", {}, function (result) {
+            if (result.status == "0") {
+                var html = '';
+                for (var i = 0; i < result.data.length; i++) {
+                    var kindTag = result.data[i];
+                    html += '<a dataid="'+kindTag.id+'" href="javascript:;">'+kindTag.name+'</a>';
+                }
+                $("#kindTagList").find("dd").html(html);
+                $("#kindTagList").find("a").unbind("click").click(function(){
+                    $("#kindTagId").val($(this).attr("dataid"));
+                    pageMyCollection();
+                });
+            }
+        });
+    }
 
     // 个人图库
     function pageMyCollection(){
         var $pageNum = $("#my").find(".pageNum");
         var $pageSize = $("#my").find(".pageSize");
+        var kindTagId = $("#kindTagId").val();
         $.ajax({
             type: 'get',
             url: 'pc/material/pageMyCollection',
-            data: {userId:$("#sessionUserId").val(),pageNum:$pageNum.val(),pageSize:$pageSize.val()},
+            data: {userId:$("#sessionUserId").val(),pageNum:$pageNum.val(),pageSize:$pageSize.val(),kindTagId:kindTagId},
             async: false,
             dataType: 'json',
             success: function (result) {
