@@ -61,67 +61,27 @@
                 <div class="picFocus">
                     <div class="bd">
                         <ul>
-                            <li>
-                                <a target="_blank" href="#">
-                                    <img src="static/pc-1.1/images/detail_pic2.jpg" />
-                                    <p>查看详情</p>
-                                    <h2 class="cleafix">
-                                        <span class="pic_fl">客厅一角<em>包含商品：4件</em></span>
-                                        <span class="pic_fr"><em>获得12次喜欢</em><em>6条评论</em></span>
-                                    </h2>
-                                </a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#">
-                                    <img src="static/pc-1.1/images/detail_pic2.jpg" />
-                                    <p>查看详情</p>
-                                    <h2 class="cleafix">
-                                        <span class="pic_fl">客厅一角<em>包含商品：4件</em></span>
-                                        <span class="pic_fr"><em>获得12次喜欢</em><em>6条评论</em></span>
-                                    </h2>
-                                </a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#">
-                                    <img src="static/pc-1.1/images/detail_pic2.jpg" />
-                                    <p>查看详情</p>
-                                    <h2 class="cleafix">
-                                        <span class="pic_fl">客厅一角<em>包含商品：4件</em></span>
-                                        <span class="pic_fr"><em>获得12次喜欢</em><em>6条评论</em></span>
-                                    </h2>
-                                </a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#">
-                                    <img src="static/pc-1.1/images/detail_pic2.jpg" />
-                                    <p>查看详情</p>
-                                    <h2 class="cleafix">
-                                        <span class="pic_fl">客厅一角<em>包含商品：4件</em></span>
-                                        <span class="pic_fr"><em>获得12次喜欢</em><em>6条评论</em></span>
-                                    </h2>
-                                </a>
-                            </li>
-                            <li>
-                                <a target="_blank" href="#">
-                                    <img src="static/pc-1.1/images/detail_pic2.jpg" />
-                                    <p>查看详情</p>
-                                    <h2 class="cleafix">
-                                        <span class="pic_fl">客厅一角<em>包含商品：4件</em></span>
-                                        <span class="pic_fr"><em>获得12次喜欢</em><em>6条评论</em></span>
-                                    </h2>
-                                </a>
-                            </li>
+                            <c:forEach items="${series.sceneList}" var="scene">
+                                <li>
+                                    <a href="pc/scene/detail?sceneId=${scene.id}">
+                                        <img src="${scene.image}" style="height: 611px;"/>
+                                        <p>查看详情</p>
+                                        <h2 class="cleafix">
+                                            <span class="pic_fl">${scene.name}<em>包含商品：${scene.goodsNum}件</em></span>
+                                            <span class="pic_fr"><em>获得${scene.praiseNum}次喜欢</em><em>${scene.commentNum}条评论</em></span>
+                                        </h2>
+                                    </a>
+                                </li>
+                            </c:forEach>
                         </ul>
                         <a class="prev" href="javascript:void(0)"></a>
                         <a class="next" href="javascript:void(0)"></a>
                     </div>
                     <div class="hd">
                         <ul>
-                            <li><a href="javascript:void(0)"><img src="static/pc-1.1/images/detail_pic1.jpg" /><div class="bg"></div></a></li>
-                            <li><a href="javascript:void(0)"><img src="static/pc-1.1/images/detail_pic1.jpg" /><div class="bg"></div></a></li>
-                            <li><a href="javascript:void(0)"><img src="static/pc-1.1/images/detail_pic1.jpg" /><div class="bg"></div></a></li>
-                            <li><a href="javascript:void(0)"><img src="static/pc-1.1/images/detail_pic1.jpg" /><div class="bg"></div></a></li>
-                            <li><a href="javascript:void(0)"><img src="static/pc-1.1/images/detail_pic1.jpg" /><div class="bg"></div></a></li>
+                            <c:forEach items="${series.sceneList}" var="scene">
+                                <li><a href="javascript:void(0)"><img src="${scene.image}" /><div class="bg"></div></a></li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>
