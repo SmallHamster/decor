@@ -50,6 +50,8 @@ public class SeriesController4Pc extends CommonController {
 
     @Autowired
     private AttentionService attentionService;
+    @Autowired
+    private SceneGoodsService sceneGoodsService;
 
     // 查询page
     @RequestMapping(value = "/page")
@@ -128,6 +130,16 @@ public class SeriesController4Pc extends CommonController {
                      Integer seriesId){
         Series series = seriesService.getById(seriesId);
         List<Scene> sceneList = seriesSceneService.findSceneListBySeriesId(seriesId);
+        if(CollectionUtils.isNotEmpty(sceneList)){
+            for(Scene scene : sceneList){
+                // 评论数
+                List<Comment> commentList = commentService.findListByObjectIdAndType(scene.getId(),"scene");
+                scene.setCommentNum(CollectionUtils.isEmpty(commentList)?0:commentList.size());
+                // 商品数
+                List<SceneGoods> goodsList = sceneGoodsService.listBySceneId(scene.getId());
+                scene.setGoodsNum(CollectionUtils.isEmpty(goodsList)?0:goodsList.size());
+            }
+        }
         series.setSceneList(sceneList);
         User user=series.getUser();
         if (user.getRoleType().equals("admin")||user.getRoleType()=="admin"){
