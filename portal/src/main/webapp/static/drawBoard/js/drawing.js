@@ -518,7 +518,7 @@ function addTab(Name){
         $('.leftx').click(function(event){
             event.stopPropagation();
              //$('.imgselected').rotate(-angle*15);
-             $('.imgselected').css({
+             $('.imgselected').find("img").css({
                  transform: 'rotate('+ -angle*15 +'deg)',
                  webkitTransform: 'rotate('+ -angle*15 +'deg)',
                  OTransform: 'rotate('+ -angle*15 +'deg)',
@@ -537,7 +537,7 @@ function addTab(Name){
         var angle = 1;
         $('.rightx').click(function(event){
             event.stopPropagation();
-             $('.imgselected').rotate(angle*15);
+             $('.imgselected').find("img").rotate(angle*15);
              angle++;
         })
     }
