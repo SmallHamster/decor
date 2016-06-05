@@ -1,13 +1,10 @@
 package com.bluemobi.decor.portal.controller;
 
 import com.bluemobi.decor.core.Constant;
-import com.bluemobi.decor.entity.Goods;
-import com.bluemobi.decor.entity.Scene;
-import com.bluemobi.decor.entity.User;
+import com.bluemobi.decor.entity.*;
 import com.bluemobi.decor.portal.util.MD5Util;
-import com.bluemobi.decor.service.GoodsService;
-import com.bluemobi.decor.service.SceneService;
-import com.bluemobi.decor.service.UserService;
+import com.bluemobi.decor.service.*;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Controller
@@ -57,6 +51,12 @@ public class DataController {
     private GoodsService goodsService;
     @Autowired
     private SceneService sceneService;
+    @Autowired
+    private SeriesService seriesService;
+    @Autowired
+    private CommentService commentService;
+    @Autowired
+    private MessageService messageService;
 
     @RequestMapping(value = "/dataInit")
     public void pcHomepage(HttpServletRequest request,
@@ -186,5 +186,102 @@ public class DataController {
                 System.out.print("用户已经存在:"+name + "-" + mobile);
             }
         }
+    }
+
+    // 点赞，查询，关注等数据，如果为0，则插入100以内的随机数
+    @RequestMapping(value = "/numberInit")
+    public void numberInit() {
+        // 商品表
+        List<Goods> goodsList = goodsService.findAll();
+        if(CollectionUtils.isNotEmpty(goodsList)){
+            for(Goods goods : goodsList){
+                if(goods.getPraiseNum() == null || goods.getPraiseNum() == 0){
+                    goods.setPraiseNum(getNum());
+                }
+                if(goods.getSeeNum() == null || goods.getSeeNum() == 0){
+                    goods.setSeeNum(getNum());
+                }
+                try {
+                    goodsService.update(goods);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        }
+        // 场景图
+        List<Scene> sceneList = sceneService.findAll();
+        if(CollectionUtils.isNotEmpty(sceneList)){
+            for(Scene scene : sceneList){
+                if(scene.getPraiseNum() == null || scene.getPraiseNum() == 0){
+                    scene.setPraiseNum(getNum());
+                }
+                if(scene.getSeeNum() == null || scene.getSeeNum() == 0){
+                    scene.setSeeNum(getNum());
+                }
+                if(scene.getCollectionNum() == null || scene.getCollectionNum() == 0){
+                    scene.setCollectionNum(getNum());
+                }
+                try {
+                    sceneService.update(scene);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+        // 系列图
+        List<Series> seriesList = seriesService.findAll();
+        if(CollectionUtils.isNotEmpty(seriesList)){
+            for(Series series : seriesList){
+                if(series.getPraiseNum() == null || series.getPraiseNum() == 0){
+                    series.setPraiseNum(getNum());
+                }
+                if(series.getSeeNum() == null || series.getSeeNum() == 0){
+                    series.setSeeNum(getNum());
+                }
+                if(series.getCollectionNum() == null || series.getCollectionNum() == 0){
+                    series.setCollectionNum(getNum());
+                }
+                try {
+                    seriesService.update(series);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+        // 评论
+        List<Comment> commentList = commentService.findAll();
+        if(CollectionUtils.isNotEmpty(commentList)){
+            for(Comment comment : commentList){
+                if(comment.getPraiseNum() == null || comment.getPraiseNum() == 0){
+                    comment.setPraiseNum(getNum());
+                }
+                try {
+                    commentService.update(comment);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+        // 资讯
+        List<Message> messageList = messageService.findAll();
+        if(CollectionUtils.isNotEmpty(messageList)){
+            for(Message message : messageList){
+                if(message.getCollectionNum() == null || message.getCollectionNum() == 0){
+                    message.setCollectionNum(getNum());
+                }
+                try {
+                    messageService.update(message);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+
+
+    }
+
+    public int getNum(){
+        return new Random().nextInt(100);
     }
 }
