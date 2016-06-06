@@ -160,6 +160,9 @@ public class User implements Serializable {
     private List<Series> seriesList;
 
     @Transient
+    private List<Scene> sceneList;
+
+    @Transient
     private String shortNickname;
 
     @Transient
@@ -212,6 +215,14 @@ public class User implements Serializable {
 
     public void setAccount(String account) {
         this.account = account;
+    }
+
+    public List<Scene> getSceneList() {
+        return sceneList;
+    }
+
+    public void setSceneList(List<Scene> sceneList) {
+        this.sceneList = sceneList;
     }
 
     public String getPassword() {

@@ -10,6 +10,7 @@ import com.bluemobi.decor.utils.ClassUtil;
 import com.bluemobi.decor.utils.JsonUtil;
 import com.bluemobi.decor.utils.Md5Util;
 import com.bluemobi.decor.utils.SessionUtils;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -42,6 +43,8 @@ public class UserServiceImpl implements UserService {
     private CityDao cityDao;
     @Autowired
     private SeriesDao seriesDao;
+    @Autowired
+    private SeriesSceneDao seriesSceneDao;
 
     @Autowired
     private TUserRoleService tUserRoleService;
@@ -754,12 +757,16 @@ public class UserServiceImpl implements UserService {
                     return query.getRestriction();
                 }
 
-            }, new PageRequest(1 - 1, 5, Sort.Direction.DESC, "createTime"));
+            }, new PageRequest(1 - 1, 1, Sort.Direction.DESC, "createTime"));
             List<Series> seriesList = seriesPage.getContent();
-            for (int j = 0; j < seriesList.size(); j++) {
-                seriesList.get(j).setUser(null);
+            if(CollectionUtils.isNotEmpty(seriesList)){
+                for (int j = 0; j < seriesList.size(); j++) {
+                    seriesList.get(j).setUser(null);
+                }
+                Series series = seriesList.get(0);
+                List<Scene> sceneList = seriesSceneDao.findSceneListBySeriesId(series.getId());
+                listUser.get(i).setSceneList(sceneList);
             }
-            listUser.get(i).setSeriesList(seriesList);
         }
 
         return page;
