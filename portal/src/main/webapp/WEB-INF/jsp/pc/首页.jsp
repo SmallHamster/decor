@@ -114,8 +114,8 @@
             if (result.status == "0") {
                 if(result.data.list.length > 0){
                     var user = result.data.list[0];
-                    var seriesList = user.seriesList;
-                    var html='<div class="text-center face"><a href="pc/user/detail?userId=' + user.id + '"><img src="'+user.headImage+'" title="" alt="" width="78" height="78" /></a></div>\
+                    var sceneList = user.sceneList;
+                    var html='<div class="text-center face"><a href="pc/user/detail?userId=' + user.id + '"><img src="'+user.headImage+'?imageView2/1/w/84/h/84" title="" alt="" width="78" height="78" /></a></div>\
                             <p class="text-center name"><a href="pc/user/detail?userId=' + user.id + '">'+user.nickname+'</a></p>\
                     <p class="text-center address"><i class="icon-addr"></i>'+user.province.name+'  '+user.city.name+'</p>\
                     <p class="text-center works">'+user.opus+'个作品</p>\
@@ -125,15 +125,15 @@
                     $("#hottestDesigner").html(html);
                     var hotSeriesHtml='';
                     var div='';
-                    for(var i=0;i<seriesList.length;i++){
-                        var series = seriesList[i];
+                    for(var i=0;i<sceneList.length;i++){
+                        var scene = sceneList[i];
                         if(i==0){
-                            hotSeriesHtml+='<a href="pc/series/detail?seriesId=' + series.id + '"><img src="'+series.cover+'" title="" alt="" width="344" height="387" /></a>';
+                            hotSeriesHtml+='<a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="'+scene.image+'?imageView2/1/w/344/h/387" title="" alt="" width="344" height="387" /></a>';
                             div='<div class="alpha-mask">\
                             <div class="alpha"></div>\
-                            <div class="text">系列作品：'+series.seriesTag.name+'</div></div>';
+                            <div class="text">系列作品：'+scene.name+'</div></div>';
                         }else {
-                            hotSeriesHtml+='<a href="pc/series/detail?seriesId=' + series.id + '"><img src="'+series.cover+'" title="" alt="" width="306" height="190" style="margin-left: 6px;"/></a>';
+                            hotSeriesHtml+='<a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="'+scene.image+'?imageView2/1/w/306/h/190" title="" alt="" width="306" height="190" style="margin-left: 6px;"/></a>';
 
                         }
                     }
