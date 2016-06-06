@@ -150,7 +150,7 @@
             if (result.status == "0") {
                 var html = '';
                 for(var i=0;i<result.data.length;i++){
-                    html += '<li><a target="_blank" href="'+result.data[i].link+'"><img src="'+result.data[i].image+'" alt="" width="1920" height="480"></a></li>';
+                    html += '<li><a target="_blank" href="'+result.data[i].link+'"><img src="'+result.data[i].image+'?imageView2/1/w/1920/h/480" alt="" width="1920" height="480"></a></li>';
                 }
                 $(".streamer").find("ul").html(html);
                 roll($('div.streamer'));
