@@ -229,10 +229,10 @@
                     $bluemobi.subStrAdminNick(eval(object),"Décor");
                     html+='<li>\
                             <a href="pc/series/detail?seriesId='+object.id+'">\
-                            <div class="cell"><img src="'+object.cover+'" title="" alt="" width="357" width="251" /></div>\
+                            <div class="cell"><img src="'+object.cover+'?imageView2/1/w/357/h/251" title="" alt="" width="357" width="251" /></div>\
                             <div class="face">\
                             <a href="pc/user/detailPage?userId='+object.user.id+'">' +
-                            '<img src="'+object.user.headImage+'" title="" alt="" width="60" height="60" /></a>\
+                            '<img src="'+object.user.headImage+'?imageView2/1/w/60/h/60" title="" alt="" width="60" height="60" /></a>\
                             <p class="text-center">'+showName+'</p>\
                             </div>\
                             <div class="over-hidden">\
