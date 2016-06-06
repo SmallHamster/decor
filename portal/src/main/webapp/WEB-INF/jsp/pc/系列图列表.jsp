@@ -102,7 +102,7 @@
                         html+='changTxt';
                     }
                     html+='">\
-                    <h3 class="s-title"><img src="'+series.user.headImage+'" width="30" height="30"/><a href="pc/series/detail?seriesId='+series.id+'">'+series.seriesTag.name+'</a></h3>\
+                    <h3 class="s-title"><img src="'+series.user.headImage+'?imageView2/1/w/30/h/30" width="30" height="30"/><a href="pc/series/detail?seriesId='+series.id+'">'+series.seriesTag.name+'</a></h3>\
                     <p>'+series.info+'</p>\
                     <div class="But"><a class="butn _collect" ><i class="iicon collect "></i><span class="collectSpan" style="margin-left: 0px;color: #ffffff;">'+btnHtml+'</span>（<span class="collectionNum" style="margin-left: 0px;color: #ffffff;">'+series.collectionNum+'</span>）</a><span>'+series.sceneNum+'张场景图</span></div>\
                     </div>\
@@ -111,7 +111,7 @@
                         html+='changImg';
                     }
                     html+='">\
-                    <a href="pc/series/detail?seriesId='+series.id+'"><img src="'+series.cover+'"/><img src="'+series.image+'"/></a>\
+                    <a href="pc/series/detail?seriesId='+series.id+'"><img src="'+series.cover+'?imageView2/1/w/180/h/230"/><img src="'+series.image+'?imageView2/1/w/180/h/230"/></a>\
                     </div>\
                     </li>';
                 }
