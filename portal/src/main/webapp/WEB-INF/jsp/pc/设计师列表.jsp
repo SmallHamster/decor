@@ -323,7 +323,7 @@
                         } else if (user.sex == '2') {
                             user.sex = "privacy"
                         }
-                        html += "  <li><div class='head abs' ><a href='pc/user/detailPage?userId=" + user.id + "'><img src=" + user.headImage + "></a><i class='" + user.sex + "'></i></div>\
+                        html += "  <li><div class='head abs' ><a href='pc/user/detailPage?userId=" + user.id + "'><img src=" + user.headImage + "?imageView2/1/w/82/h/82></a><i class='" + user.sex + "'></i></div>\
                         <div class='focus abs'><i class='iicon i-focus mr10'></i><span>" + user.fans + "</span></div>\
                         <h3 class='tc'><a href='pc/user/detail?userId=" + user.id + "'style='color:#000000;'' >" + user.nickname + "</a></h3>\
                         <p class='addres'><i class='iicon locat mr10'></i><span>" + user.province.name + "&nbsp&nbsp" + user.city.name + "</span></p>\
