@@ -317,8 +317,8 @@
                         </div>\
                         <div class="images">\
                             <a href="pc/message/detail?messageId='+message.id+'">\
-                                <img src="'+message.image+'" title="" alt="" width="343" height="230" />\
-                                <img src="'+message.intro_image+'" title="" alt="" width="343" height="230" />\
+                                <img src="'+message.image+'?imageView2/1/w/343/h/230" title="" alt="" width="343" height="230" />\
+                                <img src="'+message.intro_image+'?imageView2/1/w/343/h/230" title="" alt="" width="343" height="230" />\
                             </a>\
                         </div>\
                         </li>';
