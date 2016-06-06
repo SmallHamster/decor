@@ -83,6 +83,9 @@ public class Scene implements Serializable {
     @Transient
     private Integer commentNum;
 
+    @Transient
+    private Integer goodsNum;
+
     //该场景图下的风格标签
     @Transient
     private List<String> styleTagName;
@@ -261,5 +264,13 @@ public class Scene implements Serializable {
 
     public void setCommentNum(Integer commentNum) {
         this.commentNum = commentNum;
+    }
+
+    public Integer getGoodsNum() {
+        return goodsNum;
+    }
+
+    public void setGoodsNum(Integer goodsNum) {
+        this.goodsNum = goodsNum;
     }
 }
