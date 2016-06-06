@@ -139,7 +139,7 @@
                     <a style="color: #000000" href="pc/message/detail?messageId='+message.id+'"><h3 class="t-title" >' + message.title + '</h3></a>\
                     <p>' + message.subContent +'</p><a class="butn" onclick="collectionMessage(this,'+message.id+')" ><i class="iicon collect" messageId='+message.id+' ></i><span >'+collect+'</span>(<span class="spanNum message.id">' + message.collectionNum + '</span>)</a>\
                    <a href="pc/message/detail?messageId='+message.id+'"></div><div class="showImg">\
-                    <img src="' + message.image + '"/><img src="' + message.intro_image + '"/>\
+                    <img src="' + message.image + '?imageView2/1/w/343/h/230"/><img src="' + message.intro_image + '?imageView2/1/w/343/h/230"/>\
                     </div></a>\
                     </li>';
                 }
