@@ -231,7 +231,7 @@
                     $bluemobi.subStrAdminNick(scene,"Décor")
                     if(pageMode=="maximum"){
                         html += '<li sceneid='+scene.id+'><div class="pro_img">\
-                        <a href="pc/scene/detail?sceneId='+scene.id+'"><img src="'+scene.image+'"/></a>\
+                        <a href="pc/scene/detail?sceneId='+scene.id+'"><img src="'+scene.image+'?imageView2/1/w/156/h/135"/></a>\
                         <div class="opera abs tr">\
                         <div class="stick clearfix"></div>\
                         <span class="'+collectClass+' fl _collect"><i class="iicon"></i></span>\
@@ -245,7 +245,7 @@
                         </li>';
                     }else if(pageMode=="mid"){
                         html+='<li sceneid='+scene.id+'><div class="pro_img">\
-                        <a href="pc/scene/detail?sceneId='+scene.id+'"><img src="'+scene.image+'"/></a>\
+                        <a href="pc/scene/detail?sceneId='+scene.id+'"><img src="'+scene.image+'?imageView2/1/w/275/h/275"/></a>\
                         <div class="opera abs tr">\
                         <div class="stick clearfix"></div>\
                         <span class="'+collectClass+' fl _collect"><i class="iicon"></i></span>\
@@ -259,7 +259,7 @@
                         </li>';
                     }else{
                         html+='<li sceneid='+scene.id+'><div class="pro_img">\
-                        <a href="pc/scene/detail?sceneId='+scene.id+'"><img src="'+scene.image+'"></a>\
+                        <a href="pc/scene/detail?sceneId='+scene.id+'"><img src="'+scene.image+'?imageView2/1/w/420/h/290"></a>\
                         <div class="opera abs tr" style="height: 20px; padding: 10px 0px;">\
                         <div class="stick clearfix"></div>\
                         <span class="'+collectClass+' fl _collect"><i class="iicon"></i></span>\
