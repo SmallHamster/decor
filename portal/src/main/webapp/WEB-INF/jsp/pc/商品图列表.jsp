@@ -270,7 +270,7 @@
                     $bluemobi.subStrAdminNick(goods,"Décor")
                     if(pageMode=="maximum"){
                         html += '<li goodsid='+goods.id+'><div class="pro_img">\
-                        <a href="pc/goods/detail?goodsId='+goods.id+'"><img src="'+goods.cover+'"/></a>\
+                        <a href="pc/goods/detail?goodsId='+goods.id+'"><img src="'+goods.cover+'?imageView2/1/w/200/h/172"/></a>\
                         <div class="opera abs tr">\
                         <div class="stick clearfix"></div>\
                         <span class="'+collectClass+' fl _collect"><i class="iicon"></i></span>\
@@ -278,13 +278,13 @@
                         </div>\
                         </div>\
                         <div class="pro_txt">\
-                        <h3>'+goods.name+'</h3>\
-                        <p class="tr">'+showName+'</p>\
+                        <h3 class="slh" title="'+goods.name+'">'+goods.name+'</h3>\
+                        <p class="tr slh">'+showName+'</p>\
                         </div>\
                         </li>';
                     }else if(pageMode=="mid"){
                         html+='<li goodsid='+goods.id+'><div class="pro_img">\
-                        <a href="pc/goods/detail?goodsId='+goods.id+'"><img src="'+goods.cover+'"/></a>\
+                        <a href="pc/goods/detail?goodsId='+goods.id+'"><img src="'+goods.cover+'?imageView2/1/w/275/h/275"/></a>\
                         <div class="opera abs tr">\
                         <div class="stick clearfix"></div>\
                         <span class="'+collectClass+' fl _collect"><i class="iicon"></i></span>\
@@ -292,13 +292,13 @@
                         </div>\
                         </div>\
                         <div class="pro_txt clearfix">\
-                        <span class="fl">'+goods.name+'</span>\
+                        <span class="fl slh" style="width: 130px" title="'+goods.name+'">'+goods.name+'</span>\
                         <span class="fr">'+showName+'</span>\
                         </div>\
                         </li>';
                     }else{
                         html+='<li goodsid='+goods.id+'><div class="pro_img">\
-                        <a href="pc/goods/detail?goodsId='+goods.id+'"><img src="'+goods.cover+'"/></a>\
+                        <a href="pc/goods/detail?goodsId='+goods.id+'"><img src="'+goods.cover+'?imageView2/1/w/420/h/290"/></a>\
                         <div class="opera abs tr">\
                         <div class="stick clearfix"></div>\
                         <span class="'+collectClass+' fl _collect"><i class="iicon"></i></span>\
@@ -306,7 +306,7 @@
                         </div>\
                         </div>\
                         <div class="pro_txt clearfix">\
-                        <span class="fl">'+goods.name+'</span>\
+                        <span class="fl slh" style="width: 200px" title="'+goods.name+'">'+goods.name+'</span>\
                         <span class="fr">'+showName+'</span>\
                         </div>\
                         </li>';
