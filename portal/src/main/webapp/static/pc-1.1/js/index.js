@@ -11,9 +11,9 @@ function test2 () {
 	}
 }
 $(function(){
-	document.oncontextmenu = function () {
-		return false
-	};
+	//document.oncontextmenu = function () {
+	//	return false
+	//};
 	//下拉
 	$(".select").each(function(){
 		var s=$(this);
