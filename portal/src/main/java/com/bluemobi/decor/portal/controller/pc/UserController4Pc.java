@@ -725,6 +725,8 @@ public class UserController4Pc extends CommonController {
             }
             modelMap.put("newestComment", newestComment);
 
+            //刚刚更新了xx
+            modelMap.put("infoHtml", userService.getInfoHtml(userId));
             return "pc/设计师详情页";
         } else {
             return "pc/首页";
