@@ -297,7 +297,7 @@
                         html += '<li>\
                                 <div class="cell">\
                                 <a href="pc/goods/detail?goodsId=' + goods.id + '">\
-                                <img src="' + goods.cover + '" title="" alt="" width="88" width="88" />\
+                                <img src="' + goods.cover + '?imageView2/1/w/88/h/88" title="" alt="" width="88" width="88" />\
                                 </a>\
                                 </div>\
                                 ' + goods.name + '\
