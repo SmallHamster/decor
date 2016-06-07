@@ -225,7 +225,7 @@
                     var html = '';
                     for (var i = 0; i < result.data.length; i++) {
                         var goods = result.data[i];
-                        html += '<li><a href="pc/goods/detail?goodsId=' + goods.id + '"><img src="' + goods.cover + '" width="116" height="116"/></a></li>';
+                        html += '<li><a href="pc/goods/detail?goodsId=' + goods.id + '"><img src="' + goods.cover + '?imageView2/1/w/116/h/116" width="116" height="116"/></a></li>';
                     }
                     $(".sametypegoodslist").html(html);
                 } else {
