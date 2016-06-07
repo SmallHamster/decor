@@ -68,7 +68,7 @@
                             <c:forEach items="${series.sceneList}" var="scene">
                                 <li>
                                     <a href="pc/scene/detail?sceneId=${scene.id}">
-                                        <img src="${scene.image}" style="height: 611px;"/>
+                                        <img src="${scene.image}?imageView2/1/w/917/h/611" style="height: 611px;"/>
                                         <p>查看详情</p>
                                         <h2 class="cleafix">
                                             <span class="pic_fl">${scene.name}<em>包含商品：${scene.goodsNum}件</em></span>
@@ -82,7 +82,7 @@
                     <div id="listBox" class="listBox">
                         <ul class="cf">
                             <c:forEach items="${series.sceneList}" var="scene">
-                                <li><a href="javascript:void(0)"><img src="${scene.image}" /><div class="bg"></div></a></li>
+                                <li><a href="javascript:void(0)"><img src="${scene.image}?imageView2/1/w/159/h/110" /><div class="bg"></div></a></li>
                             </c:forEach>
                         </ul>
                     </div>
@@ -183,7 +183,7 @@
                     for(var i=0;i<result.data.length;i++){
                         var series = result.data[i];
                         html+='<li>\
-                                <a href="pc/series/detail?seriesId='+series.id+'"><img src="'+series.cover+'" width="270" height="189"/><p class="slh">'+series.info+'</p></a>\
+                                <a href="pc/series/detail?seriesId='+series.id+'"><img src="'+series.cover+'?imageView2/1/w/270/h/189" width="270" height="189"/><p class="slh">'+series.info+'</p></a>\
                                 </li>\
                                ';
                     }
