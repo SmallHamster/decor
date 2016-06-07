@@ -111,4 +111,6 @@ public interface UserService extends ICommonService<User> {
     public void fansNumCutOne(Integer userId);
 
     public List<User> allUser();
+
+    public String getInfoHtml(Integer userId);
 }
