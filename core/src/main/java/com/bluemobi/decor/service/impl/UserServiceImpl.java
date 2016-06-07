@@ -3,6 +3,7 @@ package com.bluemobi.decor.service.impl;
 import com.bluemobi.decor.core.Constant;
 import com.bluemobi.decor.dao.*;
 import com.bluemobi.decor.entity.*;
+import com.bluemobi.decor.service.SeriesService;
 import com.bluemobi.decor.service.TRoleService;
 import com.bluemobi.decor.service.TUserRoleService;
 import com.bluemobi.decor.service.UserService;
@@ -56,6 +57,8 @@ public class UserServiceImpl implements UserService {
     private AttentionDao attentionDao;
     @Autowired
     private TRoleService TRoleService;
+    @Autowired
+    private SeriesService seriesService;
 
     @Override
     public List<User> findAll() {
@@ -898,6 +901,22 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> allUser() {
         return userDao.allUser();
+    }
+
+    // 获取用户刚刚更新了xx的html
+    @Override
+    public String getInfoHtml(Integer userId) {
+        String infoHtml = "";
+        User user = new User();
+        user.setId(userId);
+        List<Series> seriesList = seriesService.findSeriesByUser(user);
+        if(CollectionUtils.isNotEmpty(seriesList)){
+            Series series1 = seriesList.get(0);
+            if(series1.getSeriesTag() != null && series1.getSeriesTag().getName() != null){
+                infoHtml = "<h3>刚刚更新了设计系列图：<strong><a href=\"pc/series/detail?seriesId="+series1.getId()+"\">《"+series1.getSeriesTag().getName()+"》</a></strong></h3>";
+            }
+        }
+        return infoHtml;
     }
 
 
