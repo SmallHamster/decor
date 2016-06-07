@@ -313,65 +313,66 @@
 	width: 824px;
 	height: auto;
 }
-.picFocus {
+.picFocus{
 	position: relative;
 	overflow: hidden;
 	zoom: 1;
 	margin: 0 auto;
 	width: 100%;
 }
-.picFocus .hd {
+.picFocus .btn {
+	position: absolute;
+	cursor: pointer;
+	z-index: 99;
+	left: 3%;
+	top: 42%;
+	margin-top: -50px;
+	display: block;
+	width: 50px;
+	height: 100px;
+}
+.picFocus #prevTop {
+	background: url(../images/ico_btn_left.png) no-repeat;
+}
+.picFocus #nextTop {
+	left: auto;
+	right: 3%;
+	background: url(../images/ico_btn_right.png) no-repeat;
+}
+.picFocus li{float:left;}
+.picFocus .cf li {
+	position: relative;
+	color: #fff;
+}
+.picFocus .cf a {
+	display: block;
 	width: 100%;
-	margin-top: 20px;
+	position: absolute;
+	color: #fff;
+	left: 0;
+	top: 0;
 }
-.picFocus .hd ul {
-	margin-right: -7px;
-	zoom: 1;
+.picFocus .picBox {
+	height: 611px;
+	position: relative;
+	overflow: hidden;
 }
-.picFocus .hd ul li {
+.picFocus .picBox ul {
+	height: 611px;
+	position: absolute;
+	overflow: hidden;
+	left: 0;
+	top: 0;
+}
+.picFocus .picBox li {
+	width: 824px;
+	height: 611px;
 	float: left;
 	position: relative;
-	width: 159px;
-	height: 110px;
-	margin-right: 7px;
-	text-align: center;
-}
-.picFocus .hd ul li a{
-	display: block;
-}
-.picFocus .hd ul li .bg{
-	position: absolute;
-	top: 0;
 	left: 0;
-	width: 100%;
-	height: 110px;
-	background: url(../images/ico_btn_8.png);
+	top: 0;
 }
-.picFocus .hd ul li img {
-	display: block;
-	width: 100%;
-	height: 110px;
-	cursor: pointer;
-}
-.picFocus .hd ul li.on{
-	height: 119px;
-}
-.picFocus .hd ul li.on .bg{
-	background: none;
-}
-.picFocus .hd ul li.on img{
-	position: relative;
-	top: -4.5px;
-	height: 119px;
-}
-.picFocus .bd {
-	position: relative;
-}
-.picFocus .bd li {
-	position: relative;
-	vertical-align: middle;
-}
-.picFocus .bd li p{
+.picFocus .picBox li p{
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -384,8 +385,12 @@
 	text-align: center;
 	line-height: 58px;
 	color: #17171d;
+	display: none;
 }
-.picFocus .bd li h2{
+.picFocus .picBox li:hover p{
+	display: block;
+}
+.picFocus .picBox li h2{
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -396,40 +401,68 @@
 	font-size: 18px;
 	line-height: 40px;
 }
-.picFocus .bd li h2 .pic_fl{
+.picFocus .picBox li h2 .pic_fl{
 	float: left;
 	margin-left: 16px;
 }
-.picFocus .bd li h2 .pic_fl em,
-.picFocus .bd li h2 .pic_fr em{
+.picFocus .picBox li h2 .pic_fl em,
+.picFocus .picBox li h2 .pic_fr em{
 	display: inline-block;
 	font-size: 14px;
 	padding-left: 36px;
 }
-.picFocus .bd li h2 .pic_fr{
+.picFocus .picBox li h2 .pic_fr{
 	float: right;
 	margin-right: 16px;
 }
-.picFocus .bd img {
-	display: block;
-	width: 100%;
-	height: auto;
+.picFocus .listBox{ 
+	width: 820px; 
+	height: 110px; 
+	margin: 20px auto 0; 
+	position: relative; 
 }
-.picFocus .prev,
-.picFocus .next {
+.picFocus .listBox ul {
+	height: 100%;
 	position: absolute;
-	left: 3%;
-	top: 50%;
-	margin-top: -50px;
-	display: block;
-	width: 50px;
-	height: 100px;
-	background: url(../images/ico_btn_left.png) no-repeat;
+	left: 0;
+	top: 0;
 }
-.picFocus .next {
-	left: auto;
-	right: 3%;
-	background: url(../images/ico_btn_right.png) no-repeat;
+.picFocus .listBox li{
+	float: left;
+	position: relative;
+	width: 164px;
+	height: 110px;
+	text-align: center;
+}
+.picFocus .listBox li a{
+	display:block;
+	width:159px;
+	margin: 0 auto;
+	left: 2.5px;
+	height: 100%;
+}
+.picFocus .listBox li img{
+	width:100%;
+	height: 100%;
+}
+.picFocus .listBox li a .bg{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 110px;
+	background: url(../images/ico_btn_8.png);
+}
+.picFocus .listBox li.on{
+	height: 119px;
+}
+.picFocus .listBox li.on img{
+	position: relative;
+	top: -4.5px;
+	height: 119px;
+}
+.picFocus .listBox .on a .bg{
+	display:none;
 }
 .containRight{
 	float: right;
