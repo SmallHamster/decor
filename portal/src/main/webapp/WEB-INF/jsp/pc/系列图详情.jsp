@@ -59,8 +59,12 @@
         <div class="contain cleafix">
             <div class="containLeft">
                 <div class="picFocus">
-                    <div class="bd">
-                        <ul>
+                    <span id="prev" class="btn prev"></span>
+                    <span id="next" class="btn next"></span>
+                    <span id="prevTop" class="btn prev"></span>
+                    <span id="nextTop" class="btn next"></span>
+                    <div id="picBox" class="picBox">
+                        <ul class="cf">
                             <c:forEach items="${series.sceneList}" var="scene">
                                 <li>
                                     <a href="pc/scene/detail?sceneId=${scene.id}">
@@ -74,11 +78,9 @@
                                 </li>
                             </c:forEach>
                         </ul>
-                        <a class="prev" href="javascript:void(0)"></a>
-                        <a class="next" href="javascript:void(0)"></a>
                     </div>
-                    <div class="hd">
-                        <ul>
+                    <div id="listBox" class="listBox">
+                        <ul class="cf">
                             <c:forEach items="${series.sceneList}" var="scene">
                                 <li><a href="javascript:void(0)"><img src="${scene.image}" /><div class="bg"></div></a></li>
                             </c:forEach>
@@ -120,22 +122,22 @@
 <script type="text/javascript">
     $(function(){
         //主体部分
-        jQuery(".picFocus").slide({
-        	mainCell: ".bd ul",
-        	effect: "left",
-        	autoPlay: true,
-        	trigger: "click"
-        });
+//        jQuery(".picFocus").slide({
+//        	mainCell: ".bd ul",
+//        	effect: "left",
+//        	autoPlay: true,
+//        	trigger: "click"
+//        });
         //设计系列图
-        jQuery(".design-top-right").slide({
-        	titCell: ".hd ul",
-        	mainCell: ".bd ul",
-        	autoPage: true,
-        	effect: "left",
-        	autoPlay: true,
-        	vis: 1,
-        	trigger: "click"
-        });
+//        jQuery(".design-top-right").slide({
+//        	titCell: ".hd ul",
+//        	mainCell: ".bd ul",
+//        	autoPage: true,
+//        	effect: "left",
+//        	autoPlay: true,
+//        	vis: 1,
+//        	trigger: "click"
+//        });
 
         commFun.handlerAttention(); // 处理关注
         handlerCollection();
