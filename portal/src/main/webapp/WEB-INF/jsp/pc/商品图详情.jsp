@@ -40,7 +40,7 @@
             <div class="mainCont clearfix">
                 <div class="maiLeft">
                     <div class="details clearfix">
-                        <div class="detImg"><img src="${goods.cover}"/></div>
+                        <div class="detImg" style="height: auto;"><img src="${goods.cover}"/></div>
                         <div class="horizonalList rel">
                             <span class="iicon scroll_left abs"></span>
                             <span class="iicon scroll_right abs disabled"></span>
@@ -49,7 +49,7 @@
                                     <c:forEach var="goodsImage" items="${goods.goodsImageList}">
                                         <li <c:if test="${goodsImage.isTurnMaterial == 'yes'}">class="active"</c:if>>
                                             <span class="sign"><fmt:message key="info.sucai"/></span>
-                                            <a href="javascript:void(0)" style="cursor: hand"><img src="${goodsImage.image}"/></a>
+                                            <a href="javascript:void(0)" style="cursor: hand"><img src="${goodsImage.image}?imageView2/1/w/147/h/140"/></a>
                                         </li>
                                     </c:forEach>
                                 </ul>
