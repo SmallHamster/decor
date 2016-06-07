@@ -768,6 +768,11 @@ public class UserServiceImpl implements UserService {
                 }
                 Series series = seriesList.get(0);
                 List<Scene> sceneList = seriesSceneDao.findSceneListBySeriesId(series.getId());
+                if(CollectionUtils.isNotEmpty(sceneList)){
+                    for (Scene scene : sceneList) {
+                        scene.setUser(null);
+                    }
+                }
                 listUser.get(i).setSceneList(sceneList);
             }
         }
