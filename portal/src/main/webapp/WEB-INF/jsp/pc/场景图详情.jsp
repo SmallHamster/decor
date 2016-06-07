@@ -98,7 +98,7 @@
                     <div class="scene-show">
                         <div class="list">
                             <ul id="goodsList1">
-                                <li style="display: list-item;"><img src="${scene.image}" title="" alt="" width="715" height="715"></li>
+                                <li style="display: list-item;"><img src="${scene.image}" title="" alt="" style="width: 715px;height: auto"></li>
                             </ul>
                         </div>
                         <%--<div class="handler-prev"></div>--%>
