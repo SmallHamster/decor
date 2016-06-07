@@ -26,6 +26,9 @@
     }
     .design-list li {
         margin: 0 29px 20px 0;}
+     .personMiddle h3 strong a {
+         color: #fb9f38;
+     }
 </style>
 <body>
 <!--top-->
@@ -57,7 +60,7 @@
                     <span><i>${user.seeNum}</i><em><fmt:message key="info.fangwen"/></em></span>
                 </div>
                 <p class="slh" title="${user.info}">${user.info}</p>
-                <h3 class="slh">刚刚更新了设计系列图：<strong>《我在海边的木头房子里面患过伤风》  木屋陈设，木头吊柜…</strong></h3>
+                ${infoHtml}
             </div>
             <div class="personRight">
                 <a class="send"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>
