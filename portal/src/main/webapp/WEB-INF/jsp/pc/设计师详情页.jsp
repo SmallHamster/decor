@@ -131,7 +131,7 @@
                         <div class="bd">
                             <ul class="picList">
                                 <c:forEach var="scene" items="${topSeries.sceneList}">
-                                    <li><a href="pc/scene/detail?sceneId=${scene.id}"><img src="${scene.image}" width="842" height="410"/></a></li>
+                                    <li><a href="pc/scene/detail?sceneId=${scene.id}"><img src="${scene.image}?imageView2/1/w/842/h/410" width="842" height="410"/></a></li>
                                 </c:forEach>
                             </ul>
                         </div>
@@ -213,7 +213,7 @@
                 for (var i = 0; i < result.data.list.length; i++) {
                     var series = result.data.list[i];
                     html+='<li>\
-                            <a href="pc/series/detail?seriesId=' + series.id + '"><img src="' + series.cover + '" width="300" height="200"/></a>\
+                            <a href="pc/series/detail?seriesId=' + series.id + '"><img src="' + series.cover + '?imageView2/1/w/357/h/200" width="300" height="200"/></a>\
                             <div class="list-con cleafix">\
                             <a href="#" class="list-avater">\
                             <img src="static/pc-1.1/images/designer_pic1.png" />\
