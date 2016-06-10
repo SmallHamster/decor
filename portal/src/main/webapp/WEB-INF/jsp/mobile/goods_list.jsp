@@ -198,7 +198,7 @@
 							html += '<li>\
 									<div class="imgWrap">\
 									<a href="mobile/goods/detail?goodsId='+goods.id+'">\
-									<img src="' + goods.cover + '" alt="" width="241" height="240">\
+									<img src="' + goods.cover + '?imageView2/1/w/241/h/240" alt="" width="241" height="240">\
 									</a>\
 									</div>\
 									<p><a href="mobile/goods/detail?goodsId='+goods.id+'">' + goods.name + '</a></p>\
