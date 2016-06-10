@@ -609,12 +609,12 @@
                 if (result.data.length >= 4) {
                     for (var i = 0; i < 4; i++) {
                         var picObj = result.data[i];
-                        html += '<li><a href="pc/' + picObj.objectType + '/detail?' + picObj.objectType + 'Id=' + picObj.id + '"><div class="Thumbnails"><img src="' + picObj.image + '"></div></a></li>';
+                        html += '<li><a href="pc/' + picObj.objectType + '/detail?' + picObj.objectType + 'Id=' + picObj.id + '"><div class="Thumbnails"><img src="' + picObj.image + '?imageView2/1/w/175/h/148"></div></a></li>';
                     }
                 } else {
                     for (var i = 0; i < result.data.length; i++) {
                         var picObj = result.data[i];
-                        html += '<li><a href="pc/' + picObj.objectType + '/detail?' + picObj.objectType + 'Id=' + picObj.id + '"><div class="Thumbnails"><img src="' + picObj.image + '"></div></a></li>';
+                        html += '<li><a href="pc/' + picObj.objectType + '/detail?' + picObj.objectType + 'Id=' + picObj.id + '"><div class="Thumbnails"><img src="' + picObj.image + '?imageView2/1/w/175/h/148"></div></a></li>';
                     }
                 }
                 $(".newestupload ul").html(html);
