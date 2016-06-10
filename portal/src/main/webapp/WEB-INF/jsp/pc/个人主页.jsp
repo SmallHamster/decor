@@ -1471,8 +1471,8 @@
                 thisPage.pageAttributeInit();
             }
             thisPage.pageSize = 12;
-            var data = {pageNum: thisPage.pageNum, pageSize: thisPage.pageSize};
-            $bluemobi.ajax("pc/scene/page", data, function (result) {
+            var data = {pageNum: thisPage.pageNum, pageSize: thisPage.pageSize,userId:$("#sessionUserId").val()};
+            $bluemobi.ajax("pc/user/scenePage", data, function (result) {
                 if (result.status == "0") {
                     var html = '';
                     for (var i = 0; i < result.data.list.length; i++) {
@@ -1482,7 +1482,7 @@
                         if (createSeriesHandler.selectedSceneIdArr.indexOf(sceneid) >= 0) {
                             html += 'class="redBorder2"';
                         }
-                        html += ' src="' + scene.image + '"></li>';
+                        html += ' src="' + scene.image + '?imageView2/1/w/158/h/131"></li>';
                     }
                     $(".createSeriesTab .choosePicList ul").html(html);
                     thisPage.init(result.data.page, "createSeriesHandler.ajaxScene4CreateSeries");
