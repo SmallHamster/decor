@@ -136,7 +136,7 @@
                                     <th>资讯内容：</th>
                                     <td>
                                         <!-- 加载编辑器的容器 -->
-                                        <script id="container" name="content" type="text/plain"
+                                        <script id="container"  type="text/plain"
                                                 style="width:100%; height:150px; line-height: 0px;"></script>
                                     </td>
                                 </tr>
@@ -381,12 +381,13 @@
 
                 // 所有的验证通过后，执行修改操作
                 if (flag) {
+                    imageIsReady();
                     $("#messageForm").ajaxSubmit({
                         url: _basePath + "backend/message/updateMessageInfo",
                         dataType: "json",
                         data: {
                             tags: $('#tagsxxx').val(),
-                            content: txt
+                            content: editor1.getContent()
                         },
                         success: function (result) {
                             if (result.status == 0) {
@@ -419,6 +420,42 @@
         this.setContent($("#spqq").html());
 
     });
+
+    function imageIsReady(){
+        var content = editor1.getContent();
+        if(content.indexOf("正在上传") >= 0){
+            setTimeout("imageIsReady()", 1000);
+        }else{
+            if(content.indexOf("121.40.54.152") >= 0){
+                $("#ueditor_0").contents().find("body").find("img").each(function(){
+                    if($(this).attr("src").indexOf("121.40.54.152") >= 0){
+                        uploadUeditorImageToQiniu($(this));
+                    }
+                });
+            }
+        }
+    }
+
+    function uploadUeditorImageToQiniu($img){
+        $.ajax({
+            type: 'POST',
+            url: 'pc/upload/uploadUeditorImageToQiniu',
+            data: {path:$img.attr("src")},
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.status=="0") {
+                    $img.attr("src",data.data);
+                    $img.attr("_src",data.data);
+                } else {
+                    $bluemobi.notify(data.msg, "error");
+                }
+            },
+            error: function (err) {
+                $bluemobi.notify("系统异常，请刷新页面后重试！", "error");
+            }
+        });
+    }
 </script>
 
 </html>
