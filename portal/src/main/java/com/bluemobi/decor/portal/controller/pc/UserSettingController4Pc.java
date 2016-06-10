@@ -133,6 +133,12 @@ public class UserSettingController4Pc extends CommonController {
                 user.setBackgroundImage(headImage);
             }
             userService.update(user);
+            String nickname = user.getNickname();
+            String shortNickname = nickname;
+            if (nickname != null && nickname.length() > 4) {
+                shortNickname = nickname.substring(0, 4) + "...";
+            }
+            user.setShortNickname(shortNickname);
             WebUtil.print(response, new Result(true).msg("保存成功!"));
         } catch (Exception e) {
             e.printStackTrace();
