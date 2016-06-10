@@ -171,4 +171,34 @@ public class UploadController extends CommonController {
         }
     }
 
+    @RequestMapping(value = "/uploadUeditorImageToQiniu")
+    public void uploadUeditorImageToQiniu(HttpServletRequest request,
+                                         HttpServletResponse response,String path) {
+        try {
+            if(path.contains("http://121.40.54.152")){
+                path = path.replace("http://121.40.54.152","");
+                File file = new File(getLocalPath() + path);
+                // 上传到七牛
+                String qiniuPath = UploadUtils.uploadFile(file);
+                if(StringUtils.isBlank(qiniuPath)){
+                    WebUtil.print(response, new Result(false).msg("系统异常，请刷新后重试！"));
+                    return;
+                }else {
+                    // 删除本地文件
+                    try {
+                        if(file.isFile() && file.exists()){
+                            file.delete();
+                        }
+                    }catch (Exception Ec){
+                        // do nothing
+                    }
+                    WebUtil.print(response, new Result(true).data(qiniuPath));
+                }
+            }
+            WebUtil.print(response, new Result(true));
+        } catch (Exception e) {
+            e.printStackTrace();
+            WebUtil.print(response, new Result(false).msg("系统异常，请刷新后重试！"));
+        }
+    }
 }
