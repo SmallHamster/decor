@@ -18,7 +18,7 @@
                         </c:if>
                         <c:if test="${session_pc_user == null}">
                             <a onclick="loginPopup.showDlg()"><fmt:message key="info.denglu"/></a>
-                            <a id="register" onclick="registerPopup.showDlg()"><fmt:message key="info.zhuce"/></a>
+                            <a id="register" onclick="showRegisterDiv()"><fmt:message key="info.zhuce"/></a>
                         </c:if>
 
                         <%
