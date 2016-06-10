@@ -10,6 +10,7 @@
     <%@ include file="inc/css.jsp" %>
     <link href="static/js/plugins/dropper/jquery.fs.dropper.css" rel="stylesheet">
     <script src="static/js/plugins/dropper/jquery.fs.dropper.js"></script>
+    <script src="static/layer-v2.3/layer/layer.js"></script>
 </head>
 
 <body>
@@ -387,6 +388,46 @@
     editor1.ready(function () {
 
     });
+    editor1.addListener( 'contentChange', function( editor ) {
+        //imageIsReady();
+    });
+
+    function imageIsReady(){
+        console.log("imageIsReady")
+        var content = editor1.getContent();
+        if(content.indexOf("正在上传") >= 0){
+            setTimeout("imageIsReady()", 1000);
+        }else{
+            if(content.indexOf("121.40.54.152") >= 0){
+                $("#ueditor_0").contents().find("body").find("img").each(function(){
+                    if($(this).attr("src").indexOf("121.40.54.152") >= 0){
+                        uploadUeditorImageToQiniu($(this));
+                    }
+                });
+            }
+        }
+    }
+
+    function uploadUeditorImageToQiniu($img){
+        console.log("uploadUeditorImageToQiniu")
+        $.ajax({
+            type: 'POST',
+            url: 'pc/upload/uploadUeditorImageToQiniu',
+            data: {path:$img.attr("src")},
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.status=="0") {
+                    $img.attr("src",data.data);
+                } else {
+                    $bluemobi.notify(data.msg, "error");
+                }
+            },
+            error: function (err) {
+                $bluemobi.notify("系统异常，请刷新页面后重试！", "error");
+            }
+        });
+    }
 </script>
 
 </html>
