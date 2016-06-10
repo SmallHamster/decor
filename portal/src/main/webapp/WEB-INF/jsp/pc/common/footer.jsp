@@ -71,7 +71,7 @@
         <p class="tr color6 fs16"><fmt:message key="info.haimeiyouzhanghao"/><a class="colorRed goRegister"><fmt:message
                 key="info.lijizhuce"/></a></p>
 
-        <div class="registerWay tc">
+        <div id="thirdDiv" class="registerWay tc">
             <!--<a href="#" class="iicon wechat"></a>
             <a href="#" class="iicon qq"></a>
             <a href="#" class="iicon weibo"></a>-->
@@ -140,10 +140,10 @@
         <button class="btn blackBtn registerBtn"><fmt:message key="info.zhuce"/></button>
         <p class="tr color6 fs16 curp goLogin"><fmt:message key="info.yiyouzhanghao"/></p>
 
-        <div class="registerWay tc">
-            <a href="#" class="iicon wechat"></a>
-            <a href="#" class="iicon qq"></a>
-            <a href="#" class="iicon weibo"></a>
+        <div id="thirdDiv2" class="registerWay tc">
+            <%--<a href="#" class="iicon wechat"></a>--%>
+            <%--<a href="#" class="iicon qq"></a>--%>
+            <%--<a href="#" class="iicon weibo"></a>--%>
         </div>
     </div>
 </script>
@@ -273,7 +273,8 @@
             login.in($(".loginDiv .loginmobile").val(), $(".loginDiv .loginpassword").val());
         });
         $(".loginDiv .goRegister").unbind("click").click(function () {
-            registerPopup.showDlg();
+            $("#thirdDiv2").html($("#thirdDiv").html());
+            showRegisterDiv();
             loginPopup.hideDlg();
         });
         $(".loginDiv .findpwd").unbind("click").click(function () {
@@ -287,9 +288,10 @@
             popupBoxH: 425,
             contentHtml: $('#findPasswordPopupCont').html()
         });
+
         $(".findPasswordDiv .goRegister").unbind("click").click(function () {
             hideOtherDlg();
-            registerPopup.showDlg();
+            showRegisterDiv();
         });
         $(".findPasswordDiv .sendCodeBtn").unbind("click").click(function () { // 发送验证码
             pcSendMobileCode2FindPassword();
@@ -322,6 +324,7 @@
             popupBoxH: 600,
             contentHtml: $('#registerPopupCont').html()
         });
+
         $(".registerDiv .registerBtn").unbind("click").click(function () {
             pcUserRegister();
         });
@@ -366,6 +369,11 @@
             }
         };
     });
+
+    function showRegisterDiv(){
+        $("#thirdDiv2").html($("#thirdDiv").html());
+        registerPopup.showDlg();
+    }
 
     function hideOtherDlg() {
         loginNoticePopup.hideDlg();
