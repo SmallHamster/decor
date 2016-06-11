@@ -38,7 +38,7 @@
 					<span>保持登录</span>
 				</div>
 				<input class="loginBtn" type="submit" value="登录">
-				<a href="javascript:;" class="register">注册账号</a>
+				<a href="mobile/login/registerPage" class="register">注册账号</a>
 			</div>
 			<div class="thirdPart">
 				<a href="javascript:;" class="way qq"></a>
