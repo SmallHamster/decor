@@ -131,7 +131,7 @@
 							}else {
 								html+='<li>\
 									<div class="imgWrap">\
-									<a href="mobile/scene/detail?sceneId='+obj.id+'"><img src="'+obj.image+'" alt="" /></a>\
+									<a href="mobile/scene/detail?sceneId='+obj.id+'"><img src="'+obj.image+'?imageView2/1/w/234/h/233" alt="" /></a>\
 									</div>\
 									<p><a href="mobile/scene/detail?sceneId='+obj.id+'">'+obj.name+'</a></p>\
 									</li>';
