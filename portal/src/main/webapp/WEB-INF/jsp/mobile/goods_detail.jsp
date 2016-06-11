@@ -16,6 +16,18 @@
 		<script src="static/mobile/js/flexible.js"></script>
 		<link rel="stylesheet" href="static/mobile/css/global.css">
 		<link rel="stylesheet" href="static/mobile/css/index.css">
+		<style>
+			.goodsBanner .imgWrap {
+				height: auto;
+			}
+			.goodsBanner .imgWrap a {
+				position: relative;
+				height: auto;}
+			.goodsBanner .imgWrap img {
+				width: auto;
+				height: auto;
+			}
+		</style>
 	</head>
 	<body>
 	<%@ include file="common/header.jsp" %>
@@ -35,7 +47,7 @@
 				<ul class="clearfix">
 					<c:forEach var="goodsImage" items="${goods.goodsImageList}">
 						<li class="cur">
-							<img src="${goodsImage.image}" alt="">
+							<img src="${goodsImage.image}?imageView2/1/w/90/h/58" alt="">
 							<div class="mask"></div>
 						</li>
 					</c:forEach>
