@@ -45,4 +45,9 @@ public class LoginController4Mobile extends CommonController {
         }
     }
 
+    @RequestMapping(value = "/registerPage")
+    public String registerPage(){
+        return "mobile/register";
+    }
+
 }
