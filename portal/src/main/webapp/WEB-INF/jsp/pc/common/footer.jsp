@@ -209,7 +209,7 @@
         </div>
     </div>
 </script>
-
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1258419071'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1258419071%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
 <script type="text/javascript">
     var loginNoticePopup; // 登录提示弹出框
     var loginPopup; // 登录弹出框
