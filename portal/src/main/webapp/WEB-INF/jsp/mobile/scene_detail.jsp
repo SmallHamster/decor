@@ -17,6 +17,21 @@
 		<link rel="stylesheet" href="static/mobile/css/swiper.min.css">
 		<link rel="stylesheet" href="static/mobile/css/global.css">
 		<link rel="stylesheet" href="static/mobile/css/index.css">
+		<style>
+			.bannerWrap {
+				height: auto;
+			}
+			.bannerWrap .imgWrap {
+				height: auto;
+			}
+			.bannerWrap .imgWrap a {
+				position: relative;
+				height: auto;}
+			.bannerWrap .imgWrap img {
+				width: auto;
+				height: auto;
+			}
+		</style>
 	</head>
 	<body>
 	<%@ include file="common/header.jsp" %>
@@ -42,15 +57,9 @@
 				</div>
 			</div>
 			<div class="bannerWrap">
-				<div class="swiper-container">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
 							<div class="imgWrap">
 								<a href="javascript:;"><img src="${scene.image}" alt="" /></a>
 							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 			<div class="desBox">
 				<h3><a href="javascript:;">${scene.name}</a></h3>
@@ -82,7 +91,7 @@
 					<c:forEach var="goods" items="${goodsList}">
 						<li>
 							<div class="imgBox">
-								<a href="mobile/goods/detail?goodsId=${goods.id}"><img src="${goods.cover}" alt=""></a>
+								<a href="mobile/goods/detail?goodsId=${goods.id}"><img src="${goods.cover}?imageView2/1/w/113/h/113" alt=""></a>
 							</div>
 							<div class="name">
 								<a href="javascript:;">${goods.name}</a>
