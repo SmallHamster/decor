@@ -180,7 +180,7 @@
 								<div class="imgBox">\
 								<a href="mobile/designer/detail?designerId='+designer.id+'"><img src="'+designer.backgroundImage+'" alt=""></a>\
 								<div class="headLogo">\
-								<a href="mobile/designer/detail?designerId='+designer.id+'"><img src="'+designer.headImage+'" alt=""></a>\
+								<a href="mobile/designer/detail?designerId='+designer.id+'"><img src="'+designer.headImage+'?imageView2/1/w/104/h/104" alt=""></a>\
 								</div>\
 								</div>\
 								<div class="name"><a href="mobile/designer/detail?designerId='+designer.id+'">'+designer.nickname+'</a></div>\
