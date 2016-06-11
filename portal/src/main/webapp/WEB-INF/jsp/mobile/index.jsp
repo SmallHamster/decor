@@ -55,7 +55,7 @@
 					</div>
 				</div>
 			</div>
-			<a href="javascript:;" class="blackBtn">现在加入</a>
+			<a href="mobile/login/registerPage" class="blackBtn">现在加入</a>
 			<div class="titleBox">
 				<h3>你的设计，正在改变生活</h3>
 				<p>一键入驻，海量资源</p>
