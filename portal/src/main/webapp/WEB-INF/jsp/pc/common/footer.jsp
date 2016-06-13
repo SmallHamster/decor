@@ -119,7 +119,7 @@
             <span class="iicon phone abs"></span><input type="text" maxlength="11" placeholder="<fmt:message key="info.shoujihao"/>">
         </div>
         <div class="form-item rel">
-            <span class="iicon nickname abs"></span><input type="text" maxlength="15" placeholder="<fmt:message key="info.nichen"/>">
+            <span class="iicon nickname abs"></span><input type="text" maxlength="50" placeholder="<fmt:message key="info.nichen"/>">
         </div>
         <div class="form-item rel">
             <span class="iicon password abs"></span><input type="password" maxlength="16" placeholder="<fmt:message key="info.mima"/>">
