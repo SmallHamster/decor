@@ -67,8 +67,8 @@
                         <ul class="cf">
                             <c:forEach items="${series.sceneList}" var="scene">
                                 <li>
-                                    <a href="pc/scene/detail?sceneId=${scene.id}">
-                                        <img src="${scene.image}?imageView2/1/w/917/h/611" style="height: 611px;"/>
+                                    <a href="pc/scene/detail?sceneId=${scene.id}" style="height: 611px;">
+                                        <img src="${scene.image}?imageView2/1/w/824/h/611" />
                                         <p>查看详情</p>
                                         <h2 class="cleafix">
                                             <span class="pic_fl">${scene.name}<em>包含商品：${scene.goodsNum}件</em></span>
