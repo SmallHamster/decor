@@ -133,26 +133,38 @@
                     <span class="inline-b"><fmt:message key="info.tongbushuoming"/></span>
                 </div>
                 <div class="explain-item">
-                    <div class="item mb20 fs16">
-                        <span class="inline-b pl20" style="width: 275px"><i class="iicon weibo"></i><span class="pl20"><fmt:message key="info.xinlangweibo"/></span></span>
-                        <span class="inline-b" style="width: 275px"><a href="#" class="bindingAccount"><fmt:message key="info.zhanghaobangding"/></a></span>
-                        <span class="inline-b fs12 color9" style="width: 550px"><fmt:message key="info.ninhaiweibangdingxinlangweiboqingdianjibangdingweibojinxingbangding"/></span>
+                    <div class="item mb20 fs16 _weibo">
+                        <span class="inline-b pl20" style="width: 275px"><i class="iicon weibo"></i><span
+                                class="pl20"><fmt:message key="info.xinlangweibo"/></span></span>
+                        <span class="inline-b" style="width: 275px">
+                            <a class="bindingAccount" ><fmt:message key="info.zhanghaobangding"/></a>
+                            <a class="binded" style="display: none"><fmt:message key="info.yibangding"/></a>
+                            <a class="cancel pl10" style="display: none"><fmt:message key="info.quxiao"/></a>
+                        </span>
+                        <span class="inline-b fs12 color9" style="width: 550px"><fmt:message
+                                key="info.ninhaiweibangdingxinlangweiboqingdianjibangdingweibojinxingbangding"/></span>
                     </div>
-                    <div class="item mb20 fs16">
+                    <div class="item mb20 fs16 _qq">
                         <span class="inline-b pl20" style="width: 275px"><i class="iicon qq"></i><span
                                 class="pl20">QQ</span></span>
-                        <span class="inline-b" style="width: 275px"><a href="#" class="binded"><fmt:message key="info.yibangding"/>
-</a><a href="#"
-                                                                                                         class="cancel pl10"><fmt:message key="info.quxiao"/>
-</a></span>
-                        <span class="inline-b fs12 colorBlack" style="width: 550px"><fmt:message key="info.ninyijingbangdingQQzhanghao,zaishoujihuofabushikexuanzetongbudaonindeQQkongjian"/>
-</span>
+                         <span class="inline-b" style="width: 275px">
+                            <a class="bindingAccount" ><fmt:message key="info.zhanghaobangding"/></a>
+                            <a class="binded" style="display: none"><fmt:message key="info.yibangding"/></a>
+                            <a class="cancel pl10" style="display: none"><fmt:message key="info.quxiao"/></a>
+                        </span>
+                        <span class="inline-b fs12 colorBlack" style="width: 550px"><fmt:message
+                                key="info.ninyijingbangdingQQzhanghao,zaishoujihuofabushikexuanzetongbudaonindeQQkongjian"/></span>
                     </div>
-                    <div class="item mb20 fs16">
-                        <span class="inline-b pl20" style="width: 275px"><i class="iicon weixin"></i><span class="pl20"><fmt:message key="info.weixin"/></span></span>
-                        <span class="inline-b" style="width: 275px"><a href="#" class="bindingAccount"><fmt:message key="info.zhanghaobangding"/></a></span>
-                        <span class="inline-b fs12 color9" style="width: 550px"><fmt:message key="info.ninhaiweibangdingweixinqingdianjibangdingweixinjinxingbangding"/>
-</span>
+                    <div class="item mb20 fs16 _weixin">
+                        <span class="inline-b pl20" style="width: 275px"><i class="iicon weixin"></i><span class="pl20"><fmt:message
+                                key="info.weixin"/></span></span>
+                         <span class="inline-b" style="width: 275px">
+                            <a class="bindingAccount" ><fmt:message key="info.zhanghaobangding"/></a>
+                            <a class="binded" style="display: none"><fmt:message key="info.yibangding"/></a>
+                            <a class="cancel pl10" style="display: none"><fmt:message key="info.quxiao"/></a>
+                        </span>
+                        <span class="inline-b fs12 color9" style="width: 550px"><fmt:message
+                                key="info.ninhaiweibangdingweixinqingdianjibangdingweixinjinxingbangding"/></span>
                     </div>
                 </div>
             </div>
@@ -190,8 +202,35 @@
 
         showObject("user");
         ajaxFindUser();
-
+        findThirdInfo();
     });
+
+    //第三方类型(微信:2,QQ:3,,新浪:4)
+    function findThirdInfo(){
+        var userId = $("#sessionUserId").val();
+        $bluemobi.ajax("pc/userThird/findInfo", {userId: userId}, function (result) {
+            debugger
+            if (result.status == "0") {
+                for (var i = 0; i < result.data.length; i++) {
+                    var userThird = result.data[i];
+                    var _class = "._weixin";
+                   if(userThird.type == "2"){
+                       _class = "._weixin";
+                   }
+                   if(userThird.type == "3"){
+                       _class = "._qq";
+                   }
+                   if(userThird.type == "4"){
+                       _class = "._weibo";
+                   }
+                    $("#third-party").find(_class).find(".binded").show();
+                    $("#third-party").find(_class).find(".cancel").show();
+                    $("#third-party").find(_class).find(".bindingAccount").hide();
+                }
+            }
+        });
+    }
+
     //加载用户信息
     function ajaxFindUser() {
         var userId = $("#sessionUserId").val();
