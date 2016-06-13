@@ -296,7 +296,7 @@
                     var message = result.data[i];
                     var collect;
                     if(userId!=''&&message.ifCollect=='1'){
-                        collect="<fmt:message key="info.quxiaoshoucang"/>"
+                        collect="已收藏"
                     }else if(userId!=''&&message.ifCollect=='0'){
                         collect="<fmt:message key="info.shoucangzixun"/>"
                     }else if(userId==''){
@@ -313,7 +313,7 @@
                         }
                         html+='<a href="pc/message/detail?messageId='+message.id+'"><h5 class="title slh">'+message.title+'</h5>\
                         <div class="text-content">'+message.subContent+'</div></a>\
-                        <a class="btn btn-store" messageId='+message.id+'><span >'+collect+'</span>（<span>'+message.collectionNum+'</span>）</a>\
+                        <a class="btn btn-store" messageId='+message.id+' style="width: 155px;"><span >'+collect+'</span>（<span>'+message.collectionNum+'</span>）</a>\
                         </div>\
                         <div class="images">\
                             <a href="pc/message/detail?messageId='+message.id+'">\
@@ -324,6 +324,18 @@
                         </li>';
                 }
                 $("#msgList").html(html);
+                $("#msgList").find(".btn-store").mouseover(function(){
+                    var spanOne=$(this).find("span").eq(0);
+                    if(spanOne.text()=="已收藏") {
+                        spanOne.text("取消收藏");
+                    }
+                });
+                $("#msgList").find(".btn-store").mouseout(function(){
+                    var spanOne=$(this).find("span").eq(0);
+                    if(spanOne.text()=="取消收藏") {
+                        spanOne.text("已收藏");
+                    }
+                });
                 $("#msgList").find(".btn-store").unbind("click").click(function(){
                     var messageId=$(this).attr("messageId");
                     var userId = $("#sessionUserId").val();
