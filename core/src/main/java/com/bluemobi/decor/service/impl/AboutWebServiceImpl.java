@@ -115,4 +115,9 @@ public class AboutWebServiceImpl implements AboutWebService {
     public AboutWeb iGetAboutUS() {
         return aboutWebDao.iGetAboutUS(1);
     }
+
+    @Override
+    public List<AboutWeb> all() {
+        return aboutWebDao.all();
+    }
 }
