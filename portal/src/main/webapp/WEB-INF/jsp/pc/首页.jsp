@@ -10,7 +10,11 @@
     <link href="static/pc/css/all.css" rel="stylesheet" type="text/css">
     <link href="static/pc-1.1/css/index.css" rel="stylesheet" type="text/css">
     <meta property="qc:admins" content="25322572076211456375" />
-
+    <style>
+        .cgray{
+            color: gray;
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper">
@@ -328,12 +332,14 @@
                     var spanOne=$(this).find("span").eq(0);
                     if(spanOne.text()=="已收藏") {
                         spanOne.text("取消收藏");
+                        spanOne.addClass("cgray");
                     }
                 });
                 $("#msgList").find(".btn-store").mouseout(function(){
                     var spanOne=$(this).find("span").eq(0);
                     if(spanOne.text()=="取消收藏") {
                         spanOne.text("已收藏");
+                        spanOne.removeClass("cgray");
                     }
                 });
                 $("#msgList").find(".btn-store").unbind("click").click(function(){
