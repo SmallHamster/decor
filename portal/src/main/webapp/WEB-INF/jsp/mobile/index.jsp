@@ -92,7 +92,7 @@
 			<ul class="infoList">
 
 			</ul>
-			<div class="moreTitle"><a href="mobile/forward/to?type=series">更多设计作品</a></div>
+			<div class="moreTitle"><a href="pc/forward/to?type=message">更多设计作品</a></div>
 		</div>
 	<script>
 		$(function(){
@@ -133,11 +133,48 @@
 									</div>\
 									<div class="name"><a href="mobile/designer/detail?designerId='+designer.id+'">'+designer.nickname+'</a></div>\
 									<div class="adress"><span>'+designer.city.province.name+'</span><span>'+designer.city.name+'</span></div>\
-									<div class="collect"><a href="javascript:;"><span>'+designer.fans+'</span></a></div>\
-									<div class="works">'+designer.opus+'</div>\
+									<div class="collect" userid="'+designer.id+'"><a href="javascript:;"><span class="fansNum">'+designer.fans+'</span></a></div>\
+									<div class="works">'+designer.opus+'个作品</div>\
 									</li>';
 						}
 						$(".designerList").html(html);
+						$(".designerList").find(".collect").each(function(){
+							$(this).unbind("click").click(function(){
+								var fansId = $("#mobileUserId").val();
+								var userId = $(this).attr("userid");
+								var $fansNum = $(this).find(".fansNum");
+								if(fansId == ""){
+									window.location.href = _bPath + "mobile/login/loginPage";
+								}else {
+									var flag = commFun.isAttention(userId,fansId);
+									if(flag){
+										commFun.cancelAttention(userId,fansId,function(result){
+											if (result.status == "0") {
+												$bluemobi.notify("取消关注成功！", "success");
+												var fansNum = $fansNum.html();
+												if(isNaN(fansNum)){
+													$fansNum.html(0);
+												}else{
+													$fansNum.html(Number(fansNum) - 1);
+												}
+											}
+										});
+									}else {
+										commFun.attention(userId,fansId,function(result){
+											if (result.status == "0") {
+												$bluemobi.notify("关注成功！", "success");
+												var fansNum = $fansNum.html();
+												if(isNaN(fansNum)){
+													$fansNum.html(1);
+												}else{
+													$fansNum.html(Number(fansNum) + 1);
+												}
+											}
+										});
+									}
+								}
+							});
+						});
 					}
 				}
 			});
@@ -158,12 +195,12 @@
 							var message = result.data[i];
 							html+='<li class="clearfix">\
 								<div class="imgBox">\
-								<a href="mobile/message/detail?messageId='+message.id+'"><img src="'+message.image+'" alt=""></a>\
+								<a href="pc/message/detail?messageId='+message.id+'"><img src="'+message.image+'" alt=""></a>\
 								</div>\
 								<div class="content">\
-								<div class="title"><a href="mobile/message/detail?messageId='+message.id+'">'+message.title+'</a></div>\
+								<div class="title"><a href="pc/message/detail?messageId='+message.id+'">'+message.title+'</a></div>\
 								<div class="time">'+message.createTime+'</div>\
-								<div class="btn"><a href="javascript:;">设计交流</a></div>\
+								<div class="btn"><a href="pc/message/detail?messageId='+message.id+'">设计交流</a></div>\
 								</div>\
 								</li>';
 						}
