@@ -276,12 +276,14 @@
                         });
                         //查看操作
                         $('td', row).last().find(".shows").click(function () {
-                            location.href = _basePath + "backend/goods/shows?id=" + data.id;
+                            //location.href = _basePath + "backend/goods/shows?id=" + data.id;
+                            window.open(_basePath + "backend/goods/shows?id=" + data.id);
                         });
 
                         //编辑操作
                         $('td', row).last().find(".updataGoods").click(function () {
-                            location.href = _basePath + "backend/goods/updataUI?id=" + data.id;
+                            //location.href = _basePath + "backend/goods/updataUI?id=" + data.id;
+                            window.open(_basePath + "backend/goods/updataUI?id=" + data.id);
                         });
 
                         //审核通过操作
