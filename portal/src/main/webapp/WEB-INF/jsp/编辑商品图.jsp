@@ -436,7 +436,8 @@
             },
             responseComplete: function (result, action) {
                 if (result.status == "0") {
-                    window.location.href = _basePath + "/backend/goods/index";
+                    //window.location.href = _basePath + "/backend/goods/index";
+                    $bluemobi.notify("保存成功!", "success");
                 } else {
                     $bluemobi.notify(result.msg, "error");
                 }
