@@ -63,7 +63,7 @@
                 ${infoHtml}
             </div>
             <div class="personRight">
-                <a class="send"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>
+                <a class="send" style="display: none"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>
                 <p>共计36个作品</p>
                 <a id="attention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png" />被${user.fans}人喜欢</a>
                 <a id="cancelAttention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png" />取消关注</a>
