@@ -16,6 +16,18 @@
         }
     </style>
 </head>
+<script>window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "1",
+        "bdSize": "16"
+    }, "share": {}
+};
+with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
 <body>
 <div class="wrapper">
     <div class="page">
@@ -96,7 +108,7 @@
                     <a id="collect" class="collect" style="display: none"><i></i>${series.collectionNum}次收藏</a>
                     <a id="cancelCollect" class="collect" style="display: none"><i></i>取消收藏</a>
                 </h3>
-                <h3><a class="share"><i></i>分享给朋友</a></h3>
+                <h3 style="margin-top: 1px;"><div class="bdsharebuttonbox"><a class="share bds_more" data-cmd="more" style="height: 22px;padding-left: 0px;font-size: 14px;line-height: 22px;"><i></i>分享给朋友</a></div></h3>
                 <h2 class="all">全部系列图（36）</h2>
                 <p>我在海边的木头房子里面患过伤风<br/>SOMA Condo<br/>South of Market loft<br/>Tiny Bathroom Remodels<br/>Small San Francisco Bathroom Remodel<br/>San Francisco Charmer<br/>Custom Furniture<br/>My Houzz: Stylish City Living, Toddler Included<br/>Forest Hill Transformation</p>
                 <a href="pc/user/detail?userId=${series.user.id}" class="back">返回设计师首页</a>
