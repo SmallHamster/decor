@@ -186,7 +186,7 @@
 								<div class="name"><a href="mobile/designer/detail?designerId='+designer.id+'">'+designer.nickname+'</a></div>\
 								<div class="adress"><span>'+designer.city.province.name+'</span><span>'+designer.city.name+'</span></div>\
 								<div class="collect"><a href="javascript:;"><span>'+designer.fans+'</span></a></div>\
-								<div class="works">'+designer.opus+'</div>\
+								<div class="works">'+designer.opus+'个作品</div>\
 								</li>';
 						}
 						if(action){
