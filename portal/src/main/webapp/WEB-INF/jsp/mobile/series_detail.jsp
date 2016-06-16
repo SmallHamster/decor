@@ -23,8 +23,8 @@
 
 	<%@ include file="common/header.jsp" %>
 		<div class="main">
-			<div class="userInfoBox">
-				<div class="content">
+			<div class="userInfoBox" style="height: auto;">
+				<div class="content" style="height: auto;">
 					<input type="hidden" id="creator" value="${series.user.id}"/>
 					<div class="headBox">
 						<img src="${series.user.headImage}" alt="">
