@@ -701,7 +701,8 @@
             ,
             responseComplete: function (result, action) {
                 if (result.status == "0") {
-                    window.location.href = _basePath + "/backend/scene/index";
+                    //window.location.href = _basePath + "/backend/scene/index";
+                    $bluemobi.notify("保存成功!", "success");
                 } else {
                     $bluemobi.notify(result.msg, "error");
                 }

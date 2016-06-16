@@ -360,7 +360,8 @@
                         });
 
                         $('td', row).last().find(".updata").click(function () {
-                            location.href = _basePath + "backend/scene/updataUI?id=" + data.id;
+                            //location.href = _basePath + "backend/scene/updataUI?id=" + data.id;
+                            window.open(_basePath + "backend/scene/updataUI?id=" + data.id);
                         });
                         
                         //查看操作
