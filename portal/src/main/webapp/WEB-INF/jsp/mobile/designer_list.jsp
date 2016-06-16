@@ -185,7 +185,7 @@
 								</div>\
 								<div class="name"><a href="mobile/designer/detail?designerId='+designer.id+'">'+designer.nickname+'</a></div>\
 								<div class="adress"><span>'+designer.city.province.name+'</span><span>'+designer.city.name+'</span></div>\
-								<div class="collect"><a href="javascript:;"><span>'+designer.fans+'</span></a></div>\
+								<div class="collect" userid="'+designer.id+'"><a href="javascript:;"><span class="fansNum">'+designer.fans+'</span></a></div>\
 								<div class="works">'+designer.opus+'个作品</div>\
 								</li>';
 						}
@@ -194,6 +194,43 @@
 						}else{
 							$(".designerList").append(html);
 						}
+						$(".designerList").find(".collect").each(function(){
+							$(this).unbind("click").click(function(){
+								var fansId = $("#mobileUserId").val();
+								var userId = $(this).attr("userid");
+								var $fansNum = $(this).find(".fansNum");
+								if(fansId == ""){
+									window.location.href = _bPath + "mobile/login/loginPage";
+								}else {
+									var flag = commFun.isAttention(userId,fansId);
+									if(flag){
+										commFun.cancelAttention(userId,fansId,function(result){
+											if (result.status == "0") {
+												$bluemobi.notify("取消关注成功！", "success");
+												var fansNum = $fansNum.html();
+												if(isNaN(fansNum)){
+													$fansNum.html(0);
+												}else{
+													$fansNum.html(Number(fansNum) - 1);
+												}
+											}
+										});
+									}else {
+										commFun.attention(userId,fansId,function(result){
+											if (result.status == "0") {
+												$bluemobi.notify("关注成功！", "success");
+												var fansNum = $fansNum.html();
+												if(isNaN(fansNum)){
+													$fansNum.html(1);
+												}else{
+													$fansNum.html(Number(fansNum) + 1);
+												}
+											}
+										});
+									}
+								}
+							});
+						});
 					}
 				}
 			});
