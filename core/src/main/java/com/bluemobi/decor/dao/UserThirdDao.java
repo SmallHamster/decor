@@ -24,4 +24,7 @@ public interface UserThirdDao extends JpaRepository<UserThird, Integer>, JpaSpec
 
     @Query("select a from UserThird a where a.open_id = ?1 and a.type = ?2")
     public UserThird findByOpenidAndType(String openId, String type);
+
+    @Query("select a from UserThird a where a.user.id = ?1 and a.type = ?2")
+    public List<UserThird> findByUserIdAndType(Integer userId, String type);
 }

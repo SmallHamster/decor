@@ -97,4 +97,9 @@ public class UserThirdServiceImpl implements UserThirdService {
     public List<UserThird> iFindUserThirdWithUser(User user) {
         return userThirdDao.iFindUserThirdWithUser(user);
     }
+
+    @Override
+    public List<UserThird> findByUserIdAndType(Integer userId, String type) {
+        return userThirdDao.findByUserIdAndType(userId,type);
+    }
 }

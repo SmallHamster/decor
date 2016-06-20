@@ -6,6 +6,7 @@ import com.bluemobi.decor.entity.UserThird;
 import com.bluemobi.decor.portal.controller.CommonController;
 import com.bluemobi.decor.portal.util.WebUtil;
 import com.bluemobi.decor.service.UserThirdService;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,22 @@ public class UserThirdController4Pc extends CommonController {
             user.setId(userId);
             List<UserThird> list = userThirdService.iFindUserThirdWithUser(user);
             WebUtil.print(response, new Result(true).data(list));
+        } catch (Exception e) {
+            e.printStackTrace();
+            WebUtil.print(response, new Result(false).msg("系统异常，请刷新页面后重试!"));
+        }
+    }
+
+    @RequestMapping(value = "/cancelThirdBind")
+    public void cancelThirdBind(HttpServletResponse response,Integer userId,String type){
+        try {
+            List<UserThird> list = userThirdService.findByUserIdAndType(userId,type);
+            if(CollectionUtils.isNotEmpty(list)){
+                for(UserThird userThird : list){
+                    userThirdService.deleteById(userThird.getId());
+                }
+            }
+            WebUtil.print(response, new Result(true));
         } catch (Exception e) {
             e.printStackTrace();
             WebUtil.print(response, new Result(false).msg("系统异常，请刷新页面后重试!"));

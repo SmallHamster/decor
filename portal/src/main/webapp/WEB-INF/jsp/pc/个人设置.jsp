@@ -185,6 +185,10 @@
 <script src="static/js/plugins/dropper/jquery.fs.dropper.js"></script>
 <script type="text/javascript">
     $(function () {
+        // 用户失效，则返回首页
+        if($("#sessionUserId").val() == ""){
+            window.location.replace('index');
+        }
         // 图片上传
         $("#photo .dropped").dropper({
             postKey: "file",
@@ -203,13 +207,44 @@
         showObject("user");
         ajaxFindUser();
         findThirdInfo();
+        // 取消绑定
+        $("#third-party").find("._weibo").find(".cancel").unbind("click").click(function(){
+            cancelThirdBind(4);
+        });
+        $("#third-party").find("._qq").find(".cancel").unbind("click").click(function(){
+            cancelThirdBind(3);
+        });
+        $("#third-party").find("._weixin").find(".cancel").unbind("click").click(function(){
+            cancelThirdBind(2);
+        });
     });
+
+    // 取消第三方绑定
+    function cancelThirdBind(type){
+        layer.confirm('您确定要取消绑定？', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            $bluemobi.ajax("pc/userThird/cancelThirdBind", {userId: $("#sessionUserId").val(),type:type}, function (result) {
+                if (result.status == "0") {
+                    $bluemobi.notify("操作成功", "success");
+                    layer.closeAll();
+                    findThirdInfo();
+                }else {
+                    $bluemobi.notify(result.msg, "error");
+                }
+            });
+        }, function(){
+
+        });
+    }
 
     //第三方类型(微信:2,QQ:3,,新浪:4)
     function findThirdInfo(){
+        $("#third-party").find(".binded").hide();
+        $("#third-party").find(".cancel").hide();
+        $("#third-party").find(".bindingAccount").show();
         var userId = $("#sessionUserId").val();
         $bluemobi.ajax("pc/userThird/findInfo", {userId: userId}, function (result) {
-            debugger
             if (result.status == "0") {
                 for (var i = 0; i < result.data.length; i++) {
                     var userThird = result.data[i];

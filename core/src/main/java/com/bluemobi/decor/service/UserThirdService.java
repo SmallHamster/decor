@@ -16,4 +16,6 @@ public interface UserThirdService extends ICommonService<UserThird> {
 
     // 根据用户ID查询对应的第三方绑定信息
     public List<UserThird> iFindUserThirdWithUser(User user);
+
+    public List<UserThird> findByUserIdAndType(Integer userId, String type);
 }
