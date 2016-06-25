@@ -444,15 +444,15 @@ public class UserController4Pc extends CommonController {
                 userService.bindingOpenId(flagUser, open_id, type);
 
                 // 返回用户信息
-                User newUser = userService.pcLoginPlus(flagUser.getNickname(), flagUser.getPassword());
-                String nickname = newUser.getNickname();
+//                User newUser = userService.pcLoginPlus(flagUser.getNickname(), flagUser.getPassword());
+                String nickname = userPlus.getNickname();
                 String shortNickname = nickname;
                 if (nickname != null && nickname.length() > 4) {
                     shortNickname = nickname.substring(0, 4) + "...";
                 }
-                newUser.setShortNickname(shortNickname);
+                userPlus.setShortNickname(shortNickname);
                 // WebUtil.print(response, new Result(true).data(newUser));
-                SessionUtils.put("user",newUser);
+                SessionUtils.put(Constant.SESSION_PC_USER,userPlus);
             } else {
                 // WebUtil.printApi(response, new Result(false).msg("服务器异常"));
             }
@@ -460,16 +460,16 @@ public class UserController4Pc extends CommonController {
             User user = openUser.getUser();
             if (user.getStatus().equals(Constant.USER_ENABLE)) {
                 try {
-                    User newUser = userService.pcLoginPlus(user.getNickname(), user.getPassword());
-                    if (null != newUser) {
-                        String nickname = newUser.getNickname();
+//                    User newUser = userService.pcLoginPlus(user.getNickname(), user.getPassword());
+                    if (null != user) {
+                        String nickname = user.getNickname();
                         String shortNickname = nickname;
                         if (nickname != null && nickname.length() > 4) {
                             shortNickname = nickname.substring(0, 4) + "...";
                         }
-                        newUser.setShortNickname(shortNickname);
+                        user.setShortNickname(shortNickname);
                         // WebUtil.print(response, new Result(true).data(newUser));
-                        SessionUtils.put("user",newUser);
+                        SessionUtils.put(Constant.SESSION_PC_USER,user);
                     } else {
                         // WebUtil.print(response, new Result(false).msg("用户名或密码错误!"));
                     }
