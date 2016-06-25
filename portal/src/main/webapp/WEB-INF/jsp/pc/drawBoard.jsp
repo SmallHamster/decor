@@ -14,6 +14,9 @@
         .popup-wrap{
             z-index: 99999;
         }
+        .content{
+            width: initial;
+        }
     </style>
 </head>
 <body>
@@ -23,7 +26,7 @@
         <div class="crawingLeft">
             <div class="saveBox">
                 <a href="javascript:;" class="news">新 建</a>
-                <a href="javascript:;" class="save" onclick="save()">保 存</a>
+                <a href="javascript:;" class="save">保 存</a>
                 <p><a href="javascript:;" class="leftx"></a><a href="javascript:;" class="rightx"></a></p>
                 <p><a href="javascript:;" class="big"></a><a href="javascript:;" class="small"></a></p>
             </div>
@@ -128,6 +131,52 @@
         </div>
     </div>
 </div>
+
+<!--保存弹出-->
+<div class="modalbg"></div>
+<div class="modal" style="height: auto">
+    <h2>保存搭配</h2>
+    <i class="close">×</i>
+    <form>
+        <div class="modal_l">
+            <dl class="clearfix">
+                <dt>名称</dt>
+                <dd><input type="text" class="sceneName" placeholder="请输入标题"></dd>
+            </dl>
+            <dl class="clearfix">
+                <dt>签名</dt>
+                <dd><textarea class="info" placeholder="请对搭配进行描述"></textarea></dd>
+            </dl>
+        </div>
+        <div class="modal_r">
+            <dl class="clearfix">
+                <dt>风格标签</dt>
+                <dd class="styleTagList"><input class="show" type="text" placeholder="请点击下面的标签" readonly>
+                                         <input class="ids styleTagIds" type="hidden" value="">
+
+                </dd>
+            </dl>
+            <dl class="clearfix">
+                <dt>空间标签</dt>
+                <dd class="spaceTagList"><input class="show" type="text" placeholder="请点击下面的标签" readonly>
+                    <input class="ids spaceTagIds" type="hidden" value="">
+
+                </dd>
+            </dl>
+            <div class="y">
+                <div class="y_open">
+                    <input type="checkbox" id="open"><label for="open">设为公开</label>
+                </div>
+                <div class="y_btn">
+                    <input type="button" class="btn1" onclick="save()" value="确定">
+                    <input type="button" class="btn2" value="取消">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!--保存弹出-->
+
 <%@ include file="common/footer.jsp" %>
 <script type="text/javascript" src="static/pc/js/base.js"></script>
 
@@ -142,6 +191,28 @@
     // 背景图div对象
     var $bg = $(".bgList");
     $(function () {
+        $('.crawingLeft').width($(window).width() - 560 + 'px');
+        $(window).resize(function(event) {
+            $('.crawingLeft').width($(window).width() - 560 + 'px');
+        });
+        $('.save').on('click', function(event) {
+            event.preventDefault();
+            if($("#sessionUserId").val() == ""){
+                layer.msg('请先登录');
+                return false;
+            }
+            $('.modalbg').show();
+            $('.modal').show();
+//            $('html').css('overflow','hidden');
+        });
+        $('.modal i.close,.modal .btn2').click(function(){
+            $('.modalbg').hide();
+            $('.modal').hide();
+            $('html').css('overflow','auto');
+        })
+
+
+
         // 默认选中第2个
         $('.crawTabs .hd li').eq(1).trigger("click");
 
@@ -188,6 +259,8 @@
         pageBackground();
 
         allKindTag();
+        ajaxStyleTagList();
+        ajaxSpaceTagList();
     });
 
     // 全部分类
@@ -319,6 +392,72 @@
                 $bluemobi.notify("系统异常，请刷新页面后重试！", "error");
             }
         });
+    }
+
+    // 加载风格分类
+    function ajaxStyleTagList(){
+        $bluemobi.ajax("pc/comm/ajaxStyleTagList",{},function(result){
+            if (result.status == "0") {
+                var html = '';
+                for(var i=0;i<result.data.length;i++){
+                    var styleTag = result.data[i];
+                    var styleIndex = "style" + (i*1+1);
+                    var _class = "";
+                    if(styleTag.name && styleTag.name.length > 4){
+                        _class = "two";
+                    }
+//                    html += '<a styletagid="'+styleTag.id+'">'+styleTag.name+'</a>';
+                    html+='<input type="checkbox" name="" id="'+styleIndex+'"><label _id="'+styleTag.id+'" class="'+_class+'" for="'+styleIndex+'">'+styleTag.name+'</label>';
+                }
+                $(".styleTagList").append(html);
+                tagStyle();
+            }
+        });
+    }
+
+    // 加载风格分类
+    function ajaxSpaceTagList(){
+        $bluemobi.ajax("pc/comm/ajaxSpaceTagList",{},function(result){
+            if (result.status == "0") {
+                var html = '';
+                for(var i=0;i<result.data.length;i++){
+                    var spaceIndex = "space" + (i*1+1);
+                    var spacetag = result.data[i];
+//                    html += '<a spacetagid="'+spacetag.id+'">'+spacetag.name+'</a>';
+                    var _class = "";
+                    if(spacetag.name && spacetag.name.length > 4){
+                        _class = "two";
+                    }
+                    html+='<input type="checkbox" name="" id="'+spaceIndex+'"><label _id="'+spacetag.id+'" class="'+_class+'" for="'+spaceIndex+'">'+spacetag.name+'</label>';
+                }
+                $(".spaceTagList").append(html);
+                tagStyle();
+            }
+        });
+    }
+
+    function tagStyle(){
+        $('.modal_r input[type="checkbox"]').unbind("click").click(function(){
+            var chk_value = [];
+            var ids_value = [];
+            var inp = $(this).parents('dd').find('.show');
+            var ids = $(this).parents('dd').find('.ids');
+            if(inp.val() != ''){
+                chk_value = inp.val().split(',');
+                ids_value = ids.val().split(',');
+            }
+            if($(this).is(':checked')){
+                chk_value.push($(this).next('label').text());
+                ids_value.push($(this).next('label').attr("_id"));
+                inp.val(chk_value);
+                ids.val(ids_value);
+            }else{
+                chk_value.splice($.inArray($(this).next('label').text(),chk_value),1);
+                ids_value.splice($.inArray($(this).next('label').attr("_id"),ids_value),1);
+                inp.val(chk_value);
+                ids.val(ids_value);
+            }
+        })
     }
 </script>
 </body>

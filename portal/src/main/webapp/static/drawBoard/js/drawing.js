@@ -431,6 +431,12 @@ function addTab(Name){
         })
     }
 
+    document.onkeydown = function(event){
+        if(event.keyCode == 46){
+            $('.imgselected').remove();
+        }
+    }
+
     //复制
     //function clone(){
         $('.fz').click(function(event){
@@ -585,6 +591,32 @@ function addTab(Name){
 
     //保存为图片
     function save(){
+
+        if($("#sessionUserId").val() == ""){
+            layer.msg('请先登录');
+            return false;
+        }
+        var sceneName = $(".modal").find(".sceneName").val();
+        var info = $(".modal").find(".info").val();
+        var styleTagIds = $(".modal").find(".styleTagIds").val();
+        var spaceTagIds = $(".modal").find(".spaceTagIds").val();
+        if(sceneName == ""){
+            layer.msg('请输入名称');
+            return false;
+        }
+        if(info == ""){
+            layer.msg('请输入签名');
+            return false;
+        }
+        if(styleTagIds == ""){
+            layer.msg('请选择风格标签');
+            return false;
+        }
+        if(spaceTagIds == ""){
+            layer.msg('请选择空间标签');
+            return false;
+        }
+
         var index = layer.load(0, {shade: [0.1, '#000']});
         chanceQiniuPathToLocal(function(){
             $('.drop1').removeClass('imgselected').find('span').remove();
@@ -595,7 +627,7 @@ function addTab(Name){
                     //alert(img)
                     //console.log(img)
                     //window.location.href=img;
-                    uploadBase64(img);
+                    uploadBase64(img,sceneName,info,styleTagIds,spaceTagIds);
                     layer.close(index);
                     $('.news').trigger("click");
                 }
@@ -635,7 +667,7 @@ function addTab(Name){
         });
     }
 
-    function uploadBase64(image) {
+    function uploadBase64(image,sceneName,info,styleTagIds,spaceTagIds) {
         var path = "";
         $('#container').find("img").each(function(index){
             if(index != 0){
@@ -643,17 +675,25 @@ function addTab(Name){
             }
             path += $(this).attr("src");
         });
+        var isShow = "no";
+        if($("#open").is(':checked')){
+            isShow = "yes";
+        }
+        var data = {image: image,userId:$("#sessionUserId").val(),path:path
+        ,sceneName:sceneName,info:info,styleTagIds:styleTagIds,spaceTagIds:spaceTagIds,isShow:isShow};
         $.ajax({
             type: 'POST',
             url: 'pc/upload/uploadBase64ImageToQiniu',
-            data: {image: image,userId:$("#sessionUserId").val(),path:path},
+            data: data,
             async: false,
             dataType: 'json',
             success: function (data) {
                 if (data.status=="0") {
-                    $bluemobi.notify("保存成功", "success");
+                    layer.alert('保存成功', {icon: 6});
+                    $('.modalbg').hide();
+                    $('.modal').hide();
                 } else {
-                    $bluemobi.notify(data.msg, "error");
+                    layer.alert(data.msg, {icon: 2});
                 }
 
             },

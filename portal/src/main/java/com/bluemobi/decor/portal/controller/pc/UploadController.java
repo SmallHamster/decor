@@ -5,6 +5,7 @@ import com.bluemobi.decor.portal.controller.CommonController;
 import com.bluemobi.decor.portal.util.UploadUtils;
 import com.bluemobi.decor.portal.util.WebUtil;
 import com.bluemobi.decor.service.DrawBoardService;
+import com.bluemobi.decor.service.SceneService;
 import com.bluemobi.decor.service.UploadImageService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,8 @@ public class UploadController extends CommonController {
     private UploadImageService uploadImageService;
     @Autowired
     private DrawBoardService drawBoardService;
+    @Autowired
+    private SceneService sceneService;
 
 
     @RequestMapping(value = "/uploadImageToQiniu")
@@ -59,7 +62,12 @@ public class UploadController extends CommonController {
     // 上传base64图片
     @RequestMapping(value = "/uploadBase64ImageToQiniu")
     public void uploadBase64ImageToQiniu(HttpServletRequest request,
-                                           HttpServletResponse response,Integer userId,String path) {
+                                           HttpServletResponse response,Integer userId,String path,
+                                         String sceneName,
+                                         String styleTagIds,
+                                         String spaceTagIds,
+                                         String info,
+                                         String isShow) {
         String image = request.getParameter("image");
         String header = "data:image/png;base64,";
         image = image.substring(header.length());
@@ -82,6 +90,10 @@ public class UploadController extends CommonController {
             }
             // 保存到数据库
             drawBoardService.save(userId,qiniuPath);
+            // 保存到场景
+            sceneService.insert(userId, sceneName, styleTagIds, spaceTagIds, info, qiniuPath,
+                    isShow, "yes", new ArrayList<Map<String, Object>>());
+
             // 删除本地文件
             try {
                 if(file.isFile() && file.exists()){
