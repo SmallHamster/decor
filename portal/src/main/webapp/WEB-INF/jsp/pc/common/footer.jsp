@@ -519,7 +519,7 @@
         out: function () {
             $bluemobi.ajax("pc/user/logout", {}, function (result) {
                 if (result.status == "0") {
-                    location.reload(true);
+                    location.href='index';
                 }
             });
         }
