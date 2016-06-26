@@ -361,7 +361,7 @@ public class UserController4Pc extends CommonController {
                     shortNickname = nickname.substring(0, 4) + "...";
                 }
                 user.setShortNickname(shortNickname);
-
+                SessionUtils.put(Constant.SESSION_MODE,Constant.SESSION_MODE_MOBILE);
                 int loginMaxAge = 30 * 24 * 60 * 60; // 定义cookies的生命周期，这里是一个月。单位为秒
 //                CookiesUtils.addCookie(response, "userId", user.getId().toString(), loginMaxAge);
                 WebUtil.print(response, new Result(true).data(user));
@@ -453,6 +453,8 @@ public class UserController4Pc extends CommonController {
                 userPlus.setShortNickname(shortNickname);
                 // WebUtil.print(response, new Result(true).data(newUser));
                 SessionUtils.put(Constant.SESSION_PC_USER,userPlus);
+                SessionUtils.put(Constant.SESSION_MODE,Constant.SESSION_MODE_THIRD);
+                SessionUtils.put(Constant.SESSION_USER_THIRD,openUser);
             } else {
                 // WebUtil.printApi(response, new Result(false).msg("服务器异常"));
             }
@@ -470,6 +472,8 @@ public class UserController4Pc extends CommonController {
                         user.setShortNickname(shortNickname);
                         // WebUtil.print(response, new Result(true).data(newUser));
                         SessionUtils.put(Constant.SESSION_PC_USER,user);
+                        SessionUtils.put(Constant.SESSION_MODE,Constant.SESSION_MODE_THIRD);
+                        SessionUtils.put(Constant.SESSION_USER_THIRD,openUser);
                     } else {
                         // WebUtil.print(response, new Result(false).msg("用户名或密码错误!"));
                     }

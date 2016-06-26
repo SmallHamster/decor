@@ -10,6 +10,11 @@
     <link href="static/pc/css/all.css" rel="stylesheet" type="text/css">
     <link href="static/pc/css/personalInfo.css" rel="stylesheet" type="text/css">
 
+    <style>
+        .bindingAccount{
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
@@ -128,45 +133,67 @@
                 </div>
             </div>
             <div class="accountCont" style="padding: 0" id="third-party">
-                <div class="explain border_bottom fs16 colorBlack">
-                    <span class="inline-b"><fmt:message key="info.shifoubangding"/></span>
-                    <span class="inline-b"><fmt:message key="info.tongbushuoming"/></span>
-                </div>
-                <div class="explain-item">
-                    <div class="item mb20 fs16 _weibo">
+                <c:if test="${session_mode == 'session_mode_mobile'}">
+                    <div class="explain border_bottom fs16 colorBlack">
+                        <span class="inline-b"><fmt:message key="info.shifoubangding"/></span>
+                        <span class="inline-b"><fmt:message key="info.tongbushuoming"/></span>
+                    </div>
+                    <div class="explain-item">
+                        <div class="item mb20 fs16 _weibo">
                         <span class="inline-b pl20" style="width: 275px"><i class="iicon weibo"></i><span
                                 class="pl20"><fmt:message key="info.xinlangweibo"/></span></span>
                         <span class="inline-b" style="width: 275px">
-                            <a class="bindingAccount" ><fmt:message key="info.zhanghaobangding"/></a>
-                            <a class="binded" style="display: none"><fmt:message key="info.yibangding"/></a>
+                            <span class="bindingAccount">未绑定</span>
+                            <span class="binded" style="display: none"><fmt:message key="info.yibangding"/></span>
                             <a class="cancel pl10" style="display: none"><fmt:message key="info.quxiao"/></a>
                         </span>
-                        <span class="inline-b fs12 color9" style="width: 550px"><fmt:message
-                                key="info.ninhaiweibangdingxinlangweiboqingdianjibangdingweibojinxingbangding"/></span>
-                    </div>
-                    <div class="item mb20 fs16 _qq">
+                            <span class="inline-b fs12 colorBlack info1" style="width: 550px;display: none">您已经绑定新浪微博，在收集或发布时可选择同步到您的微博</span>
+                            <span class="inline-b fs12 color9 info2" style="width: 550px;">您还未绑定新浪微博 请用微博账户进行登录并绑定手机号</span>
+                        </div>
+                        <div class="item mb20 fs16 _qq">
                         <span class="inline-b pl20" style="width: 275px"><i class="iicon qq"></i><span
                                 class="pl20">QQ</span></span>
                          <span class="inline-b" style="width: 275px">
-                            <a class="bindingAccount" ><fmt:message key="info.zhanghaobangding"/></a>
-                            <a class="binded" style="display: none"><fmt:message key="info.yibangding"/></a>
+                            <span class="bindingAccount">未绑定</span>
+                            <span class="binded" style="display: none"><fmt:message key="info.yibangding"/></span>
                             <a class="cancel pl10" style="display: none"><fmt:message key="info.quxiao"/></a>
                         </span>
-                        <span class="inline-b fs12 colorBlack" style="width: 550px"><fmt:message
+                        <span class="inline-b fs12 colorBlack info1" style="width: 550px;display: none"><fmt:message
                                 key="info.ninyijingbangdingQQzhanghao,zaishoujihuofabushikexuanzetongbudaonindeQQkongjian"/></span>
-                    </div>
-                    <div class="item mb20 fs16 _weixin">
+                            <span class="inline-b fs12 color9 info2" style="width: 550px;">您还未绑定QQ 请用QQ进行登录并绑定手机号</span>
+                        </div>
+                        <div class="item mb20 fs16 _weixin">
                         <span class="inline-b pl20" style="width: 275px"><i class="iicon weixin"></i><span class="pl20"><fmt:message
                                 key="info.weixin"/></span></span>
                          <span class="inline-b" style="width: 275px">
-                            <a class="bindingAccount" ><fmt:message key="info.zhanghaobangding"/></a>
-                            <a class="binded" style="display: none"><fmt:message key="info.yibangding"/></a>
+                            <span class="bindingAccount">未绑定</span>
+                            <span class="binded" style="display: none"><fmt:message key="info.yibangding"/></span>
                             <a class="cancel pl10" style="display: none"><fmt:message key="info.quxiao"/></a>
                         </span>
-                        <span class="inline-b fs12 color9" style="width: 550px"><fmt:message
-                                key="info.ninhaiweibangdingweixinqingdianjibangdingweixinjinxingbangding"/></span>
+                            <span class="inline-b fs12 colorBlack info1" style="width: 550px;display: none">您已经绑定微信，在收集或发布时可选择同步到您的微信</span>
+                            <span class="inline-b fs12 color9 info2" style="width: 550px;">您还未绑定微信 请用微信进行登录并绑定手机号</span>
+                        </div>
                     </div>
-                </div>
+                </c:if>
+                <c:if test="${session_mode == 'session_mode_third'}">
+                    <div class="p-item">
+                        <label class="info1" style="margin-left: 100px;display: none">您已经绑定手机：<span id="bindMobile">${session_pc_user.mobile}</span></label>
+                        <label class="info2" style="margin-left: 100px;display: none">您还未绑定手机，请绑定</label>
+                    </div>
+                    <div class="p-item bindInfo">
+                        <label class="pr10">手机号:
+                        </label><input type="text" class="mobile" placeholder="">
+                    </div>
+                    <div class="p-item bindInfo">
+                        <label class="pr10">密码:
+                        </label><input type="password" class="password" placeholder="">
+                    </div>
+                    <div class="p-item pt20 bindInfo">
+                        <label></label>
+                        <button class="btn blackBtn w150" onClick="bindMobile()">绑定
+                        </button>
+                    </div>
+                </c:if>
             </div>
         </div>
     </div>
@@ -185,6 +212,7 @@
 <script src="static/js/plugins/dropper/jquery.fs.dropper.js"></script>
 <script type="text/javascript">
     $(function () {
+
         // 用户失效，则返回首页
         if($("#sessionUserId").val() == ""){
             window.location.replace('index');
@@ -217,7 +245,42 @@
         $("#third-party").find("._weixin").find(".cancel").unbind("click").click(function(){
             cancelThirdBind(2);
         });
+
+        var bindMobile = $("#bindMobile").html();
+        // 未绑定
+        if(bindMobile.length < 11){
+            $("#third-party").find(".info2").hide();
+        }
+        // 已绑定
+        else {
+            $("#third-party").find(".info1").show();
+            $("#third-party").find(".bindInfo").hide();
+        }
     });
+
+    // 绑定手机号
+    function bindMobile(){
+        var mobile = $("#third-party").find(".mobile").val();
+        var password = $("#third-party").find(".password").val();
+        if(mobile == ''){
+            layer.msg('请输入手机号');
+            return false;
+        }
+        if(password == ''){
+            layer.msg('请输入密码');
+            return false;
+        }
+        var data = {mobile:mobile,password:password};
+        $bluemobi.ajax("pc/userSetting/thirdBindMobile", data, function (result) {
+            if (result.status == "0") {
+                layer.alert('绑定成功', {icon: 6},function(){
+                    location.reload();
+                });
+            }else {
+                layer.msg(result.msg);
+            }
+        });
+    }
 
     // 取消第三方绑定
     function cancelThirdBind(type){
@@ -261,6 +324,8 @@
                     $("#third-party").find(_class).find(".binded").show();
                     $("#third-party").find(_class).find(".cancel").show();
                     $("#third-party").find(_class).find(".bindingAccount").hide();
+                    $("#third-party").find(_class).find(".info2").hide();
+                    $("#third-party").find(_class).find(".info1").show();
                 }
             }
         });

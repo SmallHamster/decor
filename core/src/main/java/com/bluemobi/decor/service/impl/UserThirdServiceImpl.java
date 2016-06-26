@@ -5,6 +5,7 @@ import com.bluemobi.decor.dao.UserThirdDao;
 import com.bluemobi.decor.entity.User;
 import com.bluemobi.decor.entity.UserThird;
 import com.bluemobi.decor.service.UserThirdService;
+import com.bluemobi.decor.utils.ClassUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -66,8 +67,10 @@ public class UserThirdServiceImpl implements UserThirdService {
 
     @Override
     @Transactional
-    public UserThird update(UserThird userThird) {
-        return userThirdDao.save(userThird);
+    public UserThird update(UserThird o) {
+        UserThird dest = getById(o.getId());
+        ClassUtil.copyProperties(dest, o);
+        return userThirdDao.save(dest);
     }
 
     @Override

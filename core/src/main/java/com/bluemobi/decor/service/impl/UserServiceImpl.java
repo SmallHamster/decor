@@ -173,6 +173,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findByMobileAndPassword(String mobile, String password) {
+        return userDao.getByMobileAndPassword(mobile, password);
+    }
+
+    @Override
     public User mobileLogin(String username, String password) {
         List<User> userList = userDao.getByMobileAndPassword(username, password);
         if (userList == null || userList.size() == 0) {
@@ -922,6 +927,14 @@ public class UserServiceImpl implements UserService {
             }
         }
         return infoHtml;
+    }
+
+    @Override
+    @Transactional
+    public User edit(User o) {
+        User dest = getById(o.getId());
+        ClassUtil.copyProperties(dest, o);
+        return userDao.save(dest);
     }
 
 

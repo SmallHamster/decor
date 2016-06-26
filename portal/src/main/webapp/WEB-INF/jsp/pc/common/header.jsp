@@ -9,6 +9,7 @@
         <div class="center">
             <span class="pull-left">DECOR故事&emsp;&emsp;服务热线：400-800-5262</span>
 					<span class="pull-right">
+                        <input type="hidden" id="sessionMode" value="${session_mode}"/>
                         <input type="hidden" id="sessionUserId" value="${session_pc_user.id}"/>
                         <c:if test="${session_pc_user != null}">
                             <div class="user fl" style="cursor: pointer;">

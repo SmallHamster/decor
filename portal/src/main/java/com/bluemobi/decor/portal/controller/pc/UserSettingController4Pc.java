@@ -6,12 +6,15 @@ import com.bluemobi.decor.core.bean.Result;
 import com.bluemobi.decor.entity.City;
 import com.bluemobi.decor.entity.Province;
 import com.bluemobi.decor.entity.User;
+import com.bluemobi.decor.entity.UserThird;
 import com.bluemobi.decor.portal.controller.CommonController;
 import com.bluemobi.decor.portal.util.MD5Util;
 import com.bluemobi.decor.portal.util.SessionUtils;
 import com.bluemobi.decor.portal.util.WebUtil;
 import com.bluemobi.decor.service.CityService;
 import com.bluemobi.decor.service.UserService;
+import com.bluemobi.decor.service.UserThirdService;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,8 +33,10 @@ import java.util.List;
 @RequestMapping(value = "/pc/userSetting")
 public class UserSettingController4Pc extends CommonController {
 
-        @Autowired
+    @Autowired
     private UserService userService;
+    @Autowired
+    private UserThirdService userThirdService;
     @Autowired
     private CityService cityService;
 
@@ -166,6 +171,41 @@ public class UserSettingController4Pc extends CommonController {
         } catch (Exception e) {
             e.printStackTrace();
             WebUtil.print(response, new Result(false).msg("保存失败!"));
+        }
+    }
+
+    // 第三方绑定手机号
+    @RequestMapping(value = "/thirdBindMobile")
+    public void thirdBindMobile(HttpServletRequest request, HttpServletResponse response,
+                                  String mobile,String password){
+        try {
+            password = MD5Util.encodeByMD5(password);
+            List<User> list = userService.findByMobileAndPassword(mobile,password);
+            if(CollectionUtils.isEmpty(list)){
+                WebUtil.print(response, new Result(false).msg("手机号或密码错误，请重新输入"));
+                return;
+            }
+            User mobileUser = list.get(0);
+            UserThird userThird = (UserThird)SessionUtils.get(Constant.SESSION_USER_THIRD);
+            if(userThird == null){
+                WebUtil.print(response, new Result(false).msg("第三方用户有误，请重新登录"));
+                return;
+            }
+            // 禁用第三方用户
+            User thirdUser = (User)SessionUtils.get(Constant.SESSION_PC_USER);
+            if(thirdUser == null){
+                WebUtil.print(response, new Result(false).msg("第三方用户有误，请重新登录"));
+                return;
+            }
+            thirdUser.setStatus(Constant.USER_UNABLE);
+            userService.edit(thirdUser);
+            userThird.setUser(mobileUser);
+            userThirdService.update(userThird);
+            SessionUtils.put(Constant.SESSION_PC_USER,mobileUser);
+            WebUtil.print(response, new Result(true).msg("修改背景图成功!"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            WebUtil.print(response, new Result(false).msg("绑定失败，请刷新页面后重试!"));
         }
     }
 

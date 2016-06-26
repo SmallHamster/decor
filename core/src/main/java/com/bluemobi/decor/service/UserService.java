@@ -8,8 +8,6 @@ import com.bluemobi.decor.service.common.ICommonService;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 
 /**
@@ -22,6 +20,8 @@ public interface UserService extends ICommonService<User> {
 
     // pc端登录操作
     public User pcLogin(String username, String password);
+
+    public List<User> findByMobileAndPassword(String mobile, String password);
 
     // mobile端登录操作
     public User mobileLogin(String username, String password);
@@ -113,4 +113,6 @@ public interface UserService extends ICommonService<User> {
     public List<User> allUser();
 
     public String getInfoHtml(Integer userId);
+
+    public User edit(User o);
 }

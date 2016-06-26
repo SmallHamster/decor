@@ -9,6 +9,10 @@ public interface Constant {
     String SESSION_ADMIN_USER = "user";
     String SESSION_PC_USER = "session_pc_user";
     String SESSION_MOBILE_USER = "session_mobile_user";
+    String SESSION_MODE = "session_mode"; // 用来区分是手机登录，还是第三方账户登录
+    String SESSION_MODE_MOBILE = "session_mode_mobile"; // 用来区分是手机登录，还是第三方账户登录
+    String SESSION_MODE_THIRD = "session_mode_third"; // 用来区分是手机登录，还是第三方账户登录
+    String SESSION_USER_THIRD = "session_user_third";
 
     String ENCODING = "UTF-8";
 
