@@ -1,4 +1,5 @@
 
+var _curIndex = 0;
 $(function(){
         $('.crawTabs .hd li').click(function(){
             if($(this).hasClass("personal")){
@@ -17,6 +18,8 @@ $(function(){
             $('#load').empty();
             $('.crawTabs .bd .con').hide();
             $('.crawTabs .bd .con').eq(index).show();
+            console.log(index)
+            _curIndex = index;
         });
     
     //下拉
@@ -46,62 +49,30 @@ function kindTagClick(){
             }
         }
         if (nowgeshu < 5) {
-            $.ajax({
-                type: 'get',
-                url: 'pc/goods/pageGoodsImageByKindTag',
-                data: {kindTagId:$(this).attr("kindtagid")},
-                async: false,
-                dataType: 'json',
-                success: function (result) {
-                    if (result.status!="0") {
-                        $bluemobi.notify(result.msg, "error");
-                    } else {
-                        // 数据加载成功
-                        $('.crawTabs .hd li').removeClass('on');
-                        addTab(texts);
-                        $('.crawTabs .bd').find('.con').hide();
-                        var divhtml='<div class="con">\
+            $('.crawTabs .hd li').removeClass('on');
+            addTab(texts);
+            $('.crawTabs .bd').find('.con').hide();
+            var divhtml='<div class="con">\
                             <div class="tabscon">\
                             <div class="slideBox proClass">\
                             <div class="imgList nlist">\
                             <ul class="clearfix">\
                             </ul>\
+                            <div class="pages">\
+                            <input type="hidden" class="pageNum" value="1"/>\
+                            <input type="hidden" class="pageSize" value="25"/>\
+                            <a href="javascript:;" class="prev">&lt;</a>\
+                            <span>page <span class="showPageNum">0</span> of <span class="totalPage">0</span></span>\
+                            <a href="javascript:;" class="next">&gt;</a>\
+                            </div>\
                             </div>\
                             </div>\
                             </div>\
                             </div>';
-                        $('.crawTabs .bd').append(divhtml);
+            $('.crawTabs .bd').append(divhtml);
+            ajaxGoods($(this).attr("kindtagid"));
 
-                        // 组装数据
-                        var html='';
-                        for(var i=0;i<result.data.list.length;i++){
-                            var goods = result.data.list[i].goods;
-                            var material = result.data.list[i].material;
-                            if(goods && goods != null && goods != "null" && material && material != null && material !="null"){
-                                html+='<li><a class="drop"><img src="'+material.image+'" alt="" title="" width="92" height="92"/></a>\
-                                    <div class="imgInfo" style="display: none">\
-                                    <a class="drop"><img src="'+material.image+'" width="138" height="138"></a>\
-                                    <div class="info">\
-                                    <h4>'+goods.name+'</h4>\
-                                    <p>'+goods.price+'</p>\
-                                </div>\
-                                <span class="close">×</span>\
-                                </div>\
-                                </li>';
-                            }
-                        }
-                        if(html==''){
-                            html="暂无数据";
-                        }
-                        $('.crawTabs .bd .con').last().find("ul").html(html);
-                        info();
-                        drop();
-                    }
-                },
-                error: function (err) {
-                    $bluemobi.notify("系统异常，请刷新页面后重试！", "error");
-                }
-            });
+
         }else{
             $bluemobi.notify("您已打开了3个标签。请关闭部分标签后再打开新标签！", "error");
             return false;
@@ -114,11 +85,85 @@ function kindTagClick(){
             $('#load').empty();
             $('.crawTabs .bd .con').hide();
             $('.crawTabs .bd .con').eq(index).show();
+            _curIndex = index;
         })
     })
 }
 
+function ajaxGoods(kindTagId,pageNum){
+    if(!pageNum){
+        pageNum = 1;
+    }
+    var pageSize = 20;
+    $.ajax({
+        type: 'get',
+        url: 'pc/goods/pageGoodsImageByKindTag',
+        data: {kindTagId:kindTagId,pageNum:pageNum,pageSize:pageSize},
+        async: false,
+        dataType: 'json',
+        success: function (result) {
+            if (result.status!="0") {
+                $bluemobi.notify(result.msg, "error");
+            } else {
+                // 组装数据
+                var html='';
+                for(var i=0;i<result.data.list.length;i++){
+                    var goods = result.data.list[i].goods;
+                    var material = result.data.list[i].material;
+                    if(goods && goods != null && goods != "null" && material && material != null && material !="null"){
+                        html+='<li><a class="drop"><img src="'+material.image+'" alt="" title="" width="92" height="92"/></a>\
+                                    <div class="imgInfo" style="display: none">\
+                                    <a class="drop"><img src="'+material.image+'" width="138" height="138"></a>\
+                                    <div class="info">\
+                                    <h4>'+goods.name+'</h4>\
+                                    <p>'+goods.price+'</p>\
+                                </div>\
+                                <span class="close">×</span>\
+                                </div>\
+                                </li>';
+                    }
+                }
+                if(html==''){
+                    html="暂无数据";
+                }
+                var $curCon = $('.crawTabs .bd .con').eq(_curIndex);
+                $curCon.find("ul").html(html);
+                $curCon.find(".pageNum").val(result.data.page.currentPage);
+                if(result.data.page.totalPage==0){
+                    $curCon.find(".showPageNum").html(0);
+                }else {
+                    $curCon.find(".showPageNum").html(result.data.page.currentPage);
+                }
+                $curCon.find(".totalPage").html(result.data.page.totalPage);
+
+                $curCon.find(".prev").unbind("click").click(function(){
+                    var pageNum = Number($curCon.find(".pageNum").val());
+                    if(pageNum > 1){
+                        $curCon.find(".pageNum").val(pageNum - 1);
+                        ajaxGoods(kindTagId,pageNum - 1);
+                    }
+                });
+                $curCon.find(".next").unbind("click").click(function(){
+                    var pageNum = Number($curCon.find(".pageNum").val());
+                    var totalPage = Number($curCon.find(".totalPage").html());
+                    if(pageNum < totalPage){
+                        $curCon.find(".pageNum").val(pageNum + 1);
+                        ajaxGoods(kindTagId,pageNum + 1);
+                    }
+                });
+
+                info();
+                drop();
+            }
+        },
+        error: function (err) {
+            $bluemobi.notify("系统异常，请刷新页面后重试！", "error");
+        }
+    });
+}
+
 function addTab(Name){
+    console.log("addTab")
     var showName = Name;
     if(Name && Name.length>3){
         showName = Name.substring(0,3);
@@ -126,6 +171,7 @@ function addTab(Name){
     var add_li = $('<li class="on"><b title="'+Name+'">'+showName+'</b><span class="godel">×</span></li>');
     $('.crawTabs .hd ul').append(add_li);
     $('.crawTabs .bd').find('.con').hide();
+    _curIndex = $('.crawTabs .hd ul').find("li").length - 1;
     // 绑定删除事件
     $(".godel").unbind("click").click(function(){
         var index = $('.crawTabs .hd li').index($(this).parent());
@@ -154,7 +200,7 @@ function addTab(Name){
             event.stopPropagation();
             $('.imgInfo').hide();
         })
-        $('select').searchableSelect();
+        //$('select').searchableSelect();
         $('.searchable-select:last-child').css('float','right');
     }
     
