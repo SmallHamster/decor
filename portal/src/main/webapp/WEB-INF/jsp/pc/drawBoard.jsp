@@ -165,7 +165,7 @@
             </dl>
             <div class="y">
                 <div class="y_open">
-                    <input type="checkbox" id="open"><label for="open">设为公开</label>
+                    <input type="checkbox" id="open" checked><label for="open">设为公开</label>
                 </div>
                 <div class="y_btn">
                     <input type="button" class="btn1" onclick="save()" value="确定">
