@@ -219,8 +219,8 @@
                             <a href="pc/series/detail?seriesId=' + series.id + '"><img src="' + series.cover + '?imageView2/1/w/357/h/200" width="300" height="200"/></a>\
                             <div class="list-con cleafix">\
                             <a href="#" class="list-avater">\
-                            <img src="static/pc-1.1/images/designer_pic1.png" />\
-                            <p>ryel</p>\
+                            <img src="' + series.user.headImage + '?imageView2/1/w/60/h/60" />\
+                            <p>' + series.user.nickname + '</p>\
                             </a>\
                             <div class="list-con-right">\
                             <a href="pc/series/detail?seriesId=' + series.id + '" class="tit slh">'+series.info+'</a>\
