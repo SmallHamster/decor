@@ -507,8 +507,8 @@ function addTab(Name){
 
     //上移一层
     function sy(){
-        
-        $('.sy').click(function(event){
+
+        $('.sy').unbind("click").click(function(event){
             event.stopPropagation();
             var zindex = $('.imgselected').zIndex();
             $('.imgselected').zIndex(zindex+1);
@@ -517,10 +517,15 @@ function addTab(Name){
 
     //下移一层
     function xy(){
-        $('.xy').click(function(event){
+
+        $('.xy').unbind("click").click(function(event){
             event.stopPropagation();
             var zindex = $('.imgselected').zIndex();
-            $('.imgselected').zIndex(zindex-1);
+            var toIndex = 1;
+            if(zindex > 1){
+                toIndex = zindex-1;
+            }
+            $('.imgselected').zIndex(toIndex);
         })
     }
 
