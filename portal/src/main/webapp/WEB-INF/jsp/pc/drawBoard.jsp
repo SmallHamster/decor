@@ -375,7 +375,7 @@
                     var html='';
                     for(var i=0;i<result.data.list.length;i++){
                         var kindTag = result.data.list[i];
-                        html+='<li><a kindtagid="'+kindTag.id+'"><img src="'+kindTag.image+'" alt="" title="'+kindTag.name+'" /><p class="slh" title="'+kindTag.name+'">'+kindTag.name+'</p></a></li>';
+                        html+='<li><a kindtagid="'+kindTag.id+'"><img src="'+kindTag.image+'?imageView2/1/w/60/h/60" alt="" title="'+kindTag.name+'" /><p class="slh" title="'+kindTag.name+'">'+kindTag.name+'</p></a></li>';
                     }
                     $div.find(".classList").find("ul").html(html);
                     $div.find(".pageNum").val(result.data.page.currentPage);
