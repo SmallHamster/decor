@@ -144,7 +144,7 @@
                 <dd><input type="text" class="sceneName" placeholder="请输入标题"></dd>
             </dl>
             <dl class="clearfix">
-                <dt>签名</dt>
+                <dt>简称</dt>
                 <dd><textarea class="info" placeholder="请对搭配进行描述"></textarea></dd>
             </dl>
         </div>
