@@ -26,7 +26,8 @@ public class MsgSmsUtil {
     /**
      * api接口
      */
-    private final static String account = "cf_junvb27";
+//    private final static String account = "cf_junvb27";
+    private final static String account = "cf_decor";
 
 
     /**
