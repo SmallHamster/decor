@@ -306,7 +306,7 @@
                         html1 += '<li><img src="' + goods.cover + '" title="" alt="" width="715" height="715" /></li>';
                     }
                     $("#goodsList").html(html);
-                    $("#goodsList1").html(html1);
+//                    $("#goodsList1").html(html1);
                     roll($('div.scene-show'));
                     $(".handler-next").trigger("click");
                 }
