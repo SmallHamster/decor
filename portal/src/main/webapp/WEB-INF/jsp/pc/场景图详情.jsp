@@ -95,10 +95,10 @@
             <div class="center scene">
                 <div class="breadcrumb" style="height: 55px;"><a href="pc/forward/to?type=series">< 返回系列图</a></div>
                 <div class="wall">
-                    <div class="scene-show">
-                        <div class="list">
+                    <div class="scene-show" style="height: auto;position: initial">
+                        <div class="list" style="height: auto;position: initial">
                             <ul id="goodsList1">
-                                <li style="display: list-item;"><img src="${scene.image}" title="" alt="" style="width: 715px;height: auto"></li>
+                                <li style="display: list-item;position: relative"><img src="${scene.image}" title="" alt="" style="width: 715px;height: auto"></li>
                             </ul>
                         </div>
                         <%--<div class="handler-prev"></div>--%>
