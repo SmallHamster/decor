@@ -113,7 +113,7 @@ To change this template use File | Settings | File Templates.
                             <label class="col-sm-2 control-label">链接</label>
 
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" id="link" name="link" maxlength="50"
+                                <input type="text" class="form-control" id="link" name="link" maxlength="500"
                                        data-rule="required;url" placeholder="请输入网址">
                             </div>
                         </div>
