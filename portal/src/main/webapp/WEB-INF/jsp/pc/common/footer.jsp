@@ -508,6 +508,10 @@
                 $(".loginDiv .error").text("<fmt:message key="info.shoujihaobunengweikong"/>");
                 return false;
             }
+            if (username.length<11) {
+                $(".loginDiv .error").text("手机号少于11位");
+                return false;
+            }
             if (password == "") {
                 $(".loginDiv .error").text("<fmt:message key="info.mimabunengweikong"/>");
                 return false;
@@ -799,6 +803,11 @@
             $bluemobi.notify("<fmt:message key="info.shoujihaobunengweikong"/>", "error");
             return false;
         }
+        if (mobile.length<11) {
+            $(".registerDiv").find("input").eq(0).focus();
+            $bluemobi.notify("手机号少于11位", "error");
+            return false;
+        }
         _changeBtn = $(".registerDiv .sendCodeBtn");
         if(_changeBtn.text()!=_changeBtn.attr("defaultVal")){
             return false;
@@ -842,6 +851,11 @@
         if (mobile == "") {
             $(".registerDiv").find("input").eq(0).focus();
             $bluemobi.notify("<fmt:message key="info.shoujihaobunengweikong"/>", "error");
+            return false;
+        }
+        if (mobile.length<11) {
+            $(".registerDiv").find("input").eq(0).focus();
+            $bluemobi.notify("手机号少于11位", "error");
             return false;
         }
         if (nickname == "") {
@@ -899,6 +913,11 @@
             $bluemobi.notify("<fmt:message key="info.shoujihaobunengweikong"/>", "error");
             return false;
         }
+        if (mobile.length<11) {
+            $(".findPasswordDiv").find("input").eq(0).focus();
+            $bluemobi.notify("手机号少于11位", "error");
+            return false;
+        }
         _changeBtn = $(".findPasswordDiv .sendCodeBtn");
         if(_changeBtn.text()!=_changeBtn.attr("defaultVal")){
             return false;
@@ -938,6 +957,11 @@
         if (mobile == "") {
             $(".findPasswordDiv").find("input").eq(0).focus();
             $bluemobi.notify("<fmt:message key="info.shoujihaobunengweikong"/>", "error");
+            return false;
+        }
+        if (mobile.length<11) {
+            $(".findPasswordDiv").find("input").eq(0).focus();
+            $bluemobi.notify("手机号少于11位", "error");
             return false;
         }
         if (code == "") {
