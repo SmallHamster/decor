@@ -293,6 +293,9 @@
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                     $(".page_rgt_totalPage").html(thisPage.totalPage);
                     showImg();
+                    if(result.data.page.totalNum <= 0){
+                        $(".pagination").hide();
+                    }
                 }
             });
         }
