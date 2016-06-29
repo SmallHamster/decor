@@ -116,7 +116,9 @@
     <div class='Poplogo'><img src='static/pc/images/login_logo.png'/></div>
     <div class="form registerDiv">
         <div class="form-item rel">
-            <span class="iicon phone abs"></span><input type="text" maxlength="11" placeholder="<fmt:message key="info.shoujihao"/>">
+            <span class="iicon phone abs"></span><input type="text" maxlength="11" placeholder="<fmt:message key="info.shoujihao"/>"
+                                                        onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                        onafterpaste="this.value=this.value.replace(/\D/g,'')">
         </div>
         <div class="form-item rel">
             <span class="iicon nickname abs"></span><input type="text" maxlength="50" placeholder="<fmt:message key="info.nichen"/>">
@@ -126,7 +128,10 @@
         </div>
         <div class="clearfix">
             <div class="form-item rel fl" style="width: 315px">
-                <span class="iicon validate abs"></span><input type="text" style="width: 250px;" maxlength="10" placeholder="<fmt:message key="info.duanxinyanzhengma"/>">
+                <span class="iicon validate abs"></span><input type="text" style="width: 250px;" maxlength="10"
+                                                               placeholder="<fmt:message key="info.duanxinyanzhengma"/>"
+                                                               onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                               onafterpaste="this.value=this.value.replace(/\D/g,'')">
             </div>
             <div class="fr curp">
                 <button class="btn blackBtn sendCodeBtn" defaultVal="<fmt:message key="info.fasongyanzhengma"/>"><fmt:message key="info.fasongyanzhengma"/></button>
