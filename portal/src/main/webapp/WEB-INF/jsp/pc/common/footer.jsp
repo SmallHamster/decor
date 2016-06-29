@@ -170,7 +170,7 @@
 <!-- 重置密码 -->
 <script type="text/template" id="resetPasswordPopupCont">
     <div class='Poplogo'><img src='static/pc/images/login_logo.png'/></div>
-    <p class="tc fs16 color3 mb20"><fmt:message key="info.chongzhimima"/></p>
+    <p class="tc fs16 color3 mb20">重置密码</p>
     <div class="form resetPasswordDiv">
         <div class="form-item rel">
             <span class="iicon password abs"></span><input type="password" placeholder="<fmt:message key="info.shuruzuixinmima"/>">
