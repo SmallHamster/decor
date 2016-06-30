@@ -508,8 +508,8 @@
                 $(".loginDiv .error").text("<fmt:message key="info.shoujihaobunengweikong"/>");
                 return false;
             }
-            if (username.length<11) {
-                $(".loginDiv .error").text("手机号少于11位");
+            if(!(/^1[3|4|5|8]\d{9}$/.test(username))){
+                $(".loginDiv .error").text("输入的手机号格式不正确");
                 return false;
             }
             if (password == "") {
@@ -803,11 +803,12 @@
             $bluemobi.notify("<fmt:message key="info.shoujihaobunengweikong"/>", "error");
             return false;
         }
-        if (mobile.length<11) {
+        if (!(/^1[3|4|5|8]\d{9}$/.test(mobile))) {
             $(".registerDiv").find("input").eq(0).focus();
-            $bluemobi.notify("手机号少于11位", "error");
+            $bluemobi.notify("输入的手机号格式不正确", "error");
             return false;
         }
+
         _changeBtn = $(".registerDiv .sendCodeBtn");
         if(_changeBtn.text()!=_changeBtn.attr("defaultVal")){
             return false;
@@ -853,11 +854,12 @@
             $bluemobi.notify("<fmt:message key="info.shoujihaobunengweikong"/>", "error");
             return false;
         }
-        if (mobile.length<11) {
+        if (!(/^1[3|4|5|8]\d{9}$/.test(mobile))) {
             $(".registerDiv").find("input").eq(0).focus();
-            $bluemobi.notify("手机号少于11位", "error");
+            $bluemobi.notify("输入的手机号格式不正确", "error");
             return false;
         }
+
         if (nickname == "") {
             $(".registerDiv").find("input").eq(1).focus();
             $bluemobi.notify("<fmt:message key="info.nichenbukeweikong"/>", "error");
@@ -913,11 +915,12 @@
             $bluemobi.notify("<fmt:message key="info.shoujihaobunengweikong"/>", "error");
             return false;
         }
-        if (mobile.length<11) {
+        if (!(/^1[3|4|5|8]\d{9}$/.test(mobile))) {
             $(".findPasswordDiv").find("input").eq(0).focus();
-            $bluemobi.notify("手机号少于11位", "error");
+            $bluemobi.notify("输入的手机号格式不正确", "error");
             return false;
         }
+
         _changeBtn = $(".findPasswordDiv .sendCodeBtn");
         if(_changeBtn.text()!=_changeBtn.attr("defaultVal")){
             return false;
@@ -959,11 +962,12 @@
             $bluemobi.notify("<fmt:message key="info.shoujihaobunengweikong"/>", "error");
             return false;
         }
-        if (mobile.length<11) {
+        if (!(/^1[3|4|5|8]\d{9}$/.test(mobile))) {
             $(".findPasswordDiv").find("input").eq(0).focus();
-            $bluemobi.notify("手机号少于11位", "error");
+            $bluemobi.notify("输入的手机号格式不正确", "error");
             return false;
         }
+
         if (code == "") {
             $(".findPasswordDiv").find("input").eq(1).focus();
             $bluemobi.notify("<fmt:message key="info.yanzhengmabukeweikong"/>", "error");
