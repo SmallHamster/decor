@@ -121,7 +121,7 @@
                                                         onafterpaste="this.value=this.value.replace(/\D/g,'')">
         </div>
         <div class="form-item rel">
-            <span class="iicon nickname abs"></span><input type="text" maxlength="50" placeholder="<fmt:message key="info.nichen"/>">
+            <span class="iicon nickname abs"></span><input type="text" maxlength="10" placeholder="<fmt:message key="info.nichen"/>">
         </div>
         <div class="form-item rel">
             <span class="iicon password abs"></span><input type="password" maxlength="16" placeholder="<fmt:message key="info.mima"/>">
@@ -865,9 +865,9 @@
             $bluemobi.notify("<fmt:message key="info.nichenbukeweikong"/>", "error");
             return false;
         }
-        if (password == "") {
+        if (password.length<6) {
             $(".registerDiv").find("input").eq(2).focus();
-            $bluemobi.notify("<fmt:message key="info.mimabunengweikong"/>", "error");
+            $bluemobi.notify("密码不能少于6位", "error");
             return false;
         }
         if (code == "") {
