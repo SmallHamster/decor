@@ -90,24 +90,28 @@
             $(".pagination").find("a").each(function () {
                 if (!$(this).hasClass("first") && !$(this).hasClass("next")) {
                     $(this).click(function () {
-                        rpage.pageNum = $(this).html();
+                        rpage.pageNum = $(this).html() * 1;
                         rpage.queryFun();
                     });
                 }
             });
             $(".pagination").find(".first").unbind("click").click(function () {
-                rpage.pageNum = rpage.pageNum - 1;
-                if (rpage.pageNum <= 1) {
-                    rpage.pageNum = 1;
+                if(rpage.pageNum > 1){
+                    rpage.pageNum = rpage.pageNum - 1;
+                    if (rpage.pageNum <= 1) {
+                        rpage.pageNum = 1;
+                    }
+                    rpage.queryFun();
                 }
-                rpage.queryFun();
             });
             $(".pagination").find(".last").unbind("click").click(function () {
-                rpage.pageNum = rpage.pageNum + 1;
-                if (rpage.pageNum >= rpage.totalPage) {
-                    rpage.pageNum = rpage.totalPage;
+                if(rpage.pageNum < rpage.totalPage){
+                    rpage.pageNum = rpage.pageNum + 1;
+                    if (rpage.pageNum >= rpage.totalPage) {
+                        rpage.pageNum = rpage.totalPage;
+                    }
+                    rpage.queryFun();
                 }
-                rpage.queryFun();
             });
             $(".pagination").find(".confirm").unbind("click").click(function () {
                 var pageNum = $(".pagination").find(".gotopage").val();
