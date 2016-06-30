@@ -64,7 +64,7 @@
                 <ul id="seriesList">
 
                 </ul>
-                <a class="clear btn">开始设计</a>
+                <a href="pc/drawBoard/page" class="clear btn">开始设计</a>
                 <a href="pc/forward/to?type=series"><p class="muted" style="font-size: 16px;margin: 18px auto;">更多设计作品</p></a>
             </div>
             <div class="module center news">
