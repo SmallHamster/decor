@@ -1005,6 +1005,7 @@
             if (result.status == "0") {
                 $bluemobi.notify(result.msg, "success");
                 hideOtherDlg();
+                loginPopup.showDlg();
             } else {
                 $bluemobi.notify(result.msg, "error");
             }
