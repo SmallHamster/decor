@@ -54,11 +54,11 @@
     <div class="form loginDiv">
         <div class="form-item rel">
             <span class="iicon phone abs"></span>
-            <input type="text" class="loginmobile" placeholder="<fmt:message key="info.shoujihao"/>"
+            <input type="text" class="loginmobile" maxlength="11" placeholder="<fmt:message key="info.shoujihao"/>"
                    onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
         </div>
         <div class="form-item rel">
-            <span class="iicon password abs"></span><input type="password" class="loginpassword"
+            <span class="iicon password abs"></span><input type="password" maxlength="20" class="loginpassword"
                                                            placeholder="<fmt:message key="info.mima"/>">
         </div>
         <div class="agree clearfix">
