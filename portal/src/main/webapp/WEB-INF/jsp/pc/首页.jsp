@@ -124,10 +124,10 @@
                     var user = result.data.list[0];
                     var sceneList = user.sceneList;
                     var html='<div class="text-center face"><a href="pc/user/detail?userId=' + user.id + '"><img src="'+user.headImage+'?imageView2/1/w/84/h/84" title="" alt="" width="78" height="78" /></a></div>\
-                            <p class="text-center name"><a href="pc/user/detail?userId=' + user.id + '">'+user.nickname+'</a></p>\
+                            <p class="text-center name" style="margin-bottom: 4px;"><a href="pc/user/detail?userId=' + user.id + '">'+user.nickname+'</a></p>\
                     <p class="text-center address"><i class="icon-addr"></i>'+user.province.name+'  '+user.city.name+'</p>\
-                    <p class="text-center works">'+user.opus+'个作品</p>\
-                    <div class="text-center note">'+user.info+'</div>\
+                    <p class="text-center works" style="padding-top: 4px;">'+user.opus+'个作品</p>\
+                    <div class="text-left note">'+user.info+'</div>\
                     <a class="btn btn-like">被'+user.fans+'人喜欢</a>\
                     <p class="text-center saw">平均每次发布换来'+user.seeNum+'次浏览</p>';
                     $("#hottestDesigner").html(html);
