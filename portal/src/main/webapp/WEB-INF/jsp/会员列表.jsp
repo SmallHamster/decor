@@ -73,6 +73,8 @@
                                     <th>呢称</th>
                                     <th>账号</th>
                                     <th>联系方式</th>
+                                    <th>是否推荐</th>
+                                    <th>粉丝数</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
@@ -152,6 +154,8 @@
                         {"data": "nickname"},
                         {"data": "account"},
                         {"data": "mobile"},
+                        {"data": "isRecommend"},
+                        {"data": "fans"},
                         {"data": "status"},
                         {"data": ""}
                     ],
@@ -166,21 +170,23 @@
                     },
                     rowCallback: function (row, data) {
                         if (data.status == "enable") {
-                            $('td', row).eq(5).html("启用");
+                            $('td', row).eq(7).html("启用");
                             $('td', row).last().find(".delete").addClass("btn-danger");
                             $('td', row).last().find(".delete").attr("title", "禁用");
                         } else {
-                            $('td', row).eq(5).html("禁用");
+                            $('td', row).eq(7).html("禁用");
                             $('td', row).last().find(".delete").addClass("btn-success");
                             $('td', row).last().find(".delete").attr("title", "启用");
                         }
 
                         //渲染样式
                         if (data.isRecommend == "yes") {
+                            $('td', row).eq(5).html("已推荐");
                             $('td', row).last().find(".edit").addClass("btn-danger");
                             $('td', row).last().find(".edit").attr("title", "取消推荐");
                             $('td', row).last().find(".tuiJan").removeClass().addClass("fa fa-ban");
                         } else {
+                            $('td', row).eq(5).html("未推荐");
                             $('td', row).last().find(".edit").addClass("btn-success");
                             $('td', row).last().find(".edit").attr("title", "推荐");
                             $('td', row).last().find(".tuiJan").removeClass().addClass("fa fa-check-circle-o");
