@@ -56,7 +56,7 @@
 
                 </div>
                 <a class="clear btn" id="goJoin">现在入驻</a>
-                <p class="muted">更多设计师</p>
+                <p class="muted" id="moreDesigner" style="cursor: pointer;">更多设计师</p>
             </div>
             <div  class="module center image-list">
                 <h3>这里，更好的设计</h3>
@@ -105,6 +105,10 @@
         // 现在入驻
         $("#goJoin").click(function(){
             $("#register").trigger("click");
+        });
+        // 更多设计师
+        $("#moreDesigner").click(function(){
+            window.location.replace('pc/forward/to?type=user');
         });
         ajaxAd(); // 加载广告
         ajaxSeries(); // 加载系列图
