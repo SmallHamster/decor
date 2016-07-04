@@ -133,7 +133,7 @@
                         var scene = sceneList[i];
                         if(i==0){
                             hotSeriesHtml+='<a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="'+scene.image+'?imageView2/1/w/344/h/387" title="" alt="" width="344" height="387" /></a>';
-                            div='<div class="alpha-mask">\
+                            div='<div class="alpha-mask" style="width: 968px">\
                             <div class="alpha"></div>\
                             <div class="text">系列作品：'+scene.name+'</div></div>';
                         }else {
