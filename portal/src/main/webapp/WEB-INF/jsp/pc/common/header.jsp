@@ -58,7 +58,7 @@
                 <input id="searchText" name="name" type="text" placeholder="请输入您要查找的内容" value="${name}"/>
                 <input id="search" type="submit" value="" />
             </form>
-            <a class="btn btn-design" href="pc/drawBoard/page">在线设计</a>
+            <a class="btn btn-design" href="pc/drawBoard/page"><fmt:message key="info.zaixiansheji"/></a>
         </div>
     </div>
 </div>

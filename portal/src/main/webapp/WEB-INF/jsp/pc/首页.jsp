@@ -41,7 +41,7 @@
         <!-- 页面主体内容开始 -->
         <div class="main">
             <div class="module design">
-                <h3>就现在，改变设计方式</h3>
+                <h3><fmt:message key="info.justnowinfo"></fmt:message> </h3>
                 <p class="muted">12万名设计师已经启程</p>
                 <a href="pc/drawBoard/page" class="btn">开始设计</a>
             </div>
