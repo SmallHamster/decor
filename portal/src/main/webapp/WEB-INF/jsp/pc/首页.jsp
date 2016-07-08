@@ -42,8 +42,8 @@
         <div class="main">
             <div class="module design">
                 <h3><fmt:message key="info.justnowinfo"></fmt:message> </h3>
-                <p class="muted">12万名设计师已经启程</p>
-                <a href="pc/drawBoard/page" class="btn">开始设计</a>
+                <p class="muted"><fmt:message key="info.startdesigninfo"></fmt:message> </p>
+                <a href="pc/drawBoard/page" class="btn"><fmt:message key="info.startdesign"></fmt:message> </a>
             </div>
             <div class="module introduce"></div>
             <div class="module center source">
@@ -64,7 +64,7 @@
                 <ul id="seriesList">
 
                 </ul>
-                <a href="pc/drawBoard/page" class="clear btn">开始设计</a>
+                <a href="pc/drawBoard/page" class="clear btn"><fmt:message key="info.startdesign"></fmt:message></a>
                 <a href="pc/forward/to?type=series"><p class="muted" style="font-size: 16px;margin: 18px auto;">更多设计作品</p></a>
             </div>
             <div class="module center news">

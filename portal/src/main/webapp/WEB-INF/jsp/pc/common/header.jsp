@@ -7,7 +7,7 @@
 <div class="header">
     <div class="top">
         <div class="center">
-            <span class="pull-left">DECOR故事&emsp;&emsp;服务热线：400-800-5262</span>
+            <span class="pull-left"><fmt:message key="info.decorstory"></fmt:message> &emsp;&emsp;<fmt:message key="info.hotline"></fmt:message> ：400-800-5262</span>
 					<span class="pull-right">
                         <input type="hidden" id="sessionMode" value="${session_mode}"/>
                         <input type="hidden" id="sessionUserId" value="${session_pc_user.id}"/>
@@ -30,7 +30,7 @@
                             <option value="zh_CN">中文</option>
                             <option value="en_US">English</option>
                         </select>
-						<a href="###">下载APP</a>
+						<a href="###"><fmt:message key="info.xiazaiapp"></fmt:message></a>
 					</span>
         </div>
     </div>
@@ -55,7 +55,7 @@
             </div>
             <form id="searchForm" class="form pull-left" action="pc/forward/to">
                 <input type="hidden" id="search_type" name="type" value="${type}"/>
-                <input id="searchText" name="name" type="text" placeholder="请输入您要查找的内容" value="${name}"/>
+                <input id="searchText" name="name" type="text" placeholder="<fmt:message key="info.search"/> " value="${name}"/>
                 <input id="search" type="submit" value="" />
             </form>
             <a class="btn btn-design" href="pc/drawBoard/page"><fmt:message key="info.zaixiansheji"/></a>
