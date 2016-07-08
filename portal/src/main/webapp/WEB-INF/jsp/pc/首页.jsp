@@ -55,21 +55,21 @@
                 <div class="pull-right" id="hottestDesigner">
 
                 </div>
-                <a class="clear btn" id="goJoin">现在入驻</a>
-                <p class="muted" id="moreDesigner" style="cursor: pointer;">更多设计师</p>
+                <a class="clear btn" id="goJoin"><fmt:message key="info.registernow"></fmt:message> </a>
+                <p class="muted" id="moreDesigner" style="cursor: pointer;"><fmt:message key="info.moredesigners"></fmt:message> </p>
             </div>
             <div  class="module center image-list">
-                <h3>这里，更好的设计</h3>
-                <p class="muted">正在发生</p>
+                <h3><fmt:message key="info.herebetterdesign"></fmt:message> </h3>
+                <p class="muted"><fmt:message key="info.itishappening"></fmt:message> </p>
                 <ul id="seriesList">
 
                 </ul>
                 <a href="pc/drawBoard/page" class="clear btn"><fmt:message key="info.startdesign"></fmt:message></a>
-                <a href="pc/forward/to?type=series"><p class="muted" style="font-size: 16px;margin: 18px auto;">更多设计作品</p></a>
+                <a href="pc/forward/to?type=series"><p class="muted" style="font-size: 16px;margin: 18px auto;"><fmt:message key="info.moredesigns"></fmt:message> </p></a>
             </div>
             <div class="module center news">
-                <h3>更多行业内幕资讯</h3>
-                <p class="muted">只在DECOR</p>
+                <h3><fmt:message key="info.moreindustryinfo"></fmt:message> </h3>
+                <p class="muted"><fmt:message key="info.onlyondecor"></fmt:message> </p>
                 <ul id="msgList">
 
                 </ul>
