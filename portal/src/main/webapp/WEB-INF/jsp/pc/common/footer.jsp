@@ -12,22 +12,22 @@
                 <a href="pc/forward/to?type=scene"><fmt:message key="info.quanbuchangjing"/></a>
                 <a href="pc/forward/to?type=scene" id="showAllSeries"><fmt:message key="info.xilietuzhanshi"/></a>
             </p>
-            <p><a href="pc/forward/to?type=user"><fmt:message key="info.zhaoshejishi"/></a><a
-                    href="pc/forward/to?type=message"><fmt:message key="info.zixun"/></a></p>
+            <p><a class="slh" title="<fmt:message key="info.zhaoshejishi"/>" href="pc/forward/to?type=user"><fmt:message key="info.zhaoshejishi"/></a>
+                <a class="slh" title="<fmt:message key="info.zixun"/>"  href="pc/forward/to?type=message"><fmt:message key="info.zixun"/></a></p>
 
-            <p><a class="userUpload"><fmt:message key="info.shangchuanshangpin"/></a><a
-                    class="userUpload"><fmt:message key="info.chuangjianchangjing"/></a><a
-                    class="userUpload"><fmt:message key="info.tianjiaxilietu"/></a></p>
+            <p><a class="userUpload slh" title="<fmt:message key="info.shangchuanshangpin"/>"><fmt:message key="info.shangchuanshangpin"/></a><a
+                    class="userUpload slh" title="<fmt:message key="info.chuangjianchangjing"/>"><fmt:message key="info.chuangjianchangjing"/></a><a
+                    class="userUpload slh" title="<fmt:message key="info.tianjiaxilietu"/>"><fmt:message key="info.tianjiaxilietu"/></a></p>
         </div>
         <div class="pull-left navi">
             <h3><fmt:message key="info.guanyuwomen"/></h3>
 
-            <p><a href="pc/forward/aboutWeb" id="aboutWeb"><fmt:message key="info.guanyuwangzhan"/></a><a
-                    href="pc/forward/aboutWeb" id="aboutWe"><fmt:message key="info.lianxiwomen"/></a></p>
+            <p><a class="slh" title="<fmt:message key="info.guanyuwangzhan"/>" href="pc/forward/aboutWeb" id="aboutWeb"><fmt:message key="info.guanyuwangzhan"/></a>
+                <a class="slh" title="<fmt:message key="info.lianxiwomen"/>" href="pc/forward/aboutWeb" id="aboutWe"><fmt:message key="info.lianxiwomen"/></a></p>
         </div>
         <div class="pull-right qcode">
-            <img src="static/pc-1.1/images/qcode.jpg" title="扫一扫，下载pad版" alt="扫一扫，下载pad版" width="152" height="152" />
-            扫一扫，下载pad版
+            <img src="static/pc-1.1/images/qcode.jpg" width="152" height="152" />
+            <fmt:message key="info.sys"></fmt:message>
         </div>
     </div>
 </div>

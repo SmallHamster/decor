@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="958e6a64-c5af-42c2-b77e-4e0f056ee56a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp" afterPath="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties" afterPath="$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp" afterPath="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp" />
     </list>
     <ignored path="decor.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,10 +29,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="首页.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="首页.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63747454">
+            <state vertical-scroll-proportion="-14.291667">
               <caret line="71" column="69" selection-start-line="71" selection-start-column="69" selection-end-line="71" selection-end-column="69" />
               <folding>
                 <marker date="1467971006412" expanded="true" signature="4955:4974" placeholder="..." />
@@ -56,8 +57,18 @@
       <file leaf-file-name="header.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.2222223">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state vertical-scroll-proportion="-3.6111112">
+              <caret line="70" column="33" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.610998">
+              <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -179,7 +190,6 @@
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/场景图详情.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/设计师列表.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/page.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/会员列表.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/drawBoard.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/resources/conf/message-info.properties" />
@@ -187,6 +197,7 @@
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp" />
+        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp" />
       </list>
     </option>
   </component>
@@ -1021,13 +1032,7 @@
       <workItem from="1467290130660" duration="7103000" />
       <workItem from="1467595713966" duration="5407000" />
       <workItem from="1467859001201" duration="2822000" />
-      <workItem from="1467967996088" duration="3008000" />
-    </task>
-    <task id="LOCAL-00171" summary="提交代码">
-      <created>1465825534884</created>
-      <option name="number" value="00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1465825534884</updated>
+      <workItem from="1467967996088" duration="3869000" />
     </task>
     <task id="LOCAL-00172" summary="提交代码">
       <created>1465825743334</created>
@@ -1317,11 +1322,17 @@
       <option name="project" value="LOCAL" />
       <updated>1467970807310</updated>
     </task>
-    <option name="localTasksCounter" value="220" />
+    <task id="LOCAL-00220" summary="提交代码">
+      <created>1467971029907</created>
+      <option name="number" value="00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1467971029907</updated>
+    </task>
+    <option name="localTasksCounter" value="221" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="438287000" />
+    <option name="totallyTimeSpent" value="439148000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1742,14 +1753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="859" column="25" selection-start-line="859" selection-start-column="25" selection-end-line="859" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/UserController4Pc.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1836,25 +1839,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info_zh_CN.properties">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2222223">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1868,7 +1852,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63747454">
+        <state vertical-scroll-proportion="-14.291667">
           <caret line="71" column="69" selection-start-line="71" selection-start-column="69" selection-end-line="71" selection-end-column="69" />
           <folding>
             <marker date="1467971006412" expanded="true" signature="4955:4974" placeholder="..." />
@@ -1886,6 +1870,33 @@
             <marker date="1467971006412" expanded="true" signature="13695:14112" placeholder="..." />
             <marker date="1467971006412" expanded="true" signature="13778:14080" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info_zh_CN.properties">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6111112">
+          <caret line="70" column="33" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.610998">
+          <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
