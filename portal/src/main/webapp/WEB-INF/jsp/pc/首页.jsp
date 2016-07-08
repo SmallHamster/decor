@@ -47,8 +47,8 @@
             </div>
             <div class="module introduce"></div>
             <div class="module center source">
-                <h3>你的设计，正在改变生活</h3>
-                <p class="muted">一键入驻，海量资源</p>
+                <h3><fmt:message key="info.changinglives"></fmt:message> </h3>
+                <p class="muted"><fmt:message key="info.easytojoininfo"></fmt:message> </p>
                 <a class="pull-left" id="hotSeries">
 
                 </a>

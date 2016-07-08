@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="958e6a64-c5af-42c2-b77e-4e0f056ee56a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp" afterPath="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties" afterPath="$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp" afterPath="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp" />
     </list>
     <ignored path="decor.iws" />
@@ -32,32 +32,32 @@
       <file leaf-file-name="首页.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0185184">
-              <caret line="66" column="112" selection-start-line="66" selection-start-column="112" selection-end-line="66" selection-end-column="112" />
+            <state vertical-scroll-proportion="-3.2962964">
+              <caret line="50" column="64" selection-start-line="50" selection-start-column="64" selection-end-line="50" selection-end-column="64" />
               <folding>
-                <marker date="1467970001419" expanded="true" signature="4539:4558" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="4815:4832" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="5602:5614" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="5615:5749" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="5980:5997" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="8982:10076" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="9062:9215" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="9062:10044" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="9263:9591" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="9646:10041" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="12906:13034" placeholder="..." />
-                <marker date="1467970001419" expanded="false" signature="13118:13131" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="13279:13696" placeholder="..." />
-                <marker date="1467970001419" expanded="true" signature="13362:13664" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="4626:4645" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="4902:4919" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="5689:5701" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="5702:5836" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="6067:6084" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="9069:10163" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="9149:9302" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="9149:10131" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="9350:9678" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="9733:10128" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="12993:13121" placeholder="..." />
+                <marker date="1467970605419" expanded="false" signature="13205:13218" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="13366:13783" placeholder="..." />
+                <marker date="1467970605419" expanded="true" signature="13449:13751" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24439919">
+            <state vertical-scroll-proportion="-2.2222223">
               <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
               <folding />
             </state>
@@ -91,15 +91,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message-info_en_US.properties" pinned="false" current-in-tab="false">
+      <file leaf-file-name="message-info_en_US.properties" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties">
-          <provider selected="true" editor-type-id="text-editor">
+          <provider editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="ResourceBundle">
+          <provider selected="true" editor-type-id="ResourceBundle">
             <state />
           </provider>
         </entry>
@@ -137,7 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/个人主页.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/mobile/goods_list.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/MessageController.java" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/添加资讯.jsp" />
@@ -186,8 +185,9 @@
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/drawBoard.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/resources/conf/message-info.properties" />
         <option value="$PROJECT_DIR$/portal/src/main/resources/conf/message-info_zh_CN.properties" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp" />
+        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp" />
+        <option value="$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties" />
       </list>
     </option>
   </component>
@@ -300,6 +300,270 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="decor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor0430" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor0430" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor0430" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor0430" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor0430" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor0430" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor0430" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor0430" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor0430" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resource Bundle 'message-info'" />
+              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor0430" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1022,13 +1286,7 @@
       <workItem from="1467290130660" duration="7103000" />
       <workItem from="1467595713966" duration="5407000" />
       <workItem from="1467859001201" duration="2822000" />
-      <workItem from="1467967996088" duration="2362000" />
-    </task>
-    <task id="LOCAL-00169" summary="提交代码">
-      <created>1465656994331</created>
-      <option name="number" value="00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1465656994331</updated>
+      <workItem from="1467967996088" duration="2788000" />
     </task>
     <task id="LOCAL-00170" summary="提交代码">
       <created>1465824307825</created>
@@ -1318,11 +1576,17 @@
       <option name="project" value="LOCAL" />
       <updated>1467969905538</updated>
     </task>
-    <option name="localTasksCounter" value="218" />
+    <task id="LOCAL-00218" summary="提交代码">
+      <created>1467970380365</created>
+      <option name="number" value="00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1467970380365</updated>
+    </task>
+    <option name="localTasksCounter" value="219" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="437641000" />
+    <option name="totallyTimeSpent" value="438067000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1359,7 +1623,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel remote servers log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28366113" sideWeight="0.49411765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28366113" sideWeight="0.49411765" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13388805" sideWeight="0.5058824" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
@@ -1814,17 +2078,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info.properties">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1859,35 +2112,46 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.2222223">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0185184">
-          <caret line="66" column="112" selection-start-line="66" selection-start-column="112" selection-end-line="66" selection-end-column="112" />
+        <state vertical-scroll-proportion="-3.2962964">
+          <caret line="50" column="64" selection-start-line="50" selection-start-column="64" selection-end-line="50" selection-end-column="64" />
           <folding>
-            <marker date="1467970001419" expanded="true" signature="4539:4558" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="4815:4832" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="5602:5614" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="5615:5749" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="5980:5997" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="8982:10076" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="9062:9215" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="9062:10044" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="9263:9591" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="9646:10041" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="12906:13034" placeholder="..." />
-            <marker date="1467970001419" expanded="false" signature="13118:13131" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="13279:13696" placeholder="..." />
-            <marker date="1467970001419" expanded="true" signature="13362:13664" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="4626:4645" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="4902:4919" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="5689:5701" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="5702:5836" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="6067:6084" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="9069:10163" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="9149:9302" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="9149:10131" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="9350:9678" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="9733:10128" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="12993:13121" placeholder="..." />
+            <marker date="1467970605419" expanded="false" signature="13205:13218" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="13366:13783" placeholder="..." />
+            <marker date="1467970605419" expanded="true" signature="13449:13751" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24439919">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="ResourceBundle">
+        <state />
       </provider>
     </entry>
   </component>
