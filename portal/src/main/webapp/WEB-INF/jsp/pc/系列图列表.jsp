@@ -42,7 +42,7 @@
                 </ul>
                 <div class="code">
                     <img src="static/pc/img/code_bg.jpg"/>
-                    <p><fmt:message key="info.saoyisao，xiazaiPADban"/></p>
+                    <p><fmt:message key="info.saoyisao,xiazaipadban"/></p>
                 </div>
             </div>
             <!--右边内容区-->
