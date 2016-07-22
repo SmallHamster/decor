@@ -41,22 +41,27 @@
             </div>
             <div class="panel-body">
                 <input type="hidden" id="messageId" value="${message.id}"/>
-                <table border="0" style="width: 100%; line-height: 40px;">
-                    <tr>
-                        <th style="width: 5%;">&nbsp;标题：</th>
-                        <td style="width: 80%">${message.title }</td>
-                        <td style="text-align: right">${message.createTime }</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">${message.subContent}</td>
-                    </tr>
-                </table>
+                <c:if test="${null != message}">
+                    <table border="0" style="width: 100%; line-height: 40px;">
+                        <tr>
+                            <th style="width: 5%;">&nbsp;标题：</th>
+                            <td style="width: 80%">${message.title }</td>
+                            <td style="text-align: right">${message.createTime }</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">${message.subContent}</td>
+                        </tr>
+                    </table>
+                </c:if>
+                <c:if test="${null == message}">&nbsp;&nbsp;暂无</c:if>
             </div>
             <div class="panel-footer">
                 <div class="row">
                     <div class="col-lg-12" style="text-align: right;">
-                        <a href="javascript:void(0)" onclick="this_.fn.showMessage()" class="btn btn-info" style="color: white;" role="button">编辑</a>
-                        &nbsp;
+                        <c:if test="${null != message}">
+                            <a href="javascript:void(0)" onclick="this_.fn.showMessage()" class="btn btn-info" style="color: white;" role="button">编辑</a>
+                            &nbsp;
+                        </c:if>
                         <a href="backend/message/index" class="btn btn-info" style="color: white;"role="button">查看更多</a>
                     </div>
                 </div>

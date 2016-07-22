@@ -27,31 +27,24 @@ public class IndexController {
     private UserService userService;
 
     @RequestMapping(value = "/backend")
-    public String adminHomepage(HttpServletRequest request,
-                                HttpServletResponse response,
-                                ModelMap model) {
-        Message message = messageService.showToMain();
-        model.put("message", message);
+    public String adminHomepage() {
         return "登录";
     }
 
     @RequestMapping(value = "/")
-    public String pcHomepage(HttpServletRequest request,
-                             HttpServletResponse response,
-                             ModelMap model) {
+    public String pcHomepage() {
         return "redirect:index";
     }
 
     @RequestMapping(value = "/index")
     public String index(HttpServletRequest request,
-                        HttpServletResponse response,
                         ModelMap model, String langua) {
         if (langua != null) {
             SessionUtils.put("langua", langua);
         }else{
             SessionUtils.put("langua", "zh_CN");
         }
-        Message message = messageService.showToMain();
+        Message message = messageService.showToMainPC();
         model.put("message", message);
 
         Map<String,Object> map = CookiesUtils.ReadCookieMap(request);

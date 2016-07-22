@@ -51,7 +51,7 @@
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
             <li>
-                <a href="/decor/backend/home"><i class="fa fa-home fa-fw"></i>首页</a>
+                <a href="backend/home"><i class="fa fa-home fa-fw"></i>首页</a>
             </li>
         </ul>
     </div>

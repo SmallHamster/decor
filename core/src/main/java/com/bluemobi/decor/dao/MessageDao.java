@@ -18,6 +18,9 @@ public interface MessageDao extends JpaRepository<Message, Integer>, JpaSpecific
     @Query("select a from Message a order by a.createTime DESC")
     public List<Message> showToMain();
 
+    @Query("select a from Message a where a.isRecommend = 'yes' order by a.createTime DESC")
+    public List<Message> showToMainPC();
+
     @Query("select a from Message a where a.isRecommend = 'yes' ")
     public List<Message> recommendList();
 

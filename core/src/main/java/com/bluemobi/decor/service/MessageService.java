@@ -5,6 +5,7 @@ import com.bluemobi.decor.entity.Scene;
 import com.bluemobi.decor.service.common.ICommonService;
 import org.springframework.data.domain.Page;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -23,6 +24,8 @@ public interface MessageService extends ICommonService<Message> {
 
     // 推荐 or 取消推荐资讯
     public Message showToMain();
+
+    public Message showToMainPC();
 
     List<Message> pcRecommendList();
     //根据分配查询资讯列表

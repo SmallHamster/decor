@@ -84,12 +84,12 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public List<Goods> findAll() {
-        return goodsDao.findAll();
+        return goodsDao.findList();
     }
 
     @Override
     public Page<Goods> find(int pageNum, int pageSize) {
-        return goodsDao.findAll(new PageRequest(pageNum - 1, pageSize, Sort.Direction.ASC, "id"));
+        return goodsDao.findPage(new PageRequest(pageNum - 1, pageSize, Sort.Direction.ASC, "id"));
     }
 
     @Override
@@ -215,6 +215,9 @@ public class GoodsServiceImpl implements GoodsService {
                     predicateList.add(predicate);
                 }
 
+                Predicate predicate1 = cb.equal(root.get("isPass").as(String.class), "yes");
+                predicateList.add(predicate1);
+
                 if (predicateList.size() > 0) {
                     result = cb.and(predicateList.toArray(new Predicate[]{}));
                 }
@@ -232,12 +235,12 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public Page<Goods> pageHasMaterial(int pageNum,
-                             int pageSize,
-                             final String name,
-                             final Integer kindTagId,
-                             final Integer spaceTagId,
-                             final Integer styleTagId,
-                             String sort) {
+                                       int pageSize,
+                                       final String name,
+                                       final Integer kindTagId,
+                                       final Integer spaceTagId,
+                                       final Integer styleTagId,
+                                       String sort) {
         PageRequest pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, "id");
         if (StringUtils.isNotBlank(sort)) {
             pageRequest = new PageRequest(pageNum - 1, pageSize, Sort.Direction.DESC, sort);
@@ -295,6 +298,9 @@ public class GoodsServiceImpl implements GoodsService {
                     Predicate predicate = cb.equal(root.get("user").get("id").as(Integer.class), userId);
                     predicateList.add(predicate);
                 }
+
+                Predicate predicate1 = cb.equal(root.get("isPass").as(String.class), "yes");
+                predicateList.add(predicate1);
 
                 if (predicateList.size() > 0) {
                     result = cb.and(predicateList.toArray(new Predicate[]{}));
@@ -1239,6 +1245,9 @@ public class GoodsServiceImpl implements GoodsService {
                     predicateList.add(predicate);
                 }
 
+                Predicate predicate1 = cb.equal(root.get("isPass").as(String.class), "yes");
+                predicateList.add(predicate1);
+
                 if (predicateList.size() > 0) {
                     result = cb.and(predicateList.toArray(new Predicate[]{}));
                 }
@@ -1308,6 +1317,9 @@ public class GoodsServiceImpl implements GoodsService {
                         predicateList.add(predicate);
                     }
 
+                    Predicate predicate1 = cb.equal(root.get("isPass").as(String.class), "yes");
+                    predicateList.add(predicate1);
+
                     if (predicateList.size() > 0) {
                         result = cb.and(predicateList.toArray(new Predicate[]{}));
                     }
@@ -1339,6 +1351,9 @@ public class GoodsServiceImpl implements GoodsService {
                         Predicate predicate = cb.like(root.get("kindTagIds").as(String.class), fKindTag2);
                         predicateList.add(predicate);
                     }
+
+                    Predicate predicate1 = cb.equal(root.get("isPass").as(String.class), "yes");
+                    predicateList.add(predicate1);
 
                     if (predicateList.size() > 0) {
                         result = cb.and(predicateList.toArray(new Predicate[]{}));
@@ -1375,6 +1390,9 @@ public class GoodsServiceImpl implements GoodsService {
                         Predicate predicate = cb.like(root.get("spaceTagIds").as(String.class), fSpaceTag3);
                         predicateList.add(predicate);
                     }
+
+                    Predicate predicate1 = cb.equal(root.get("isPass").as(String.class), "yes");
+                    predicateList.add(predicate1);
 
                     if (predicateList.size() > 0) {
                         result = cb.and(predicateList.toArray(new Predicate[]{}));
@@ -1416,6 +1434,9 @@ public class GoodsServiceImpl implements GoodsService {
                         predicateList.add(predicate);
                     }
 
+                    Predicate predicate1 = cb.equal(root.get("isPass").as(String.class), "yes");
+                    predicateList.add(predicate1);
+
                     if (predicateList.size() > 0) {
                         result = cb.and(predicateList.toArray(new Predicate[]{}));
                     }
@@ -1445,6 +1466,9 @@ public class GoodsServiceImpl implements GoodsService {
                     Predicate predicate = cb.notEqual(root.get("id").as(Integer.class), goodsId);
                     predicateList.add(predicate);
                 }
+
+                Predicate predicate1 = cb.equal(root.get("isPass").as(String.class), "yes");
+                predicateList.add(predicate1);
 
                 if (predicateList.size() > 0) {
                     result = cb.and(predicateList.toArray(new Predicate[]{}));
@@ -1518,6 +1542,9 @@ public class GoodsServiceImpl implements GoodsService {
                     predicateList.add(predicate);
                 }
 
+                Predicate predicate1 = cb.equal(root.get("isPass").as(String.class), "yes");
+                predicateList.add(predicate1);
+
                 if (predicateList.size() > 0) {
                     result = cb.and(predicateList.toArray(new Predicate[]{}));
                 }
@@ -1545,6 +1572,9 @@ public class GoodsServiceImpl implements GoodsService {
                     Predicate predicate = cb.equal(root.get("user").get("id").as(Integer.class), user.getId());
                     predicateList.add(predicate);
                 }
+
+                Predicate predicate1 = cb.equal(root.get("isPass").as(String.class), "yes");
+                predicateList.add(predicate1);
 
                 if (predicateList.size() > 0) {
                     result = cb.and(predicateList.toArray(new Predicate[]{}));
