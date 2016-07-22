@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="backend/home">DECOR后台管理系统</a>
+    <a class="navbar-brand" href="backend/login/home">DECOR后台管理系统</a>
 </div>
 <!-- /.navbar-header -->
 

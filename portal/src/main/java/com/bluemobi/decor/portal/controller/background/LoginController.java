@@ -78,7 +78,7 @@ public class LoginController extends CommonController {
         return "redirect:/backend/login";
     }
 
-    @RequestMapping(value = "/home")
+    @RequestMapping(value = "/login/home")
     public String dashboard(ModelMap model) {
         Message message = messageService.showToMain();
         model.put("message", message);
