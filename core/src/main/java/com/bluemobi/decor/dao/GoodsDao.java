@@ -26,4 +26,7 @@ public interface GoodsDao extends JpaRepository<Goods, Integer>, JpaSpecificatio
 
     @Query("select a from Goods a where a.isPass = 'yes'")
     public List<Goods> findList();
+
+    @Query("select a from Goods a where a.kindTagIds = ?1")
+    public Page<Goods> pageByParams(String kindTags, Pageable pageable);
 }

@@ -1270,13 +1270,16 @@ public class GoodsServiceImpl implements GoodsService {
         // 先获取场景的空间类型和风格类型
         Goods goods = getById(goodsId);
         String kindTags = goods.getKindTagIds();
-        String styleTagS = goods.getStyleTagIds();
-        String spaceTags = goods.getSpaceTagIds();
-        String kindTag = "";
-        String styleTag = "";
-        String spaceTag = "";
 
-        if (kindTags.split(",").length > 0) {
+        List<Goods> list = goodsDao.pageByParams(kindTags, new PageRequest(0, needCount)).getContent();
+
+        // String styleTagS = goods.getStyleTagIds();
+        // String spaceTags = goods.getSpaceTagIds();
+        // String kindTag = "";
+        // String styleTag = "";
+        // String spaceTag = "";
+
+        /*if (kindTags.split(",").length > 0) {
             kindTag = kindTags.split(",")[0];
         }
 
@@ -1286,10 +1289,10 @@ public class GoodsServiceImpl implements GoodsService {
 
         if (spaceTags.split(",").length > 0) {
             spaceTag = spaceTags.split(",")[0];
-        }
+        }*/
 
         // 用2个类型去匹配查询6条数据
-        final String fKindTag1 = kindTag;
+        /*final String fKindTag1 = kindTag;
         final String fSpaceTag1 = spaceTag;
         final String fStyleTag1 = styleTag;
         List<Goods> list1 = new ArrayList<Goods>();
@@ -1486,7 +1489,6 @@ public class GoodsServiceImpl implements GoodsService {
             list5 = new ArrayList<Goods>();
         }
 
-        List<Goods> list = new ArrayList<Goods>();
         list.addAll(list1);
         needCount = needCount - list.size();
 
@@ -1524,7 +1526,7 @@ public class GoodsServiceImpl implements GoodsService {
                     needCount--;
                 }
             }
-        }
+        }*/
 
         return list;
     }
