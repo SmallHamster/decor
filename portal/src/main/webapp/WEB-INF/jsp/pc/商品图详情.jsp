@@ -255,7 +255,7 @@
 
                     html += '<li>\
                     <div class="rost">\
-                    <img src="'+comment.user.headImage+'"/>\
+                    <a href="pc/user/detail?userId='+comment.user.id+'"><img src="'+comment.user.headImage+'"/></a>\
                     <div class="prost">\
                     <div class="Rost2">\
                     <p class="first"><span class="fr">'+comment.createTime+'</span>'+comment.user.nickname+'</p>\
