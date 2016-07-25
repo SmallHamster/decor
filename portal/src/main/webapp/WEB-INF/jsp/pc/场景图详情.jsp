@@ -367,14 +367,14 @@
         var content = $("#commentContent").val();
         if (content == "") {
             $bluemobi.notify("<fmt:message key="info.qingshurupinglunleirong"/>", "error");
-            $(".commentContent").focus();
+            $("#commentContent").focus();
             return false;
         }
 
         $bluemobi.ajax("pc/comment/saveSceneComment", {userId: userId, sceneId: sceneId, content: content}, function (result) {
             if (result.status == "0") {
                 $bluemobi.notify(result.msg, "success");
-                $(".commentContent").val("");
+                $("#commentContent").val("");
                 ajaxSceneComment($("#sceneId").val());
             }
         });
