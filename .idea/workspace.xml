@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="958e6a64-c5af-42c2-b77e-4e0f056ee56a" name="Default" comment="">
+    <list default="true" id="958e6a64-c5af-42c2-b77e-4e0f056ee56a" name="Default" comment="提交代码">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_qiniu_qiniu_java_sdk_7_0_9.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/decor_portal_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/decor_portal_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties" afterPath="$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp" afterPath="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/decor-core.iml" afterPath="$PROJECT_DIR$/core/decor-core.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/decor-portal.iml" afterPath="$PROJECT_DIR$/portal/decor-portal.iml" />
     </list>
     <ignored path="decor.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,107 +26,72 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+    </PATH>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="decor" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="首页.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.291667">
-              <caret line="71" column="69" selection-start-line="71" selection-start-column="69" selection-end-line="71" selection-end-column="69" />
-              <folding>
-                <marker date="1467971006412" expanded="true" signature="4955:4974" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="5231:5248" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="6018:6030" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="6031:6165" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="6396:6413" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="9398:10492" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="9478:9631" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="9478:10460" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="9679:10007" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="10062:10457" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="13322:13450" placeholder="..." />
-                <marker date="1467971006412" expanded="false" signature="13534:13547" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="13695:14112" placeholder="..." />
-                <marker date="1467971006412" expanded="true" signature="13778:14080" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6111112">
-              <caret line="70" column="33" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.610998">
-              <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="系列图列表.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/系列图列表.jsp">
+      <file leaf-file-name="AboutWebController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/AboutWebController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="153" selection-start-line="31" selection-start-column="120" selection-end-line="31" selection-end-column="153" />
-              <folding>
-                <marker date="1465222760000" expanded="true" signature="3682:3724" placeholder="..." />
-                <marker date="1465222760000" expanded="false" signature="4235:4267" placeholder="..." />
-                <marker date="1465222760000" expanded="false" signature="4323:4355" placeholder="..." />
-              </folding>
+              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message-info.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info.properties">
-          <provider editor-type-id="text-editor">
+      <file leaf-file-name="CommonController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/CommonController.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="33" column="64" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
               <folding />
             </state>
-          </provider>
-          <provider selected="true" editor-type-id="ResourceBundle">
-            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message-info_en_US.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties">
-          <provider editor-type-id="text-editor">
+      <file leaf-file-name="AuthorityController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/AuthorityController.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
               <folding />
             </state>
-          </provider>
-          <provider selected="true" editor-type-id="ResourceBundle">
-            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message-info_zh_CN.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info_zh_CN.properties">
-          <provider editor-type-id="text-editor">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
               <folding />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="ResourceBundle">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="CommonInterceptor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/common/interceptor/CommonInterceptor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.330855">
+              <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -147,15 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/mobile/goods_list.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/MessageController.java" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/添加资讯.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/编辑资讯.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/mobile/goods_detail.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/mobile/LoginController4Mobile.java" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/mobile/login.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/mobile/register.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/mobile/scene_detail.jsp" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/AboutWebService.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/dao/AboutWebDao.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/impl/AboutWebServiceImpl.java" />
@@ -169,12 +128,16 @@
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/mobile/designer_list.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/mobile/index.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/系列图详情.jsp" />
+        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/设计师详情页.jsp" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/dao/UserThirdDao.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/UserThirdService.java" />
         <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/UserThirdController4Pc.java" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/static/drawBoard/css/drawing.css" />
         <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/UploadController.java" />
         <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/DrawBoardController4Pc.java" />
+        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/drawBoard.jsp" />
+        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp" />
+        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/个人设置.jsp" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/UserService.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/impl/UserServiceImpl.java" />
@@ -183,21 +146,26 @@
         <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/impl/UserThirdServiceImpl.java" />
         <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/UserSettingController4Pc.java" />
         <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/GoodsController4Pc.java" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/设计师详情页.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/static/drawBoard/js/drawing.js" />
-        <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/util/MsgSmsUtil.java" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/广告管理.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/场景图详情.jsp" />
+        <option value="$PROJECT_DIR$/portal/src/main/webapp/static/pc/css/all.css" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/设计师列表.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/page.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/会员列表.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/drawBoard.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/resources/conf/message-info.properties" />
         <option value="$PROJECT_DIR$/portal/src/main/resources/conf/message-info_zh_CN.properties" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties" />
+        <option value="$PROJECT_DIR$/portal/src/main/resources/conf/message-info.properties" />
+        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/系列图列表.jsp" />
         <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp" />
-        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp" />
+        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/inc/menu.jsp" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/dao/MessageDao.java" />
+        <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/IndexController.java" />
+        <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/UserController.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/MessageService.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/impl/MessageServiceImpl.java" />
+        <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/MessageController.java" />
+        <option value="$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/首页.jsp" />
+        <option value="$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/LoginController.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/dao/GoodsDao.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/impl/GoodsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/portal/pom.xml" />
       </list>
     </option>
   </component>
@@ -221,7 +189,7 @@
     </option>
     <option name="enabledProfiles">
       <list>
-        <option value="dev-gll" />
+        <option value="aliyun" />
       </list>
     </option>
   </component>
@@ -272,8 +240,27 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Maven</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>MavenModelInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -295,15 +282,16 @@
       <showLibraryContents />
       <hideEmptyPackages />
       <abbreviatePackageNames />
-      <autoscrollToSource ProjectPane="true" />
-      <autoscrollFromSource ProjectPane="true" />
+      <autoscrollToSource ProjectPane="false" />
+      <autoscrollFromSource ProjectPane="false" />
       <sortByType />
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -312,9 +300,156 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="decor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="background" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -362,12 +497,17 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="constant&#9;FILE&#9;file://F:/IntellijWorkSpace/decor/core/src/main/java/com/bluemobi/decor/core/Constant.java&#10;goods&#9;PSI&#9;JAVA://com.bluemobi.decor.entity.Goods&#10;scene&#9;FILE&#9;file://F:/IntellijWorkSpace/decor/core/src/main/java/com/bluemobi/decor/service/impl/SceneServiceImpl.java&#10;pom&#9;FILE&#9;file://F:/IntellijWorkSpace/decor/portal/pom.xml&#10;mat&#9;PSI&#9;JAVA://com.bluemobi.decor.entity.Material&#10;sceneserviceimpl&#9;FILE&#9;file://F:/IntellijWorkSpace/decor/core/src/main/java/com/bluemobi/decor/service/impl/SceneServiceImpl.java" />
+    <property name="SearchEverywhereHistoryKey" value="pom.xml&#9;FILE&#9;file://E:/IntellijWorkSpace/decor/portal/pom.xml&#10;messagecon&#9;FILE&#9;file://E:/IntellijWorkSpace/decor/portal/src/main/java/com/bluemobi/decor/portal/controller/background/MessageController.java&#10;filter&#9;PSI&#9;JAVA://com.bluemobi.decor.portal.filter.GlobalFilter&#10;all.css&#9;FILE&#9;file://E:/IntellijWorkSpace/decor/portal/src/main/webapp/static/pc/css/all.css&#10;pom&#9;FILE&#9;file://E:/IntellijWorkSpace/decor/portal/pom.xml&#10;constant&#9;FILE&#9;file://F:/IntellijWorkSpace/decor/core/src/main/java/com/bluemobi/decor/core/Constant.java&#10;goods&#9;PSI&#9;JAVA://com.bluemobi.decor.entity.Goods&#10;scene&#9;FILE&#9;file://F:/IntellijWorkSpace/decor/core/src/main/java/com/bluemobi/decor/service/impl/SceneServiceImpl.java&#10;mat&#9;PSI&#9;JAVA://com.bluemobi.decor.entity.Material&#10;sceneserviceimpl&#9;FILE&#9;file://F:/IntellijWorkSpace/decor/core/src/main/java/com/bluemobi/decor/service/impl/SceneServiceImpl.java" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="D:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp\static\drawBoard\css" />
+      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp\static\drawBoard\js" />
+      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp\WEB-INF\jsp\mobile" />
+      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp\static\pc-1.1\js" />
+      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp\static\pc-1.1\css" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.bluemobi.decor.portal.controller.pc" />
@@ -376,12 +516,8 @@
       <recent name="com.bluemobi.decor.service.impl" />
       <recent name="com.bluemobi.decor.service" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp\static\drawBoard\css" />
-      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp\static\drawBoard\js" />
-      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp\WEB-INF\jsp\mobile" />
-      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp\static\pc-1.1\js" />
-      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp\static\pc-1.1\css" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work\intellij-projects\decor0430\portal\src\main\webapp" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat7">
@@ -542,6 +678,16 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="BatchConfigurationType" factoryName="Batch">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
@@ -717,6 +863,18 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -830,8 +988,8 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <configuration default="false" name="Tomcat7" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.65" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost/decor" />
+    <configuration default="false" name="Tomcat7" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.56" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/decor" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
@@ -1018,21 +1176,175 @@
       <workItem from="1466331169401" duration="1795000" />
       <workItem from="1466431305809" duration="5265000" />
       <workItem from="1466851812535" duration="14868000" />
-      <workItem from="1466940221275" duration="11811000" />
-      <workItem from="1466957744172" duration="700000" />
-      <workItem from="1467005091168" duration="12000" />
-      <workItem from="1467005244521" duration="21000" />
-      <workItem from="1467009369312" duration="15000" />
-      <workItem from="1467029765796" duration="7902000" />
-      <workItem from="1467103387213" duration="87000" />
-      <workItem from="1467121455152" duration="1580000" />
-      <workItem from="1467124947022" duration="3434000" />
-      <workItem from="1467190720603" duration="115000" />
-      <workItem from="1467204632820" duration="3596000" />
-      <workItem from="1467290130660" duration="7103000" />
-      <workItem from="1467595713966" duration="5407000" />
-      <workItem from="1467859001201" duration="2822000" />
-      <workItem from="1467967996088" duration="3869000" />
+      <workItem from="1466940221275" duration="11777000" />
+      <workItem from="1469084918341" duration="9970000" />
+      <workItem from="1469148919572" duration="4332000" />
+      <workItem from="1469153724191" duration="146000" />
+      <workItem from="1469153893934" duration="5068000" />
+      <workItem from="1469158986012" duration="142000" />
+      <workItem from="1469159146819" duration="1419000" />
+    </task>
+    <task id="LOCAL-00145" summary="提交代码">
+      <created>1465311513570</created>
+      <option name="number" value="00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1465311513570</updated>
+    </task>
+    <task id="LOCAL-00146" summary="提交代码">
+      <created>1465311730060</created>
+      <option name="number" value="00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1465311730061</updated>
+    </task>
+    <task id="LOCAL-00147" summary="提交代码">
+      <created>1465311948086</created>
+      <option name="number" value="00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1465311948086</updated>
+    </task>
+    <task id="LOCAL-00148" summary="提交代码">
+      <created>1465312392896</created>
+      <option name="number" value="00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1465312392896</updated>
+    </task>
+    <task id="LOCAL-00149" summary="提交代码">
+      <created>1465312608640</created>
+      <option name="number" value="00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1465312608640</updated>
+    </task>
+    <task id="LOCAL-00150" summary="提交代码">
+      <created>1465312617907</created>
+      <option name="number" value="00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1465312617907</updated>
+    </task>
+    <task id="LOCAL-00151" summary="提交代码">
+      <created>1465529206402</created>
+      <option name="number" value="00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1465529206403</updated>
+    </task>
+    <task id="LOCAL-00152" summary="提交代码">
+      <created>1465529937482</created>
+      <option name="number" value="00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1465529937482</updated>
+    </task>
+    <task id="LOCAL-00153" summary="提交代码">
+      <created>1465530190519</created>
+      <option name="number" value="00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1465530190520</updated>
+    </task>
+    <task id="LOCAL-00154" summary="提交代码">
+      <created>1465530793220</created>
+      <option name="number" value="00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1465530793220</updated>
+    </task>
+    <task id="LOCAL-00155" summary="提交代码">
+      <created>1465546157363</created>
+      <option name="number" value="00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1465546157363</updated>
+    </task>
+    <task id="LOCAL-00156" summary="提交代码">
+      <created>1465546170117</created>
+      <option name="number" value="00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1465546170117</updated>
+    </task>
+    <task id="LOCAL-00157" summary="提交代码">
+      <created>1465549137172</created>
+      <option name="number" value="00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1465549137172</updated>
+    </task>
+    <task id="LOCAL-00158" summary="提交代码">
+      <created>1465549152224</created>
+      <option name="number" value="00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1465549152224</updated>
+    </task>
+    <task id="LOCAL-00159" summary="提交代码">
+      <created>1465550783237</created>
+      <option name="number" value="00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1465550783237</updated>
+    </task>
+    <task id="LOCAL-00160" summary="提交代码">
+      <created>1465550793054</created>
+      <option name="number" value="00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1465550793055</updated>
+    </task>
+    <task id="LOCAL-00161" summary="提交代码">
+      <created>1465651503965</created>
+      <option name="number" value="00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1465651503965</updated>
+    </task>
+    <task id="LOCAL-00162" summary="提交代码">
+      <created>1465653056931</created>
+      <option name="number" value="00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1465653056931</updated>
+    </task>
+    <task id="LOCAL-00163" summary="提交代码">
+      <created>1465653215306</created>
+      <option name="number" value="00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1465653215306</updated>
+    </task>
+    <task id="LOCAL-00164" summary="提交代码">
+      <created>1465653547476</created>
+      <option name="number" value="00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1465653547476</updated>
+    </task>
+    <task id="LOCAL-00165" summary="提交代码">
+      <created>1465656492767</created>
+      <option name="number" value="00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1465656492767</updated>
+    </task>
+    <task id="LOCAL-00166" summary="提交代码">
+      <created>1465656512381</created>
+      <option name="number" value="00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1465656512381</updated>
+    </task>
+    <task id="LOCAL-00167" summary="提交代码">
+      <created>1465656532657</created>
+      <option name="number" value="00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1465656532657</updated>
+    </task>
+    <task id="LOCAL-00168" summary="提交代码">
+      <created>1465656684523</created>
+      <option name="number" value="00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1465656684523</updated>
+    </task>
+    <task id="LOCAL-00169" summary="提交代码">
+      <created>1465656994331</created>
+      <option name="number" value="00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1465656994331</updated>
+    </task>
+    <task id="LOCAL-00170" summary="提交代码">
+      <created>1465824307825</created>
+      <option name="number" value="00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1465824307833</updated>
+    </task>
+    <task id="LOCAL-00171" summary="提交代码">
+      <created>1465825534884</created>
+      <option name="number" value="00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1465825534884</updated>
     </task>
     <task id="LOCAL-00172" summary="提交代码">
       <created>1465825743334</created>
@@ -1155,184 +1467,22 @@
       <updated>1466948452172</updated>
     </task>
     <task id="LOCAL-00192" summary="提交代码">
-      <created>1466957674439</created>
+      <created>1469094808287</created>
       <option name="number" value="00192" />
       <option name="project" value="LOCAL" />
-      <updated>1466957674439</updated>
+      <updated>1469094808296</updated>
     </task>
     <task id="LOCAL-00193" summary="提交代码">
-      <created>1467030806727</created>
+      <created>1469160543123</created>
       <option name="number" value="00193" />
       <option name="project" value="LOCAL" />
-      <updated>1467030806735</updated>
+      <updated>1469160543130</updated>
     </task>
-    <task id="LOCAL-00194" summary="提交代码">
-      <created>1467031392656</created>
-      <option name="number" value="00194" />
-      <option name="project" value="LOCAL" />
-      <updated>1467031392656</updated>
-    </task>
-    <task id="LOCAL-00195" summary="提交代码">
-      <created>1467031542869</created>
-      <option name="number" value="00195" />
-      <option name="project" value="LOCAL" />
-      <updated>1467031542869</updated>
-    </task>
-    <task id="LOCAL-00196" summary="提交代码">
-      <created>1467032073215</created>
-      <option name="number" value="00196" />
-      <option name="project" value="LOCAL" />
-      <updated>1467032073215</updated>
-    </task>
-    <task id="LOCAL-00197" summary="提交代码">
-      <created>1467032587147</created>
-      <option name="number" value="00197" />
-      <option name="project" value="LOCAL" />
-      <updated>1467032587147</updated>
-    </task>
-    <task id="LOCAL-00198" summary="提交代码">
-      <created>1467035332909</created>
-      <option name="number" value="00198" />
-      <option name="project" value="LOCAL" />
-      <updated>1467035332909</updated>
-    </task>
-    <task id="LOCAL-00199" summary="提交代码">
-      <created>1467036949406</created>
-      <option name="number" value="00199" />
-      <option name="project" value="LOCAL" />
-      <updated>1467036949407</updated>
-    </task>
-    <task id="LOCAL-00200" summary="提交代码">
-      <created>1467125270668</created>
-      <option name="number" value="00200" />
-      <option name="project" value="LOCAL" />
-      <updated>1467125270669</updated>
-    </task>
-    <task id="LOCAL-00201" summary="提交代码">
-      <created>1467128343597</created>
-      <option name="number" value="00201" />
-      <option name="project" value="LOCAL" />
-      <updated>1467128343597</updated>
-    </task>
-    <task id="LOCAL-00202" summary="提交代码">
-      <created>1467205454613</created>
-      <option name="number" value="00202" />
-      <option name="project" value="LOCAL" />
-      <updated>1467205454628</updated>
-    </task>
-    <task id="LOCAL-00203" summary="提交代码">
-      <created>1467206655271</created>
-      <option name="number" value="00203" />
-      <option name="project" value="LOCAL" />
-      <updated>1467206655271</updated>
-    </task>
-    <task id="LOCAL-00204" summary="提交代码">
-      <created>1467207276615</created>
-      <option name="number" value="00204" />
-      <option name="project" value="LOCAL" />
-      <updated>1467207276615</updated>
-    </task>
-    <task id="LOCAL-00205" summary="提交代码">
-      <created>1467207678547</created>
-      <option name="number" value="00205" />
-      <option name="project" value="LOCAL" />
-      <updated>1467207678547</updated>
-    </task>
-    <task id="LOCAL-00206" summary="提交代码">
-      <created>1467290797565</created>
-      <option name="number" value="00206" />
-      <option name="project" value="LOCAL" />
-      <updated>1467290797573</updated>
-    </task>
-    <task id="LOCAL-00207" summary="提交代码">
-      <created>1467291779455</created>
-      <option name="number" value="00207" />
-      <option name="project" value="LOCAL" />
-      <updated>1467291779455</updated>
-    </task>
-    <task id="LOCAL-00208" summary="提交代码">
-      <created>1467292689419</created>
-      <option name="number" value="00208" />
-      <option name="project" value="LOCAL" />
-      <updated>1467292689419</updated>
-    </task>
-    <task id="LOCAL-00209" summary="提交代码">
-      <created>1467293398481</created>
-      <option name="number" value="00209" />
-      <option name="project" value="LOCAL" />
-      <updated>1467293398481</updated>
-    </task>
-    <task id="LOCAL-00210" summary="提交代码">
-      <created>1467294455073</created>
-      <option name="number" value="00210" />
-      <option name="project" value="LOCAL" />
-      <updated>1467294455074</updated>
-    </task>
-    <task id="LOCAL-00211" summary="提交代码">
-      <created>1467295234365</created>
-      <option name="number" value="00211" />
-      <option name="project" value="LOCAL" />
-      <updated>1467295234365</updated>
-    </task>
-    <task id="LOCAL-00212" summary="提交代码">
-      <created>1467295890693</created>
-      <option name="number" value="00212" />
-      <option name="project" value="LOCAL" />
-      <updated>1467295890693</updated>
-    </task>
-    <task id="LOCAL-00213" summary="提交代码">
-      <created>1467599182528</created>
-      <option name="number" value="00213" />
-      <option name="project" value="LOCAL" />
-      <updated>1467599182552</updated>
-    </task>
-    <task id="LOCAL-00214" summary="提交代码">
-      <created>1467599963894</created>
-      <option name="number" value="00214" />
-      <option name="project" value="LOCAL" />
-      <updated>1467599963894</updated>
-    </task>
-    <task id="LOCAL-00215" summary="提交代码">
-      <created>1467600282593</created>
-      <option name="number" value="00215" />
-      <option name="project" value="LOCAL" />
-      <updated>1467600282593</updated>
-    </task>
-    <task id="LOCAL-00216" summary="提交代码">
-      <created>1467605523109</created>
-      <option name="number" value="00216" />
-      <option name="project" value="LOCAL" />
-      <updated>1467605523109</updated>
-    </task>
-    <task id="LOCAL-00217" summary="提交代码">
-      <created>1467969905537</created>
-      <option name="number" value="00217" />
-      <option name="project" value="LOCAL" />
-      <updated>1467969905538</updated>
-    </task>
-    <task id="LOCAL-00218" summary="提交代码">
-      <created>1467970380365</created>
-      <option name="number" value="00218" />
-      <option name="project" value="LOCAL" />
-      <updated>1467970380365</updated>
-    </task>
-    <task id="LOCAL-00219" summary="提交代码">
-      <created>1467970807310</created>
-      <option name="number" value="00219" />
-      <option name="project" value="LOCAL" />
-      <updated>1467970807310</updated>
-    </task>
-    <task id="LOCAL-00220" summary="提交代码">
-      <created>1467971029907</created>
-      <option name="number" value="00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1467971029907</updated>
-    </task>
-    <option name="localTasksCounter" value="221" />
+    <option name="localTasksCounter" value="194" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="439148000" />
+    <option name="totallyTimeSpent" value="428208000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1344,80 +1494,85 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4369748" sideWeight="0.5030257" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5746753" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29220778" sideWeight="0.50373137" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14750378" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15618336" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.67748916" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36580086" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24360341" sideWeight="0.49411765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18283582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.589916" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39069265" sideWeight="0.49626866" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel remote servers log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13388805" sideWeight="0.5058824" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29220778" sideWeight="0.50373137" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15618336" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18283582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4857143" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39327732" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41680673" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3579832" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39069265" sideWeight="0.49626866" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="20" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5746753" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5119048" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36580086" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel remote servers log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28366113" sideWeight="0.49411765" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13388805" sideWeight="0.5058824" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24360341" sideWeight="0.49411765" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13388805" sideWeight="0.5058824" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="20" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14453782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15778251" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32142857" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792208" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23507462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43506494" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.589916" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1432,6 +1587,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="修改后台场景图列表排列规则：推荐的优先显示" />
     <MESSAGE value="测试提交" />
     <MESSAGE value="系列图详情" />
@@ -1453,10 +1610,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/common/interceptor/CommonInterceptor.java</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="204" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="190" />
+      <option name="time" value="205" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1465,437 +1630,408 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/SceneController.java">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.933333">
-          <caret line="314" column="5" selection-start-line="254" selection-start-column="4" selection-end-line="314" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.21734104">
+          <caret line="150" column="49" selection-start-line="150" selection-start-column="49" selection-end-line="150" selection-end-column="49" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24046242">
+          <caret line="151" column="16" selection-start-line="151" selection-start-column="16" selection-end-line="151" selection-end-column="16" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/static/pc/css/all.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.586207">
+          <caret line="242" column="29" selection-start-line="242" selection-start-column="29" selection-end-line="242" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/ForwardController4Pc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/SceneService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="159" selection-start-line="99" selection-start-column="159" selection-end-line="99" selection-end-column="184" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/DrawBoardController4Pc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/static/drawBoard/js/rotate.js">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/static/pc/css/homepage.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/entity/UserThird.java">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/系列图列表.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2591171">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state vertical-scroll-proportion="-18.827587">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/utils/SessionUtils.java">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/spring-mvc.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33205375">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        <state vertical-scroll-proportion="-1.754386">
+          <caret line="14" column="103" selection-start-line="14" selection-start-column="93" selection-end-line="14" selection-end-column="103" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/dao/UserDao.java">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5799649">
-          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.6384248">
+          <caret line="35" column="76" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/个人设置.jsp">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/inc/nav.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0689654">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/inc/top.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.655172">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/BackgroundController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="276" column="38" selection-start-line="276" selection-start-column="38" selection-end-line="276" selection-end-column="38" />
+          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/common/ICommonService.java">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/inc/menu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57581574">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        <state vertical-scroll-proportion="-20.206896">
+          <caret line="53" column="36" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/UserService.java">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/场景图列表.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.0">
-          <caret line="116" column="20" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/impl/SceneServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/登录.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="12.943761">
-          <caret line="523" column="8" selection-start-line="523" selection-start-column="8" selection-end-line="525" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="14" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/impl/CommentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.0.0.RELEASE/spring-aop-4.0.0.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3778802">
+          <caret line="171" column="25" selection-start-line="171" selection-start-column="25" selection-end-line="171" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/BackgroundController4Pc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/dao/MessageDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.86580086">
+          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6896552">
+          <caret line="324" column="64" selection-start-line="324" selection-start-column="64" selection-end-line="324" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/UtilsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="7.4189944">
+          <caret line="350" column="17" selection-start-line="350" selection-start-column="17" selection-end-line="350" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.0.0.RELEASE/spring-web-4.0.0.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.464286">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.0.0.RELEASE/spring-webmvc-4.0.0.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.892857">
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.0.0.RELEASE/spring-webmvc-4.0.0.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.892857">
+          <caret line="439" column="0" selection-start-line="439" selection-start-column="0" selection-end-line="439" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.0.0.RELEASE/spring-webmvc-4.0.0.RELEASE.jar!/org/springframework/web/servlet/mvc/method/AbstractHandlerMethodAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.571428">
+          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.0.0.RELEASE/spring-webmvc-4.0.0.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.035714">
+          <caret line="430" column="0" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.0.0.RELEASE/spring-webmvc-4.0.0.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.056896552">
+          <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/filter/GlobalFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.13157895">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/service/LoginService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/core/Constant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36906853">
-          <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.6.2.RELEASE/spring-data-commons-1.6.2.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/service/impl/LoginServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24340771">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/UserThirdService.java">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/MessageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18453427">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.3575419">
+          <caret line="134" column="40" selection-start-line="134" selection-start-column="30" selection-end-line="134" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/impl/UserThirdServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/首页.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.344464">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state vertical-scroll-proportion="-13.103448">
+          <caret line="47" column="73" selection-start-line="47" selection-start-column="73" selection-end-line="47" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/UserSettingController4Pc.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/1.4.2.RELEASE/spring-data-jpa-1.4.2.RELEASE.jar!/org/springframework/data/jpa/repository/JpaSpecificationExecutor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.9816513">
-          <caret line="203" column="54" selection-start-line="203" selection-start-column="54" selection-end-line="203" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.25374857">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/dao/GoodsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3575419">
+          <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/entity/Goods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20111732">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/GoodsController4Pc.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.366973">
-          <caret line="324" column="29" selection-start-line="324" selection-start-column="27" selection-end-line="324" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="47" selection-start-line="74" selection-start-column="47" selection-end-line="74" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/SceneController4Pc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.4666667">
-          <caret line="144" column="5" selection-start-line="144" selection-start-column="5" selection-end-line="144" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/设计师详情页.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.388889">
-          <caret line="219" column="14" selection-start-line="219" selection-start-column="14" selection-end-line="219" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/场景图列表.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1666667">
-          <caret line="233" column="121" selection-start-line="233" selection-start-column="96" selection-end-line="233" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/mobile/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="31.25">
-          <caret line="115" column="20" selection-start-line="115" selection-start-column="20" selection-end-line="115" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/mobile/designer_list.jsp">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/GoodsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="199" column="68" selection-start-line="199" selection-start-column="68" selection-end-line="199" selection-end-column="68" />
-          <folding>
-            <marker date="1466089645448" expanded="true" signature="5483:6277" placeholder="..." />
-            <marker date="1466089645448" expanded="true" signature="5513:5838" placeholder="..." />
-            <marker date="1466089645448" expanded="true" signature="5666:5822" placeholder="..." />
-          </folding>
+          <caret line="139" column="29" selection-start-line="139" selection-start-column="29" selection-end-line="139" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/static/drawBoard/js/drawing.js">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/GoodsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="515" column="5" selection-start-line="515" selection-start-column="5" selection-end-line="515" selection-end-column="5" />
+          <caret line="220" column="44" selection-start-line="220" selection-start-column="44" selection-end-line="220" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/mobile/GoodsController4Mobile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="44" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/impl/GoodsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="246" column="9" selection-start-line="246" selection-start-column="9" selection-end-line="246" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="66" selection-start-line="69" selection-start-column="16" selection-end-line="71" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/UploadController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="18" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/MessageController4Pc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/util/MsgSmsUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/api/UsersApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/AdController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1152#1153#0" expanded="false" />
-            <element signature="e#1181#1182#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/广告管理.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.669746">
+          <caret line="86" column="17" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/设计师列表.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="289" column="43" selection-start-line="289" selection-start-column="43" selection-end-line="289" selection-end-column="43" />
+        <state vertical-scroll-proportion="-16.48276">
+          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
           <folding>
-            <marker date="1467207269516" expanded="true" signature="11083:11154" placeholder="..." />
-            <marker date="1467207269516" expanded="true" signature="14763:15441" placeholder="..." />
-            <marker date="1467207269516" expanded="false" signature="15150:15164" placeholder="..." />
+            <marker date="1469085356282" expanded="true" signature="11049:11120" placeholder="..." />
+            <marker date="1469085356282" expanded="true" signature="14693:15371" placeholder="..." />
+            <marker date="1469085356282" expanded="false" signature="15080:15094" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/HomepageController4Pc.java">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/场景图列表.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="143" column="52" selection-start-line="143" selection-start-column="52" selection-end-line="143" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="713" column="102" selection-start-line="713" selection-start-column="102" selection-end-line="713" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/场景图详情.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="38" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="38" />
+        <state vertical-scroll-proportion="-11.0">
+          <caret line="59" column="74" selection-start-line="59" selection-start-column="74" selection-end-line="59" selection-end-column="74" />
           <folding>
-            <marker date="1467128183273" expanded="true" signature="10547:10694" placeholder="..." />
-            <marker date="1467128183273" expanded="true" signature="10742:11020" placeholder="..." />
-            <marker date="1467128183273" expanded="true" signature="11729:12163" placeholder="..." />
-            <marker date="1467128183273" expanded="true" signature="11781:12072" placeholder="..." />
-            <marker date="1467128183273" expanded="true" signature="11866:12032" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="9363:10176" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="9384:9882" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="9566:9850" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="9938:10145" placeholder="..." />
+            <marker date="1469069652923" expanded="false" signature="9993:10006" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="10282:11095" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="10303:10801" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="10485:10769" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="10857:11064" placeholder="..." />
+            <marker date="1469069652923" expanded="false" signature="10912:10925" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="11181:12034" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="11202:11740" placeholder="..." />
+            <marker date="1469069652923" expanded="false" signature="11391:11423" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="11424:11708" placeholder="..." />
+            <marker date="1469069652923" expanded="true" signature="11796:12003" placeholder="..." />
+            <marker date="1469069652923" expanded="false" signature="11851:11864" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/page.jsp">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="119" column="38" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.3519553">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/pc/UserController4Pc.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/service/impl/MessageServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="236" column="30" selection-start-line="236" selection-start-column="30" selection-end-line="236" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/cache/CacheService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/ehcache.backup.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/cache/impl/CacheTempCodeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/ehcache.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/查看会员.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="80" selection-start-line="63" selection-start-column="80" selection-end-line="63" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/会员列表.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="175" column="20" selection-start-line="175" selection-start-column="20" selection-end-line="175" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/drawBoard.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="189" column="31" selection-start-line="189" selection-start-column="31" selection-end-line="189" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info.properties">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/系列图列表.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="153" selection-start-line="31" selection-start-column="120" selection-end-line="31" selection-end-column="153" />
+        <state vertical-scroll-proportion="0.42234638">
+          <caret line="170" column="16" selection-start-line="170" selection-start-column="16" selection-end-line="170" selection-end-column="16" />
           <folding>
-            <marker date="1465222760000" expanded="true" signature="3682:3724" placeholder="..." />
-            <marker date="1465222760000" expanded="false" signature="4235:4267" placeholder="..." />
-            <marker date="1465222760000" expanded="false" signature="4323:4355" placeholder="..." />
+            <marker date="1469155807210" expanded="true" signature="14828:15056" placeholder="SELECT id,ti... message" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info_en_US.properties">
-      <provider editor-type-id="text-editor">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6927374">
+          <caret line="50" column="38" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/AboutWebController.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="ResourceBundle">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/首页.jsp">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/CommonController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.291667">
-          <caret line="71" column="69" selection-start-line="71" selection-start-column="69" selection-end-line="71" selection-end-column="69" />
-          <folding>
-            <marker date="1467971006412" expanded="true" signature="4955:4974" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="5231:5248" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="6018:6030" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="6031:6165" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="6396:6413" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="9398:10492" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="9478:9631" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="9478:10460" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="9679:10007" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="10062:10457" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="13322:13450" placeholder="..." />
-            <marker date="1467971006412" expanded="false" signature="13534:13547" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="13695:14112" placeholder="..." />
-            <marker date="1467971006412" expanded="true" signature="13778:14080" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/resources/conf/message-info_zh_CN.properties">
-      <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6111112">
-          <caret line="70" column="33" selection-start-line="70" selection-start-column="18" selection-end-line="70" selection-end-column="33" />
+          <caret line="33" column="64" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal/src/main/webapp/WEB-INF/jsp/pc/common/footer.jsp">
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/AuthorityController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.610998">
-          <caret line="25" column="72" selection-start-line="25" selection-start-column="72" selection-end-line="25" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal/src/main/java/com/bluemobi/decor/portal/controller/background/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/bluemobi/decor/common/interceptor/CommonInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.330855">
+          <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
           <folding />
         </state>
       </provider>

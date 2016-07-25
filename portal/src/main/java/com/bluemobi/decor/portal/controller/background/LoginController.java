@@ -57,32 +57,31 @@ public class LoginController extends CommonController {
         Boolean success = loginService.backendLogin(username, MD5Util.encodeByMD5(password));
         if (success) {
             // 登录成功后，将用户名放入cookies
-            if(StringUtils.isNotEmpty(remark)){
+            if (StringUtils.isNotEmpty(remark)) {
                 int loginMaxAge = 30 * 24 * 60 * 60; // 定义cookies的生命周期，这里是一个月。单位为秒
                 CookiesUtils.addCookie(response, "name", username, loginMaxAge);
-            }else {
-                CookiesUtils.delCookie(response,"name");
+            } else {
+                CookiesUtils.delCookie(response, "name");
             }
-            return "redirect:/backend/home";
-        }else {
+            Message message = messageService.showToMain();
+            model.put("message", message);
+            return "首页";
+        } else {
             model.addAttribute("error", "用户名或密码错误!");
             return "登录";
         }
     }
+
     @RequestMapping(value = "/logout")
-    public String logout(HttpServletRequest request,
-                         HttpServletResponse response,
-                         ModelMap model) {
+    public String logout(HttpServletRequest request) {
         loginService.backendLogOut(request);
         return "redirect:/backend/login";
     }
 
-    @RequestMapping(value = "/home")
-    public String dashboard(HttpServletRequest request,
-                            HttpServletResponse response,
-                            ModelMap model) {
+    @RequestMapping(value = "/login/home")
+    public String dashboard(ModelMap model) {
         Message message = messageService.showToMain();
-        model.put("message",message);
+        model.put("message", message);
         return "首页";
     }
 }

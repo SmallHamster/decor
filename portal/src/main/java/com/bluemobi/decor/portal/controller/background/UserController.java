@@ -85,16 +85,6 @@ public class UserController extends CommonController {
         }
     }
 
-
-    @RequestMapping(value = "/home")
-    public String dashboard(HttpServletRequest request,
-                            HttpServletResponse response,
-                            ModelMap model) {
-        Message message = messageService.showToMain();
-        model.put("message", message);
-        return "首页";
-    }
-
     @RequestMapping(value = "/listToMain")
     public void listToMain(HttpServletRequest request,
                            HttpServletResponse response) {

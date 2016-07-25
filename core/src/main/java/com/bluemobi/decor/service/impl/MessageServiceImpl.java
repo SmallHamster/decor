@@ -23,6 +23,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -165,6 +166,16 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public Message showToMain() {
         List<Message> list = messageDao.showToMain();
+        if (null != list && list.size() > 0) {
+            return list.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public Message showToMainPC() {
+        List<Message> list = messageDao.showToMainPC();
         if (null != list && list.size() > 0) {
             return list.get(0);
         } else {

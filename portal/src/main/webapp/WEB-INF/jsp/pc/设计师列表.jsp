@@ -52,7 +52,7 @@
             <!--右边内容区-->
             <div class="R-content">
                 <div class="breadcrumb"><a><fmt:message key="info.shejishi"/></a><a onclick="replace()"><fmt:message
-                        key="info.quansheng"/></a><span><fmt:message key="info.quanshi"/></span>
+                        key="info.quanbu"/></a><span></span>
                 </div>
                 <div class="pack">
                     <ul class="list-pack clearfix">
@@ -236,8 +236,8 @@
                         if (user.info == null) {
                             user.info = '';
                         }
-                        if (user.info.length > 19) {
-                            user.info = user.info.substring(0, 19) + "..."
+                        if (user.info.length > 130) {
+                            user.info = user.info.substring(0, 130) + "..."
                         }
                         if (user.nickname == null) {
                             user.nickname = '';
@@ -258,6 +258,7 @@
                         if (null != user.seriesList && user.seriesList.length > 0) {
                             for (var j = 0; j < user.seriesList.length; j++) {
                                 var series = user.seriesList[j];
+                                series.cover = series.cover + "?imageView2/1/w/400/h/270";
                                 html += "<li><a href='pc/series/detail?seriesId=" + series.id + "'><img src='" + series.cover + "'/></a></li>";
                             }
                         } else {

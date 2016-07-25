@@ -133,8 +133,7 @@ public class MessageController extends CommonController {
     }
 
     @RequestMapping(value = "/showToMain")
-    public void showToMain(HttpServletRequest request,
-                                          HttpServletResponse response) {
+    public void showToMain(HttpServletResponse response) {
         Map<String, Object> map = new HashMap<String, Object>();
         Message message = messageService.showToMain();
         if (null != message) {
@@ -163,7 +162,7 @@ public class MessageController extends CommonController {
             message.setTitle(title);
             message.setMessageTag(messageTagService.getById(tagId));
             message.setShowTurn(showTurn);
-            if (message.getCollectionNum()==null){
+            if (message.getCollectionNum() == null) {
                 message.setCollectionNum(0);
             }
             if (null != image) {
@@ -171,9 +170,9 @@ public class MessageController extends CommonController {
             } else {
                 WebUtil.print(response, new Result(false).msg("封面图片不能为空！"));
             }
-            if (null!=intro_image){
+            if (null != intro_image) {
                 message.setIntro_image(intro_image);
-            }else {
+            } else {
                 WebUtil.print(response, new Result(false).msg("资讯图片不能为空！"));
             }
             message.setContent(str);
@@ -209,8 +208,8 @@ public class MessageController extends CommonController {
             message.setTitle(title);
             message.setMessageTag(messageTagService.getById(tagId));
             message.setShowTurn(showTurn);
-            if (message.getCollectionNum()==null){
-                 message.setCollectionNum(0);
+            if (message.getCollectionNum() == null) {
+                message.setCollectionNum(0);
             }
             if (null != image) {
                 // 如果有新图片传入，则删除旧图片
