@@ -82,7 +82,7 @@
                 <div class="interact-img"><img src="${newestComment.objectCover}" width="357" height="300"/></div>
                 <div class="interact-right">
                     <h2><a>${newestComment.tags}&nbsp;</a></h2>
-                    <h3>来自：<span class="slh" style="color: #fb9f38;">${newestComment.objectName}</span></h3>
+                    <h3>来自：<span class="slh" style="color: #fb9f38;"><a href="${newestComment.objectLink}">${newestComment.objectName}</a></span></h3>
                     <div class="chat-content cleafix">
                         <div class="sc-new you">
                             <img class="me-avatar" src="${newestComment.user.headImage}" width="50" height="50"/>

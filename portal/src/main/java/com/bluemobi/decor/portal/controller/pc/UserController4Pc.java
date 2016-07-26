@@ -713,18 +713,21 @@ public class UserController4Pc extends CommonController {
                     }else {
                         newestComment.setTags("");
                     }
+                    newestComment.setObjectLink("pc/series/detail?seriesId="+newestComment.getObjectId());
                 }else if (newestComment.getObjectType().equals("scene")){
                     Scene scene=sceneService.getById(newestComment.getObjectId());
                     newestComment.setObjectCover(scene.getImage());
                     newestComment.setObjectName(scene.getName());
                     String tags = spaceTagService.getTagStr(scene.getSpaceTagIds());
                     newestComment.setTags(tags);
+                    newestComment.setObjectLink("pc/scene/detail?sceneId="+newestComment.getObjectId());
                 }else if (newestComment.getObjectType().equals("goods")){
                     Goods goods=goodsService.getById(newestComment.getObjectId());
                     newestComment.setObjectCover(goods.getCover());
                     newestComment.setObjectName(goods.getName());
                     String tags = spaceTagService.getTagStr(goods.getSpaceTagIds());
                     newestComment.setTags(tags);
+                    newestComment.setObjectLink("pc/goods/detail?goodsId="+newestComment.getObjectId());
                 }
             }
             modelMap.put("newestComment", newestComment);

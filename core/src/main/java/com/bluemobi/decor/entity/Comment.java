@@ -84,6 +84,9 @@ public class Comment implements Serializable {
     private String objectCover;
 
     @Transient
+    private String objectLink;
+
+    @Transient
     private String tags;
 
     @Transient
@@ -251,5 +254,13 @@ public class Comment implements Serializable {
 
     public void setTags(String tags) {
         this.tags = tags;
+    }
+
+    public String getObjectLink() {
+        return objectLink;
+    }
+
+    public void setObjectLink(String objectLink) {
+        this.objectLink = objectLink;
     }
 }
