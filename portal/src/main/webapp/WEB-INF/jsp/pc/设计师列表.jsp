@@ -233,6 +233,7 @@
                     var html = '';
                     if (result.data.list.length > 0) {
                         $(".below").css('background', '#fff');
+                        $(".below").css('text-align', 'left');
 
                         for (var i = 0; i < result.data.list.length; i++) {
                             var user = result.data.list[i];
@@ -299,10 +300,12 @@
                         showImg();
                     } else {
                         $(".below").css('background', 'none');
+                        $(".below").css('text-align', 'center');
                         $(".below").html('<span style="font-size: larger;">暂无内容</span>');
                     }
                 } else {
                     $(".below").css('background', 'none');
+                    $(".below").css('text-align', 'center');
                     $(".below").html('<span style="font-size: larger;">暂无内容</span>');
                 }
             });
