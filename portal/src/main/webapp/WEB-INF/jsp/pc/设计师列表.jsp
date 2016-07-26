@@ -273,9 +273,9 @@
                         </div>\
                         <div class='belMain'>\
                         <dl class='intro'>\
-                        <dt class='fl'><img src=" + user.headImage + "></dt>\
+                        <dt class='fl'><a href='pc/user/detail?userId=" + user.id + "'><img src=" + user.headImage + "></a></dt>\
                         <dd>\
-                        <h3><span class='fr'>" + user.mobile + "</span>" + user.nickname + "</h3>\
+                        <h3><span class='fr'>" + user.mobile + "</span><a href='pc/user/detail?userId=" + user.id + "'>" + user.nickname + "</a></h3>\
                         <p class='reply'>\
                         <span class='starry'>\
                         <i class='iicon star'></i>\
