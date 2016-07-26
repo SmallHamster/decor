@@ -25,15 +25,15 @@
         <!-- 头部结束 -->
 
         <!-- 页面横幅开始 -->
-        <div class="streamer">
+        <div class="streamer" onmouseover="showPosition(0)" onmouseout="showPosition(1)">
             <div class="list">
                 <ul>
                 </ul>
             </div>
             <div class="center">
                 <div class="handlerList"></div>
-                <div class="handler-prev"></div>
-                <div class="handler-next"></div>
+                <div class="handler-prev" style="display: none"></div>
+                <div class="handler-next" style="display: none"></div>
             </div>
         </div>
         <!-- 页面横幅结束 -->
@@ -41,38 +41,39 @@
         <!-- 页面主体内容开始 -->
         <div class="main">
             <div class="module design">
-                <h3><fmt:message key="info.justnowinfo"></fmt:message> </h3>
-                <p class="muted"><fmt:message key="info.startdesigninfo"></fmt:message> </p>
-                <a href="pc/drawBoard/page" class="btn"><fmt:message key="info.startdesign"></fmt:message> </a>
+                <h3>就现在，改变设计方式</h3>
+                <p class="muted">12万名设计师已经启程</p>
+                <a href="pc/drawBoard/page" class="btn">开始设计</a>
             </div>
             <div class="module introduce"></div>
             <div class="module center source">
-                <h3><fmt:message key="info.changinglives"></fmt:message> </h3>
-                <p class="muted"><fmt:message key="info.easytojoininfo"></fmt:message> </p>
+                <h3>你的设计，正在改变生活</h3>
+                <p class="muted">一键入驻，海量资源</p>
                 <a class="pull-left" id="hotSeries">
 
                 </a>
                 <div class="pull-right" id="hottestDesigner">
 
                 </div>
-                <a class="clear btn" id="goJoin"><fmt:message key="info.registernow"></fmt:message> </a>
-                <p class="muted" id="moreDesigner" style="cursor: pointer;"><fmt:message key="info.moredesigners"></fmt:message> </p>
+                <a class="clear btn" id="goJoin">现在入驻</a>
+                <p class="muted">更多设计师</p>
             </div>
             <div  class="module center image-list">
                 <h3><fmt:message key="info.herebetterdesign"></fmt:message> </h3>
                 <p class="muted"><fmt:message key="info.itishappening"></fmt:message> </p>
+            </div>
             <div class="module center image-list">
                 <h3>这里，更好的设计</h3>
                 <p class="muted">正在发生</p>
                 <ul id="seriesList">
 
                 </ul>
-                <a href="pc/drawBoard/page" class="clear btn"><fmt:message key="info.startdesign"></fmt:message></a>
-                <a href="pc/forward/to?type=series"><p class="muted" style="font-size: 16px;margin: 18px auto;"><fmt:message key="info.moredesigns"></fmt:message> </p></a>
+                <a class="clear btn">开始设计</a>
+                <a href="pc/forward/to?type=series"><p class="muted" style="font-size: 16px;margin: 18px auto;">更多设计作品</p></a>
             </div>
             <div class="module center news">
-                <h3><fmt:message key="info.moreindustryinfo"></fmt:message> </h3>
-                <p class="muted"><fmt:message key="info.onlyondecor"></fmt:message> </p>
+                <h3>更多行业内幕资讯</h3>
+                <p class="muted">只在DECOR</p>
                 <ul id="msgList">
 
                 </ul>
@@ -118,6 +119,16 @@
         ajaxRecommendMessage(); // 加载推荐的咨询
         hottestDesigner();
     });
+
+    function showPosition(flag) {
+        if (flag == 0) {
+            $('.handler-prev').css('display', '');
+            $('.handler-next').css('display', '');
+        } else {
+            $('.handler-prev').css('display', 'none');
+            $('.handler-next').css('display', 'none');
+        }
+    }
 
     // 最热设计师
     function hottestDesigner() {

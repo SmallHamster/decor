@@ -67,7 +67,7 @@
                             <span><fmt:message key="info.xilietuzuiduo"/></span>
                         </h3>
                     </div>
-                    <div class="below">
+                    <div class="below" style="text-align: center">
                     </div>
                 </div>
             </div>
@@ -231,40 +231,43 @@
                 if (result.status == "0") {
                     $bluemobi.notify(result.msg, "success");
                     var html = '';
-                    for (var i = 0; i < result.data.list.length; i++) {
-                        var user = result.data.list[i];
-                        if (user.info == null) {
-                            user.info = '';
-                        }
-                        if (user.info.length > 130) {
-                            user.info = user.info.substring(0, 130) + "..."
-                        }
-                        if (user.nickname == null) {
-                            user.nickname = '';
-                        }
-                        if (user.headImage == '') {
-                            user.headImage = "static/pc/images/peoplePhoto.jpg"
-                        }
-                        if (null == user.mobile || user.mobile == '') {
-                            user.mobile = '<fmt:message key="info.zanwujilu"/>';
-                        }
-                        if (user.isShow == 'yes') {
+                    if (result.data.list.length > 0) {
+                        $(".below").css('background', '#fff');
 
-                        } else {
-                            user.mobile = '<fmt:message key="info.baomi"/>';
-                        }
-                        html += "  <div class='belowCent clearfix'>\
-                        <div class='belBanner'><ul class='banner-ul'>";
-                        if (null != user.seriesList && user.seriesList.length > 0) {
-                            for (var j = 0; j < user.seriesList.length; j++) {
-                                var series = user.seriesList[j];
-                                series.cover = series.cover + "?imageView2/1/w/400/h/270";
-                                html += "<li><a href='pc/series/detail?seriesId=" + series.id + "'><img src='" + series.cover + "'/></a></li>";
+                        for (var i = 0; i < result.data.list.length; i++) {
+                            var user = result.data.list[i];
+                            if (user.info == null) {
+                                user.info = '';
                             }
-                        } else {
-                            html += "<li><a href='javascript:void(0)'><img src='static/images/default_cover.jpg'/></a></li>";
-                        }
-                        html += "</ul>\
+                            if (user.info.length > 130) {
+                                user.info = user.info.substring(0, 130) + "..."
+                            }
+                            if (user.nickname == null) {
+                                user.nickname = '';
+                            }
+                            if (user.headImage == '') {
+                                user.headImage = "static/pc/images/peoplePhoto.jpg"
+                            }
+                            if (null == user.mobile || user.mobile == '') {
+                                user.mobile = '<fmt:message key="info.zanwujilu"/>';
+                            }
+                            if (user.isShow == 'yes') {
+
+                            } else {
+                                user.mobile = '<fmt:message key="info.baomi"/>';
+                            }
+                            html += "  <div class='belowCent clearfix'>\
+                        <div class='belBanner'><ul class='banner-ul'>";
+                            if (null != user.seriesList && user.seriesList.length > 0) {
+                                for (var j = 0; j < user.seriesList.length; j++) {
+                                    var series = user.seriesList[j];
+                                    series.cover = series.cover + "?imageView2/1/w/400/h/270";
+                                    html += "<li><a href='pc/series/detail?seriesId=" + series.id + "'><img src='" + series.cover + "'/></a></li>";
+                                }
+                            } else {
+                                html += "<li><a href='javascript:void(0)'><img src='static/images/default_cover.jpg'/></a></li>";
+                            }
+                            html += "</ul>\
                         <div class='banner-btn'></div>\
                         </div>\
                         <div class='belMain'>\
@@ -286,17 +289,21 @@
                         </dl>\
                         <p class='txt'>" + user.info + "<a href='pc/user/detail?userId=" + user.id + "'><fmt:message key="info.gengduo"/>></a></p>\
                         </div></div>"
-                    }
+                        }
 
-                    $(".below").html(html);
+                        $(".below").html(html);
 
-                    thisPage.init(result.data.page, " ajaxPageUser");
-                    $(".page_rgt_pageNum").html(thisPage.pageNum);
-                    $(".page_rgt_totalPage").html(thisPage.totalPage);
-                    showImg();
-                    if(result.data.page.totalNum <= 0){
-                        $(".pagination").hide();
+                        thisPage.init(result.data.page, " ajaxPageUser");
+                        $(".page_rgt_pageNum").html(thisPage.pageNum);
+                        $(".page_rgt_totalPage").html(thisPage.totalPage);
+                        showImg();
+                    } else {
+                        $(".below").css('background', 'none');
+                        $(".below").html('<span style="font-size: larger;">暂无内容</span>');
                     }
+                } else {
+                    $(".below").css('background', 'none');
+                    $(".below").html('<span style="font-size: larger;">暂无内容</span>');
                 }
             });
         }

@@ -50,6 +50,8 @@
 	top:195px;
 	width:50px;
 	height:100px;
+	margin-left: -250px;
+	margin-right: -250px;
 	cursor:pointer;
 }
 .handler-prev:hover,

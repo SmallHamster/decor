@@ -21,7 +21,7 @@ public interface SeriesSceneDao extends JpaRepository<SeriesScene, Integer>,JpaS
     @Query("select a from SeriesScene a where a.series = ?1")
     public List<SeriesScene> pcFindBySeries(Series series);
 
-    @Query("select a.scene from SeriesScene a where a.series.id = ?1 order by a.scene.praiseNum desc ")
+    @Query("select a.scene from SeriesScene a where a.series.id = ?1 order by a.id asc")
     public List<Scene> findSceneListBySeriesId(Integer seriesId);
 
     @Query("select a.series from SeriesScene a where a.scene.id = ?1")

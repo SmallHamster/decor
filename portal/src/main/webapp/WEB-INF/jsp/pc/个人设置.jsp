@@ -111,19 +111,19 @@
             <div class="accountCont" id="password">
                 <div class="p-item">
                     <label><fmt:message key="info.dangqianmima"/>：</label>
-                    <input type="password">
+                    <input type="password" maxlength="16" />
                 </div>
                 <div class="p-item">
                     <label><fmt:message key="info.xinmima"/>：</label>
-                    <input type="password">
+                    <input type="password" maxlength="16" placeholder="<fmt:message key="info.mimatishi"/>" />
                 </div>
                 <div class="p-item">
                     <label><fmt:message key="info.quedingxinmima"/>：</label>
-                    <input type="password">
+                    <input type="password" maxlength="16" />
                 </div>
                 <div class="p-item validate">
                     <label><fmt:message key="info.yanzhengma"/>：</label>
-                    <input type="text">
+                    <input type="text" maxlength="6" />
                     <img src="kaptcha.jpg" class="ml10" id="codeImg">
                     <a href="javascript:changeImg()" class="fs16 colorBlack ml10" id="ig"><fmt:message key="info.huanyizhang"/></a>
                 </div>

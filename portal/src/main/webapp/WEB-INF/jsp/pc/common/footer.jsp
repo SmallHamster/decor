@@ -4,30 +4,30 @@
     <div class="center">
         <div class="pull-left logo-footer">
             <img src="static/pc-1.1/images/logo-footer.png" title="DECOR" alt="DECOR" width="187" height="38" />
-            装修、建材、家居、商务一站式服务
+            <fmt:message key="info.yizhanshifuwu"/>
         </div>
         <div class="pull-left navi">
-            <h3>网站导航</h3>
+            <h3><fmt:message key="info.wangzhandaohang"/></h3>
             <p><a href="pc/forward/to?type=goods"><fmt:message key="info.quanbushangpin"/></a>
                 <a href="pc/forward/to?type=scene"><fmt:message key="info.quanbuchangjing"/></a>
                 <a href="pc/forward/to?type=scene" id="showAllSeries"><fmt:message key="info.xilietuzhanshi"/></a>
             </p>
-            <p><a class="slh" title="<fmt:message key="info.zhaoshejishi"/>" href="pc/forward/to?type=user"><fmt:message key="info.zhaoshejishi"/></a>
-                <a class="slh" title="<fmt:message key="info.zixun"/>"  href="pc/forward/to?type=message"><fmt:message key="info.zixun"/></a></p>
+            <p><a href="pc/forward/to?type=user"><fmt:message key="info.zhaoshejishi"/></a><a
+                    href="pc/forward/to?type=message"><fmt:message key="info.zixun"/></a></p>
 
-            <p><a class="userUpload slh" title="<fmt:message key="info.shangchuanshangpin"/>"><fmt:message key="info.shangchuanshangpin"/></a><a
-                    class="userUpload slh" title="<fmt:message key="info.chuangjianchangjing"/>"><fmt:message key="info.chuangjianchangjing"/></a><a
-                    class="userUpload slh" title="<fmt:message key="info.tianjiaxilietu"/>"><fmt:message key="info.tianjiaxilietu"/></a></p>
+            <p><a class="userUpload"><fmt:message key="info.shangchuanshangpin"/></a><a
+                    class="userUpload"><fmt:message key="info.chuangjianchangjing"/></a><a
+                    class="userUpload"><fmt:message key="info.tianjiaxilietu"/></a></p>
         </div>
         <div class="pull-left navi">
             <h3><fmt:message key="info.guanyuwomen"/></h3>
 
-            <p><a class="slh" title="<fmt:message key="info.guanyuwangzhan"/>" href="pc/forward/aboutWeb" id="aboutWeb"><fmt:message key="info.guanyuwangzhan"/></a>
-                <a class="slh" title="<fmt:message key="info.lianxiwomen"/>" href="pc/forward/aboutWeb" id="aboutWe"><fmt:message key="info.lianxiwomen"/></a></p>
+            <p><a href="pc/forward/aboutWeb" id="aboutWeb"><fmt:message key="info.guanyuwangzhan"/></a><a
+                    href="pc/forward/aboutWeb" id="aboutWe"><fmt:message key="info.lianxiwomen"/></a></p>
         </div>
         <div class="pull-right qcode">
-            <img src="static/pc-1.1/images/qcode.jpg" width="152" height="152" />
-            <fmt:message key="info.sys"></fmt:message>
+            <img src="static/pc-1.1/images/qcode.jpg" title="<fmt:message key="info.saoyisao,xiazaipadban"/>" alt="<fmt:message key="info.saoyisao,xiazaipadban"/>" width="152" height="152" />
+            <fmt:message key="info.saoyisao,xiazaipadban"/>
         </div>
     </div>
 </div>
@@ -54,11 +54,11 @@
     <div class="form loginDiv">
         <div class="form-item rel">
             <span class="iicon phone abs"></span>
-            <input type="text" class="loginmobile" maxlength="11" placeholder="<fmt:message key="info.shoujihao"/>"
+            <input type="text" class="loginmobile" placeholder="<fmt:message key="info.shoujihao"/>"
                    onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
         </div>
         <div class="form-item rel">
-            <span class="iicon password abs"></span><input type="password" maxlength="20" class="loginpassword"
+            <span class="iicon password abs"></span><input type="password" class="loginpassword"
                                                            placeholder="<fmt:message key="info.mima"/>">
         </div>
         <div class="agree clearfix">
@@ -116,22 +116,17 @@
     <div class='Poplogo'><img src='static/pc/images/login_logo.png'/></div>
     <div class="form registerDiv">
         <div class="form-item rel">
-            <span class="iicon phone abs"></span><input type="text" maxlength="11" placeholder="<fmt:message key="info.shoujihao"/>"
-                                                        onkeyup="this.value=this.value.replace(/\D/g,'')"
-                                                        onafterpaste="this.value=this.value.replace(/\D/g,'')">
+            <span class="iicon phone abs"></span><input type="text" maxlength="11" placeholder="<fmt:message key="info.shoujihao"/>">
         </div>
         <div class="form-item rel">
-            <span class="iicon nickname abs"></span><input type="text" maxlength="10" placeholder="<fmt:message key="info.nichen"/>">
+            <span class="iicon nickname abs"></span><input type="text" maxlength="16" placeholder="<fmt:message key="info.nichen"/>">
         </div>
         <div class="form-item rel">
             <span class="iicon password abs"></span><input type="password" maxlength="16" placeholder="<fmt:message key="info.mima"/>">
         </div>
         <div class="clearfix">
             <div class="form-item rel fl" style="width: 315px">
-                <span class="iicon validate abs"></span><input type="text" style="width: 250px;" maxlength="10"
-                                                               placeholder="<fmt:message key="info.duanxinyanzhengma"/>"
-                                                               onkeyup="this.value=this.value.replace(/\D/g,'')"
-                                                               onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                <span class="iicon validate abs"></span><input type="text" style="width: 250px;" maxlength="6" placeholder="<fmt:message key="info.duanxinyanzhengma"/>">
             </div>
             <div class="fr curp">
                 <button class="btn blackBtn sendCodeBtn" defaultVal="<fmt:message key="info.fasongyanzhengma"/>"><fmt:message key="info.fasongyanzhengma"/></button>
@@ -175,7 +170,7 @@
 <!-- 重置密码 -->
 <script type="text/template" id="resetPasswordPopupCont">
     <div class='Poplogo'><img src='static/pc/images/login_logo.png'/></div>
-    <p class="tc fs16 color3 mb20">重置密码</p>
+    <p class="tc fs16 color3 mb20"><fmt:message key="info.chongzhimima"/></p>
     <div class="form resetPasswordDiv">
         <div class="form-item rel">
             <span class="iicon password abs"></span><input type="password" placeholder="<fmt:message key="info.shuruzuixinmima"/>">
@@ -508,10 +503,6 @@
                 $(".loginDiv .error").text("<fmt:message key="info.shoujihaobunengweikong"/>");
                 return false;
             }
-            if(!(/^1[3|4|5|8]\d{9}$/.test(username))){
-                $(".loginDiv .error").text("输入的手机号格式不正确");
-                return false;
-            }
             if (password == "") {
                 $(".loginDiv .error").text("<fmt:message key="info.mimabunengweikong"/>");
                 return false;
@@ -823,7 +814,7 @@
         });
     }
 
-//    clearTimeout(_time);
+    //    clearTimeout(_time);
     var _changeBtn;
     var _time;
     function btnValueChange(){
@@ -854,25 +845,39 @@
             $bluemobi.notify("<fmt:message key="info.shoujihaobunengweikong"/>", "error");
             return false;
         }
-        if (!(/^1[3|4|5|8]\d{9}$/.test(mobile))) {
+        if (mobile.trim().length != 11 || isNaN(mobile)) {
             $(".registerDiv").find("input").eq(0).focus();
-            $bluemobi.notify("输入的手机号格式不正确", "error");
+            $bluemobi.notify("<fmt:message key="info.shoujihaogeshibuzhengque"/>", "error");
             return false;
         }
-
         if (nickname == "") {
             $(".registerDiv").find("input").eq(1).focus();
             $bluemobi.notify("<fmt:message key="info.nichenbukeweikong"/>", "error");
             return false;
         }
-        if (password.length<6) {
+        if (nickname.trim().length > 16 || nickname.trim().length < 6) {
+            $(".registerDiv").find("input").eq(1).focus();
+            $bluemobi.notify("<fmt:message key="info.nichengeshibuzhengque"/>", "error");
+            return false;
+        }
+        if (password == "") {
             $(".registerDiv").find("input").eq(2).focus();
-            $bluemobi.notify("密码不能少于6位", "error");
+            $bluemobi.notify("<fmt:message key="info.mimabunengweikong"/>", "error");
+            return false;
+        }
+        if (password.trim().length > 16 || password.trim().length < 6) {
+            $(".registerDiv").find("input").eq(2).focus();
+            $bluemobi.notify("<fmt:message key="info.mimageshibuzhengque"/>", "error");
             return false;
         }
         if (code == "") {
             $(".registerDiv").find("input").eq(3).focus();
             $bluemobi.notify("<fmt:message key="info.duanxinyanzhengmabukeweikong"/>", "error");
+            return false;
+        }
+        if (code.trim().length != 6 || isNaN(code)) {
+            $(".registerDiv").find("input").eq(3).focus();
+            $bluemobi.notify("<fmt:message key="info.duanxinyanzhengmageshibuzhengque"/>", "error");
             return false;
         }
         if (!$(".registerDiv .agree").find("span").eq(0).hasClass("checked")) {
@@ -935,23 +940,23 @@
         });
     }
 
-//    var _time;
-//    var _timeIndex=0;
-//    function testChange(){
-//        var obj = $(".findPasswordDiv .sendCodeBtn");
-//        var _val = $(".findPasswordDiv .sendCodeBtn").attr("_val");
-//        var val = $(".findPasswordDiv .sendCodeBtn").html();
-//        if(_timeIndex==0){
-//            val= 10;
-//        }else if(val == 0){
-//            val =_val;
-//        }else {
-//            val = val*1-1;
-//        }
-//        obj.html(val);
-//        _timeIndex+=1;
-//        _time=setTimeout("testChange()", 1000)
-//    }
+    //    var _time;
+    //    var _timeIndex=0;
+    //    function testChange(){
+    //        var obj = $(".findPasswordDiv .sendCodeBtn");
+    //        var _val = $(".findPasswordDiv .sendCodeBtn").attr("_val");
+    //        var val = $(".findPasswordDiv .sendCodeBtn").html();
+    //        if(_timeIndex==0){
+    //            val= 10;
+    //        }else if(val == 0){
+    //            val =_val;
+    //        }else {
+    //            val = val*1-1;
+    //        }
+    //        obj.html(val);
+    //        _timeIndex+=1;
+    //        _time=setTimeout("testChange()", 1000)
+    //    }
 
     // 找回密码验证验证码
     function pcFindPasswordCheckCode() {

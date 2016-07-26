@@ -11,7 +11,7 @@
 		<meta content="telephone=no, address=no" name="format-detection">
 		<meta name="apple-mobile-web-app-capable" content="yes"> 
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<title>首页</title>
+		<title><fmt:message key="info.shouye"/></title>
 		
 		<script src="static/mobile/js/flexible.js"></script>
 		<link rel="stylesheet" href="static/mobile/css/global.css">
@@ -84,15 +84,15 @@
 				</c:forEach>
 			</ul>
 
-			<div class="moreTitle"><a href="mobile/forward/to?type=series">更多设计作品</a></div>
+			<div class="moreTitle"><a href="mobile/forward/to?type=series"><fmt:message key="info.gengduoshejizuopin"/></a></div>
 			<div class="titleBox">
-				<h3>更多行业内幕资讯</h3>
-				<p>只在DECOR</p>
+				<h3><fmt:message key="info.gengduohangyeneimuzixun"/></h3>
+				<p><fmt:message key="info.zhizaidecor"/></p>
 			</div>
 			<ul class="infoList">
 
 			</ul>
-			<div class="moreTitle"><a href="pc/forward/to?type=message">更多设计作品</a></div>
+			<div class="moreTitle"><a href="pc/forward/to?type=message"><fmt:message key="info.gengduoshejizuopin"/></a></div>
 		</div>
 	<script>
 		$(function(){
