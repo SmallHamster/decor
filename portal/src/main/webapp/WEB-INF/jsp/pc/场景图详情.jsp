@@ -76,8 +76,23 @@
         .clear {
             height: inherit;
         }
+
+
     </style>
 </head>
+<script>window._bd_share_config = {
+    "common": {
+        "bdSnsKey": {},
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": "",
+        "bdStyle": "1",
+        "bdSize": "16"
+    }, "share": {}
+};
+with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>
 
 <body>
 <div class="wrapper">
@@ -121,6 +136,8 @@
                         <p class="desc">来自系列图：<a id="seriesName" class="text-orange"></a><br/>${scene.info}</p>
                         <button id="collect" class="btn btn-count" style="display: none">${scene.collectionNum}人喜欢</button>
                         <button id="cancelCollect" class="btn btn-count" style="display: none">取消收藏</button>
+                        <h3 style="margin-top: -15px;"><div class="bdsharebuttonbox"><a class="share bds_more" data-cmd="more" style="height: 22px;padding-left: 0px;font-size: 14px;line-height: 22px;"><i></i>分享给朋友</a></div></h3>
+
                         <p class="strong">场景中的商品</p>
                         <ul id="goodsList" class="image-list">
 

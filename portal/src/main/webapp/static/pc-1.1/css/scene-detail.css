@@ -214,3 +214,21 @@
 .review .text .pull-left{
 	color:#17171d;
 }
+.designer h3 .share i{
+	display: block;
+	float: left;
+	width: 22px;
+	height: 22px;
+	background: #17171d url(../images/ico_btn_10.png) no-repeat center;
+}
+.designer h3 .share{
+	display: block;
+	width: 126px;
+	height: 22px;
+	overflow: hidden;
+	font-size: 14px;
+	color: #999999;
+	border: 1px solid #17171d;
+	border-radius: 5px;
+	text-align: center;
+}
