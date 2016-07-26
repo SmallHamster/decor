@@ -809,7 +809,7 @@ public class UserServiceImpl implements UserService {
                 return query.getRestriction();
             }
 
-        }, new PageRequest(0, 4, Sort.Direction.DESC, "fans", "isRecommend"));
+        }, new PageRequest(0, 4, Sort.Direction.DESC, "isRecommend", "fans"));
         List<User> userList = page.getContent();
         for (int i = 0; i < userList.size(); i++) {
             Integer cityIdToS2 = userList.get(i).getCity().getId();
