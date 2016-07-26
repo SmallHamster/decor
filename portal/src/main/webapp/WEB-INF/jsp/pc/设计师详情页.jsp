@@ -156,7 +156,7 @@
         </div>
         <!--评论留言-->
         <div class="comments">
-            <h2 class="title">评论留言</h2>
+            <h2 id="commentTitle" class="title">评论留言</h2>
             <div class="comment-list">
                 <ul id="commentList">
 
@@ -193,6 +193,12 @@
             vis: 1,
             trigger: "click"
         });
+
+
+        $(".hudong").click(function(){
+            $("html,body").animate({scrollTop:$("#commentTitle").offset().top},1000);
+        });
+
         commFun.handlerAttention(); // 处理关注
         ajaxSeriesPage();
         ajaxCommentPage();
