@@ -253,8 +253,8 @@ background:#000; color:#fff; text-align:center; left:20px; top:20px; filter:alph
 .belMain p.txt a{ color:#0070c7;}
 
 /*系列图列表*/
-.topNav{ padding:20px 0; background:#fff;}
-.topCent{ border-bottom:1px solid #ccc; padding:0 20px;}
+.topNav{ background:#fff;}
+.topCent{ border-bottom:1px solid #ccc;}
 .topCent span.t-title{ display:inline-block; float:left; height:40px; line-height:40px;}
 .listNav{float:left;}
 .listNav li{ float:left; height:40px; line-height:40px; margin-left:60px; position:relative;}

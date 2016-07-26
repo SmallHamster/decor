@@ -25,15 +25,15 @@
         <!-- 头部结束 -->
 
         <!-- 页面横幅开始 -->
-        <div class="streamer">
+        <div class="streamer" onmouseover="showPosition(0)" onmouseout="showPosition(1)">
             <div class="list">
                 <ul>
                 </ul>
             </div>
             <div class="center">
                 <div class="handlerList"></div>
-                <div class="handler-prev"></div>
-                <div class="handler-next"></div>
+                <div class="handler-prev" style="display: none"></div>
+                <div class="handler-next" style="display: none"></div>
             </div>
         </div>
         <!-- 页面横幅结束 -->
@@ -41,38 +41,35 @@
         <!-- 页面主体内容开始 -->
         <div class="main">
             <div class="module design">
-                <h3><fmt:message key="info.justnowinfo"></fmt:message> </h3>
-                <p class="muted"><fmt:message key="info.startdesigninfo"></fmt:message> </p>
-                <a href="pc/drawBoard/page" class="btn"><fmt:message key="info.startdesign"></fmt:message> </a>
+                <h3><fmt:message key="info.jiuxianzaigaibianshenghuofangshi"></fmt:message></h3>
+                <p class="muted"><fmt:message key="info.shierwanmingshejishiyijingqicheng"></fmt:message></p>
+                <a href="pc/drawBoard/page" class="btn"><fmt:message key="info.kaishisheji"></fmt:message></a>
             </div>
             <div class="module introduce"></div>
             <div class="module center source">
-                <h3><fmt:message key="info.changinglives"></fmt:message> </h3>
-                <p class="muted"><fmt:message key="info.easytojoininfo"></fmt:message> </p>
+                <h3><fmt:message key="info.nideshejizhengzaigaibianshenghuo"></fmt:message></h3>
+                <p class="muted"><fmt:message key="info.yijianruzhuhailiangziyuan"></fmt:message></p>
                 <a class="pull-left" id="hotSeries">
 
                 </a>
                 <div class="pull-right" id="hottestDesigner">
 
                 </div>
-                <a class="clear btn" id="goJoin"><fmt:message key="info.registernow"></fmt:message> </a>
-                <p class="muted" id="moreDesigner" style="cursor: pointer;"><fmt:message key="info.moredesigners"></fmt:message> </p>
+                <a class="clear btn" id="goJoin"><fmt:message key="info.xianzairuzhu"></fmt:message></a>
+                <p class="muted"><fmt:message key="info.gengduoshejishi"></fmt:message></p>
             </div>
-            <div  class="module center image-list">
-                <h3><fmt:message key="info.herebetterdesign"></fmt:message> </h3>
-                <p class="muted"><fmt:message key="info.itishappening"></fmt:message> </p>
             <div class="module center image-list">
-                <h3>这里，更好的设计</h3>
-                <p class="muted">正在发生</p>
+                <h3><fmt:message key="info.herebetterdesign"></fmt:message></h3>
+                <p class="muted"><fmt:message key="info.itishappening"></fmt:message></p>
                 <ul id="seriesList">
 
                 </ul>
-                <a href="pc/drawBoard/page" class="clear btn"><fmt:message key="info.startdesign"></fmt:message></a>
-                <a href="pc/forward/to?type=series"><p class="muted" style="font-size: 16px;margin: 18px auto;"><fmt:message key="info.moredesigns"></fmt:message> </p></a>
+                <a class="clear btn"><fmt:message key="info.kaishisheji"></fmt:message></a>
+                <a href="pc/forward/to?type=series"><p class="muted" style="font-size: 16px;margin: 18px auto;"><fmt:message key="info.gengduoshejizuopin"></fmt:message></p></a>
             </div>
             <div class="module center news">
-                <h3><fmt:message key="info.moreindustryinfo"></fmt:message> </h3>
-                <p class="muted"><fmt:message key="info.onlyondecor"></fmt:message> </p>
+                <h3><fmt:message key="info.gengduohangyeneimuzixun"></fmt:message></h3>
+                <p class="muted"><fmt:message key="info.zhizaidecor"></fmt:message></p>
                 <ul id="msgList">
 
                 </ul>
@@ -110,7 +107,7 @@
             $("#register").trigger("click");
         });
         // 更多设计师
-        $("#moreDesigner").click(function(){
+        $("#moreDesigner").click(function () {
             window.location.replace('pc/forward/to?type=user');
         });
         ajaxAd(); // 加载广告
@@ -119,6 +116,16 @@
         hottestDesigner();
     });
 
+    function showPosition(flag) {
+        if (flag == 0) {
+            $('.handler-prev').css('display', '');
+            $('.handler-next').css('display', '');
+        } else {
+            $('.handler-prev').css('display', 'none');
+            $('.handler-next').css('display', 'none');
+        }
+    }
+
     // 最热设计师
     function hottestDesigner() {
         $bluemobi.ajax("pc/homepage/hottestDesigner", {}, function (result) {
@@ -126,13 +133,13 @@
                 if (result.data.list.length > 0) {
                     var user = result.data.list[0];
                     var sceneList = user.sceneList;
-                    var html='<div class="text-center face"><a href="pc/user/detail?userId=' + user.id + '"><img src="'+user.headImage+'?imageView2/1/w/84/h/84" title="" alt="" width="78" height="78" /></a></div>\
-                            <p class="text-center name" style="margin-bottom: 4px;"><a href="pc/user/detail?userId=' + user.id + '">'+user.nickname+'</a></p>\
-                    <p class="text-center address"><i class="icon-addr"></i>'+user.province.name+'  '+user.city.name+'</p>\
-                    <p class="text-center works" style="padding-top: 4px;">'+user.opus+'个作品</p>\
-                    <div class="text-left note">'+user.info+'</div>\
-                    <a class="btn btn-like">被'+user.fans+'人喜欢</a>\
-                    <p class="text-center saw">平均每次发布换来'+user.seeNum+'次浏览</p>';
+                    var html = '<div class="text-center face"><a href="pc/user/detail?userId=' + user.id + '"><img src="' + user.headImage + '?imageView2/1/w/84/h/84" title="" alt="" width="78" height="78" /></a></div>\
+                            <p class="text-center name" style="margin-bottom: 4px;"><a href="pc/user/detail?userId=' + user.id + '">' + user.nickname + '</a></p>\
+                    <p class="text-center address"><i class="icon-addr"></i>' + user.province.name + '  ' + user.city.name + '</p>\
+                    <p class="text-center works" style="padding-top: 4px;">' + user.opus + '个作品</p>\
+                    <div class="text-left note">' + user.info + '</div>\
+                    <a class="btn btn-like">被' + user.fans + '人喜欢</a>\
+                    <p class="text-center saw">平均每次发布换来' + user.seeNum + '次浏览</p>';
                     var html = '<div class="text-center face"><a href="pc/user/detail?userId=' + user.id + '"><img src="' + user.headImage + '?imageView2/1/w/84/h/84" title="" alt="" width="78" height="78" /></a></div>\
                             <p class="text-center name"><a href="pc/user/detail?userId=' + user.id + '">' + user.nickname + '</a></p>\
                     <p class="text-center address"><i class="icon-addr"></i>' + user.province.name + '  ' + user.city.name + '</p>\
@@ -145,25 +152,26 @@
                     var div = '';
                     for (var i = 0; i < sceneList.length; i++) {
                         var scene = sceneList[i];
-                        if(i==0){
-                            hotSeriesHtml+='<a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="'+scene.image+'?imageView2/1/w/344/h/387" title="" alt="" width="344" height="387" /></a>';
-                            div='<div class="alpha-mask" style="width: 968px">\
-                            <div class="alpha"></div>\
-                            <div class="text">系列作品：'+scene.name+'</div></div>';
-                        }else {
-                            hotSeriesHtml+='<a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="'+scene.image+'?imageView2/1/w/306/h/190" title="" alt="" width="306" height="190" style="margin-left: 6px;"/></a>';
                         if (i == 0) {
                             hotSeriesHtml += '<a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="' + scene.image + '?imageView2/1/w/344/h/387" title="" alt="" width="344" height="387" /></a>';
-                            div = '<div class="alpha-mask">\
-                            <div class="alpha" style="width: 344px;"></div>\
+                            div = '<div class="alpha-mask" style="width: 344px">\
+                            <div class="alpha"></div>\
                             <div class="text">系列作品：' + scene.name + '</div></div>';
                         } else {
                             hotSeriesHtml += '<a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="' + scene.image + '?imageView2/1/w/306/h/190" title="" alt="" width="306" height="190" style="margin-left: 6px;"/></a>';
+                            if (i == 0) {
+                                hotSeriesHtml += '<a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="' + scene.image + '?imageView2/1/w/344/h/387" title="" alt="" width="344" height="387" /></a>';
+                                div = '<div class="alpha-mask">\
+                            <div class="alpha" style="width: 344px;"></div>\
+                            <div class="text">系列作品：' + scene.name + '</div></div>';
+                            } else {
+                                hotSeriesHtml += '<a href="pc/scene/detail?sceneId=' + scene.id + '"><img src="' + scene.image + '?imageView2/1/w/306/h/190" title="" alt="" width="306" height="190" style="margin-left: 6px;"/></a>';
 
+                            }
                         }
+                        hotSeriesHtml += div;
+                        $("#hotSeries").html(hotSeriesHtml);
                     }
-                    hotSeriesHtml += div;
-                    $("#hotSeries").html(hotSeriesHtml);
                 }
             }
         });
@@ -263,11 +271,7 @@
                     $bluemobi.subStrAdminNick(eval(object), "Décor");
                     html += '<li>\
                             <a href="pc/series/detail?seriesId=' + object.id + '">\
-                            <div class="cell"><img src="' + object.cover + '?imageView2/1/w/357/h/251" title="" alt="" width="357" width="251" /></div>\
-                    $bluemobi.subStrAdminNick(eval(object),"Décor");
-                    html+='<li>\
-                            <a href="pc/series/detail?seriesId='+object.id+'">\
-                            <div class="cell"><img src="'+object.cover+'?imageView2/1/w/357/h/251" title="" alt="" width="357" width="251" /></div></a>\
+                            <div class="cell"><img src="' + object.cover + '?imageView2/1/w/357/h/251" title="" alt="" width="357" width="251" /></div></a>\
                             <div class="face">\
                             <a href="pc/user/detailPage?userId=' + object.user.id + '">' +
                             '<img src="' + object.user.headImage + '?imageView2/1/w/60/h/60" title="" alt="" width="60" height="60" /></a>\

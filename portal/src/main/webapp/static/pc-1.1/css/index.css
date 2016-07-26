@@ -50,6 +50,8 @@
 	top:195px;
 	width:50px;
 	height:100px;
+	margin-left: -250px;
+	margin-right: -250px;
 	cursor:pointer;
 }
 .handler-prev:hover,
@@ -83,7 +85,7 @@
 .module.image-list > .btn{
 	display:inline-block;
 	margin:24px 0 60px;
-	width:137px;
+	width:180px;
 	height:46px;
 	line-height:46px;
 	font-size:20px;

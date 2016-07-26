@@ -87,11 +87,11 @@
         <profile>
             <id>dev-tuyh</id>
             <properties>
-                <pro.jdbc.url>jdbc:mysql://121.40.54.152:3306/decor?characterEncoding=UTF-8</pro.jdbc.url>
+                <pro.jdbc.url>jdbc:mysql://4.16.1.158:3306/decor?characterEncoding=UTF-8</pro.jdbc.url>
                 <pro.jdbc.username>root</pro.jdbc.username>
-                <pro.jdbc.password>decorLiu!@~</pro.jdbc.password>
-                <pro.upload.url>http://121.40.54.152:80/files/upload/</pro.upload.url>
-                <pro.upload.path>/data/tomcat7/webapps/files/upload/</pro.upload.path>
+                <pro.jdbc.password>root</pro.jdbc.password>
+                <pro.upload.url>http://localhost:8080/files/upload/</pro.upload.url>
+                <pro.upload.path>D:/apache-tomcat-7.0.56/webapps/files/upload/</pro.upload.path>
             </properties>
         </profile>
 
