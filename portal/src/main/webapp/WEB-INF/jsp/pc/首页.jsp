@@ -41,22 +41,22 @@
         <!-- 页面主体内容开始 -->
         <div class="main">
             <div class="module design">
-                <h3>就现在，改变设计方式</h3>
-                <p class="muted">12万名设计师已经启程</p>
-                <a href="pc/drawBoard/page" class="btn">开始设计</a>
+                <h3><fmt:message key="info.jiuxianzaigaibianshenghuofangshi"></fmt:message></h3>
+                <p class="muted"><fmt:message key="info.shierwanmingshejishiyijingqicheng"></fmt:message></p>
+                <a href="pc/drawBoard/page" class="btn"><fmt:message key="info.kaishisheji"></fmt:message></a>
             </div>
             <div class="module introduce"></div>
             <div class="module center source">
-                <h3>你的设计，正在改变生活</h3>
-                <p class="muted">一键入驻，海量资源</p>
+                <h3><fmt:message key="info.nideshejizhengzaigaibianshenghuo"></fmt:message></h3>
+                <p class="muted"><fmt:message key="info.yijianruzhuhailiangziyuan"></fmt:message></p>
                 <a class="pull-left" id="hotSeries">
 
                 </a>
                 <div class="pull-right" id="hottestDesigner">
 
                 </div>
-                <a class="clear btn" id="goJoin">现在入驻</a>
-                <p class="muted">更多设计师</p>
+                <a class="clear btn" id="goJoin"><fmt:message key="info.xianzairuzhu"></fmt:message></a>
+                <p class="muted"><fmt:message key="info.gengduoshejishi"></fmt:message></p>
             </div>
             <div class="module center image-list">
                 <h3><fmt:message key="info.herebetterdesign"></fmt:message></h3>
@@ -64,12 +64,12 @@
                 <ul id="seriesList">
 
                 </ul>
-                <a class="clear btn">开始设计</a>
-                <a href="pc/forward/to?type=series"><p class="muted" style="font-size: 16px;margin: 18px auto;">更多设计作品</p></a>
+                <a class="clear btn"><fmt:message key="info.kaishisheji"></fmt:message></a>
+                <a href="pc/forward/to?type=series"><p class="muted" style="font-size: 16px;margin: 18px auto;"><fmt:message key="info.gengduoshejizuopin"></fmt:message></p></a>
             </div>
             <div class="module center news">
-                <h3>更多行业内幕资讯</h3>
-                <p class="muted">只在DECOR</p>
+                <h3><fmt:message key="info.gengduohangyeneimuzixun"></fmt:message></h3>
+                <p class="muted"><fmt:message key="info.zhizaidecor"></fmt:message></p>
                 <ul id="msgList">
 
                 </ul>
