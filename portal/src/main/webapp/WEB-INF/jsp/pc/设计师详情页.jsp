@@ -241,7 +241,6 @@
                             </a>\
                             <div class="list-con-right">\
                             <a href="pc/series/detail?seriesId=' + series.id + '" class="tit slh">' + series.info + '</a>\
-                            <p class="slh">' + series.info + '</p>\
                             <h3><a>' + series.seeNum + '次查看</a><a>' + series.praiseNum + '人喜欢的设计</a></h3>\
                             </div>\
                             </div>\

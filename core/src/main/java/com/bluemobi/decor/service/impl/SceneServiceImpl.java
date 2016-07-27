@@ -273,7 +273,7 @@ public class SceneServiceImpl implements SceneService {
                     predicateList.add(predicate);
                 }
                 if (styleTagId != null) {
-                    Predicate predicate = cb.like(root.get("styleTagIds").as(String.class), "%@" + styleTagId + "@%");
+                    Predicate predicate = cb.equal(root.get("styleTagIds").as(String.class), "@" + styleTagId + "@");
                     predicateList.add(predicate);
                 }
                 {

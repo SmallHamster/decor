@@ -201,6 +201,9 @@
         var spaceTagId = $(".search-condition").find(".spaceTagId").val();
         var name = $(".search-condition").find(".name").val();
         var userId = $("#sessionUserId").val();
+
+        console.log(styleTagId);
+
         var data = {styleTagId: styleTagId, spaceTagId: spaceTagId, name: name, userId: userId, pageNum: thisPage.pageNum, pageSize: thisPage.pageSize};
         $bluemobi.ajax("pc/scene/page", data, function (result) {
             if (result.status == "0") {

@@ -115,14 +115,8 @@ public class UserController4Pc extends CommonController {
 
             String cacheCode = cacheService.get(mobile);
 
-            // 检测验证码是否过期
-            if (StringUtils.isEmpty(cacheCode)) {
-                WebUtil.print(response, new Result(false).msg("验证码超时!"));
-                return;
-            }
-
             // 检测验证码是否正确
-            if (!code.equals(cacheCode)) {
+            if (StringUtils.isEmpty(cacheCode) || !code.equals(cacheCode)) {
                 WebUtil.print(response, new Result(false).msg("验证码错误!"));
                 return;
             }
@@ -234,8 +228,8 @@ public class UserController4Pc extends CommonController {
             }
 
 //            if (result.contains("<returnstatus>Success</returnstatus>")) {
-                cacheService.put(mobile, code);
-                WebUtil.print(response, new Result(true).msg("发送成功,请在手机查收!"));
+            cacheService.put(mobile, code);
+            WebUtil.print(response, new Result(true).msg("发送成功,请在手机查收!"));
 //            } else {
 //                WebUtil.print(response, new Result(false).msg(sendErrorMsg));
 //            }
@@ -350,7 +344,7 @@ public class UserController4Pc extends CommonController {
     public void login(HttpServletRequest request,
                       HttpServletResponse response,
                       String username,
-                      String password,String remark) {
+                      String password, String remark) {
         try {
             password = MD5Util.encodeByMD5(password);
             User user = userService.pcLogin(username, password);
@@ -361,7 +355,7 @@ public class UserController4Pc extends CommonController {
                     shortNickname = nickname.substring(0, 4) + "...";
                 }
                 user.setShortNickname(shortNickname);
-                SessionUtils.put(Constant.SESSION_MODE,Constant.SESSION_MODE_MOBILE);
+                SessionUtils.put(Constant.SESSION_MODE, Constant.SESSION_MODE_MOBILE);
                 int loginMaxAge = 30 * 24 * 60 * 60; // 定义cookies的生命周期，这里是一个月。单位为秒
 //                CookiesUtils.addCookie(response, "userId", user.getId().toString(), loginMaxAge);
                 WebUtil.print(response, new Result(true).data(user));
@@ -381,8 +375,8 @@ public class UserController4Pc extends CommonController {
      */
     @RequestMapping("/tLogin")
     public String tLogin(HttpServletRequest request,
-                       HttpServletResponse response,
-                       String code) {
+                         HttpServletResponse response,
+                         String code) {
         String open_id = "";
         String type = "";
 
@@ -411,7 +405,7 @@ public class UserController4Pc extends CommonController {
 
         // 转换性别字段
         Integer sex = 1;
-        if(temp.get("sex").toString().equals("1")){
+        if (temp.get("sex").toString().equals("1")) {
             sex = 0;
         }
 
@@ -452,9 +446,9 @@ public class UserController4Pc extends CommonController {
                 }
                 userPlus.setShortNickname(shortNickname);
                 // WebUtil.print(response, new Result(true).data(newUser));
-                SessionUtils.put(Constant.SESSION_PC_USER,userPlus);
-                SessionUtils.put(Constant.SESSION_MODE,Constant.SESSION_MODE_THIRD);
-                SessionUtils.put(Constant.SESSION_USER_THIRD,openUser);
+                SessionUtils.put(Constant.SESSION_PC_USER, userPlus);
+                SessionUtils.put(Constant.SESSION_MODE, Constant.SESSION_MODE_THIRD);
+                SessionUtils.put(Constant.SESSION_USER_THIRD, openUser);
             } else {
                 // WebUtil.printApi(response, new Result(false).msg("服务器异常"));
             }
@@ -471,9 +465,9 @@ public class UserController4Pc extends CommonController {
                         }
                         user.setShortNickname(shortNickname);
                         // WebUtil.print(response, new Result(true).data(newUser));
-                        SessionUtils.put(Constant.SESSION_PC_USER,user);
-                        SessionUtils.put(Constant.SESSION_MODE,Constant.SESSION_MODE_THIRD);
-                        SessionUtils.put(Constant.SESSION_USER_THIRD,openUser);
+                        SessionUtils.put(Constant.SESSION_PC_USER, user);
+                        SessionUtils.put(Constant.SESSION_MODE, Constant.SESSION_MODE_THIRD);
+                        SessionUtils.put(Constant.SESSION_USER_THIRD, openUser);
                     } else {
                         // WebUtil.print(response, new Result(false).msg("用户名或密码错误!"));
                     }
@@ -680,7 +674,7 @@ public class UserController4Pc extends CommonController {
             Series topSeries = new Series();
             Page<Series> page = seriesService.pcFindSeriesPage(user, 1, 1);
             List<Series> seriesList = page.getContent();
-            if(CollectionUtils.isNotEmpty(seriesList)){
+            if (CollectionUtils.isNotEmpty(seriesList)) {
                 topSeries = seriesList.get(0);
                 List<Scene> sceneList = seriesSceneService.findSceneListBySeriesId(topSeries.getId());
                 topSeries.setSceneList(sceneList);
@@ -690,12 +684,12 @@ public class UserController4Pc extends CommonController {
             // 最新互动
             Page<Comment> commentPage = commentService.findCommentPage(userId, 1, 1);
             Comment newestComment = null;
-            if(commentPage != null && CollectionUtils.isNotEmpty(commentPage.getContent())){
+            if (commentPage != null && CollectionUtils.isNotEmpty(commentPage.getContent())) {
                 newestComment = new Comment();
                 newestComment = commentPage.getContent().get(0);
-                List<Comment> replyList =commentService.listReply(newestComment.getId());
+                List<Comment> replyList = commentService.listReply(newestComment.getId());
                 Reply reply = new Reply();
-                if(CollectionUtils.isNotEmpty(replyList)){
+                if (CollectionUtils.isNotEmpty(replyList)) {
                     Comment temp = replyList.get(0);
                     reply.setHeadImage(temp.getUser().getHeadImage());
                     reply.setCreateTime(temp.getCreateTime());
@@ -704,30 +698,30 @@ public class UserController4Pc extends CommonController {
                 newestComment.setNewestReply(reply);
 
                 // 对象信息
-                if (newestComment.getObjectType().equals("series")){
+                if (newestComment.getObjectType().equals("series")) {
                     Series series = seriesService.getById(newestComment.getObjectId());
                     newestComment.setObjectCover(series.getCover());
                     newestComment.setObjectName(series.getInfo());
-                    if(series.getSeriesTag() != null){
+                    if (series.getSeriesTag() != null) {
                         newestComment.setTags(series.getSeriesTag().getName());
-                    }else {
+                    } else {
                         newestComment.setTags("");
                     }
-                    newestComment.setObjectLink("pc/series/detail?seriesId="+newestComment.getObjectId());
-                }else if (newestComment.getObjectType().equals("scene")){
-                    Scene scene=sceneService.getById(newestComment.getObjectId());
+                    newestComment.setObjectLink("pc/series/detail?seriesId=" + newestComment.getObjectId());
+                } else if (newestComment.getObjectType().equals("scene")) {
+                    Scene scene = sceneService.getById(newestComment.getObjectId());
                     newestComment.setObjectCover(scene.getImage());
                     newestComment.setObjectName(scene.getName());
                     String tags = spaceTagService.getTagStr(scene.getSpaceTagIds());
                     newestComment.setTags(tags);
-                    newestComment.setObjectLink("pc/scene/detail?sceneId="+newestComment.getObjectId());
-                }else if (newestComment.getObjectType().equals("goods")){
-                    Goods goods=goodsService.getById(newestComment.getObjectId());
+                    newestComment.setObjectLink("pc/scene/detail?sceneId=" + newestComment.getObjectId());
+                } else if (newestComment.getObjectType().equals("goods")) {
+                    Goods goods = goodsService.getById(newestComment.getObjectId());
                     newestComment.setObjectCover(goods.getCover());
                     newestComment.setObjectName(goods.getName());
                     String tags = spaceTagService.getTagStr(goods.getSpaceTagIds());
                     newestComment.setTags(tags);
-                    newestComment.setObjectLink("pc/goods/detail?goodsId="+newestComment.getObjectId());
+                    newestComment.setObjectLink("pc/goods/detail?goodsId=" + newestComment.getObjectId());
                 }
             }
             modelMap.put("newestComment", newestComment);
