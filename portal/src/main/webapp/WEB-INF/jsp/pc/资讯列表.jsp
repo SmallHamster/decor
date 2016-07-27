@@ -148,8 +148,10 @@
                     thisPage.init(result.data.page, " ajaxPageMessage");
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                     $(".page_rgt_totalPage").html(thisPage.totalPage);
+                    $(".page_rgt").show();
                 }else{
                     $(".pro_show").html('<span style="font-size: larger;">暂无内容</span>');
+                    $(".page_rgt").hide();
                 }
             }
         });
