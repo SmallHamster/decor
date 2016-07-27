@@ -42,10 +42,10 @@
                             </p>
                         </div>
                         <div class="mesTxt">
-                            <div class="mesImg"><img src="${message.image}" width="680" height="580"/></div>
+                            <div class="mesImg"><img src="${message.image}" width="680" /></div>
                             <p>${message.subContent}</p>
 
-                            <div class="mesImg"><img src="${message.intro_image}" width="680" height="580"/></div>
+                            <div class="mesImg"><img src="${message.intro_image}" width="680" /></div>
                             <p>${message.content}</p>
                         </div>
                         <div class="tab">
