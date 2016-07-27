@@ -201,6 +201,12 @@
                 layer.msg('请先登录');
                 return false;
             }
+
+            if($('#container').find("img").length == 0){
+                layer.msg('画板内容不能为空');
+                return false;
+            }
+
             $('.modalbg').show();
             $('.modal').show();
 //            $('html').css('overflow','hidden');
