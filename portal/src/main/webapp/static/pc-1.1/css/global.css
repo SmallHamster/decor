@@ -114,7 +114,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 .header{
 	position:relative;
-	height:140px;
+	height:121px;
 	background:#17171d;
 	z-index:5;
 }
