@@ -149,7 +149,7 @@
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                     $(".page_rgt_totalPage").html(thisPage.totalPage);
                 }else{
-
+                    $(".pro_show").html('<span style="font-size: larger;">暂无内容</span>');
                 }
             }
         });
