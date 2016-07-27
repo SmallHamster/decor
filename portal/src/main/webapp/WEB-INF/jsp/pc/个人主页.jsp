@@ -26,6 +26,7 @@
         .redBorder2 {
             border: 2px solid #ff0000;
         }
+
         .nav {
             background: none;
         }
@@ -54,7 +55,7 @@
                         <a><span class="num">${user.seeNum}</span><span><fmt:message key="info.fangwen"/></span></a>
                     </div>
                     <div class="setup mt20 fr _setting">
-                        <a style="cursor: hand" title="修改背景"><img id="bgImg" src="static/pc/images/bgImg.png" width="35px" height="35px" style="margin-top: 30px;" /></a>
+                        <a style="cursor: hand" title="修改背景"><img id="bgImg" src="static/pc/images/bgImg.png" width="35px" height="35px" style="margin-top: 30px;"/></a>
                         <div class="dropped" style="display: none"></div>
                         <a href="pc/userSetting/goto"><span class="iicon install"></span></a>
                     </div>
@@ -143,7 +144,7 @@
                     </div>
                     <div class="uploadimg fl">
                         <p>
-                            <button class="btn blackBtn mb20" style="width: 190px;"  onclick="createGoodsHandler.showCreateGoodsTab()"><fmt:message key="info.shangchuanshangpin"/></button>
+                            <button class="btn blackBtn mb20" style="width: 190px;" onclick="createGoodsHandler.showCreateGoodsTab()"><fmt:message key="info.shangchuanshangpin"/></button>
                         </p>
                         <p>
                             <button class="btn blackBtn mb20" style="width: 190px;" onclick="createSceneHandler.showCreateSceneTab()"><fmt:message key="info.shangchuanchangjingtu"/></button>
@@ -426,10 +427,10 @@
                 $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 });
-                if(thisPage.totalPage==0){
+                if (thisPage.totalPage == 0) {
                     $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
-                }else{
+                } else {
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                 }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
@@ -468,10 +469,10 @@
                 $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
-                if(thisPage.totalPage==0){
+                if (thisPage.totalPage == 0) {
                     $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
-                }else{
+                } else {
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                 }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
@@ -515,10 +516,10 @@
                 $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
-                if(thisPage.totalPage==0){
+                if (thisPage.totalPage == 0) {
                     $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
-                }else{
+                } else {
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                 }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
@@ -555,10 +556,10 @@
                 $(".myPublish").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
-                if(thisPage.totalPage==0){
+                if (thisPage.totalPage == 0) {
                     $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
-                }else{
+                } else {
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                 }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
@@ -632,6 +633,9 @@
         <p class="fs16 colorBlack tc"><fmt:message key="info.xinjianshoucangjia"/></p></li>';
                 for (var i = 0; i < result.data.length; i++) {
                     var favorite = result.data[i];
+                    if (null == favorite.cover || favorite.cover == '') {
+                        favorite.cover = 'static/pc-1.1/images/designer_pic1.jpg';
+                    }
                     html += '<li onclick="pageShowFavorite(this,' + favorite.id + ')" favoriteName=' + favorite.name + ' ><div class="Thumbnails"><img src="' + favorite.cover + '" style="width: 165px;height:148px;cursor:pointer;">\
           </div><p class="fs16 colorBlack tc">' + favorite.name + '</p></li>';
                 }
@@ -685,10 +689,10 @@
                 $(".myMessage").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 })
-                if(thisPage.totalPage==0){
+                if (thisPage.totalPage == 0) {
                     $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
-                }else{
+                } else {
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                 }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
@@ -724,21 +728,25 @@
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
                 var html = '<div class="clearfix mb20" style="line-height: 37px;"><p class="fl fs16 color6">"' + favoriteNameTo + '"（' + rpage.totalNum + '）</p>\
                     </div><div class="commodityList"><ul>';
-                for (var i = 0; i < result.data.list.length; i++) {
-                    var collection = result.data.list[i]
-                    var favoriteName = result.data.list[i].name;
-                    var favoriteCover = result.data.list[i].cover;
-                    html += '<li><a href="pc/' + collection.objectType + '/detail?' + collection.objectType + 'Id=' + collection.objectId + '"><img src="' + favoriteCover + '" style="cursor:pointer"><p class="colorBlack pl10">' + favoriteName + '</p></a></li>';
+                if (result.data.list.length > 0) {
+                    for (var i = 0; i < result.data.list.length; i++) {
+                        var collection = result.data.list[i]
+                        var favoriteName = result.data.list[i].name;
+                        var favoriteCover = result.data.list[i].cover;
+                        html += '<li><a href="pc/' + collection.objectType + '/detail?' + collection.objectType + 'Id=' + collection.objectId + '"><img src="' + favoriteCover + '" style="cursor:pointer"><p class="colorBlack pl10">' + favoriteName + '</p></a></li>';
+                    }
+                } else {
+                    html += '<div style="font-size: 15px;margin-left: 10px;"><span>暂无内容</span></div>';
                 }
                 html += '</ul></div>'
                 $(".myHomePage").hide();
                 $(".myCollect").show();
                 $(".myCollect").html(html)
                 thisPage.init(result.data.page, " ajaxPageGoods");
-                if(thisPage.totalPage==0){
+                if (thisPage.totalPage == 0) {
                     $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
-                }else{
+                } else {
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                 }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
@@ -765,6 +773,17 @@
         $(".btns").find(".cancelBtn").unbind("click").click(function () {
             var name = $(".btns").parent().find("input").val();
             var info = $(".btns").parent().find("textarea").val();
+
+            if (null == name || name == '') {
+                $bluemobi.notify('<fmt:message key="info.shoucangjiamingchengbunengweikong"/>', "error");
+                return false;
+            }
+
+            if (null == info || info == '') {
+                $bluemobi.notify('<fmt:message key="info.shoucangjiamiaoshubunengweikong"/>', "error");
+                return false;
+            }
+
             var userId = $("#sessionUserId").val();
             $bluemobi.ajax("pc/user/newFavorite", {name: name, info: info, userId: userId}, function (result) {
                 if (result.status == "0") {
@@ -813,10 +832,10 @@
                 $(".myMessage").show();
                 $(".myMessage").html(html);
                 thisPage.init(result.data.page, " ajaxAttentionPage");
-                if(thisPage.totalPage==0){
+                if (thisPage.totalPage == 0) {
                     $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
-                }else{
+                } else {
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                 }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
@@ -858,10 +877,10 @@
                 $(".myMessage").show();
                 $(".myMessage").html(html)
                 thisPage.init(result.data.page, " ajaxAttentionPage");
-                if(thisPage.totalPage==0){
+                if (thisPage.totalPage == 0) {
                     $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
-                }else{
+                } else {
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                 }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
@@ -880,7 +899,7 @@
         };
         $bluemobi.ajax("pc/user/commentPage", data, function (result) {
             if (result.status == "0") {
-                var html = '<div class="clearfix mb20" style="line-height: 37px;padding:0 20px;"><p class="fl fs16 color6"><fmt:message key="info.pinglunliebiao"/>（'+result.data.page.totalNum+'）</p>\
+                var html = '<div class="clearfix mb20" style="line-height: 37px;padding:0 20px;"><p class="fl fs16 color6"><fmt:message key="info.pinglunliebiao"/>（' + result.data.page.totalNum + '）</p>\
                 <div class="page_rgt tr pr20 fr pagabs"><a class="iicon back"></a><span>page <span class="page_rgt_pageNum"></span> of <span class="page_rgt_totalPage"></span></span>\
                 <a class="iicon next"></a></div></div><div class="comment-list mb20"><ul>';
                 for (var i = 0; i < result.data.list.length; i++) {
@@ -948,10 +967,10 @@
                 $(".myComment").find(".page_rgt").find(".next").unbind("click").click(function () {
                     $(".pagination").find(".last").trigger("click");
                 });
-                if(thisPage.totalPage==0){
+                if (thisPage.totalPage == 0) {
                     $(".page_rgt").hide();
                     $(".page_rgt_pageNum").html(0);
-                }else{
+                } else {
                     $(".page_rgt_pageNum").html(thisPage.pageNum);
                 }
                 $(".page_rgt_totalPage").html(thisPage.totalPage);
@@ -1471,7 +1490,7 @@
                 thisPage.pageAttributeInit();
             }
             thisPage.pageSize = 12;
-            var data = {pageNum: thisPage.pageNum, pageSize: thisPage.pageSize,userId:$("#sessionUserId").val()};
+            var data = {pageNum: thisPage.pageNum, pageSize: thisPage.pageSize, userId: $("#sessionUserId").val()};
             $bluemobi.ajax("pc/user/scenePage", data, function (result) {
                 if (result.status == "0") {
                     var html = '';
@@ -1487,11 +1506,11 @@
                     $(".createSeriesTab .choosePicList ul").html(html);
                     thisPage.init(result.data.page, "createSeriesHandler.ajaxScene4CreateSeries");
 
-                    if(thisPage.totalPage==0){
+                    if (thisPage.totalPage == 0) {
                         $(".createSeriesTab .page_rgt").hide();
                         $(".createSeriesTab .page_rgt_pageNum").html(0);
                         $(".createSeriesTab .page_rgt_pageNum").html(0);
-                    }else{
+                    } else {
                         $(".createSeriesTab .page_rgt_pageNum").html(thisPage.pageNum);
                     }
                     $(".createSeriesTab .page_rgt_totalPage").html(thisPage.totalPage);

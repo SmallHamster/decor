@@ -56,7 +56,7 @@
 
                 </div>
                 <a class="clear btn" id="goJoin"><fmt:message key="info.xianzairuzhu"></fmt:message></a>
-                <p class="muted"><fmt:message key="info.gengduoshejishi"></fmt:message></p>
+                <p class="muted" style="cursor: pointer;" onclick="moreDesigner()"><fmt:message key="info.gengduoshejishi"></fmt:message></p>
             </div>
             <div class="module center image-list">
                 <h3><fmt:message key="info.herebetterdesign"></fmt:message></h3>
@@ -115,6 +115,10 @@
         ajaxRecommendMessage(); // 加载推荐的咨询
         hottestDesigner();
     });
+
+    function moreDesigner(){
+        location.href = "pc/forward/to?type=user";
+    }
 
     function showPosition(flag) {
         if (flag == 0) {

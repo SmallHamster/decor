@@ -54,11 +54,11 @@
     <div class="form loginDiv">
         <div class="form-item rel">
             <span class="iicon phone abs"></span>
-            <input type="text" class="loginmobile" placeholder="<fmt:message key="info.shoujihao"/>"
+            <input type="text" class="loginmobile" maxlength="11" placeholder="<fmt:message key="info.shoujihao"/>"
                    onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
         </div>
         <div class="form-item rel">
-            <span class="iicon password abs"></span><input type="password" class="loginpassword"
+            <span class="iicon password abs"></span><input type="password" maxlength="16" class="loginpassword"
                                                            placeholder="<fmt:message key="info.mima"/>">
         </div>
         <div class="agree clearfix">
@@ -157,7 +157,7 @@
         </div>
         <div class="clearfix">
             <div class="form-item rel fl" style="width: 315px">
-                <span class="iicon validate abs"></span><input type="text" id="tempCodeParam" style="width: 250px;" placeholder="<fmt:message key="info.duanxinyanzhengma"/>">
+                <span class="iicon validate abs"></span><input type="text" maxlength="6" id="tempCodeParam" style="width: 250px;" placeholder="<fmt:message key="info.duanxinyanzhengma"/>">
             </div>
             <div class="fr">
                 <button class="btn blackBtn sendCodeBtn" defaultVal="<fmt:message key="info.huoquyanzhengma"/>"><fmt:message key="info.huoquyanzhengma"/></button>
