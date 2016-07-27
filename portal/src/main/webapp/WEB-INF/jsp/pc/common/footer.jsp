@@ -153,11 +153,11 @@
     <p class="tc fs16 color3 mb20"><fmt:message key="info.zhaohuimima"/></p>
     <div class="form findPasswordDiv">
         <div class="form-item rel">
-            <span class="iicon phone abs"></span><input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="<fmt:message key="info.qingshuruninzhucedeshoujihao"/>">
+            <span class="iicon phone abs"></span><input type="text" id="tempMobileParam" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="<fmt:message key="info.qingshuruninzhucedeshoujihao"/>">
         </div>
         <div class="clearfix">
             <div class="form-item rel fl" style="width: 315px">
-                <span class="iicon validate abs"></span><input type="text" style="width: 250px;" placeholder="<fmt:message key="info.duanxinyanzhengma"/>">
+                <span class="iicon validate abs"></span><input type="text" id="tempCodeParam" style="width: 250px;" placeholder="<fmt:message key="info.duanxinyanzhengma"/>">
             </div>
             <div class="fr">
                 <button class="btn blackBtn sendCodeBtn" defaultVal="<fmt:message key="info.huoquyanzhengma"/>"><fmt:message key="info.huoquyanzhengma"/></button>
@@ -279,6 +279,9 @@
         });
         $(".loginDiv .findpwd").unbind("click").click(function () {
             hideOtherDlg();
+            // 清空短信验证码和手机号码
+            $('#tempMobileParam').val('');
+            $('#tempCodeParam').val('');
             findPasswrodPopup.showDlg();
         });
 

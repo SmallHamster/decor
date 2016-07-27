@@ -1,34 +1,40 @@
-﻿﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="common/taglibs.jsp"%>
+﻿﻿
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ include file="common/taglibs.jsp" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <%@ include file="common/meta.jsp"%>
-    <%@ include file="common/css.jsp"%>
+    <%@ include file="common/meta.jsp" %>
+    <%@ include file="common/css.jsp" %>
     <title><fmt:message key="info.shouye"/></title>
     <link href="static/pc/css/common.css" rel="stylesheet" type="text/css">
     <link href="static/pc/css/all.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="static/pc-1.1/css/public.css" />
-    <link rel="stylesheet" href="static/pc-1.1/css/style.css" />
+    <link rel="stylesheet" href="static/pc-1.1/css/public.css"/>
+    <link rel="stylesheet" href="static/pc-1.1/css/style.css"/>
 </head>
 <style>
     .content {
         width: 627px;
     }
+
     .comment-list li {
         border-top: 0px;
         padding: 0 0;
         border-bottom: 1px solid #cccccc;
-        min-height:inherit;
+        min-height: inherit;
     }
+
     .design-list {
         margin-left: 10px;
     }
+
     .design-list li {
-        margin: 0 29px 20px 0;}
-     .personMiddle h3 strong a {
-         color: #fb9f38;
-     }
+        margin: 0 29px 20px 0;
+    }
+
+    .personMiddle h3 strong a {
+        color: #fb9f38;
+    }
 </style>
 <body>
 <!--top-->
@@ -63,10 +69,10 @@
                 ${infoHtml}
             </div>
             <div class="personRight">
-                <a class="send" style="display: none"><img src="static/pc-1.1/images/ico_btn_6.png" />发私信</a>
+                <a class="send" style="display: none"><img src="static/pc-1.1/images/ico_btn_6.png"/>发私信</a>
                 <p>共计36个作品</p>
-                <a id="attention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png" />被${user.fans}人喜欢</a>
-                <a id="cancelAttention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png" />取消关注</a>
+                <a id="attention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png"/>被${user.fans}人喜欢</a>
+                <a id="cancelAttention" class="like" style="display: none"><img src="static/pc-1.1/images/ico_btn_7.png"/>取消关注</a>
             </div>
         </div>
     </div>
@@ -79,37 +85,42 @@
             <h2 class="title">最新互动</h2>
             <c:if test="${newestComment != null}">
                 <div class="interact-con cleafix">
-                <div class="interact-img"><img src="${newestComment.objectCover}" width="357" height="300"/></div>
-                <div class="interact-right">
-                    <h2><a>${newestComment.tags}&nbsp;</a></h2>
-                    <h3>来自：<span class="slh" style="color: #fb9f38;"><a href="${newestComment.objectLink}">${newestComment.objectName}</a></span></h3>
-                    <div class="chat-content cleafix">
-                        <div class="sc-new you">
-                            <img class="me-avatar" src="${newestComment.user.headImage}" width="50" height="50"/>
-                            <div class="content">
-                                <i class="jianjian"></i>
-                                <div class="bubble bubble-default">
-                                    <div class="plain">${newestComment.content}</div>
-                                </div>
-                                <div class="time">${newestComment.createTime}</div>
-                            </div>
-                        </div>
-                        <c:if test="${!empty newestComment.newestReply.content}">
-                            <div class="sc-new me">
-                                <img class="me-avatar" src="${newestComment.newestReply.headImage}" width="50" height="50"/>
+                    <div class="interact-img"><img src="${newestComment.objectCover}" width="357" height="300"/></div>
+                    <div class="interact-right">
+                        <h2><a>${newestComment.tags}&nbsp;</a></h2>
+                        <h3>来自：<span class="slh" style="color: #fb9f38;"><a href="${newestComment.objectLink}">${newestComment.objectName}</a></span></h3>
+                        <div class="chat-content cleafix">
+                            <div class="sc-new you">
+                                <img class="me-avatar" src="${newestComment.user.headImage}" width="50" height="50"/>
                                 <div class="content">
-                                    <div class="time">${newestComment.newestReply.createTime}</div>
-                                    <div class="bubble bubble-primary">
-                                        <div class="plain">${newestComment.newestReply.content}</div>
-                                    </div>
                                     <i class="jianjian"></i>
+                                    <div class="bubble bubble-default">
+                                        <div class="plain">${newestComment.content}</div>
+                                    </div>
+                                    <div class="time">${newestComment.createTime}</div>
                                 </div>
                             </div>
-                        </c:if>
+                            <c:if test="${!empty newestComment.newestReply.content}">
+                                <div class="sc-new me">
+                                    <img class="me-avatar" src="${newestComment.newestReply.headImage}" width="50" height="50"/>
+                                    <div class="content">
+                                        <div class="time">${newestComment.newestReply.createTime}</div>
+                                        <div class="bubble bubble-primary">
+                                            <div class="plain">${newestComment.newestReply.content}</div>
+                                        </div>
+                                        <i class="jianjian"></i>
+                                    </div>
+                                </div>
+                            </c:if>
+                        </div>
+                        <a class="hudong">更多设计师互动<font>&gt;</font></a>
                     </div>
-                    <a class="hudong">更多设计师互动<font>&gt;</font></a>
                 </div>
-            </div>
+            </c:if>
+            <c:if test="${newestComment == null}">
+                <div style="font-size: 15px;margin-left: 30px;margin-top: 10px;margin-bottom: -45px;">
+                    <span>暂无内容</span>
+                </div>
             </c:if>
         </div>
         <!--设计系列图（36）-->
@@ -121,7 +132,7 @@
                         <h2 class="slh" title="${topSeries.info}">${topSeries.info}</h2>
                         <p>${topSeries.createTime}创建</p>
                         <div class="shoucang cleafix">
-                            <span><img src="static/pc-1.1/images/ico_btn_15.png" /></span>
+                            <span><img src="static/pc-1.1/images/ico_btn_15.png"/></span>
                             <p>${topSeries.collectionNum}人收藏<br/>${topSeries.praiseNum}人觉得这设计很棒</p>
                         </div>
                     </div>
@@ -152,7 +163,6 @@
             <div id="pageDiv" style="margin-top: -100px;background: white">
                 <%@ include file="common/page1.jsp" %>
             </div>
-
         </div>
         <!--评论留言-->
         <div class="comments">
@@ -178,11 +188,11 @@
 <!--返回顶部-->
 <div class="floatBack"><a href="javascript:;" class="gotop"><i class="ico"></i></a></div>
 <script type="text/javascript" src="static/pc/js/base.js"></script>
-<script type="text/javascript" src="static/pc-1.1/js/jquery-1.8.0.min.js" ></script>
-<script type="text/javascript" src="static/pc-1.1/js/jquery.SuperSlide.2.1.1.js" ></script>
-<script type="text/javascript" src="static/pc-1.1/js/index.js" ></script>
+<script type="text/javascript" src="static/pc-1.1/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="static/pc-1.1/js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="static/pc-1.1/js/index.js"></script>
 <script type="text/javascript">
-    $(function(){
+    $(function () {
         //设计系列图
         jQuery(".design-top-right").slide({
             titCell: ".hd ul",
@@ -195,8 +205,8 @@
         });
 
 
-        $(".hudong").click(function(){
-            $("html,body").animate({scrollTop:$("#commentTitle").offset().top},1000);
+        $(".hudong").click(function () {
+            $("html,body").animate({scrollTop: $("#commentTitle").offset().top}, 1000);
         });
 
         commFun.handlerAttention(); // 处理关注
@@ -208,7 +218,7 @@
     //查询指定用户的所有系列图分页
     var seriesPage = epage;
     function ajaxSeriesPage() {
-        ajaxTimes+=1;
+        ajaxTimes += 1;
         var userId = $("#userId").val();
         var data = {
             userId: userId,
@@ -219,9 +229,10 @@
         $bluemobi.ajax("pc/user/seriesPage", data, function (result) {
             if (result.status == "0") {
                 var html = '';
-                for (var i = 0; i < result.data.list.length; i++) {
-                    var series = result.data.list[i];
-                    html+='<li>\
+                if (result.data.list.length > 0) {
+                    for (var i = 0; i < result.data.list.length; i++) {
+                        var series = result.data.list[i];
+                        html += '<li>\
                             <a href="pc/series/detail?seriesId=' + series.id + '"><img src="' + series.cover + '?imageView2/1/w/357/h/200" width="300" height="200"/></a>\
                             <div class="list-con cleafix">\
                             <a href="#" class="list-avater">\
@@ -229,31 +240,38 @@
                             <p>' + series.user.nickname + '</p>\
                             </a>\
                             <div class="list-con-right">\
-                            <a href="pc/series/detail?seriesId=' + series.id + '" class="tit slh">'+series.info+'</a>\
-                            <p class="slh">'+series.info+'</p>\
-                            <h3><a>'+series.seeNum+'次查看</a><a>'+series.praiseNum+'人喜欢的设计</a></h3>\
+                            <a href="pc/series/detail?seriesId=' + series.id + '" class="tit slh">' + series.info + '</a>\
+                            <p class="slh">' + series.info + '</p>\
+                            <h3><a>' + series.seeNum + '次查看</a><a>' + series.praiseNum + '人喜欢的设计</a></h3>\
                             </div>\
                             </div>\
                             </li>';
-                }
-                $("#seriesList").html(html);
-                seriesPage.init(result.data.page, "ajaxSeriesPage",$("#pageDiv"));
-                $("#seriesNum").html(result.data.page.totalNum);
-                if(ajaxTimes == 1){
-                    var $category = $('.design-list li:gt(5)');
-                    $category.hide();
-                    $("#pageDiv").hide();
-                    $("#showMore").click(function(){
-                        $category.show();
-                        $(this).find('.look-more').addClass('hide');
-                        $(this).find('.pages').addClass('show');
-                        $("#pageDiv").show();
-                    });
-                }
-                if(result.data.page.totalNum==0){
-                    $(".design").hide();
-                    $("#showMore").hide();
-                    $("#pageDiv").hide();
+                    }
+                    $("#seriesList").html(html);
+                    seriesPage.init(result.data.page, "ajaxSeriesPage", $("#pageDiv"));
+                    $("#seriesNum").html(result.data.page.totalNum);
+                    if (ajaxTimes == 1) {
+                        var $category = $('.design-list li:gt(5)');
+                        $category.hide();
+                        $("#pageDiv").hide();
+                        $("#showMore").click(function () {
+                            $category.show();
+                            $(this).find('.look-more').addClass('hide');
+                            $(this).find('.pages').addClass('show');
+                            $("#pageDiv").show();
+                        });
+                    }
+                    if (result.data.page.totalNum == 0) {
+                        $(".design").hide();
+                        $("#showMore").hide();
+                        $("#pageDiv").hide();
+                    }
+                } else {
+                    $(".design").css('background', 'none');
+                    $(".design").html('<div style="font-size: 15px;margin-left: 10px;margin-top: -30px;"><span>暂无内容</span></div>');
+                    $(".designer").css('margin-bottom', '-70px');
+                    $('#showMore').css('display', 'none');
+                    $('#pageDiv').css('display', 'none');
                 }
             }
         });
@@ -263,7 +281,7 @@
     //查询指定用户的所有评论分页
     var commentPage = lpage;
     function ajaxCommentPage() {
-        ajaxTimes4Comment+=1;
+        ajaxTimes4Comment += 1;
         var userId = $("#userId").val();
         var data = {
             userId: userId,
@@ -274,43 +292,48 @@
         $bluemobi.ajax("pc/user/findCommentPage", data, function (result) {
             if (result.status == "0") {
                 var html = '';
-                for (var i = 0; i < result.data.list.length; i++) {
-                    var comment = result.data.list[i];
-                    var type = "";
-                    if (comment.objectType) {
-                        if (comment.objectType == "goods") {
-                            type = "商品图";
+                if (result.data.list.length > 0) {
+                    for (var i = 0; i < result.data.list.length; i++) {
+                        var comment = result.data.list[i];
+                        var type = "";
+                        if (comment.objectType) {
+                            if (comment.objectType == "goods") {
+                                type = "商品图";
+                            }
+                            if (comment.objectType == "scene") {
+                                type = "场景图";
+                            }
+                            if (comment.objectType == "series") {
+                                type = "系列图";
+                            }
                         }
-                        if (comment.objectType == "scene") {
-                            type = "场景图";
-                        }
-                        if (comment.objectType == "series") {
-                            type = "系列图";
-                        }
-                    }
-                    html += ' <li class="cleafix">\
+                        html += ' <li class="cleafix">\
                             <a href="#" class="comment-name"><img src="' + comment.user.headImage + '"/><p>' + comment.user.nickname + '</p></a>\
                             <div class="comment-con">\
                             <p class="slh">' + comment.content + '</p>\
                             <h4><span>' + comment.tags + '</span><b></b><span>来自' + type + '：' + comment.objectName + '</span><b></b><span>' + comment.createTime + '</span></h4>\
                             </div>\
                             </li>';
-                }
-                $("#commentList").html(html);
-                commentPage.init(result.data.page, "ajaxCommentPage",$("#pageDiv4Comment"));
-                if(ajaxTimes4Comment == 1){
-                    var $category1 = $('.comment-list ul li:gt(3)');
-                    $category1.hide();
-                    $("#pageDiv4Comment").hide();
-                    $("#showMore1").click(function(){
-                        $category1.show();
-                        $(this).find('.look-more').addClass('hide');
-                        $(this).find('.pages').addClass('show');
-                        $("#pageDiv4Comment").show();
-                    });
-                }
-                if(result.data.page.totalNum==0){
-                    $(".comment-list").hide();
+                    }
+                    $("#commentList").html(html);
+                    commentPage.init(result.data.page, "ajaxCommentPage", $("#pageDiv4Comment"));
+                    if (ajaxTimes4Comment == 1) {
+                        var $category1 = $('.comment-list ul li:gt(3)');
+                        $category1.hide();
+                        $("#pageDiv4Comment").hide();
+                        $("#showMore1").click(function () {
+                            $category1.show();
+                            $(this).find('.look-more').addClass('hide');
+                            $(this).find('.pages').addClass('show');
+                            $("#pageDiv4Comment").show();
+                        });
+                    }
+                    if (result.data.page.totalNum == 0) {
+                        $(".comment-list").hide();
+                    }
+                } else {
+                    $(".comment-list").css('background', 'none');
+                    $(".comment-list").html('<div style="font-size: 15px;margin-left: 10px;margin-top: -30px;margin-bottom: 15px"><span>暂无内容</span></div>');
                 }
             }
         });
