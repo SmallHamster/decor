@@ -43,7 +43,7 @@ public class DrawBoardApi {
                              Integer userId,
                              @RequestParam(required = false) MultipartFile file) {
         String image = UploadUtils.uploadMultipartFile(file);
-        drawBoardService.save(userId,image);
+        drawBoardService.save(userId, image);
         WebUtil.printApi(response, new Result(true));
     }
 
@@ -65,6 +65,7 @@ public class DrawBoardApi {
         Map<String, Object> map = null;
         for (DrawBoard drawBoard : page.getContent()) {
             map = new HashMap<String, Object>();
+            map.put("id", drawBoard.getId());
             map.put("path", drawBoard.getImage());
             list.add(map);
         }
@@ -79,19 +80,19 @@ public class DrawBoardApi {
     // 都先查询自己的，如果不足6条则再查询推荐的，补足6条即可
     @RequestMapping(value = "/imageData")
     public void imageData(HttpServletRequest request,
-                                 HttpServletResponse response,
-                                 Integer userId) {
+                          HttpServletResponse response,
+                          Integer userId) {
         if (null == userId) {
             WebUtil.printApi(response, new Result(false).msg(ERROR_CODE.ERROR_CODE_0002));
             return;
         }
 
         Map<String, Object> map = drawBoardService.iImageData(userId);
-        if(map == null){
+        if (map == null) {
             map = new HashMap<>();
         }
         Result obj = new Result(true).data(map);
-        String result = JsonUtil.obj2ApiJson(obj,"user");
+        String result = JsonUtil.obj2ApiJson(obj, "user");
         WebUtil.printApi(response, result);
     }
 }
