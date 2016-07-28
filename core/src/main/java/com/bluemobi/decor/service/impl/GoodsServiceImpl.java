@@ -1,10 +1,7 @@
 package com.bluemobi.decor.service.impl;
 
 import com.bluemobi.decor.core.Constant;
-import com.bluemobi.decor.dao.GoodsDao;
-import com.bluemobi.decor.dao.SceneDao;
-import com.bluemobi.decor.dao.SceneGoodsDao;
-import com.bluemobi.decor.dao.SeriesDao;
+import com.bluemobi.decor.dao.*;
 import com.bluemobi.decor.entity.*;
 import com.bluemobi.decor.service.*;
 import com.bluemobi.decor.thread.UserHasUpdateThread;
@@ -81,6 +78,9 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
     private UploadImageService uploadImageService;
+
+    @Autowired
+    private UserDao userDao;
 
     @Override
     public List<Goods> findAll() {
@@ -662,11 +662,34 @@ public class GoodsServiceImpl implements GoodsService {
         String tagsStr = getGoodsTagsStr(goodsKindTagId, spaceTagIds, styleTagIds);
         goods.setTagsStr(tagsStr);
 
+        Material material = null;
         // 是否有素材图 hasMaterial
         if (StringUtils.isEmpty(isTurnMaterialIds)) {
             goods.setHasMaterial("no");
         } else {
             goods.setHasMaterial("yes");
+
+            // 当转为素材图选项被勾中时，将当前商品图转化为素材图
+            material = new Material();
+            material.setUser(user);
+            material.setKindTagIds(goods.getKindTagIds());
+            material.setSpaceTagIds(goods.getSpaceTagIds());
+            material.setStyleTagIds(goods.getStyleTagIds());
+            String maiKingTag = ComFun.tagsThin(goods.getKindTagIds());
+            String maiSpaceTag = ComFun.tagsThin(goods.getSpaceTagIds());
+            String maiStyleTag = ComFun.tagsThin(goods.getStyleTagIds());
+            // 保存标签的中文
+            String kindTagStr = kindTagService.getTagStr(maiKingTag);
+            String spaceTagStr = spaceTagService.getTagStr(maiSpaceTag);
+            String styleTagStr = styleTagService.getTagStr(maiStyleTag);
+            material.setKindTag(kindTagStr);
+            material.setSpaceTag(spaceTagStr);
+            material.setStyleTag(styleTagStr);
+            material.setImage(cover);
+            material.setCollect(0);
+            material.setCreateTime(new Date());
+
+            materialService.create(material);
         }
 
         //封面图
@@ -677,6 +700,11 @@ public class GoodsServiceImpl implements GoodsService {
         goods.setTexture(texture);
         goods.setLink(link);
         goods.setInfo(info);
+
+        if (userDao.findOne(userId).getRoleType().equals("admin")) {
+            goods.setIsPass("yes");
+        }
+
         goods = create(goods);
 
         // 保存商品图片
@@ -697,6 +725,7 @@ public class GoodsServiceImpl implements GoodsService {
                 for (String path : arr3) {
                     if (image.equals(path)) {
                         goodsImage.setIsTurnMaterial("yes");
+                        goodsImage.setMaterial(material);
                         break;
                     } else {
                         goodsImage.setIsTurnMaterial("no");

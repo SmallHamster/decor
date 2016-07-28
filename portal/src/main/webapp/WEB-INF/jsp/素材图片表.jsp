@@ -82,9 +82,9 @@
                                 </div>
                             </form>
                             <p></p>
-                            <a href="javascript:void(0)" id="new" class="btn btn-outline btn-primary btn-lg"
+                            <%--<a href="javascript:void(0)" id="new" class="btn btn-outline btn-primary btn-lg"
                                role="button">上传素材
-                            </a>
+                            </a>--%>
                             <a href="javascript:void(0)" id="batchDel" class="btn btn-outline btn-danger btn-lg"
                                role="button">批量删除</a>
                         </div>
